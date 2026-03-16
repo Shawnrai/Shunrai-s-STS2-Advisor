@@ -21,8 +21,7 @@
 body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 10%,rgba(200,149,46,.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 90%,rgba(184,48,37,.04) 0%,transparent 50%);pointer-events:none;z-index:0}
 
-/* ── HEADER ── */
-head/* -- HEADER -- */
+/* -- HEADER -- */
 header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold2);letter-spacing:.15em;text-shadow:0 0 20px rgba(200,149,46,.4);white-space:nowrap}
 .logo span{color:var(--text3);font-size:.8rem;margin-left:8px;letter-spacing:.05em}
@@ -378,48 +377,51 @@ function renderDeckHealth(ch, da) {
   if (!deck.length) { zone.style.display = 'none'; return; }
   zone.style.display = 'block';
 
-  // Role counts
-  let engines = 0, generators = 0, payoffs = 0;
+  const roles = { enabler: 0, scaler: 0, engine: 0, finisher: 0, defense: 0, utility: 0 };
   let attacks = 0, blocks = 0;
   for (const card of deck) {
     const d = getCard(ch, card.name);
     if (!d) continue;
-    if (d.role === 'engine') engines++;
-    else if (d.role === 'generator') generators++;
-    else if (d.role === 'payoff') payoffs++;
+    const role = getFunctionalRole(d);
+    roles[role] = (roles[role] || 0) + 1;
     const n = card.name.toLowerCase();
-    const isAtk = n.includes('strike') || (d.mech && (d.mech.includes('damage') || d.mech.includes('multi_hit') || d.mech.includes('aoe')));
+    const isAtk = n.includes('strike') || (d.mech && (d.mech.includes('damage') || d.mech.includes('multi_hit') || d.mech.includes('multi_attack') || d.mech.includes('aoe')));
     const isBlk = n.includes('defend') || (d.syn && d.syn.includes('block'));
     if (isAtk) attacks++;
     if (isBlk) blocks++;
   }
-  const total = deck.length;
-  const maxBar = Math.max(engines, generators, payoffs, 1);
 
+  const visible = [
+    ['Enablers', roles.enabler, 'var(--a)'],
+    ['Scalers', roles.scaler, 'var(--green2)'],
+    ['Engines', roles.engine, 'var(--blue2)'],
+    ['Finishers', roles.finisher, 'var(--gold2)'],
+    ['Defense', roles.defense, 'var(--c)']
+  ];
+  const maxBar = Math.max(...visible.map(v => v[1]), 1);
   const bar = (val, color, max) =>
     `<div class="health-bar"><div class="health-fill" style="width:${Math.round(val/max*100)}%;background:${color}"></div></div>`;
 
-  let html = `
-    <div class="health-row"><span class="health-key">Engines</span>${bar(engines,'var(--blue2)',maxBar)}<span class="health-val">${engines}</span></div>
-    <div class="health-row"><span class="health-key">Generators</span>${bar(generators,'var(--green2)',maxBar)}<span class="health-val">${generators}</span></div>
-    <div class="health-row"><span class="health-key">Payoffs</span>${bar(payoffs,'var(--gold2)',maxBar)}<span class="health-val">${payoffs}</span></div>`;
+  let html = visible.map(([label, val, color]) =>
+    `<div class="health-row"><span class="health-key">${label}</span>${bar(val, color, maxBar)}<span class="health-val">${val}</span></div>`
+  ).join('');
 
   const warns = [];
   if (attacks < 3) warns.push(`Only ${attacks} attacks`);
   if (blocks < 3) warns.push(`Only ${blocks} block sources`);
+  if (roles.defense === 0 && blocks < 3) warns.push('No real defense package');
   if (warns.length) html += `<div class="health-warn">⚠ ${warns.join(' · ')}</div>`;
 
-  // Build readiness chips
   if (da.detected.length > 0) {
-    const arch = da.detected[0];
-    const archId = arch.arch.id;
     const chips = [];
-    const engOk = engines >= 1;
-    const genOk = generators >= 2;
-    const payOk = payoffs >= 1;
-    chips.push(`<span class="health-chip ${engOk?'chip-ok':'chip-bad'}">Engine ${engOk?'✓':'✗'}</span>`);
-    chips.push(`<span class="health-chip ${genOk?'chip-ok':generators>=1?'chip-warn':'chip-bad'}">Gen ${generators}/2+</span>`);
-    chips.push(`<span class="health-chip ${payOk?'chip-ok':'chip-warn'}">Payoff ${payOk?'✓':'✗'}</span>`);
+    const engineOk = roles.engine >= 1;
+    const scalerOk = roles.scaler >= 1;
+    const finisherOk = roles.finisher >= 1;
+    const defenseOk = roles.defense >= 1 || blocks >= 3;
+    chips.push(`<span class="health-chip ${engineOk?'chip-ok':'chip-bad'}">Engine ${engineOk?'✓':'✗'}</span>`);
+    chips.push(`<span class="health-chip ${scalerOk?'chip-ok':roles.scaler>=1?'chip-warn':'chip-bad'}">Scaler ${roles.scaler}/1+</span>`);
+    chips.push(`<span class="health-chip ${finisherOk?'chip-ok':'chip-warn'}">Finisher ${finisherOk?'✓':'✗'}</span>`);
+    chips.push(`<span class="health-chip ${defenseOk?'chip-ok':'chip-bad'}">Defense ${defenseOk?'✓':'✗'}</span>`);
     html += `<div class="health-ready">${chips.join('')}</div>`;
   }
 
@@ -619,8 +621,6 @@ function analyzeRemoval() {
 
 // EVENTS
 
-// ALL starter/basic cards that should never drive archetype detection
-// Includes character-specific starters that have synergy tags but are just baseline noise
 function loadStarters() {
   const ch = document.getElementById('char').value;
   deck = (STARTERS[ch] || []).map(name => ({name}));

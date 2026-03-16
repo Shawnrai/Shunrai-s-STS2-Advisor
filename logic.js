@@ -4,6 +4,28 @@ const SCORE_GRADE = s => s>=4.5?'S':s>=3.5?'A':s>=2.5?'B':s>=1.5?'C':s>=0.5?'D':
 const SCALING_TAGS = new Set(['strength','scaling','focus','stellar','stars','soul','doom','infinite',
   'permanent_scaling','star_gain','poison_amplify','shiv_amplify','orb','claw']);
 
+
+function ensureDbNames() {
+  if (typeof DB !== 'object' || !DB || typeof DB.cards !== 'object') return;
+  const seen = new Set();
+  const names = [];
+  for (const [char, cards] of Object.entries(DB.cards)) {
+    if (!cards || typeof cards !== 'object') continue;
+    for (const card of Object.values(cards)) {
+      if (!card || !card.id) continue;
+      const key = `${char}::${card.id}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      names.push({ n: card.id, c: char });
+    }
+  }
+  names.sort((a, b) => a.c.localeCompare(b.c) || a.n.localeCompare(b.n));
+  DB.names = names;
+}
+
+ensureDbNames();
+
+
 function isStarter(cardName) {
   const n = cardName.toLowerCase();
   if (STARTER_NAMES.has(n)) return true;
@@ -44,7 +66,7 @@ function analyzeDeck(char, deckCards) {
 
   // Union count: each card contributes at most 1 per tag (no double-counting syn+mech overlap)
   const allUnionCounts = {};
-  for (const card of deckCards) {
+  for (const card of meaningfulCards) {
     const data = getCard(char, card.name);
     const allTags = new Set([...(data?.syn||[]), ...(data?.mech||[])]);
     for (const t of allTags) allUnionCounts[t] = (allUnionCounts[t]||0) + 1;
@@ -60,8 +82,10 @@ function analyzeDeck(char, deckCards) {
     for (const t of arch.support) {
       supportCount += (tagCounts[t]||0) + (mechCounts[t]||0);
     }
-    const meetsCore = coreCount >= arch.coreThresh;
-    const meetsPartial = coreCount >= Math.ceil(arch.coreThresh * 0.6) && supportCount >= arch.supportThresh;
+    const coreThresh = arch.coreThresh ?? arch.threshold ?? 3;
+    const supportThresh = arch.supportThresh ?? Math.max(1, Math.floor(coreThresh / 2));
+    const meetsCore = coreCount >= coreThresh;
+    const meetsPartial = coreCount >= Math.ceil(coreThresh * 0.6) && supportCount >= supportThresh;
     if (meetsCore || meetsPartial) {
       const strength = Math.min(1, (coreCount / arch.coreThresh) * 0.65 + (supportCount / Math.max(arch.supportThresh,1)) * 0.35);
       detected.push({arch, strength: Math.min(1, strength)});
@@ -542,4 +566,17 @@ const STARTERS = {
 
 function floorToAct(f) {
   return f <= 17 ? 1 : f <= 34 ? 2 : f <= 50 ? 3 : 4;
+}
+
+
+function getFunctionalRole(data) {
+  if (!data) return 'utility';
+  if (data.role) return data.role;
+  const tags = new Set([...(data.syn || []), ...(data.mech || [])]);
+  if (tags.has('block') || tags.has('block_retain') || tags.has('weak')) return 'defense';
+  if (tags.has('permanent_scaling') || tags.has('persistent_scaling') || tags.has('scaling')) return 'engine';
+  if (tags.has('energy_gain') || tags.has('draw') || tags.has('strength') || tags.has('focus') || tags.has('star_gain')) return 'generator';
+  if (tags.has('block_conversion') || tags.has('block_payoff') || tags.has('per_attack_payoff') || tags.has('vulnerable_payoff') || tags.has('self_damage_payoff') || tags.has('exhaust_payoff')) return 'payoff';
+  if (tags.has('vulnerable') || tags.has('debuff')) return 'setup';
+  return 'utility';
 }
