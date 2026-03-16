@@ -731,6 +731,7 @@ const DB = {
         ],
         "syn": [
           "block",
+          "stone_armor",
           "damage"
         ],
         "anti": [],
@@ -7271,6 +7272,18 @@ const DB = {
       "offeredCard": "Juggernaut",
       "bonus": 1.5,
       "reason": "Both core block build cards — Barricade stacks retained block, Juggernaut deals damage whenever you gain block"
+    },
+    {
+    "deckCard": "Juggernaut",
+    "offeredCard": "Stone Armor",
+    "bonus": 1.2,
+    "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
+    },
+    {
+    "deckCard": "Stone Armor",
+    "offeredCard": "Juggernaut",
+    "bonus": 1.2,
+    "reason": "Juggernaut converts Stone Armor's repeated Block from Plating into recurring damage."
     },
     {
       "deckCard": "Juggernaut",
