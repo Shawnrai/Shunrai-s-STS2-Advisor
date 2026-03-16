@@ -1810,27 +1810,6 @@ const DB = {
         ],
         "role": "engine"
       },
-      "CATALYST": {
-        "id": "Catalyst",
-        "tier": "S",
-        "builds": [
-          "poison"
-        ],
-        "syn": [
-          "poison",
-          "scaling"
-        ],
-        "anti": [
-          "sly",
-          "shiv"
-        ],
-        "notes": "DOUBLES poison stacks. Upgraded = triples. With Burst = quadruples. Win condition.",
-        "mech": [
-          "poison_amplify",
-          "scaling"
-        ],
-        "role": "payoff"
-      },
       "ACCURACY": {
         "id": "Accuracy",
         "tier": "S",
@@ -1870,7 +1849,7 @@ const DB = {
         "anti": [
           "shiv"
         ],
-        "notes": "Next skill plays twice. Burst into Catalyst = quadruple poison. Game-winning combo.",
+        "notes": "Next skill plays twice.",
         "mech": [
           "skill_doubler",
           "combo_enabler"
@@ -7120,7 +7099,7 @@ const DB = {
         ],
         "coreThresh": 3,
         "supportThresh": 1,
-        "description": "Stack poison with Noxious Fumes, then double/triple with Catalyst+Burst for instant win"
+        "description": "Stack poison with Noxious Fumes, then double with Burst"
       },
       {
         "id": "shiv",
@@ -7273,6 +7252,30 @@ const DB = {
     "bonus": 2,
     "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
     },
+    {
+    "deckCard": "Stone Armor",
+    "offeredCard": "Body Slam",
+    "bonus": 1.5,
+    "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
+    },
+    {
+  "deckCard": "Stone Armor",
+  "offeredCard": "Body Slam",
+  "bonus": 1.5,
+  "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
+},
+{
+  "deckCard": "Corruption",
+  "offeredCard": "Fiend Fire",
+  "bonus": 1.8,
+  "reason": "Corruption makes skills free, enabling massive Fiend Fire exhaust turns."
+},
+{
+  "deckCard": "Dark Embrace",
+  "offeredCard": "Fiend Fire",
+  "bonus": 1.6,
+  "reason": "Fiend Fire exhausts the entire hand, drawing multiple cards through Dark Embrace."
+}
     {
     "deckCard": "Stone Armor",
     "offeredCard": "Juggernaut",
@@ -7448,6 +7451,24 @@ const DB = {
       "reason": "Brutality loses 1 HP per turn passively — Rupture gains Strength automatically every turn"
     },
     {
+    "deckCard": "Rupture",
+    "offeredCard": "Fight Me!",
+    "bonus": 1.3,
+    "reason": "Fight Me! increases Strength for both sides and synergizes with Rupture scaling builds."
+    },
+    {
+    "deckCard": "Blade Dance",
+    "offeredCard": "Finisher",
+    "bonus": 1.8,
+    "reason": "Blade Dance generates multiple attacks that dramatically increase Finisher damage."
+    },
+    {
+    "deckCard": "Storm Of Steel",
+    "offeredCard": "Finisher",
+    "bonus": 1.7,
+    "reason": "Storm of Steel produces large numbers of Shivs that massively amplify Finisher."
+    },
+    {
       "deckCard": "Bloodletting",
       "offeredCard": "Rupture",
       "bonus": 2.0,
@@ -7464,6 +7485,30 @@ const DB = {
       "offeredCard": "Reflex",
       "bonus": 2.0,
       "reason": "Tools of the Trade discards 1 every turn — Reflex plays free when discarded. Free Draw 2 every turn."
+    },
+    {
+    "deckCard": "Prepared",
+    "offeredCard": "Reflex",
+    "bonus": 1.6,
+    "reason": "Prepared discards Reflex which triggers its Sly effect for free card draw."
+    },
+    {
+    "deckCard": "Prepared",
+    "offeredCard": "Tactician",
+    "bonus": 1.6,
+    "reason": "Prepared discards Tactician which provides free energy through its Sly effect."
+    },
+    {
+    "deckCard": "Radiate",
+    "offeredCard": "Genesis",
+    "bonus": 1.8,
+    "reason": "Genesis generates Stars every turn which Radiate converts into AoE damage."
+    },
+    {
+    "deckCard": "Dirge",
+    "offeredCard": "Capture Spirit",
+    "bonus": 1.7,
+    "reason": "Both cards generate Souls which feed Haunt and Soul Storm engines."
     },
     {
       "deckCard": "Tools Of The Trade",
@@ -7500,30 +7545,6 @@ const DB = {
       "offeredCard": "Tactician",
       "bonus": 1.5,
       "reason": "Discarding hand triggers Tactician for free energy"
-    },
-    {
-      "deckCard": "Catalyst",
-      "offeredCard": "Burst",
-      "bonus": 2.5,
-      "reason": "Burst plays next Skill twice — Burst+Catalyst = Catalyst plays twice = QUADRUPLE poison stacks. The win condition."
-    },
-    {
-      "deckCard": "Burst",
-      "offeredCard": "Catalyst",
-      "bonus": 2.5,
-      "reason": "Catalyst with Burst active plays twice — turns 20 poison into 80 instantly"
-    },
-    {
-      "deckCard": "Catalyst",
-      "offeredCard": "Noxious Fumes",
-      "bonus": 1.8,
-      "reason": "Noxious Fumes stacks poison passively — Catalyst doubles that stack instantly"
-    },
-    {
-      "deckCard": "Noxious Fumes",
-      "offeredCard": "Catalyst",
-      "bonus": 1.8,
-      "reason": "Catalyst is the win condition for Noxious Fumes — doubles all accumulated stacks"
     },
     {
       "deckCard": "Noxious Fumes",
@@ -8027,7 +8048,6 @@ const DB = {
     "Noxious Fumes": -1.0,
     "After Image": -2.0,
     "Envenom": -1.5,
-    "Catalyst": -2.0,
     "Burst": -2.0,
     "Nightmare": -2.5,
     "Echo Form": -2.5,
@@ -9238,10 +9258,6 @@ const DB = {
     },
     {
       "n": "Caltrops",
-      "c": "silent"
-    },
-    {
-      "n": "Catalyst",
       "c": "silent"
     },
     {
