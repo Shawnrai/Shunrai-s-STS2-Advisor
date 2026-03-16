@@ -8598,6 +8598,7 @@ const DB = {
       "n": "Pillage",
       "c": "ironclad"
     },
+    { "n": "Stone Armor", "c": "ironclad" },
     {
       "n": "Pommel Strike",
       "c": "ironclad"
