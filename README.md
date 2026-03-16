@@ -1,2 +1,67 @@
-# Shunrai-s-STS2-Advisor
-A browser-based decision advisor for Slay the Spire 2. Analyze card rewards, shop options, and removals using archetype detection, deck health metrics, and synergy scoring.
+# Shunrai's STS2 Advisor
+
+Browser tool for Slay the Spire 2 that helps evaluate card rewards, shop buys and removals based on your current deck.
+
+Still **early access** and the logic isn't perfect yet - feedback and issue reports are welcome.
+
+---
+
+## What it does
+
+- Track your deck
+- Detect archetypes
+- Evaluate card rewards
+- Evaluate shop purchases
+- Suggest card removals
+
+---
+
+## How to use
+
+1. Add cards from your current deck on the left.
+2. Enter the card rewards or shop options you see in game.
+3. Click **Analyze**.
+4. The advisor will suggest the best pick based on deck synergy.
+
+---
+
+## Try it in browser
+
+[Open the advisor](https://shawnrai.github.io/Shunrai-s-STS2-Advisor/)
+
+---
+
+## Known issues
+
+The logic still needs tuning and there are definitely cases where recommendations will be wrong.
+
+If you notice something off, feel free to open an issue and include:
+
+- character
+- deck
+- cards offered
+- what result you expected
+
+---
+
+## Planned improvements
+
+- Better archetype detection
+- Improved card scoring logic
+- More accurate deck health metrics
+- Better support for future STS2 updates
+
+---
+
+## Disclaimer
+
+This tool is experimental and the scoring logic is still evolving.
+It should be treated as a helper, not a perfect decision maker.
+
+---
+
+## License
+
+MIT License © 2026 Shunrai
+
+See the [LICENSE](LICENSE) file for details.
