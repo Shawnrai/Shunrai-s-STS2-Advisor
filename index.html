@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shunrai's STS2 Advisor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0c0b09; --bg2:#131109; --bg3:#1b1810;
+  --border:#2e2515; --border2:#4a3a1c;
+  --gold:#c8952e; --gold2:#e8bc50; --gold3:#f5d87a;
+  --red:#b83025; --red2:#e04030;
+  --green:#257a3e; --green2:#3ab55a;
+  --blue:#1e5f8c; --blue2:#3090cc;
+  --text:#d8c8a8; --text2:#907858; --text3:#5a4828;
+  --s:#f5c030; --a:#e07825; --b:#35a860; --c:#2888cc; --d:#8844bb; --f:#667788;
+  --radius:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 10%,rgba(200,149,46,.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 90%,rgba(184,48,37,.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+/* ── HEADER ── */
+head/* -- HEADER -- */
+header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold2);letter-spacing:.15em;text-shadow:0 0 20px rgba(200,149,46,.4);white-space:nowrap}
+.logo span{color:var(--text3);font-size:.8rem;margin-left:8px;letter-spacing:.05em}
+.header-fields{display:flex;gap:12px;align-items:center;flex-wrap:wrap;flex:1}
+.field-group{display:flex;align-items:center;gap:8px}
+.field-label{font-family:'Cinzel',serif;font-size:.72rem;color:var(--text3);letter-spacing:.08em;white-space:nowrap}
+select,input[type=number]{background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:5px 10px;font-family:'Crimson Pro',serif;font-size:.95rem;border-radius:var(--radius);outline:none;cursor:pointer}
+select:focus,input[type=number]:focus{border-color:var(--gold)}
+input[type=number]{width:60px}
+
+/* -- LAYOUT -- */
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:calc(100vh - 57px);position:relative;z-index:1}
+
+/* -- DECK PANEL -- */
+.deck-panel{background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column}
+.panel-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:rgba(200,149,46,.04)}
+.panel-head h2{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;flex:1}
+.deck-stat{font-family:'Cinzel',serif;font-size:.7rem;color:var(--text3)}
+.search-area{padding:10px 12px;border-bottom:1px solid var(--border);position:relative}
+.card-input{width:100%;background:var(--bg);border:1px solid var(--border2);color:var(--text);padding:8px 12px;font-family:'Crimson Pro',serif;font-size:.95rem;border-radius:var(--radius);outline:none}
+.card-input:focus{border-color:var(--gold)}
+.card-input::placeholder{color:var(--text3);font-style:italic}
+.ac-list{position:absolute;left:12px;right:12px;top:100%;margin-top:-1px;background:var(--bg3);border:1px solid var(--border2);border-top:none;border-radius:0 0 var(--radius) var(--radius);z-index:100;max-height:200px;overflow-y:auto;display:none}
+.ac-list.open{display:block}
+.ac-item{padding:7px 12px;cursor:pointer;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(46,37,21,.5)}
+.ac-item:hover,.ac-item.hi{background:rgba(200,149,46,.1)}
+.ac-char{font-size:.68rem;color:var(--text3);font-family:'Cinzel',serif}
+.deck-list{flex:1;overflow-y:auto;padding:6px}
+.deck-entry{display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:var(--radius);cursor:pointer;transition:background .1s;font-size:.88rem}
+.deck-entry:hover{background:rgba(184,48,37,.12)}
+.deck-entry:hover .rm{opacity:1}
+.grade-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.rm{font-size:.68rem;color:var(--red2);opacity:0;transition:opacity .1s;margin-left:auto;white-space:nowrap}
+.deck-empty{padding:30px 16px;text-align:center;color:var(--text3);font-style:italic;font-size:.9rem;line-height:1.6}
+.arch-zone{padding:6px 12px 8px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.15)}
+.arch-label{font-family:'Cinzel',serif;font-size:.65rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.arch-pills{display:flex;flex-wrap:wrap;gap:4px}
+.arch-pill{padding:2px 8px;border-radius:2px;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.03em;border:1px solid}
+
+/* -- DECK HEALTH -- */
+.health-zone{padding:6px 12px 8px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.1)}
+.health-label{font-family:'Cinzel',serif;font-size:.65rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.health-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:.75rem;font-family:'Cinzel',serif}
+.health-key{color:var(--text3);min-width:72px;font-size:.65rem}
+.health-bar{flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden}
+.health-fill{height:100%;border-radius:3px;transition:width .3s}
+.health-val{color:var(--text2);min-width:20px;text-align:right;font-size:.7rem}
+.health-warn{color:var(--red2);font-size:.7rem;font-family:'Cinzel',serif;margin-top:2px}
+.health-ready{font-size:.7rem;margin-top:4px;display:flex;flex-wrap:wrap;gap:3px}
+.health-chip{font-family:'Cinzel',serif;font-size:.6rem;padding:1px 6px;border-radius:2px;border:1px solid}
+.chip-ok{color:var(--green2);border-color:var(--green)}
+.chip-warn{color:var(--a);border-color:var(--a)}
+.chip-bad{color:var(--red2);border-color:var(--red)}
+
+/* -- RIGHT -- */
+.right{display:flex;flex-direction:column}
+.tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg2)}
+.tab{padding:11px 22px;font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;user-select:none;transition:color .15s}
+.tab:hover{color:var(--text2)}
+.tab.on{color:var(--gold2);border-bottom-color:var(--gold)}
+.pane{display:none;flex:1;padding:20px 24px;flex-direction:column;gap:18px}
+.pane.on{display:flex}
+
+/* -- SECTION -- */
+.sec-title{font-family:'Cinzel',serif;font-size:.74rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* -- SLOTS -- */
+.slots{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+.slot{display:flex;flex-direction:column;gap:4px;min-width:160px;flex:1;max-width:200px;position:relative}
+.slot-label{font-size:.72rem;color:var(--text3);font-family:'Cinzel',serif}
+.slot-input{background:var(--bg);border:1px solid var(--border2);color:var(--text);padding:7px 10px;font-family:'Crimson Pro',serif;font-size:.92rem;border-radius:var(--radius);outline:none;width:100%}
+.slot-input:focus{border-color:var(--gold)}
+.slot-input::placeholder{color:var(--text3);font-style:italic}
+.slot-ac{position:absolute;left:0;right:0;top:100%;background:var(--bg3);border:1px solid var(--border2);border-top:none;z-index:99;max-height:160px;overflow-y:auto;display:none;border-radius:0 0 var(--radius) var(--radius)}
+.slot-ac.open{display:block}
+.slot-ac .ac-item{font-size:.88rem;padding:5px 10px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.add-btn{background:transparent;border:1px dashed var(--border2);color:var(--text3);padding:7px 14px;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.05em;cursor:pointer;border-radius:var(--radius);transition:all .15s}
+.add-btn:hover{border-color:var(--gold);color:var(--gold)}
+.go-btn{padding:9px 24px;background:linear-gradient(135deg,rgba(200,149,46,.15),rgba(200,149,46,.04));border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:var(--radius);transition:all .2s}
+.go-btn:hover{background:linear-gradient(135deg,rgba(200,149,46,.25),rgba(200,149,46,.1));box-shadow:0 0 16px rgba(200,149,46,.2)}
+
+/* -- RESULTS -- */
+.results{display:flex;flex-direction:column;gap:12px}
+.rcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+.rcard.best{border-color:var(--gold);box-shadow:0 0 16px rgba(200,149,46,.08)}
+.rcard.buy{border-color:var(--green)}
+.rcard.skip{border-color:var(--border);opacity:.75}
+.rcard-head{display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(255,255,255,.015);border-bottom:1px solid var(--border)}
+.grade-box{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:3px;border:2px solid;flex-shrink:0}
+.g-S{color:var(--s);border-color:var(--s);background:rgba(245,192,48,.08)}
+.g-A{color:var(--a);border-color:var(--a);background:rgba(224,120,37,.08)}
+.g-B{color:var(--b);border-color:var(--b);background:rgba(53,168,96,.08)}
+.g-C{color:var(--c);border-color:var(--c);background:rgba(40,136,204,.08)}
+.g-D{color:var(--d);border-color:var(--d);background:rgba(136,68,187,.08)}
+.g-F{color:var(--f);border-color:var(--f);background:rgba(102,119,136,.08)}
+.rcard-info{flex:1}
+.rcard-name{font-size:1.05rem;font-weight:600;color:var(--text)}
+.rcard-meta{font-size:.78rem;color:var(--text3);font-family:'Cinzel',serif;margin-top:2px}
+.badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.badge{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.06em;padding:2px 7px;border-radius:2px;border:1px solid;white-space:nowrap;display:inline-block;vertical-align:middle;margin-left:7px}
+.badge-best{color:var(--gold2);border-color:var(--gold);background:rgba(200,149,46,.08)}
+.badge-buy{color:var(--green2);border-color:var(--green);background:rgba(53,168,96,.08)}
+.badge-skip{color:var(--f);border-color:var(--f);background:rgba(102,119,136,.06)}
+.badge-top-remove{color:var(--red2);border-color:var(--red);background:rgba(184,48,37,.08)}
+.add-deck-btn{background:rgba(53,168,96,.08);border:1px solid var(--green);color:var(--green2);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.05em;padding:2px 7px;border-radius:2px;cursor:pointer;transition:all .15s;white-space:nowrap;vertical-align:middle;margin-left:7px;display:inline-block}
+.add-deck-btn:hover{background:rgba(53,168,96,.2)}
+.add-deck-btn:disabled{opacity:.5;cursor:default}
+.rcard-body{padding:9px 14px}
+.card-notes{font-size:.88rem;color:var(--text2);font-style:italic;margin-bottom:7px;line-height:1.4}
+.reasons{display:flex;flex-direction:column;gap:2px}
+.reason{font-size:.82rem;line-height:1.3;padding:1px 0;display:flex;gap:5px;align-items:flex-start}
+.reason.pos{color:var(--green2)}
+.reason.neg{color:var(--red2)}
+.ri{flex-shrink:0;font-size:.75rem;margin-top:1px}
+
+/* -- VERDICT -- */
+.verdict{background:rgba(200,149,46,.05);border:1px solid var(--gold);border-radius:var(--radius);padding:12px 16px}
+.verdict-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.verdict-text{font-size:.95rem;color:var(--text);line-height:1.5}
+.verdict.warn{background:rgba(102,119,136,.05);border-color:var(--f)}
+.verdict.warn .verdict-title{color:var(--f)}
+
+/* -- SCROLLBAR -- */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+@media(max-width:700px){.layout{grid-template-columns:1fr}.deck-panel{max-height:280px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.0 • Mar 2026</span></div>
+  <div class="header-fields">
+    <div class="field-group"><span class="field-label">Character</span>
+      <select id="char">
+        <option value="ironclad">Ironclad</option>
+        <option value="silent">Silent</option>
+        <option value="defect">Defect</option>
+        <option value="regent">Regent</option>
+        <option value="necrobinder">Necrobinder</option>
+      </select>
+    </div>
+    <div class="field-group"><span class="field-label">Floor</span>
+      <input type="number" id="floor" value="1" min="1" max="57">
+    </div>
+    <div class="field-group"><span class="field-label">Act</span>
+      <input type="number" id="act" value="1" min="1" max="4">
+    </div>
+    <div class="field-group"><span class="field-label">Next</span>
+      <select id="encounter">
+        <option value="normal">Normal</option>
+        <option value="elite">Elite</option>
+        <option value="boss">Boss</option>
+      </select>
+    </div>
+    <button class="add-btn" id="clear-save-btn" style="font-size:.65rem;padding:4px 10px">Clear Save</button>
+    <a class="add-btn" href="https://github.com/Shawnrai/Shunrai-s-STS2-Advisor" target="_blank" style="font-size:.65rem;padding:4px 10px;text-decoration:none">
+⚙ Source
+</a>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- DECK -->
+  <div class="deck-panel">
+    <div class="panel-head">
+      <h2>Deck</h2>
+      <span class="deck-stat" id="deck-count">0 cards</span>
+    </div>
+    <div class="arch-zone" id="arch-zone" style="display:none">
+      <div class="arch-label">Detected Archetypes</div>
+      <div class="arch-pills" id="arch-pills"></div>
+    </div>
+    <div class="health-zone" id="health-zone" style="display:none">
+      <div class="health-label">Deck Health</div>
+      <div id="health-content"></div>
+    </div>
+    <div class="search-area">
+      <input class="card-input" id="deck-search" type="text" placeholder="Add card to deck..." autocomplete="off" spellcheck="false">
+      <div class="ac-list" id="deck-ac"></div>
+    </div>
+    <div class="deck-list" id="deck-list">
+      <div class="deck-empty" id="deck-empty">Add cards above to track your deck.<br>Advice improves with more deck context.</div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="tabs">
+      <div class="tab on" data-tab="rewards">⚔ Card Rewards</div>
+      <div class="tab" data-tab="shop">🏪 Shop</div>
+      <div class="tab" data-tab="removal">✂ Removal</div>
+    </div>
+
+    <div class="pane on" id="pane-rewards">
+      <div>
+        <div class="sec-title">Offered Cards</div>
+        <div class="slots" id="reward-slots"></div>
+        <div class="actions" style="margin-top:10px">
+          <button class="add-btn" id="reward-add">+ Add Slot</button>
+          <button class="go-btn" id="reward-go">Analyze →</button>
+        </div>
+      </div>
+      <div class="results" id="reward-results"></div>
+    </div>
+
+    <div class="pane" id="pane-shop">
+      <div>
+        <div class="sec-title">Cards in Shop</div>
+        <div class="slots" id="shop-slots"></div>
+        <div class="actions" style="margin-top:10px">
+          <button class="add-btn" id="shop-add">+ Add Slot</button>
+          <button class="go-btn" id="shop-go">Analyze →</button>
+        </div>
+      </div>
+      <div class="results" id="shop-results"></div>
+    </div>
+
+    <div class="pane" id="pane-removal">
+      <div>
+        <div class="sec-title">Removal Advice</div>
+        <p style="font-size:.9rem;color:var(--text2);font-style:italic;margin-bottom:10px">Which cards to cut if given the chance.</p>
+        <button class="go-btn" id="removal-go">Analyze Deck →</button>
+      </div>
+      <div class="results" id="removal-results"></div>
+    </div>
+  </div>
+</div>
+
+<!-- data & logic -->
+<script src="db.js"></script>
+<script src="logic.js"></script>
+<script>
+// STATE
+
+let deck = [];
+let rewardCount = 3, shopCount = 4;
+
+function saveDeck() {
+  try {
+    const state = {
+      deck: deck.map(c => c.name),
+      char: document.getElementById('char').value,
+      floor: document.getElementById('floor').value,
+      act: document.getElementById('act').value,
+      encounter: document.getElementById('encounter')?.value || 'normal',
+      savedAt: Date.now()
+    };
+    localStorage.setItem('sts2_advisor_state', JSON.stringify(state));
+  } catch(e) {}
+}
+
+function loadSavedState() {
+  try {
+    const raw = localStorage.getItem('sts2_advisor_state');
+    if (!raw) return false;
+    const state = JSON.parse(raw);
+    document.getElementById('char').value = state.char || 'ironclad';
+    document.getElementById('floor').value = state.floor || 1;
+    document.getElementById('act').value = state.act || 1;
+    if (document.getElementById('encounter')) document.getElementById('encounter').value = state.encounter || 'normal';
+    deck = (state.deck || []).map(name => ({name}));
+    return true;
+  } catch(e) { return false; }
+}
+
+// AUTOCOMPLETE
+
+function makeAC(inputEl, listEl, onSelect) {
+  inputEl.addEventListener('input', () => {
+    const q = inputEl.value.trim().toLowerCase();
+    if (q.length < 2) { listEl.classList.remove('open'); return; }
+    const ch = document.getElementById('char').value;
+    const hits = DB.names.filter(n => (n.c===ch||n.c==='colorless') && n.n.toLowerCase().includes(q)).slice(0,12);
+    if (!hits.length) { listEl.classList.remove('open'); return; }
+    listEl.innerHTML = hits.map(h =>
+      `<div class="ac-item" data-name="${h.n}"><span>${h.n}</span><span class="ac-char">${h.c==='colorless'?'◈':''}</span></div>`
+    ).join('');
+    listEl.classList.add('open');
+    listEl.querySelectorAll('.ac-item').forEach(el => {
+      el.addEventListener('mousedown', e => { e.preventDefault(); onSelect(el.dataset.name); inputEl.value=''; listEl.classList.remove('open'); });
+    });
+  });
+  inputEl.addEventListener('keydown', e => {
+    if (e.key==='Escape') { listEl.classList.remove('open'); return; }
+    const items = [...listEl.querySelectorAll('.ac-item')];
+    const cur = listEl.querySelector('.hi');
+    if (e.key==='Enter') {
+      const target = cur || items[0];
+      if (target) { onSelect(target.dataset.name); inputEl.value=''; listEl.classList.remove('open'); }
+      return;
+    }
+    if (e.key==='ArrowDown'||e.key==='ArrowUp') {
+      let idx = cur ? items.indexOf(cur) : -1;
+      if (cur) cur.classList.remove('hi');
+      idx = e.key==='ArrowDown' ? Math.min(idx+1,items.length-1) : Math.max(idx-1,0);
+      if (items[idx]) items[idx].classList.add('hi');
+    }
+  });
+  document.addEventListener('click', e => { if (!listEl.contains(e.target) && e.target!==inputEl) listEl.classList.remove('open'); });
+}
+
+// DECK RENDER
+
+function renderDeck() {
+  const list = document.getElementById('deck-list');
+  const empty = document.getElementById('deck-empty');
+  const count = document.getElementById('deck-count');
+  const archZone = document.getElementById('arch-zone');
+  const archPills = document.getElementById('arch-pills');
+  const ch = document.getElementById('char').value;
+
+  count.textContent = `${deck.length} card${deck.length!==1?'s':''}`;
+  list.querySelectorAll('.deck-entry').forEach(el => el.remove());
+
+  if (!deck.length) { empty.style.display='block'; archZone.style.display='none'; return; }
+  empty.style.display = 'none';
+
+  for (let i=0; i<deck.length; i++) {
+    const card = deck[i];
+    const data = getCard(ch, card.name);
+    const grade = data ? data.tier : 'C';
+    const el = document.createElement('div');
+    el.className = 'deck-entry';
+    el.innerHTML = `<div class="grade-pip" style="background:${gradeColor(grade)}"></div><span>${card.name}</span><span class="rm">✕</span>`;
+    el.addEventListener('click', () => { deck.splice(i,1); renderDeck(); });
+    list.appendChild(el);
+  }
+
+  const da = analyzeDeck(ch, deck);
+  if (da.detected.length) {
+    archZone.style.display = 'block';
+    archPills.innerHTML = da.detected.map(({arch,strength}) => {
+      const pct = Math.round(strength*100);
+      const col = pct>70?'var(--s)':pct>40?'var(--a)':'var(--b)';
+      return `<span class="arch-pill" style="color:${col};border-color:${col}">${arch.name} ${pct}%</span>`;
+    }).join('');
+  } else {
+    archZone.style.display = 'none';
+  }
+  renderDeckHealth(ch, da);
+  saveDeck();
+}
+
+function renderDeckHealth(ch, da) {
+  const zone = document.getElementById('health-zone');
+  const content = document.getElementById('health-content');
+  if (!zone || !content) return;
+
+  if (!deck.length) { zone.style.display = 'none'; return; }
+  zone.style.display = 'block';
+
+  // Role counts
+  let engines = 0, generators = 0, payoffs = 0;
+  let attacks = 0, blocks = 0;
+  for (const card of deck) {
+    const d = getCard(ch, card.name);
+    if (!d) continue;
+    if (d.role === 'engine') engines++;
+    else if (d.role === 'generator') generators++;
+    else if (d.role === 'payoff') payoffs++;
+    const n = card.name.toLowerCase();
+    const isAtk = n.includes('strike') || (d.mech && (d.mech.includes('damage') || d.mech.includes('multi_hit') || d.mech.includes('aoe')));
+    const isBlk = n.includes('defend') || (d.syn && d.syn.includes('block'));
+    if (isAtk) attacks++;
+    if (isBlk) blocks++;
+  }
+  const total = deck.length;
+  const maxBar = Math.max(engines, generators, payoffs, 1);
+
+  const bar = (val, color, max) =>
+    `<div class="health-bar"><div class="health-fill" style="width:${Math.round(val/max*100)}%;background:${color}"></div></div>`;
+
+  let html = `
+    <div class="health-row"><span class="health-key">Engines</span>${bar(engines,'var(--blue2)',maxBar)}<span class="health-val">${engines}</span></div>
+    <div class="health-row"><span class="health-key">Generators</span>${bar(generators,'var(--green2)',maxBar)}<span class="health-val">${generators}</span></div>
+    <div class="health-row"><span class="health-key">Payoffs</span>${bar(payoffs,'var(--gold2)',maxBar)}<span class="health-val">${payoffs}</span></div>`;
+
+  const warns = [];
+  if (attacks < 3) warns.push(`Only ${attacks} attacks`);
+  if (blocks < 3) warns.push(`Only ${blocks} block sources`);
+  if (warns.length) html += `<div class="health-warn">⚠ ${warns.join(' · ')}</div>`;
+
+  // Build readiness chips
+  if (da.detected.length > 0) {
+    const arch = da.detected[0];
+    const archId = arch.arch.id;
+    const chips = [];
+    const engOk = engines >= 1;
+    const genOk = generators >= 2;
+    const payOk = payoffs >= 1;
+    chips.push(`<span class="health-chip ${engOk?'chip-ok':'chip-bad'}">Engine ${engOk?'✓':'✗'}</span>`);
+    chips.push(`<span class="health-chip ${genOk?'chip-ok':generators>=1?'chip-warn':'chip-bad'}">Gen ${generators}/2+</span>`);
+    chips.push(`<span class="health-chip ${payOk?'chip-ok':'chip-warn'}">Payoff ${payOk?'✓':'✗'}</span>`);
+    html += `<div class="health-ready">${chips.join('')}</div>`;
+  }
+
+  content.innerHTML = html;
+}
+
+// SLOT RENDERING
+
+function buildSlot(id, label) {
+  const d = document.createElement('div');
+  d.className = 'slot';
+  d.innerHTML = `<span class="slot-label">${label}</span>
+    <input class="slot-input" id="${id}" type="text" placeholder="Card name..." autocomplete="off" spellcheck="false">
+    <div class="slot-ac" id="${id}-ac"></div>`;
+  return d;
+}
+
+function attachSlotAC(id) {
+  const inp = document.getElementById(id);
+  const ac = document.getElementById(id+'-ac');
+  if (!inp||!ac) return;
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase();
+    if (q.length < 2) { ac.classList.remove('open'); return; }
+    const ch = document.getElementById('char').value;
+    const hits = DB.names.filter(n => (n.c===ch||n.c==='colorless') && n.n.toLowerCase().includes(q)).slice(0,10);
+    if (!hits.length) { ac.classList.remove('open'); return; }
+    ac.innerHTML = hits.map(h => `<div class="ac-item" data-name="${h.n}"><span>${h.n}</span></div>`).join('');
+    ac.classList.add('open');
+    ac.querySelectorAll('.ac-item').forEach(el => {
+      el.addEventListener('mousedown', e => { e.preventDefault(); inp.value=el.dataset.name; ac.classList.remove('open'); });
+    });
+  });
+  document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target!==inp) ac.classList.remove('open'); });
+}
+
+function renderRewardSlots() {
+  const c = document.getElementById('reward-slots'); c.innerHTML='';
+  for (let i=0;i<rewardCount;i++) {
+    c.appendChild(buildSlot('reward-'+i, `Option ${i+1}`));
+  }
+  for (let i=0;i<rewardCount;i++) attachSlotAC('reward-'+i);
+}
+function renderShopSlots() {
+  const c = document.getElementById('shop-slots'); c.innerHTML='';
+  for (let i=0;i<shopCount;i++) {
+    c.appendChild(buildSlot('shop-'+i, `Card ${i+1}`));
+  }
+  for (let i=0;i<shopCount;i++) attachSlotAC('shop-'+i);
+}
+
+// RESULT CARD HTML
+
+function resultHTML(s, mode) {
+  const isBest = s.isBest;
+  const isBuy = mode==='shop' && s.finalScore>=2.5;
+  let cls = 'rcard';
+  if (isBest && mode==='reward') cls += ' best';
+  else if (isBuy) cls += ' buy';
+  else if (mode==='shop' && !isBuy) cls += ' skip';
+
+  let badge = '';
+  if (isBest && mode==='reward') badge = '<span class="badge badge-best">⭐ Best Pick</span>';
+  else if (isBuy) badge = '<span class="badge badge-buy">💰 Buy</span>';
+  else if (mode==='shop' && !isBuy) badge = '<span class="badge badge-skip">⊘ Skip</span>';
+
+  const addBtn = (mode==='reward'||mode==='shop')
+    ? `<button class="add-deck-btn" data-name="${s.name}">+ Deck</button>` : '';
+
+  const allReasons = [
+    ...s.synReasons.map(r=>`<div class="reason pos"><span class="ri">▲</span>${r}</div>`),
+    ...s.antiReasons.map(r=>`<div class="reason neg"><span class="ri">▼</span>${r}</div>`),
+  ];
+
+  return `<div class="${cls}">
+  <div class="rcard-head">
+    <div class="grade-box g-${s.finalGrade}">${s.finalGrade}</div>
+    <div class="rcard-info">
+      <div class="rcard-name">${s.name}${badge}${addBtn}</div>
+      <div class="rcard-meta">Score ${s.finalScore.toFixed(1)} · Base ${s.base}</div>
+    </div>
+  </div>
+  ${(s.notes||allReasons.length)?`<div class="rcard-body">
+    ${s.notes?`<div class="card-notes">${s.notes}</div>`:''}
+    ${allReasons.length?`<div class="reasons">${allReasons.join('')}</div>`:''}
+  </div>`:''}
+</div>`;
+}
+
+function verdictHTML(scored, mode, da) {
+  if (mode==='rewards') {
+    const allBad = scored.every(s=>s.finalScore<1.5);
+    const allMediocre = scored.every(s=>s.finalScore<2.5);
+    const best = scored.find(s=>s.isBest);
+    const topBuild = da && da.detected.length > 0 ? da.detected[0].arch : null;
+
+    // Smart skip: have a clear build, nothing fits it
+    if (topBuild && allMediocre && da.detected[0].strength > 0.4) {
+      const bestScore = best ? best.finalScore : 0;
+      if (bestScore < 2.5) {
+        return `<div class="verdict warn">
+  <div class="verdict-title">⊘ Skip Recommended</div>
+  <div class="verdict-text">None of these advance your <strong>${topBuild.name}</strong> build. Take no card unless you need early survivability. A weak card that doesn't fit your strategy is often worse than no card at all.</div>
+</div>`;
+      }
+    }
+
+    if (allBad) return `<div class="verdict warn"><div class="verdict-title">⚠ Verdict</div><div class="verdict-text">All options are weak for your current build. Skip if possible.</div></div>`;
+    if (best) {
+      const others = scored.filter(s=>!s.isBest);
+      const margin = others.length ? best.finalScore - Math.max(...others.map(s=>s.finalScore)) : 999;
+      const tag = margin>1.2?'Clear winner. ':margin>0.6?'Preferred pick. ':'Slight edge. ';
+      return `<div class="verdict"><div class="verdict-title">⚔ Verdict</div><div class="verdict-text">${tag}Take <strong>${best.name}</strong> (${best.finalGrade}, ${best.finalScore.toFixed(1)}).${best.notes?' '+best.notes.split('.')[0]+'.':''}</div></div>`;
+    }
+  }
+  return '';
+}
+
+// ANALYZE
+
+function analyze(mode) {
+  const ch = document.getElementById('char').value;
+  const fl = +document.getElementById('floor').value||1;
+  const ac = +document.getElementById('act').value||1;
+  const da = analyzeDeck(ch, deck);
+  const resultEl = document.getElementById(mode+'-results');
+
+  const prefix = mode==='shop'?'shop':'reward';
+  const count = mode==='shop'?shopCount:rewardCount;
+  const cards = [];
+  for (let i=0;i<count;i++) {
+    const inp = document.getElementById(`${prefix}-${i}`);
+    if (inp && inp.value.trim()) cards.push(inp.value.trim());
+  }
+  if (!cards.length) { resultEl.innerHTML='<div style="color:var(--text3);font-style:italic;font-size:.9rem">Enter cards above first.</div>'; return; }
+
+  const enc = document.getElementById('encounter')?.value || 'normal';
+  const scored = cards.map(n => scoreCard(n, ch, da, fl, ac, deck, enc));
+  let bestIdx = 0;
+  for (let i=1;i<scored.length;i++) if (scored[i].finalScore>scored[bestIdx].finalScore) bestIdx=i;
+  scored[bestIdx].isBest = true;
+
+  const sorted = [...scored].sort((a,b)=>b.finalScore-a.finalScore);
+
+  // Shop skip verdict - if best card scores below 2.5, not worth buying
+  let shopVerdict = '';
+  if (mode === 'shop') {
+    const best = sorted[0];
+    if (best.finalScore < 2.0) {
+      shopVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Skip the Shop</div><div class="verdict-text">Nothing here is worth buying. Save your gold for future shops or relics - best option is ${best.name} at ${best.finalScore.toFixed(1)}/6 which isn't good enough.</div></div>`;
+    } else if (best.finalScore < 2.8) {
+      shopVerdict = `<div class="verdict warn"><div class="verdict-title">⚠ Weak Options</div><div class="verdict-text">Only consider buying if you're desperate. ${best.name} is marginal at best - gold might be better saved.</div></div>`;
+    }
+  }
+
+  resultEl.innerHTML = (mode==='reward' ? verdictHTML(sorted,'rewards',da) : shopVerdict) + sorted.map(s=>resultHTML(s,mode==='reward'?'reward':mode)).join('');
+}
+
+function analyzeRemoval() {
+  const ch = document.getElementById('char').value;
+  const fl = +document.getElementById('floor').value||1;
+  const da = analyzeDeck(ch, deck);
+  const resultEl = document.getElementById('removal-results');
+
+  if (!deck.length) { resultEl.innerHTML='<div style="color:var(--text3);font-style:italic;font-size:.9rem">Add cards to your deck first.</div>'; return; }
+
+  const scored = deck.map(card => scoreRemoval(card.name, ch, da, deck));
+  scored.sort((a,b)=>b.score-a.score);
+
+  const topScore = scored[0]?.score ?? 0;
+  const safeCuts = scored.filter(s => s.safeToRemove);
+
+  let removalVerdict = '';
+  if (topScore < 2.0) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now - every card is pulling its weight. Spending gold on removal isn't worth it.</div></div>`;
+  } else if (safeCuts.length === 1) {
+    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Only <strong>${safeCuts[0].name}</strong> is worth removing. After that, keep your gold.</div></div>`;
+  }
+
+  resultEl.innerHTML = removalVerdict + scored.map((s,i) => {
+    const isTop = i===0 && s.safeToRemove;
+    const warningBadge = s.safeToRemove === false ? '<span class="badge badge-skip">⚠ Keep</span>' : '';
+    const cutBadge = isTop ? '<span class="badge badge-top-remove">🗑 Cut First</span>' : '';
+    return `<div class="rcard${isTop?' best':''}">
+  <div class="rcard-head">
+    <div class="grade-box g-${s.grade}">${s.grade}</div>
+    <div class="rcard-info">
+      <div class="rcard-name">${s.name}</div>
+      <div class="rcard-meta">Remove priority ${s.score.toFixed(1)}/5</div>
+    </div>
+    <div class="badges">${cutBadge}${warningBadge}</div>
+  </div>
+  <div class="rcard-body"><div class="card-notes">${s.reason}</div></div>
+</div>`;
+  }).join('');
+}
+
+// EVENTS
+
+// ALL starter/basic cards that should never drive archetype detection
+// Includes character-specific starters that have synergy tags but are just baseline noise
+function loadStarters() {
+  const ch = document.getElementById('char').value;
+  deck = (STARTERS[ch] || []).map(name => ({name}));
+}
+
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); });
+document.getElementById('floor').addEventListener('input', () => {
+  const f = +document.getElementById('floor').value || 1;
+  document.getElementById('act').value = floorToAct(f);
+});
+document.getElementById('reward-go').addEventListener('click', ()=>analyze('reward'));
+document.getElementById('shop-go').addEventListener('click', ()=>analyze('shop'));
+document.getElementById('removal-go').addEventListener('click', analyzeRemoval);
+document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
+document.getElementById('shop-add').addEventListener('click', ()=>{ shopCount++; renderShopSlots(); });
+
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.pane').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    document.getElementById('pane-'+t.dataset.tab).classList.add('on');
+  });
+});
+
+// Add-to-deck from results
+['reward-results','shop-results'].forEach(id => {
+  document.getElementById(id).addEventListener('click', e => {
+    const btn = e.target.closest('.add-deck-btn');
+    if (!btn||btn.disabled) return;
+    deck.push({name:btn.dataset.name});
+    renderDeck();
+    btn.textContent = '✓ Added'; btn.disabled=true;
+  });
+});
+
+// Deck search autocomplete
+makeAC(
+  document.getElementById('deck-search'),
+  document.getElementById('deck-ac'),
+  name => { deck.push({name}); renderDeck(); }
+);
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+  if (e.key === '1') document.querySelector('[data-tab="rewards"]').click();
+  else if (e.key === '2') document.querySelector('[data-tab="shop"]').click();
+  else if (e.key === '3') document.querySelector('[data-tab="removal"]').click();
+  else if (e.key === 'Enter') {
+    const active = document.querySelector('.tab.on');
+    if (!active) return;
+    if (active.dataset.tab === 'rewards') document.getElementById('reward-go').click();
+    else if (active.dataset.tab === 'shop') document.getElementById('shop-go').click();
+    else if (active.dataset.tab === 'removal') document.getElementById('removal-go').click();
+  } else if (e.key === 'f' || e.key === 'F') {
+    e.preventDefault();
+    document.getElementById('deck-search').focus();
+  }
+});
+
+// Clear save
+document.getElementById('clear-save-btn').addEventListener('click', () => {
+  localStorage.removeItem('sts2_advisor_state');
+  loadStarters();
+  renderDeck();
+  renderRewardSlots();
+  renderShopSlots();
+});
+
+// INIT
+if (!loadSavedState()) {
+  loadStarters();
+}
+
+const floorEl = document.getElementById('floor');
+const actEl = document.getElementById('act');
+const floorVal = +floorEl.value || 1;
+actEl.value = floorToAct(floorVal);
+
+renderDeck();
+renderRewardSlots();
+renderShopSlots();
+</script>
+
+<div style="
+position:fixed;
+bottom:8px;
+right:12px;
+font-size:.65rem;
+color:var(--text3);
+opacity:.7;
+font-family:'Cinzel',serif;
+letter-spacing:.05em">
+MIT © 2026 Shunrai
+</div>
+</body>
+</html>
