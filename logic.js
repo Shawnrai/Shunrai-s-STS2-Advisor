@@ -437,7 +437,12 @@ function scoreRemoval(cardName, char, da, deckCards) {
   const baseGrade = data ? data.tier : 'C';
   const baseVal = GRADE_VALS[baseGrade] ?? 2;
 
-  const otherCards = deckCards.filter(c => c.name !== cardName);
+  // Only remove ONE copy of this card, not all copies with the same name
+  let removedOne = false;
+  const otherCards = deckCards.filter(c => {
+    if (!removedOne && c.name === cardName) { removedOne = true; return false; }
+    return true;
+  });
   const otherAttacks = otherCards.filter(c => {
     const d = getCard(char, c.name);
     const n = c.name.toLowerCase();

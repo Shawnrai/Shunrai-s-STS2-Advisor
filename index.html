@@ -591,17 +591,34 @@ function analyzeRemoval() {
   const scored = deck.map(card => scoreRemoval(card.name, ch, da, deck));
   scored.sort((a,b)=>b.score-a.score);
 
-  const topScore = scored[0]?.score ?? 0;
   const safeCuts = scored.filter(s => s.safeToRemove);
+  const topScore = scored[0]?.score ?? 0;
 
-  let removalVerdict = '';
-  if (topScore < 2.0) {
-    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now - every card is pulling its weight. Spending gold on removal isn't worth it.</div></div>`;
-  } else if (safeCuts.length === 1) {
-    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Only <strong>${safeCuts[0].name}</strong> is worth removing. After that, keep your gold.</div></div>`;
+  // Nothing safe to remove at all — show a clean verdict and stop, don't list the whole deck
+  if (safeCuts.length === 0) {
+    const isStarterDeck = da.detected.length === 0 && deck.length <= 12;
+    resultEl.innerHTML = `<div class="verdict warn">
+      <div class="verdict-title">💰 Nothing to Remove</div>
+      <div class="verdict-text">${isStarterDeck
+        ? 'This looks like an early/starter deck. Add more cards from rewards before spending gold on removal — you need the attacks and block you have right now.'
+        : 'Every card in your deck is either essential or removing it would leave you without enough attacks or block. Save your gold.'
+      }</div>
+    </div>`;
+    return;
   }
 
-  resultEl.innerHTML = removalVerdict + scored.map((s,i) => {
+  // One clear cut
+  let removalVerdict = '';
+  if (safeCuts.length === 1) {
+    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Only <strong>${safeCuts[0].name}</strong> is worth removing. After that, keep your gold.</div></div>`;
+  } else if (topScore < 2.0) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now — every card is pulling its weight.</div></div>`;
+  }
+
+  // Only show cards that are actually safe to cut, or the top unsafe one with context
+  const toShow = safeCuts.length > 0 ? safeCuts : scored.slice(0, 1);
+
+  resultEl.innerHTML = removalVerdict + toShow.map((s,i) => {
     const isTop = i===0 && s.safeToRemove;
     const warningBadge = s.safeToRemove === false ? '<span class="badge badge-skip">⚠ Keep</span>' : '';
     const cutBadge = isTop ? '<span class="badge badge-top-remove">🗑 Cut First</span>' : '';
