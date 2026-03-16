@@ -63,6 +63,7 @@ If you notice something off, feel free to open an issue and include:
 - Improved card scoring logic
 - More accurate deck health metrics
 - Better support for future STS2 updates
+- Relic synergy
 
 ---
 
