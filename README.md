@@ -31,6 +31,19 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 
 ---
 
+## How the logic currently works
+
+The current decision logic is based on a mix of practical run experience, community knowledge, and some experimentation.
+
+Right now it mainly relies on:
+
+- decision patterns I would typically follow during my own runs
+- information and strategies from various community guides
+- some unconventional card combinations I’ve experimented with that might work well together
+- some AI-assisted exploration of card synergies and how certain cards can interact or enable specific builds
+
+---
+
 ## Known issues
 
 The logic still needs tuning and there are definitely cases where recommendations will be wrong.
@@ -46,6 +59,8 @@ If you notice something off, feel free to open an issue and include:
 
 ## Planned improvements
 
+- Add missing cards
+- Relic synergy
 - Better archetype detection
 - Improved card scoring logic
 - More accurate deck health metrics
@@ -57,6 +72,11 @@ If you notice something off, feel free to open an issue and include:
 
 This tool is experimental and the scoring logic is still evolving.
 It should be treated as a helper, not a perfect decision maker.
+
+---
+
+## Reddit Thread
+https://www.reddit.com/r/slaythespire/comments/1rqq306/sts2_tool_reward_card_helper_helps_decide_which/
 
 ---
 
