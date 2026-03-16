@@ -30,6 +30,11 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 [Open the advisor](https://shawnrai.github.io/Shunrai-s-STS2-Advisor/)
 
 ---
+##Character Support
+#Ironclad
+
+
+---
 
 ## How the logic currently works
 
