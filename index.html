@@ -125,6 +125,7 @@ input[type=number]{width:60px}
 .badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .badge{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.06em;padding:2px 7px;border-radius:2px;border:1px solid;white-space:nowrap;display:inline-block;vertical-align:middle;margin-left:7px}
 .badge-best{color:var(--gold2);border-color:var(--gold);background:rgba(200,149,46,.08)}
+.build-tag{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.05em;padding:2px 7px;border-radius:2px;border:1px solid;white-space:nowrap;display:inline-block;vertical-align:middle;margin-left:7px;opacity:.9}
 .badge-buy{color:var(--green2);border-color:var(--green);background:rgba(53,168,96,.08)}
 .badge-skip{color:var(--f);border-color:var(--f);background:rgba(102,119,136,.06)}
 .badge-top-remove{color:var(--red2);border-color:var(--red);background:rgba(184,48,37,.08)}
@@ -475,7 +476,40 @@ function renderShopSlots() {
 
 // RESULT CARD HTML
 
-function resultHTML(s, mode) {
+const BUILD_TAGS = {
+  strength:    {emoji:'💪', label:'Strength',     color:'#e8a030', bg:'rgba(232,160,48,.1)'},
+  block:       {emoji:'🛡️', label:'Block',        color:'#4a9eff', bg:'rgba(74,158,255,.1)'},
+  exhaust:     {emoji:'💀', label:'Exhaust',      color:'#a855f7', bg:'rgba(168,85,247,.1)'},
+  self_damage: {emoji:'🩸', label:'Bloodletting', color:'#e05555', bg:'rgba(224,85,85,.1)'},
+  strike:      {emoji:'⚔️', label:'Strike',       color:'#f0c040', bg:'rgba(240,192,64,.1)'},
+  sly:         {emoji:'🃏', label:'Sly',          color:'#a0e080', bg:'rgba(160,224,128,.1)'},
+  poison:      {emoji:'☠️', label:'Poison',       color:'#50c878', bg:'rgba(80,200,120,.1)'},
+  shiv:        {emoji:'🗡️', label:'Shiv',         color:'#c0c0ff', bg:'rgba(192,192,255,.1)'},
+  orb:         {emoji:'🔮', label:'Orb',          color:'#60c0ff', bg:'rgba(96,192,255,.1)'},
+  claw:        {emoji:'🦾', label:'Claw',         color:'#ff9040', bg:'rgba(255,144,64,.1)'},
+  stars:       {emoji:'⭐', label:'Stars',        color:'#ffe060', bg:'rgba(255,224,96,.1)'},
+  forge:       {emoji:'🔨', label:'Forge',        color:'#ff8040', bg:'rgba(255,128,64,.1)'},
+  soul:        {emoji:'👻', label:'Soul',         color:'#c080ff', bg:'rgba(192,128,255,.1)'},
+  osty:        {emoji:'🦴', label:'Osty',         color:'#e0e0a0', bg:'rgba(224,224,160,.1)'},
+  doom:        {emoji:'💥', label:'Doom',         color:'#ff4060', bg:'rgba(255,64,96,.1)'},
+};
+
+function getBuildTag(builds, da) {
+  if (!builds || builds.length === 0) return '';
+  const specific = builds.filter(b => b !== 'any');
+  if (specific.length === 0) return '';
+  let chosen = specific[0];
+  if (da && da.detected && da.detected.length > 0) {
+    const detectedIds = da.detected.map(d => d.arch.id);
+    const match = specific.find(b => detectedIds.includes(b));
+    if (match) chosen = match;
+  }
+  const tag = BUILD_TAGS[chosen];
+  if (!tag) return '';
+  return `<span class="build-tag" style="color:${tag.color};border-color:${tag.color};background:${tag.bg}">${tag.emoji} ${tag.label}</span>`;
+}
+
+function resultHTML(s, mode, da) {
   const isBest = s.isBest;
   const isBuy = mode==='shop' && s.finalScore>=2.5;
   let cls = 'rcard';
@@ -500,7 +534,7 @@ function resultHTML(s, mode) {
   <div class="rcard-head">
     <div class="grade-box g-${s.finalGrade}">${s.finalGrade}</div>
     <div class="rcard-info">
-      <div class="rcard-name">${s.name}${badge}${addBtn}</div>
+      <div class="rcard-name">${s.name}${badge}${addBtn}${getBuildTag(s.builds,da)}</div>
       <div class="rcard-meta">Score ${s.finalScore.toFixed(1)} · Base ${s.base}</div>
     </div>
   </div>
@@ -577,7 +611,7 @@ function analyze(mode) {
     }
   }
 
-  resultEl.innerHTML = (mode==='reward' ? verdictHTML(sorted,'rewards',da) : shopVerdict) + sorted.map(s=>resultHTML(s,mode==='reward'?'reward':mode)).join('');
+  resultEl.innerHTML = (mode==='reward' ? verdictHTML(sorted,'rewards',da) : shopVerdict) + sorted.map(s=>resultHTML(s,mode==='reward'?'reward':mode,da)).join('');
 }
 
 function analyzeRemoval() {
@@ -591,34 +625,17 @@ function analyzeRemoval() {
   const scored = deck.map(card => scoreRemoval(card.name, ch, da, deck));
   scored.sort((a,b)=>b.score-a.score);
 
-  const safeCuts = scored.filter(s => s.safeToRemove);
   const topScore = scored[0]?.score ?? 0;
+  const safeCuts = scored.filter(s => s.safeToRemove);
 
-  // Nothing safe to remove at all — show a clean verdict and stop, don't list the whole deck
-  if (safeCuts.length === 0) {
-    const isStarterDeck = da.detected.length === 0 && deck.length <= 12;
-    resultEl.innerHTML = `<div class="verdict warn">
-      <div class="verdict-title">💰 Nothing to Remove</div>
-      <div class="verdict-text">${isStarterDeck
-        ? 'This looks like an early/starter deck. Add more cards from rewards before spending gold on removal — you need the attacks and block you have right now.'
-        : 'Every card in your deck is either essential or removing it would leave you without enough attacks or block. Save your gold.'
-      }</div>
-    </div>`;
-    return;
-  }
-
-  // One clear cut
   let removalVerdict = '';
-  if (safeCuts.length === 1) {
+  if (topScore < 2.0) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now - every card is pulling its weight. Spending gold on removal isn't worth it.</div></div>`;
+  } else if (safeCuts.length === 1) {
     removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Only <strong>${safeCuts[0].name}</strong> is worth removing. After that, keep your gold.</div></div>`;
-  } else if (topScore < 2.0) {
-    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now — every card is pulling its weight.</div></div>`;
   }
 
-  // Only show cards that are actually safe to cut, or the top unsafe one with context
-  const toShow = safeCuts.length > 0 ? safeCuts : scored.slice(0, 1);
-
-  resultEl.innerHTML = removalVerdict + toShow.map((s,i) => {
+  resultEl.innerHTML = removalVerdict + scored.map((s,i) => {
     const isTop = i===0 && s.safeToRemove;
     const warningBadge = s.safeToRemove === false ? '<span class="badge badge-skip">⚠ Keep</span>' : '';
     const cutBadge = isTop ? '<span class="badge badge-top-remove">🗑 Cut First</span>' : '';

@@ -423,7 +423,8 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter) {
 
   score = Math.max(0, Math.min(6, score));
   return {name:cardName, base:data.tier, finalScore:score, finalGrade:SCORE_GRADE(score),
-    notes:data.notes, synReasons:synR, antiReasons:antiR, isBest:false};
+    notes:data.notes, synReasons:synR, antiReasons:antiR, isBest:false,
+    builds:data.builds||[], char};
 }
 
 function scoreRemoval(cardName, char, da, deckCards) {
@@ -437,12 +438,7 @@ function scoreRemoval(cardName, char, da, deckCards) {
   const baseGrade = data ? data.tier : 'C';
   const baseVal = GRADE_VALS[baseGrade] ?? 2;
 
-  // Only remove ONE copy of this card, not all copies with the same name
-  let removedOne = false;
-  const otherCards = deckCards.filter(c => {
-    if (!removedOne && c.name === cardName) { removedOne = true; return false; }
-    return true;
-  });
+  const otherCards = deckCards.filter(c => c.name !== cardName);
   const otherAttacks = otherCards.filter(c => {
     const d = getCard(char, c.name);
     const n = c.name.toLowerCase();

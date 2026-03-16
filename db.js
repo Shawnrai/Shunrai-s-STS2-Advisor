@@ -5,7 +5,7 @@ const DB = {
         "id": "Bloodletting",
         "tier": "S",
         "builds": [
-          "blood"
+          "self_damage"
         ],
         "syn": [
           "self_damage",
@@ -26,23 +26,23 @@ const DB = {
         "id": "Stone Armor",
         "tier": "A",
         "builds": [
-            "block"
+          "block"
         ],
         "syn": [
-            "block",
-            "plating",
-            "juggernaut",
-            "scaling"
+          "block",
+          "plating",
+          "juggernaut",
+          "scaling"
         ],
         "anti": [],
         "notes": "Provides Plating for passive Block every turn. Strong in Block decks and excellent with Juggernaut since repeated block triggers damage.",
         "mech": [
-            "plating",
-            "block_scaling",
-            "persistent_scaling"
+          "plating",
+          "block_scaling",
+          "persistent_scaling"
         ],
         "role": "engine"
-    },
+      },
       "HEADBUTT": {
         "id": "Headbutt",
         "tier": "S",
@@ -98,7 +98,7 @@ const DB = {
         "id": "Offering",
         "tier": "S",
         "builds": [
-          "blood",
+          "self_damage",
           "exhaust"
         ],
         "syn": [
@@ -239,7 +239,7 @@ const DB = {
         "id": "Rupture",
         "tier": "A",
         "builds": [
-          "blood",
+          "self_damage",
           "strength"
         ],
         "syn": [
@@ -262,7 +262,7 @@ const DB = {
         "tier": "A",
         "builds": [
           "exhaust",
-          "blood",
+          "self_damage",
           "strength"
         ],
         "syn": [
@@ -443,7 +443,7 @@ const DB = {
         "id": "Spite",
         "tier": "A",
         "builds": [
-          "blood",
+          "self_damage",
           "exhaust"
         ],
         "syn": [
@@ -483,7 +483,7 @@ const DB = {
         "id": "Crimson Mantle",
         "tier": "A",
         "builds": [
-          "blood",
+          "self_damage",
           "block"
         ],
         "syn": [
@@ -626,7 +626,7 @@ const DB = {
         "id": "Hemokinesis",
         "tier": "B",
         "builds": [
-          "blood",
+          "self_damage",
           "strength"
         ],
         "syn": [
@@ -706,7 +706,7 @@ const DB = {
         "id": "Blood Wall",
         "tier": "B",
         "builds": [
-          "blood",
+          "self_damage",
           "block"
         ],
         "syn": [
@@ -819,7 +819,7 @@ const DB = {
         "id": "Breakthrough",
         "tier": "B",
         "builds": [
-          "blood",
+          "self_damage",
           "strike"
         ],
         "syn": [
@@ -1056,7 +1056,8 @@ const DB = {
         "mech": [
           "damage",
           "strike"
-        ]
+        ],
+        "role": "generator"
       },
       "THUNDERCLAP": {
         "id": "Thunderclap",
@@ -1153,7 +1154,8 @@ const DB = {
         "mech": [
           "damage",
           "weak"
-        ]
+        ],
+        "role": "generator"
       },
       "WILD_STRIKE": {
         "id": "Wild Strike",
@@ -1170,7 +1172,8 @@ const DB = {
         "notes": "Adds wound to deck. Usually avoid.",
         "mech": [
           "damage"
-        ]
+        ],
+        "role": "generator"
       },
       "DROPKICK": {
         "id": "Dropkick",
@@ -1248,7 +1251,8 @@ const DB = {
         "mech": [
           "damage",
           "conditional"
-        ]
+        ],
+        "role": "payoff"
       },
       "SEARING_BLOW": {
         "id": "Searing Blow",
@@ -1263,7 +1267,8 @@ const DB = {
         "notes": "Needs multiple upgrades to be good. Usually not worth it.",
         "mech": [
           "damage"
-        ]
+        ],
+        "role": "payoff"
       },
       "MANGLE": {
         "id": "Mangle",
@@ -1271,10 +1276,14 @@ const DB = {
         "builds": [
           "any"
         ],
-        "syn": [],
+        "syn": [
+          "damage",
+          "debuff"
+        ],
         "anti": [],
         "notes": "Wounds pollute your deck. Usually skip.",
-        "mech": []
+        "mech": [],
+        "role": "generator"
       },
       "CASCADE": {
         "id": "Cascade",
@@ -1282,10 +1291,14 @@ const DB = {
         "builds": [
           "any"
         ],
-        "syn": [],
+        "syn": [
+          "exhaust",
+          "damage"
+        ],
         "anti": [],
         "notes": "Completely random. Not reliable.",
-        "mech": []
+        "mech": [],
+        "role": "generator"
       },
       "STRIKE": {
         "id": "Strike",
@@ -1412,7 +1425,7 @@ const DB = {
         "tier": "A",
         "builds": [
           "strength",
-          "blood"
+          "self_damage"
         ],
         "syn": [
           "strength",
@@ -1452,7 +1465,7 @@ const DB = {
         "id": "Brutality",
         "tier": "B",
         "builds": [
-          "blood"
+          "self_damage"
         ],
         "syn": [
           "self_damage",
@@ -1617,7 +1630,7 @@ const DB = {
         "id": "Combust",
         "tier": "B",
         "builds": [
-          "blood",
+          "self_damage",
           "exhaust"
         ],
         "syn": [
@@ -1723,6 +1736,397 @@ const DB = {
           "strike"
         ],
         "role": "engine"
+      },
+      "CINDER": {
+        "id": "Cinder",
+        "tier": "C",
+        "builds": [
+          "exhaust"
+        ],
+        "syn": [
+          "exhaust",
+          "damage"
+        ],
+        "anti": [
+          "strength",
+          "block",
+          "self_damage"
+        ],
+        "notes": "17 damage + exhausts the top card of your draw pile randomly. In exhaust builds that's free value — damage AND triggers Dark Embrace/Feel No Pain/Charon's Ashes. Outside exhaust builds, skip — random exile of your best card is too risky.",
+        "mech": [
+          "damage",
+          "exhaust"
+        ],
+        "role": "generator"
+      },
+      "HAVOC": {
+        "id": "Havoc",
+        "tier": "D",
+        "builds": [
+          "exhaust"
+        ],
+        "syn": [
+          "exhaust"
+        ],
+        "anti": [
+          "strength",
+          "block",
+          "self_damage"
+        ],
+        "notes": "Play AND exhaust the top card of your draw pile — you don't choose. In exhaust builds the exhaust trigger fires regardless, but the random play is too unreliable to sequence around. Easy skip in most situations. Upgraded it's playable in dedicated exhaust decks.",
+        "mech": [
+          "exhaust",
+          "random_play"
+        ],
+        "role": "generator"
+      },
+      "SETUP_STRIKE": {
+        "id": "Setup Strike",
+        "tier": "C",
+        "builds": [
+          "strength"
+        ],
+        "syn": [
+          "strength",
+          "damage",
+          "multi_hit"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "7 damage + 2 Strength THIS TURN ONLY — not permanent. Play it first, then follow with attacks that turn to benefit from the +2 Strength. Shines with multi-hit attacks (each hit gains +2) or Heavy Blade (3x Strength scaling = +6 bonus). Weak in isolation and useless if you can't chain attacks after it.",
+        "mech": [
+          "damage",
+          "strength",
+          "conditional"
+        ],
+        "role": "generator"
+      },
+      "TREMBLE": {
+        "id": "Tremble",
+        "tier": "C",
+        "builds": [
+          "strength",
+          "any"
+        ],
+        "syn": [
+          "vulnerable",
+          "damage"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "Apply 2 Vulnerable. 0 damage, pure setup. Worthless alone but enables the Ironclad's Vulnerable payoffs — Bully scales per stack, Dominate converts stacks to Strength, Vicious amplifies damage. Also enables Colossus: Vulnerable enemy hits you for 50% less damage when Colossus is active.",
+        "mech": [
+          "vulnerable",
+          "debuff",
+          "zero_cost"
+        ],
+        "role": "generator"
+      },
+      "BULLY": {
+        "id": "Bully",
+        "tier": "C",
+        "builds": [
+          "strength",
+          "any"
+        ],
+        "syn": [
+          "vulnerable",
+          "damage",
+          "scaling"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "Deal 4 + 2 per Vulnerable stack on enemy. With 3 stacks = 10 damage. With 5 stacks = 14 damage. Scales well in dedicated Vulnerable builds with Tremble/Uppercut/Taunt stacking stacks, but underwhelming without setup. Pair with Thunderclap for multi-enemy Vulnerable into Bully payoff.",
+        "mech": [
+          "damage",
+          "vulnerable_payoff",
+          "scaling"
+        ],
+        "role": "payoff"
+      },
+      "DEMONIC_SHIELD": {
+        "id": "Demonic Shield",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "notes": "Co-op only card — gives another player Block equal to yours. Costs 1 HP. Useless in solo play. Only relevant in multiplayer sessions.",
+        "mech": [
+          "block",
+          "co_op"
+        ],
+        "role": "support"
+      },
+      "DOMINATE": {
+        "id": "Dominate",
+        "tier": "C",
+        "builds": [
+          "strength"
+        ],
+        "syn": [
+          "strength",
+          "vulnerable",
+          "scaling"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "Gain 1 Strength for each Vulnerable on the enemy. Exhaust. Converts Vulnerable stacks directly into permanent Strength — use after stacking 3+ Vulnerable for a big burst of scaling. Once per fight but the Strength is permanent. Essential in Vulnerable-into-Strength builds for boss fights.",
+        "mech": [
+          "strength",
+          "vulnerable_payoff",
+          "exhaust"
+        ],
+        "role": "generator"
+      },
+      "DRUM_OF_BATTLE": {
+        "id": "Drum of Battle",
+        "tier": "C",
+        "builds": [
+          "exhaust"
+        ],
+        "syn": [
+          "exhaust",
+          "draw",
+          "scaling"
+        ],
+        "anti": [
+          "strength",
+          "block",
+          "self_damage"
+        ],
+        "notes": "Draw 2 on play, then passively exhausts top card of draw pile every turn start. In exhaust builds this is a free trigger every turn — fires Dark Embrace, Feel No Pain, Charon's Ashes, Forgotten Ritual all passively. Outside exhaust builds the random exile of your best cards is genuinely dangerous.",
+        "mech": [
+          "draw",
+          "exhaust",
+          "passive"
+        ],
+        "role": "engine"
+      },
+      "FORGOTTEN_RITUAL": {
+        "id": "Forgotten Ritual",
+        "tier": "A",
+        "builds": [
+          "exhaust"
+        ],
+        "syn": [
+          "exhaust",
+          "energy_gain",
+          "scaling"
+        ],
+        "anti": [
+          "strength",
+          "block",
+          "self_damage"
+        ],
+        "notes": "If you Exhausted a card this turn, gain 3 energy — free, no cost. With Corruption making every skill exhaust, this is guaranteed 3 free energy every turn. Foundational to Ironclad infinite loops. One of the key reasons exhaust builds can chain turns indefinitely.",
+        "mech": [
+          "energy_gain",
+          "exhaust",
+          "conditional"
+        ],
+        "role": "payoff"
+      },
+      "HOWL_FROM_BEYOND": {
+        "id": "Howl from Beyond",
+        "tier": "C",
+        "builds": [
+          "exhaust",
+          "any"
+        ],
+        "syn": [
+          "exhaust",
+          "damage",
+          "aoe",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Deal 16 AoE, then it plays itself from the Exhaust Pile every turn start for FREE. After the initial play you get 16 free AoE every single turn for the rest of the fight. Each replay also exhausts, triggering Dark Embrace/Feel No Pain/Charon's Ashes/Forgotten Ritual passively every turn.",
+        "mech": [
+          "damage",
+          "aoe",
+          "exhaust",
+          "passive",
+          "recursive"
+        ],
+        "role": "payoff"
+      },
+      "INFERNO": {
+        "id": "Inferno",
+        "tier": "A",
+        "builds": [
+          "self_damage"
+        ],
+        "syn": [
+          "self_damage",
+          "damage",
+          "aoe",
+          "scaling"
+        ],
+        "anti": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Power: start of turn lose 1 HP = 6 AoE. But also triggers on EVERY instance of HP loss on your turn — Bloodletting = 6 more AoE, Brand = 6 more AoE, Offering = 6 more AoE. Multiple Inferno copies stack: 2 Infernos = 12 AoE per HP loss. Core engine of self-damage builds.",
+        "mech": [
+          "self_damage",
+          "damage",
+          "aoe",
+          "passive"
+        ],
+        "role": "engine"
+      },
+      "STAMPEDE": {
+        "id": "Stampede",
+        "tier": "C",
+        "builds": [
+          "strength",
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "scaling"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "Power: at end of turn, 1 random Attack from hand plays against a random enemy for free. Free extra attack every turn. Best with cheap high-value attacks you want to keep in hand. Anger is the dream — fires for free AND copies itself. Targets randomly so less reliable against bosses.",
+        "mech": [
+          "damage",
+          "passive",
+          "random_play"
+        ],
+        "role": "generator"
+      },
+      "UNRELENTING": {
+        "id": "Unrelenting",
+        "tier": "B",
+        "builds": [
+          "strength",
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "scaling",
+          "energy_gain"
+        ],
+        "anti": [
+          "exhaust",
+          "block"
+        ],
+        "notes": "Deal 12 damage. The next Attack you play costs 0. Strong chaining card — play Unrelenting into any expensive attack for a free follow-up. Best with Bludgeon (3-cost becomes free), Heavy Blade (2-cost becomes free), or Whirlwind (becomes free but still uses all remaining energy).",
+        "mech": [
+          "damage",
+          "cost_reduction"
+        ],
+        "role": "generator"
+      },
+      "HELLRAISER": {
+        "id": "Hellraiser",
+        "tier": "C",
+        "builds": [
+          "strength"
+        ],
+        "syn": [
+          "damage",
+          "scaling"
+        ],
+        "anti": [
+          "exhaust",
+          "block",
+          "self_damage"
+        ],
+        "notes": "Power: whenever you DRAW a card containing \"Strike\" it auto-plays for free. Defines the Strike build — stack Strikes + draw cards and watch them chain. Battle Trance draws 3 = 3 free Strikes. Pommel Strike triggers it AND draws a card = potential infinite chain. Anger fires and replicates itself. Every Strike in your deck becomes a free auto-attack.",
+        "mech": [
+          "damage",
+          "passive",
+          "conditional"
+        ],
+        "role": "engine"
+      },
+      "ONE_TWO_PUNCH": {
+        "id": "One-Two Punch",
+        "tier": "B",
+        "builds": [
+          "strength",
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "scaling",
+          "multi_hit"
+        ],
+        "anti": [
+          "exhaust"
+        ],
+        "notes": "This turn, your next Attack plays an extra time. Basically Double Tap but as a Skill — plays twice per fight in skill-heavy decks and exhausts with Corruption. Use before your biggest hit: Reaper doubles AoE + heal, Whirlwind doubles all energy hits, Howl from Beyond doubles the AoE.",
+        "mech": [
+          "card_doubler",
+          "damage"
+        ],
+        "role": "generator"
+      },
+      "PACTS_END": {
+        "id": "Pact's End",
+        "tier": "C",
+        "builds": [
+          "exhaust"
+        ],
+        "syn": [
+          "exhaust",
+          "damage",
+          "aoe"
+        ],
+        "anti": [
+          "strength",
+          "block",
+          "self_damage"
+        ],
+        "notes": "Can only be played with 3+ cards in Exhaust Pile — Deal 17 AoE. 0 Energy cost. In exhaust builds the condition is trivially met by turn 2-3. Effectively free massive AoE once your exhaust engine is running. Skip without exhaust support.",
+        "mech": [
+          "damage",
+          "aoe",
+          "zero_cost",
+          "conditional"
+        ],
+        "role": "payoff"
+      },
+      "TEAR_ASUNDER": {
+        "id": "Tear Asunder",
+        "tier": "B",
+        "builds": [
+          "self_damage"
+        ],
+        "syn": [
+          "self_damage",
+          "damage",
+          "scaling",
+          "multi_hit"
+        ],
+        "anti": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Deal 5 damage + 5 more for each time you lost HP this combat. Early game it's a weak hit, but with Bloodletting/Brutality/Offering spammed throughout a fight it scales to massive damage — 8 HP losses = 45 damage for 2 energy. Pure self-damage payoff that gets stronger the more you feed the self-damage engine.",
+        "mech": [
+          "damage",
+          "multi_hit",
+          "scaling",
+          "self_damage_payoff"
+        ],
+        "role": "payoff"
       }
     },
     "silent": {
@@ -7031,8 +7435,8 @@ const DB = {
         "description": "Burn through cards and profit from exhaust triggers, cycling, and block payoffs."
       },
       {
-        "id": "blood",
-        "name": "Blood",
+        "id": "self_damage",
+        "name": "Bloodletting / Self-Damage",
         "core": [
           "self_damage",
           "self_damage_payoff",
@@ -7247,40 +7651,34 @@ const DB = {
   },
   "combos": [
     {
-    "deckCard": "Juggernaut",
-    "offeredCard": "Stone Armor",
-    "bonus": 2,
-    "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
+      "deckCard": "Juggernaut",
+      "offeredCard": "Stone Armor",
+      "bonus": 2,
+      "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
     },
     {
-    "deckCard": "Stone Armor",
-    "offeredCard": "Body Slam",
-    "bonus": 1.5,
-    "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
+      "deckCard": "Stone Armor",
+      "offeredCard": "Body Slam",
+      "bonus": 1.5,
+      "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
     },
     {
-  "deckCard": "Stone Armor",
-  "offeredCard": "Body Slam",
-  "bonus": 1.5,
-  "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
-},
-{
-  "deckCard": "Corruption",
-  "offeredCard": "Fiend Fire",
-  "bonus": 1.8,
-  "reason": "Corruption makes skills free, enabling massive Fiend Fire exhaust turns."
-},
-{
-  "deckCard": "Dark Embrace",
-  "offeredCard": "Fiend Fire",
-  "bonus": 1.6,
-  "reason": "Fiend Fire exhausts the entire hand, drawing multiple cards through Dark Embrace."
-},
+      "deckCard": "Corruption",
+      "offeredCard": "Fiend Fire",
+      "bonus": 1.8,
+      "reason": "Corruption makes skills free, enabling massive Fiend Fire exhaust turns."
+    },
     {
-    "deckCard": "Stone Armor",
-    "offeredCard": "Juggernaut",
-    "bonus": 2,
-    "reason": "Juggernaut converts Stone Armor's repeated Block from Plating into recurring damage."
+      "deckCard": "Dark Embrace",
+      "offeredCard": "Fiend Fire",
+      "bonus": 1.6,
+      "reason": "Fiend Fire exhausts the entire hand, drawing multiple cards through Dark Embrace."
+    },
+    {
+      "deckCard": "Stone Armor",
+      "offeredCard": "Juggernaut",
+      "bonus": 2,
+      "reason": "Juggernaut converts Stone Armor's repeated Block from Plating into recurring damage."
     },
     {
       "deckCard": "Barricade",
@@ -7451,22 +7849,22 @@ const DB = {
       "reason": "Brutality loses 1 HP per turn passively — Rupture gains Strength automatically every turn"
     },
     {
-    "deckCard": "Rupture",
-    "offeredCard": "Fight Me!",
-    "bonus": 1.3,
-    "reason": "Fight Me! increases Strength for both sides and synergizes with Rupture scaling builds."
+      "deckCard": "Rupture",
+      "offeredCard": "Fight Me!",
+      "bonus": 1.3,
+      "reason": "Fight Me! increases Strength for both sides and synergizes with Rupture scaling builds."
     },
     {
-    "deckCard": "Blade Dance",
-    "offeredCard": "Finisher",
-    "bonus": 1.8,
-    "reason": "Blade Dance generates multiple attacks that dramatically increase Finisher damage."
+      "deckCard": "Blade Dance",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Blade Dance generates multiple attacks that dramatically increase Finisher damage."
     },
     {
-    "deckCard": "Storm Of Steel",
-    "offeredCard": "Finisher",
-    "bonus": 1.7,
-    "reason": "Storm of Steel produces large numbers of Shivs that massively amplify Finisher."
+      "deckCard": "Storm Of Steel",
+      "offeredCard": "Finisher",
+      "bonus": 1.7,
+      "reason": "Storm of Steel produces large numbers of Shivs that massively amplify Finisher."
     },
     {
       "deckCard": "Bloodletting",
@@ -7487,28 +7885,28 @@ const DB = {
       "reason": "Tools of the Trade discards 1 every turn — Reflex plays free when discarded. Free Draw 2 every turn."
     },
     {
-    "deckCard": "Prepared",
-    "offeredCard": "Reflex",
-    "bonus": 1.6,
-    "reason": "Prepared discards Reflex which triggers its Sly effect for free card draw."
+      "deckCard": "Prepared",
+      "offeredCard": "Reflex",
+      "bonus": 1.6,
+      "reason": "Prepared discards Reflex which triggers its Sly effect for free card draw."
     },
     {
-    "deckCard": "Prepared",
-    "offeredCard": "Tactician",
-    "bonus": 1.6,
-    "reason": "Prepared discards Tactician which provides free energy through its Sly effect."
+      "deckCard": "Prepared",
+      "offeredCard": "Tactician",
+      "bonus": 1.6,
+      "reason": "Prepared discards Tactician which provides free energy through its Sly effect."
     },
     {
-    "deckCard": "Radiate",
-    "offeredCard": "Genesis",
-    "bonus": 1.8,
-    "reason": "Genesis generates Stars every turn which Radiate converts into AoE damage."
+      "deckCard": "Radiate",
+      "offeredCard": "Genesis",
+      "bonus": 1.8,
+      "reason": "Genesis generates Stars every turn which Radiate converts into AoE damage."
     },
     {
-    "deckCard": "Dirge",
-    "offeredCard": "Capture Spirit",
-    "bonus": 1.7,
-    "reason": "Both cards generate Souls which feed Haunt and Soul Storm engines."
+      "deckCard": "Dirge",
+      "offeredCard": "Capture Spirit",
+      "bonus": 1.7,
+      "reason": "Both cards generate Souls which feed Haunt and Soul Storm engines."
     },
     {
       "deckCard": "Tools Of The Trade",
@@ -7979,18 +8377,6 @@ const DB = {
       "reason": "Fight Me! both adds Strength and double-dips on existing Strength through multi-hit damage"
     },
     {
-      "deckCard": "Rupture",
-      "offeredCard": "Bloodletting",
-      "bonus": 1.8,
-      "reason": "Bloodletting safely triggers Rupture every time you play it, turning HP loss into repeatable Strength"
-    },
-    {
-      "deckCard": "Rupture",
-      "offeredCard": "Hemokinesis",
-      "bonus": 1.3,
-      "reason": "Hemokinesis becomes even more efficient when the self-damage also grants Strength via Rupture"
-    },
-    {
       "deckCard": "Perfected Strike",
       "offeredCard": "Pommel Strike",
       "bonus": 1.1,
@@ -8031,6 +8417,900 @@ const DB = {
       "offeredCard": "Sealed Throne",
       "bonus": 1.4,
       "reason": "Refine Blade accelerates Forge plans and helps large Forge payoff cards come online faster"
+    },
+    {
+      "deckCard": "Dark Embrace",
+      "offeredCard": "Cinder",
+      "bonus": 1.2,
+      "reason": "Cinder exhausts a card every play — Dark Embrace draws a card for each exhaust. Free draw alongside 17 damage."
+    },
+    {
+      "deckCard": "Feel No Pain",
+      "offeredCard": "Cinder",
+      "bonus": 1.2,
+      "reason": "Cinder exhausts a card every play — Feel No Pain gains block for each exhaust. Free block alongside damage."
+    },
+    {
+      "deckCard": "Charon's Ashes",
+      "offeredCard": "Cinder",
+      "bonus": 1.2,
+      "reason": "Cinder exhausts a card — Charon's Ashes deals 3 AoE per exhaust. Free AoE every time Cinder is played."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Cinder",
+      "bonus": 1.0,
+      "reason": "Corruption makes skills exhaust constantly — Cinder adds another reliable exhaust trigger alongside good damage."
+    },
+    {
+      "deckCard": "Setup Strike",
+      "offeredCard": "Heavy Blade",
+      "bonus": 1.5,
+      "reason": "Setup Strike gives +2 Strength this turn — Heavy Blade has 3x Strength scaling, turning that into +6 bonus damage this turn."
+    },
+    {
+      "deckCard": "Heavy Blade",
+      "offeredCard": "Setup Strike",
+      "bonus": 1.5,
+      "reason": "Heavy Blade triples Strength — Setup Strike's temporary +2 Strength becomes +6 damage on Heavy Blade when played after."
+    },
+    {
+      "deckCard": "Setup Strike",
+      "offeredCard": "Whirlwind",
+      "bonus": 1.2,
+      "reason": "Setup Strike gives +2 Strength this turn — each Whirlwind hit gets +2 damage, multiplied across all hits."
+    },
+    {
+      "deckCard": "Setup Strike",
+      "offeredCard": "Juggling",
+      "bonus": 1.0,
+      "reason": "Juggling is multi-hit and scales with Strength — Setup Strike's temporary boost amplifies every hit."
+    },
+    {
+      "deckCard": "Setup Strike",
+      "offeredCard": "Stomp",
+      "bonus": 1.0,
+      "reason": "Stomp is multi-hit and scales with Strength — Setup Strike's temporary +2 Strength amplifies every hit."
+    },
+    {
+      "deckCard": "Double Tap",
+      "offeredCard": "Setup Strike",
+      "bonus": 1.2,
+      "reason": "Double Tap plays next attack twice — play Setup Strike into Double Tap into Heavy Blade for massive burst this turn."
+    },
+    {
+      "deckCard": "Ashen Strike",
+      "offeredCard": "Cinder",
+      "bonus": 0.8,
+      "reason": "Every Cinder play exhausts a card, growing your exhaust pile — Ashen Strike deals 3 extra damage per card in exhaust pile, so Cinder directly boosts it each play."
+    },
+    {
+      "deckCard": "Cinder",
+      "offeredCard": "Ashen Strike",
+      "bonus": 0.8,
+      "reason": "Cinder grows your exhaust pile every play — Ashen Strike deals 3 extra damage per exhausted card, making each Cinder play permanently buff your Ashen Strike."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Bully",
+      "bonus": 2.0,
+      "reason": "Tremble applies 2 Vulnerable — Bully deals 4+2 per stack, turning into 8 damage immediately after Tremble. Core Vulnerable combo."
+    },
+    {
+      "deckCard": "Bully",
+      "offeredCard": "Tremble",
+      "bonus": 2.0,
+      "reason": "Bully scales with Vulnerable stacks — Tremble is the cheapest 0-cost setup that feeds Bully directly."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Dominate",
+      "bonus": 1.8,
+      "reason": "Tremble applies 2 Vulnerable — Dominate converts each stack to 1 permanent Strength. Free 2 Strength for 0+1 energy."
+    },
+    {
+      "deckCard": "Dominate",
+      "offeredCard": "Tremble",
+      "bonus": 1.8,
+      "reason": "Dominate needs Vulnerable stacks to convert to Strength — Tremble is the cheapest 0-cost setup."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Vicious",
+      "bonus": 1.5,
+      "reason": "Tremble applies Vulnerable which Vicious amplifies by 25% — Tremble sets up Vicious's passive multiplier instantly."
+    },
+    {
+      "deckCard": "Vicious",
+      "offeredCard": "Tremble",
+      "bonus": 1.5,
+      "reason": "Vicious gives 25% amp on Vulnerable targets — Tremble is free 0-cost Vulnerable setup for Vicious."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Uppercut",
+      "bonus": 1.0,
+      "reason": "Both apply Vulnerable — Tremble stacks 2, Uppercut stacks 1, chaining them for more Vulnerable to feed Bully/Dominate."
+    },
+    {
+      "deckCard": "Taunt",
+      "offeredCard": "Bully",
+      "bonus": 1.5,
+      "reason": "Taunt applies 1 Vulnerable — Bully converts each stack to 2 extra damage. Stack Taunt + Tremble for bigger Bully turns."
+    },
+    {
+      "deckCard": "Uppercut",
+      "offeredCard": "Bully",
+      "bonus": 1.2,
+      "reason": "Uppercut applies 1 Vulnerable — Bully scales with it. Both in deck = consistent Vulnerable into Bully turns."
+    },
+    {
+      "deckCard": "Evil Eye",
+      "offeredCard": "Bully",
+      "bonus": 1.2,
+      "reason": "Evil Eye applies Vulnerable — Bully converts Vulnerable stacks to damage. Natural pairing in Vulnerable builds."
+    },
+    {
+      "deckCard": "Taunt",
+      "offeredCard": "Dominate",
+      "bonus": 1.5,
+      "reason": "Taunt applies Vulnerable — Dominate converts stacks to permanent Strength. Every Taunt makes the next Dominate stronger."
+    },
+    {
+      "deckCard": "Uppercut",
+      "offeredCard": "Dominate",
+      "bonus": 1.2,
+      "reason": "Uppercut applies Vulnerable which Dominate converts to Strength — consistent Vulnerable → Strength pipeline."
+    },
+    {
+      "deckCard": "Inflame",
+      "offeredCard": "Dominate",
+      "bonus": 1.0,
+      "reason": "Both stack Strength — Inflame provides flat Strength, Dominate provides burst Strength from Vulnerable. Stack sources."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Dark Embrace",
+      "bonus": 1.5,
+      "reason": "Drum of Battle passively exhausts 1 card each turn start — Dark Embrace draws a card for each exhaust. Free draw every turn."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Feel No Pain",
+      "bonus": 1.5,
+      "reason": "Drum passively exhausts 1 each turn — Feel No Pain gains block per exhaust. Free block every turn automatically."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Charon's Ashes",
+      "bonus": 1.5,
+      "reason": "Drum passively exhausts 1 each turn — Charon's Ashes deals 3 AoE per exhaust. Free AoE every single turn."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 2.0,
+      "reason": "Drum exhausts at turn START — Forgotten Ritual fires for +3 energy every turn automatically. Free energy engine."
+    },
+    {
+      "deckCard": "Forgotten Ritual",
+      "offeredCard": "Drum of Battle",
+      "bonus": 2.0,
+      "reason": "Drum of Battle guarantees an exhaust at turn start — Forgotten Ritual triggers for +3 energy every turn without playing extra cards."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 2.0,
+      "reason": "Corruption makes every skill exhaust — Forgotten Ritual fires for +3 energy almost every turn. Near-infinite energy loop in exhaust builds."
+    },
+    {
+      "deckCard": "Forgotten Ritual",
+      "offeredCard": "Corruption",
+      "bonus": 2.0,
+      "reason": "Forgotten Ritual needs an exhaust trigger — Corruption makes every skill exhaust, firing Ritual nearly every turn."
+    },
+    {
+      "deckCard": "True Grit",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 1.5,
+      "reason": "True Grit exhausts a card while gaining block — directly triggers Forgotten Ritual for +3 energy. Block + energy in one card."
+    },
+    {
+      "deckCard": "Burning Pact",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 1.5,
+      "reason": "Burning Pact exhausts a card to draw — also triggers Forgotten Ritual for +3 energy. Draw AND energy from one exhaust."
+    },
+    {
+      "deckCard": "Second Wind",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 1.5,
+      "reason": "Second Wind exhausts non-attacks for block — triggers Forgotten Ritual for +3 energy. Block + energy each Second Wind."
+    },
+    {
+      "deckCard": "Cinder",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 1.2,
+      "reason": "Cinder exhausts a card on play — triggers Forgotten Ritual for +3 energy. Good value on both cards in the same turn."
+    },
+    {
+      "deckCard": "Forgotten Ritual",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 2.0,
+      "reason": "Howl from Beyond exhausts at turn start each turn — Forgotten Ritual fires for +3 free energy every turn. Completely passive energy engine."
+    },
+    {
+      "deckCard": "Howl from Beyond",
+      "offeredCard": "Forgotten Ritual",
+      "bonus": 2.0,
+      "reason": "Forgotten Ritual needs a turn-start exhaust — Howl from Beyond provides exactly that every single turn. Permanent +2 energy per turn."
+    },
+    {
+      "deckCard": "Dark Embrace",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 1.5,
+      "reason": "Howl from Beyond exhausts and re-enters exhaust each turn — Dark Embrace draws a card from each exhaust. Free card draw every turn."
+    },
+    {
+      "deckCard": "Feel No Pain",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 1.5,
+      "reason": "Howl cycles through exhaust each turn, triggering Feel No Pain for free block every turn on top of the 16 free AoE."
+    },
+    {
+      "deckCard": "Charon's Ashes",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 2.0,
+      "reason": "Howl from Beyond exhausts at turn start every turn — Charon's Ashes deals 3 AoE per exhaust. Two sources of free AoE every turn."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 1.5,
+      "reason": "One-Two Punch doubles next Attack — Howl from Beyond plays twice = 32 AoE at once on top of its normal passive cycling."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Brutality",
+      "bonus": 2.0,
+      "reason": "Brutality loses 1 HP at turn start passively — Inferno fires 6 AoE automatically every single turn from Brutality alone."
+    },
+    {
+      "deckCard": "Brutality",
+      "offeredCard": "Inferno",
+      "bonus": 2.0,
+      "reason": "Inferno deals 6 AoE whenever you lose HP — Brutality's passive turn-start HP loss triggers Inferno every turn for free AoE."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Bloodletting",
+      "bonus": 1.8,
+      "reason": "Bloodletting loses HP on play — Inferno fires 6 AoE each time. Every Bloodletting becomes 6 free AoE on top of the energy."
+    },
+    {
+      "deckCard": "Bloodletting",
+      "offeredCard": "Inferno",
+      "bonus": 1.8,
+      "reason": "Inferno converts HP loss to 6 AoE — Bloodletting's HP cost triggers Inferno every play, turning energy generation into AoE."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Offering",
+      "bonus": 1.5,
+      "reason": "Offering loses 6 HP — triggers Inferno for 6 AoE alongside the 3 cards and energy. One card does everything."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Rupture",
+      "bonus": 1.5,
+      "reason": "Both benefit from HP loss — Inferno deals AoE, Rupture gains Strength. Every HP loss event powers up both simultaneously."
+    },
+    {
+      "deckCard": "Rupture",
+      "offeredCard": "Inferno",
+      "bonus": 1.5,
+      "reason": "Inferno and Rupture both trigger on HP loss — stack them together so every Bloodletting/Brutality/Offering gives Strength AND AoE."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Hemokinesis",
+      "bonus": 1.2,
+      "reason": "Hemokinesis costs 2 HP — Inferno fires 6 AoE alongside the damage. Good value per play in self-damage builds."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Combust",
+      "bonus": 1.5,
+      "reason": "Both deal AoE from HP loss — Combust loses HP and deals AoE, Inferno also fires from that HP loss. Double AoE per turn."
+    },
+    {
+      "deckCard": "Stampede",
+      "offeredCard": "Perfected Strike",
+      "bonus": 1.5,
+      "reason": "Stampede fires a random attack from hand each turn — with Perfected Strike in deck (and other Strikes) it frequently auto-plays for solid damage."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Stampede",
+      "bonus": 1.0,
+      "reason": "Both auto-fire attacks passively — Hellraiser on draw, Stampede at turn end. Strike-heavy decks benefit from both passive damage sources."
+    },
+    {
+      "deckCard": "Unrelenting",
+      "offeredCard": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "Unrelenting makes next attack 0 cost — Whirlwind (normally X-cost) becomes free, letting you dump all remaining energy into it."
+    },
+    {
+      "deckCard": "Whirlwind",
+      "offeredCard": "Unrelenting",
+      "bonus": 2.0,
+      "reason": "Whirlwind is most powerful with more energy — Unrelenting makes it free, so all energy goes into Whirlwind hits instead of paying its cost."
+    },
+    {
+      "deckCard": "Unrelenting",
+      "offeredCard": "Bludgeon",
+      "bonus": 1.8,
+      "reason": "Bludgeon costs 3 energy — Unrelenting makes it free. 12 damage into 32 free damage for just the 2-cost Unrelenting."
+    },
+    {
+      "deckCard": "Unrelenting",
+      "offeredCard": "Heavy Blade",
+      "bonus": 1.5,
+      "reason": "Heavy Blade has high Strength scaling but costs 2 — Unrelenting makes it free, getting the full Strength payoff for just 2 energy total."
+    },
+    {
+      "deckCard": "Unrelenting",
+      "offeredCard": "Double Tap",
+      "bonus": 1.2,
+      "reason": "Chain Unrelenting (free next attack) into Double Tap (attack plays twice) — one 2-cost card into one 1-cost card for a completely free doubled attack."
+    },
+    {
+      "deckCard": "Double Tap",
+      "offeredCard": "Unrelenting",
+      "bonus": 1.2,
+      "reason": "Unrelenting frees the next attack — combine with Double Tap to get a free AND doubled attack in the same turn for massive burst."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Perfected Strike",
+      "bonus": 2.0,
+      "reason": "Hellraiser auto-plays Strikes when drawn — more Strikes in deck = more Hellraiser triggers AND higher Perfected Strike base damage. Core synergy."
+    },
+    {
+      "deckCard": "Perfected Strike",
+      "offeredCard": "Hellraiser",
+      "bonus": 2.0,
+      "reason": "Perfected Strike scales with every Strike card in deck — Hellraiser rewards keeping Strikes by auto-firing them on draw."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "One-Two Punch doubles next Attack — Whirlwind plays twice for double energy-scaling AoE. Nuclear with Strength."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Reaper",
+      "bonus": 2.0,
+      "reason": "One-Two Punch doubles Reaper — double AoE damage AND double HP healing. One of the strongest plays in the game."
+    },
+    {
+      "deckCard": "Reaper",
+      "offeredCard": "One-Two Punch",
+      "bonus": 2.0,
+      "reason": "Reaper played twice = double AoE damage + double HP healing — One-Two Punch is the best enabler for this."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Bludgeon",
+      "bonus": 1.5,
+      "reason": "One-Two Punch doubles Bludgeon — 32 damage plays twice for 64 total damage at 3+1 energy cost."
+    },
+    {
+      "deckCard": "Double Tap",
+      "offeredCard": "One-Two Punch",
+      "bonus": 1.2,
+      "reason": "Both double your next attack — stack them in a turn for a theoretically tripled attack (though only 1 stacks at a time)."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Pact's End",
+      "bonus": 1.5,
+      "reason": "Corruption rapidly exhausts every skill — Pact's End condition (3+ exhausted) is met almost immediately with Corruption online."
+    },
+    {
+      "deckCard": "Pact's End",
+      "offeredCard": "Corruption",
+      "bonus": 1.5,
+      "reason": "Pact's End needs 3 exhausted cards — Corruption exhausts all skills making the condition trivial every fight."
+    },
+    {
+      "deckCard": "Dark Embrace",
+      "offeredCard": "Pact's End",
+      "bonus": 1.0,
+      "reason": "In exhaust builds where Pact's End is live, Dark Embrace is also drawing cards from the same exhaust triggers — natural co-inhabitants."
+    },
+    {
+      "deckCard": "True Grit",
+      "offeredCard": "Pact's End",
+      "bonus": 1.0,
+      "reason": "True Grit contributes to exhaust count — helps qualify Pact's End earlier in the fight."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Pommel Strike",
+      "bonus": 2.0,
+      "reason": "Pommel Strike contains 'Strike' — Hellraiser fires it for free when drawn. Pommel Strike also draws a card which may draw another Strike, potentially chaining infinitely."
+    },
+    {
+      "deckCard": "Pommel Strike",
+      "offeredCard": "Hellraiser",
+      "bonus": 2.0,
+      "reason": "Hellraiser auto-plays Pommel Strike when drawn — Pommel Strike draws a card which can chain into more Strike triggers. The core of Hellraiser infinite."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Battle Trance",
+      "bonus": 1.8,
+      "reason": "Battle Trance draws 3 cards — every Strike drawn fires for free. Draw 3 = up to 3 free Strikes in one card play."
+    },
+    {
+      "deckCard": "Battle Trance",
+      "offeredCard": "Hellraiser",
+      "bonus": 1.8,
+      "reason": "Hellraiser fires every Strike drawn — Battle Trance draws 3 cards for free, potentially firing 3 Strikes instantly."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Twin Strike",
+      "bonus": 1.5,
+      "reason": "Twin Strike contains 'Strike' — Hellraiser fires it for free when drawn. Each Twin Strike fires twice = 2 free hits automatically."
+    },
+    {
+      "deckCard": "Twin Strike",
+      "offeredCard": "Hellraiser",
+      "bonus": 1.5,
+      "reason": "Hellraiser auto-plays Twin Strike when drawn — free 2-hit attack every time Twin Strike is drawn, without spending energy."
+    },
+    {
+      "deckCard": "Hellraiser",
+      "offeredCard": "Setup Strike",
+      "bonus": 1.2,
+      "reason": "Setup Strike contains 'Strike' — Hellraiser fires it for free when drawn, giving +2 Strength that turn for all subsequent auto-fired Strikes."
+    },
+    {
+      "deckCard": "Setup Strike",
+      "offeredCard": "Hellraiser",
+      "bonus": 1.2,
+      "reason": "Hellraiser auto-plays Setup Strike when drawn — free +2 Strength each time Setup Strike is drawn, buffing all other Hellraiser auto-attacks that turn."
+    },
+    {
+      "deckCard": "Stampede",
+      "offeredCard": "Whirlwind",
+      "bonus": 1.5,
+      "reason": "Stampede fires a random Attack from hand at end of turn — Whirlwind fired this way deals damage based on remaining energy. Free AoE at turn end."
+    },
+    {
+      "deckCard": "Whirlwind",
+      "offeredCard": "Stampede",
+      "bonus": 1.5,
+      "reason": "Stampede fires Whirlwind from hand for free at end of turn — free multi-hit AoE damage each turn if Whirlwind stays in hand."
+    },
+    {
+      "deckCard": "Stampede",
+      "offeredCard": "Reaper",
+      "bonus": 1.2,
+      "reason": "Stampede can fire Reaper for free at end of turn — free AoE damage + free HP healing every turn if Reaper is in hand."
+    },
+    {
+      "deckCard": "Stampede",
+      "offeredCard": "Anger",
+      "bonus": 1.5,
+      "reason": "Stampede fires Anger for free at end of turn — Anger copies itself to discard, meaning more Anger in deck for future Stampede triggers. Self-sustaining loop."
+    },
+    {
+      "deckCard": "Anger",
+      "offeredCard": "Stampede",
+      "bonus": 1.5,
+      "reason": "Anger self-replicates — Stampede fires an Anger copy for free each turn, adding another Anger to discard. Snowballing free attacks."
+    },
+    {
+      "deckCard": "Dominate",
+      "offeredCard": "Evil Eye",
+      "bonus": 1.2,
+      "reason": "Evil Eye applies Vulnerable — Dominate converts each Vulnerable stack to permanent Strength. Apply Vulnerable with Evil Eye then cash out with Dominate."
+    },
+    {
+      "deckCard": "Evil Eye",
+      "offeredCard": "Dominate",
+      "bonus": 1.2,
+      "reason": "Dominate converts Vulnerable stacks to Strength — Evil Eye provides Vulnerable for Dominate to convert."
+    },
+    {
+      "deckCard": "Dominate",
+      "offeredCard": "Thunderclap",
+      "bonus": 1.2,
+      "reason": "Thunderclap applies Vulnerable to ALL enemies — after clearing groups, use Dominate to convert those stacks to permanent Strength for boss fights."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Colossus",
+      "bonus": 1.2,
+      "reason": "Tremble applies Vulnerable to enemy (they take 50% more damage) — Colossus then makes you take 50% less damage FROM that Vulnerable enemy. Offense AND defense together."
+    },
+    {
+      "deckCard": "Colossus",
+      "offeredCard": "Tremble",
+      "bonus": 1.2,
+      "reason": "Colossus halves damage from Vulnerable enemies — Tremble applies Vulnerable, setting up Colossus's defensive bonus while also amplifying your damage output."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Pact's End",
+      "bonus": 1.5,
+      "reason": "Drum of Battle exhausts 1 card every turn start — passively builds toward Pact's End's 3-exhaust condition and keeps it satisfied throughout a long fight."
+    },
+    {
+      "deckCard": "Pact's End",
+      "offeredCard": "Drum of Battle",
+      "bonus": 1.5,
+      "reason": "Pact's End needs 3+ exhausted cards — Drum of Battle passively exhausts 1 per turn, reliably meeting and maintaining the condition."
+    },
+    {
+      "deckCard": "Drum of Battle",
+      "offeredCard": "Ashen Strike",
+      "bonus": 1.0,
+      "reason": "Drum of Battle exhausts 1 card every turn, growing the exhaust pile — Ashen Strike deals 3 extra damage per card in exhaust pile, scaling through the whole fight."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Sword Boomerang",
+      "bonus": 1.2,
+      "reason": "One-Two Punch plays next attack twice — Sword Boomerang played twice = 6 random hits instead of 3. Each hit benefits from Strength."
+    },
+    {
+      "deckCard": "Sword Boomerang",
+      "offeredCard": "One-Two Punch",
+      "bonus": 1.2,
+      "reason": "One-Two Punch doubles Sword Boomerang — 6 random hits that all benefit from Strength scaling."
+    },
+    {
+      "deckCard": "Pact's End",
+      "offeredCard": "Second Wind",
+      "bonus": 1.0,
+      "reason": "Second Wind exhausts all non-attacks — quickly satisfies and re-satisfies Pact's End's condition while gaining block."
+    },
+    {
+      "deckCard": "Second Wind",
+      "offeredCard": "Pact's End",
+      "bonus": 1.0,
+      "reason": "Second Wind contributes multiple exhausted cards at once — helps qualify and maintain Pact's End's 3-exhaust condition."
+    },
+    {
+      "deckCard": "Howl from Beyond",
+      "offeredCard": "Ashen Strike",
+      "bonus": 1.0,
+      "reason": "Howl from Beyond exhausts at start of every turn — each cycle grows the exhaust pile, directly increasing Ashen Strike's bonus damage throughout the fight."
+    },
+    {
+      "deckCard": "Ashen Strike",
+      "offeredCard": "Howl from Beyond",
+      "bonus": 1.0,
+      "reason": "Howl from Beyond passively exhausts every turn — consistently grows the exhaust pile that Ashen Strike scales with."
+    },
+    {
+      "deckCard": "Rupture",
+      "offeredCard": "Tear Asunder",
+      "bonus": 2.0,
+      "reason": "Tear Asunder hits more times per HP lost this combat — Rupture gives Strength each HP loss, so every stack that empowers Tear Asunder also gave you Strength. Both scale off the same resource."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Rupture",
+      "bonus": 2.0,
+      "reason": "Rupture gains Strength from HP loss — every event that adds a Tear Asunder hit also gave Rupture Strength. Stack both for exponential scaling."
+    },
+    {
+      "deckCard": "Bloodletting",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.8,
+      "reason": "Bloodletting loses HP every play — each use adds a hit to Tear Asunder permanently this combat. More Bloodlettings = more Tear Asunder hits."
+    },
+    {
+      "deckCard": "Brutality",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.8,
+      "reason": "Brutality passively loses 1 HP each turn — each turn adds another hit to Tear Asunder without spending cards. Compounds over long fights."
+    },
+    {
+      "deckCard": "Offering",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Offering loses 6 HP in one play — immediately adds 6 hits to Tear Asunder for the rest of the combat. Explosive scaling."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Inferno triggers on HP loss — every HP loss event adds both an Inferno AoE proc AND a Tear Asunder hit. Double scaling from same source."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Inferno",
+      "bonus": 1.5,
+      "reason": "Both scale off HP loss frequency — Inferno deals AoE while Tear Asunder hits multiply. Stack self-damage for both to compound simultaneously."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Bloodletting",
+      "bonus": 1.8,
+      "reason": "Each Bloodletting play permanently adds hits to Tear Asunder this combat — more plays = more hits per Tear Asunder cast."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Brutality",
+      "bonus": 1.8,
+      "reason": "Brutality's passive HP loss adds one Tear Asunder hit per turn for free — by turn 5 that's 5 extra hits on every Tear Asunder."
+    },
+    {
+      "deckCard": "Double Tap",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Double Tap plays Tear Asunder twice — if you have 5 HP-loss events this combat, that's 2x (5+1 hits) = 12 hits total for 3 energy."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "One-Two Punch doubles Tear Asunder — with accumulated HP losses the doubled hit count becomes massive burst."
+    },
+    {
+      "deckCard": "Anger",
+      "offeredCard": "Headbutt",
+      "bonus": 2.0,
+      "reason": "Anger puts a copy into discard — Headbutt retrieves cards from discard to top of draw pile. Chain Headbutt → draw Anger → play Anger → new copy in discard → repeat for near-infinite free attacks."
+    },
+    {
+      "deckCard": "Headbutt",
+      "offeredCard": "Anger",
+      "bonus": 2.0,
+      "reason": "Headbutt puts discard cards on top of draw — with Anger copies in discard, you can chain free 0-cost attacks repeatedly each turn."
+    },
+    {
+      "deckCard": "Rupture",
+      "offeredCard": "Limit Break",
+      "bonus": 2.0,
+      "reason": "Rupture builds Strength from HP loss — Limit Break doubles whatever Rupture has accumulated. Stack HP-loss events then double the resulting Strength for exponential scaling."
+    },
+    {
+      "deckCard": "Limit Break",
+      "offeredCard": "Rupture",
+      "bonus": 2.0,
+      "reason": "Limit Break doubles your Strength — Rupture is the fastest way to generate Strength through self-damage, making Limit Break's doubling more powerful."
+    },
+    {
+      "deckCard": "Feed",
+      "offeredCard": "Reaper",
+      "bonus": 1.5,
+      "reason": "Feed raises max HP — Reaper heals for unblocked damage dealt. Higher max HP means you have more room to recover, and Feed synergizes by keeping your HP pool healthy for Reaper to exploit."
+    },
+    {
+      "deckCard": "Reaper",
+      "offeredCard": "Feed",
+      "bonus": 1.5,
+      "reason": "Reaper heals for unblocked damage — Feed raises max HP so there's more HP to recover, making Reaper's healing more impactful in the self-damage build."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Brand",
+      "bonus": 1.5,
+      "reason": "Corruption makes Brand cost 0 and auto-exhaust — Brand already exhausts a card AND gives Strength, so with Corruption it's a free Strength generator that also triggers Dark Embrace/FNP."
+    },
+    {
+      "deckCard": "Brand",
+      "offeredCard": "Corruption",
+      "bonus": 1.5,
+      "reason": "Brand exhausts a card when played — Corruption makes it cost 0, turning Brand into a free exhaust trigger for Dark Embrace/FNP every time. Also gives 1 Strength per cast."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Thrash",
+      "bonus": 1.2,
+      "reason": "Corruption makes Thrash cost 0 and auto-exhaust — Thrash deals scaling damage while exhausting, triggering Dark Embrace/FNP on top of strong damage."
+    },
+    {
+      "deckCard": "Thrash",
+      "offeredCard": "Corruption",
+      "bonus": 1.2,
+      "reason": "Thrash exhausts a card when played — Corruption makes it free while preserving the exhaust trigger for payoffs like Dark Embrace and Feel No Pain."
+    },
+    {
+      "deckCard": "Second Wind",
+      "offeredCard": "Body Slam",
+      "bonus": 1.5,
+      "reason": "Second Wind exhausts non-attacks for block — that block directly fuels Body Slam's damage. More non-attacks exhausted = more block = bigger Body Slam."
+    },
+    {
+      "deckCard": "Body Slam",
+      "offeredCard": "Second Wind",
+      "bonus": 1.5,
+      "reason": "Body Slam damage = block — Second Wind generates large amounts of block by exhausting skills, making each Body Slam hit harder."
+    },
+    {
+      "deckCard": "Taunt",
+      "offeredCard": "Colossus",
+      "bonus": 1.5,
+      "reason": "Taunt applies Vulnerable to enemies — Colossus reduces damage taken from Vulnerable enemies by 50% this turn. Combine for block + virtually halved incoming damage on the same turn."
+    },
+    {
+      "deckCard": "Colossus",
+      "offeredCard": "Taunt",
+      "bonus": 1.5,
+      "reason": "Colossus cuts damage from Vulnerable enemies by 50% this turn — Taunt applies Vulnerable while giving block, setting up Colossus's damage reduction."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Crimson Mantle",
+      "bonus": 1.5,
+      "reason": "Crimson Mantle passively loses 1 HP each turn — Inferno fires 6 AoE from that HP loss automatically. Two passives together = guaranteed free AoE every single turn."
+    },
+    {
+      "deckCard": "Crimson Mantle",
+      "offeredCard": "Inferno",
+      "bonus": 1.5,
+      "reason": "Inferno deals 6 AoE whenever you lose HP — Crimson Mantle's guaranteed -1 HP per turn triggers Inferno passively every turn for free."
+    },
+    {
+      "deckCard": "Fiend Fire",
+      "offeredCard": "Ashen Strike",
+      "bonus": 1.8,
+      "reason": "Fiend Fire exhausts your entire hand — Ashen Strike deals 3 extra damage per card in exhaust pile. Play Fiend Fire first to massively grow the exhaust pile, then Ashen Strike hits for huge damage."
+    },
+    {
+      "deckCard": "Ashen Strike",
+      "offeredCard": "Fiend Fire",
+      "bonus": 1.8,
+      "reason": "Ashen Strike scales with exhaust pile size — Fiend Fire exhausts the whole hand at once, giving Ashen Strike a massive damage boost immediately after."
+    },
+    {
+      "deckCard": "Dark Embrace",
+      "offeredCard": "Pyre",
+      "bonus": 1.5,
+      "reason": "Pyre exhausts your entire hand for damage — Dark Embrace draws a card for each exhaust. Pyre hits hard AND refills your hand via Dark Embrace simultaneously."
+    },
+    {
+      "deckCard": "Pyre",
+      "offeredCard": "Dark Embrace",
+      "bonus": 1.5,
+      "reason": "Dark Embrace draws on exhaust — Pyre exhausts the whole hand, triggering Dark Embrace for each card. After Pyre, Dark Embrace draws back multiple cards."
+    },
+    {
+      "deckCard": "Expect A Fight",
+      "offeredCard": "Battle Trance",
+      "bonus": 1.5,
+      "reason": "Expect A Fight gives 1 energy per Attack in hand at start of combat — Battle Trance draws 3, often attacks, maximizing the energy payout from Expect A Fight."
+    },
+    {
+      "deckCard": "Battle Trance",
+      "offeredCard": "Expect A Fight",
+      "bonus": 1.5,
+      "reason": "Battle Trance draws 3 cards — with a full attack-heavy hand, Expect A Fight converts those attacks into massive energy at start of fight."
+    },
+    {
+      "deckCard": "Taunt",
+      "offeredCard": "Dropkick",
+      "bonus": 1.5,
+      "reason": "Dropkick refunds energy if target is Vulnerable — Taunt applies Vulnerable first, making Dropkick a 0-net-cost attack every time."
+    },
+    {
+      "deckCard": "Tremble",
+      "offeredCard": "Dropkick",
+      "bonus": 1.5,
+      "reason": "Tremble applies 2 Vulnerable for free — Dropkick then refunds its energy cost since target is Vulnerable. 0-cost attack chain."
+    },
+    {
+      "deckCard": "Bash",
+      "offeredCard": "Dropkick",
+      "bonus": 1.2,
+      "reason": "Bash applies Vulnerable — Dropkick gets its energy refunded since target is Vulnerable, chaining into a near-free attack."
+    },
+    {
+      "deckCard": "Uppercut",
+      "offeredCard": "Dropkick",
+      "bonus": 1.2,
+      "reason": "Uppercut applies Vulnerable — Dropkick chains after for a refunded energy cost on the same turn."
+    },
+    {
+      "deckCard": "Headbutt",
+      "offeredCard": "Offering",
+      "bonus": 1.5,
+      "reason": "Headbutt puts a discard pile card on top of draw — use it to retrieve Offering from discard so you can play Offering again next turn for another explosive draw+energy+self-damage turn."
+    },
+    {
+      "deckCard": "Offering",
+      "offeredCard": "Headbutt",
+      "bonus": 1.5,
+      "reason": "Offering is a once-per-cycle explosive card — Headbutt retrieves it from discard to replay next turn, giving you repeated Offering turns."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Battle Trance",
+      "bonus": 1.5,
+      "reason": "Corruption makes skills cost 0 — Battle Trance draws 3, potentially all skills that now play for free. Explosive energy-free turn when you have skill-heavy hand."
+    },
+    {
+      "deckCard": "Battle Trance",
+      "offeredCard": "Corruption",
+      "bonus": 1.5,
+      "reason": "Battle Trance draws 3 cards — with Corruption active, any skills drawn are free, turning Battle Trance's draw into free plays."
+    },
+    {
+      "deckCard": "Rupture",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Rupture gains Strength from HP loss — Tear Asunder scales its hits from the same HP losses. Both benefit from every self-damage event."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Rupture",
+      "bonus": 1.5,
+      "reason": "Tear Asunder scales with total HP losses this combat — Rupture gains Strength from those same losses. One self-damage engine powers both."
+    },
+    {
+      "deckCard": "Bloodletting",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.8,
+      "reason": "Bloodletting loses HP every play — each one adds an extra hit to Tear Asunder permanently for the rest of the fight."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Bloodletting",
+      "bonus": 1.8,
+      "reason": "Tear Asunder scales with total HP losses — Bloodletting played multiple times stacks extra hits, making Tear Asunder hit harder each time."
+    },
+    {
+      "deckCard": "Brutality",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Brutality loses 1 HP every turn passively — each turn adds another hit to Tear Asunder automatically for the rest of the fight."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Brutality",
+      "bonus": 1.5,
+      "reason": "Tear Asunder scales with HP losses — Brutality guarantees one extra hit per turn passively, compounding across the whole fight."
+    },
+    {
+      "deckCard": "Inferno",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Inferno fires AoE from HP loss — Tear Asunder adds more hits from the same HP losses. Both scale off the same self-damage events."
+    },
+    {
+      "deckCard": "Tear Asunder",
+      "offeredCard": "Inferno",
+      "bonus": 1.5,
+      "reason": "Tear Asunder scales with HP losses — Inferno converts those same HP losses to 6 AoE each. Stack both for maximum value from every HP loss."
+    },
+    {
+      "deckCard": "Offering",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.2,
+      "reason": "Offering loses 6 HP in one card — adds a permanent extra hit to Tear Asunder for the rest of the fight alongside the cards and energy."
+    },
+    {
+      "deckCard": "Double Tap",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "Double Tap plays next attack twice — Tear Asunder late in a fight can hit 8-10 times naturally, doubled to 16-20 hits is devastating."
+    },
+    {
+      "deckCard": "One-Two Punch",
+      "offeredCard": "Tear Asunder",
+      "bonus": 1.5,
+      "reason": "One-Two Punch doubles next attack — Tear Asunder with 8 accumulated HP losses hits 9 times, doubled to 18 hits for massive damage."
     }
   ],
   "dupePenalties": {
@@ -8064,7 +9344,30 @@ const DB = {
     "Demesne": -2.5,
     "Haunt": -0.5,
     "Devour Life": -1.5,
-    "End Of Days": -2.0
+    "End Of Days": -2.0,
+    "Inferno": -2.5,
+    "Aggression": -2.5,
+    "Stampede": -2.5,
+    "Hellraiser": -2.5,
+    "Drum of Battle": -2.5,
+    "Dead Branch": -2.5,
+    "Colossus": -2.5,
+    "Unmovable": -2.5,
+    "Expect A Fight": -2.5,
+    "Vicious": -2.0,
+    "Evil Eye": -2.0,
+    "Brand": -2.0,
+    "Stoke": -2.0,
+    "Thrash": -1.5,
+    "Primal Force": -2.0,
+    "Entrench": -1.5,
+    "Impervious": -1.5,
+    "Second Wind": -1.5,
+    "Battle Trance": -1.5,
+    "Offering": -1.5,
+    "Burning Pact": -1.5,
+    "Limit Break": -1.5,
+    "Brutality": -1.2
   },
   "names": [
     {
@@ -8619,7 +9922,10 @@ const DB = {
       "n": "Pillage",
       "c": "ironclad"
     },
-    { "n": "Stone Armor", "c": "ironclad" },
+    {
+      "n": "Stone Armor",
+      "c": "ironclad"
+    },
     {
       "n": "Pommel Strike",
       "c": "ironclad"
@@ -9459,6 +10765,78 @@ const DB = {
     {
       "n": "Well-Laid Plans",
       "c": "silent"
+    },
+    {
+      "n": "Cinder",
+      "c": "ironclad"
+    },
+    {
+      "n": "Havoc",
+      "c": "ironclad"
+    },
+    {
+      "n": "Setup Strike",
+      "c": "ironclad"
+    },
+    {
+      "n": "Tremble",
+      "c": "ironclad"
+    },
+    {
+      "n": "Bully",
+      "c": "ironclad"
+    },
+    {
+      "n": "Demonic Shield",
+      "c": "ironclad"
+    },
+    {
+      "n": "Dominate",
+      "c": "ironclad"
+    },
+    {
+      "n": "Drum of Battle",
+      "c": "ironclad"
+    },
+    {
+      "n": "Forgotten Ritual",
+      "c": "ironclad"
+    },
+    {
+      "n": "Howl from Beyond",
+      "c": "ironclad"
+    },
+    {
+      "n": "Inferno",
+      "c": "ironclad"
+    },
+    {
+      "n": "Stampede",
+      "c": "ironclad"
+    },
+    {
+      "n": "Unrelenting",
+      "c": "ironclad"
+    },
+    {
+      "n": "Hellraiser",
+      "c": "ironclad"
+    },
+    {
+      "n": "One-Two Punch",
+      "c": "ironclad"
+    },
+    {
+      "n": "Pact's End",
+      "c": "ironclad"
+    },
+    {
+      "n": "Tear Asunder",
+      "c": "ironclad"
+    },
+    {
+      "n": "Tear Asunder",
+      "c": "ironclad"
     }
   ]
 };
