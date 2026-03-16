@@ -7275,7 +7275,7 @@ const DB = {
   "offeredCard": "Fiend Fire",
   "bonus": 1.6,
   "reason": "Fiend Fire exhausts the entire hand, drawing multiple cards through Dark Embrace."
-}
+},
     {
     "deckCard": "Stone Armor",
     "offeredCard": "Juggernaut",
