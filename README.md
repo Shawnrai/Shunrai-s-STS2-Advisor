@@ -73,6 +73,11 @@ It should be treated as a helper, not a perfect decision maker.
 
 ---
 
+## Reddit Thread
+https://www.reddit.com/r/slaythespire/comments/1rqq306/sts2_tool_reward_card_helper_helps_decide_which/
+
+---
+
 ## License
 
 MIT License © 2026 Shunrai
