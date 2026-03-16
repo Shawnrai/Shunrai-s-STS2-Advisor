@@ -42,7 +42,7 @@ Right now it mainly relies on:
 - some unconventional card combinations I’ve experimented with that might work well together
 - some AI-assisted exploration of card synergies and how certain cards can interact or enable specific builds
 
--
+---
 
 ## Known issues
 
