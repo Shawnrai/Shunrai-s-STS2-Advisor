@@ -31,8 +31,31 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 
 ---
 ## Character Support
-# Ironclad
+**_Ironclad_**
+- 195 different combos between cards
+- All cards supported
+- Archetypes: Strike, Bloodletting, Exhaust, Strength, Block
 
+**_Silent_** - unfinished
+- 29 combos between cards
+- 65 cards supported
+- Archetypes: Sly, Poison, Shiv
+- Unfinished
+
+**_Regent_**
+- 21 different combos between cards
+- 60 cards supported
+- Archetypes: Strike, Bloodletting, Exhaust, Strength, Block
+- Unfinished
+
+**_Necrobinder_**
+- 21 combos between cards
+- 56 cards supported
+- Archetypes: Soul, Osty, Doom
+- Unfinished
+
+**_Defect_**
+- Not enough character understanding
 
 ---
 
