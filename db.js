@@ -7268,33 +7268,21 @@ const DB = {
   },
   "combos": [
     {
-      "deckCard": "Barricade",
-      "offeredCard": "Juggernaut",
-      "bonus": 1.5,
-      "reason": "Both core block build cards — Barricade stacks retained block, Juggernaut deals damage whenever you gain block"
-    },
-    {
     "deckCard": "Juggernaut",
     "offeredCard": "Stone Armor",
-    "bonus": 1.2,
+    "bonus": 2,
     "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
     },
     {
     "deckCard": "Stone Armor",
     "offeredCard": "Juggernaut",
-    "bonus": 1.2,
+    "bonus": 2,
     "reason": "Juggernaut converts Stone Armor's repeated Block from Plating into recurring damage."
-    },
-    {
-      "deckCard": "Juggernaut",
-      "offeredCard": "Barricade",
-      "bonus": 1.5,
-      "reason": "Barricade keeps block between turns, giving Juggernaut repeated triggers every time you play block cards"
     },
     {
       "deckCard": "Barricade",
       "offeredCard": "Body Slam",
-      "bonus": 2.0,
+      "bonus": 3.0,
       "reason": "Body Slam damage = current block — Barricade stacks block over turns making each Body Slam devastating"
     },
     {
