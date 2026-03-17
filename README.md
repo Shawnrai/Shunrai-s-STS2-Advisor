@@ -45,7 +45,7 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 - 57 different combos between cards
 - All cards supported
 - Archetypes: Stars, Forge
-- 
+  
 **_Necrobinder_**
 - 60 combos between cards
 - All cards supported
