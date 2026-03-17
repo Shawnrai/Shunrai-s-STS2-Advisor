@@ -652,15 +652,17 @@ function getBuildTag(builds, da) {
   if (!builds || builds.length === 0) return '';
   const specific = builds.filter(b => b !== 'any');
   if (specific.length === 0) return '';
-  let chosen = specific[0];
+  // Sort detected archetypes first
+  let sorted = [...specific];
   if (da && da.detected && da.detected.length > 0) {
     const detectedIds = da.detected.map(d => d.arch.id);
-    const match = specific.find(b => detectedIds.includes(b));
-    if (match) chosen = match;
+    sorted.sort((a, b) => (detectedIds.includes(a)?0:1) - (detectedIds.includes(b)?0:1));
   }
-  const tag = BUILD_TAGS[chosen];
-  if (!tag) return '';
-  return `<span class="build-tag" style="color:${tag.color};border-color:${tag.color};background:${tag.bg}">${tag.emoji} ${tag.label}</span>`;
+  return sorted.map(b => {
+    const tag = BUILD_TAGS[b];
+    if (!tag) return '';
+    return `<span class="build-tag" style="color:${tag.color};border-color:${tag.color};background:${tag.bg}">${tag.emoji} ${tag.label}</span>`;
+  }).join('');
 }
 
 function resultHTML(s, mode, da) {
