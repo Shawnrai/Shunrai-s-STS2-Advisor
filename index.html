@@ -632,10 +632,24 @@ function analyzeRemoval() {
   const safeCuts = scored.filter(s => s.safeToRemove);
 
   let removalVerdict = '';
-  if (topScore < 2.0) {
-    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">No obvious cuts right now - every card is pulling its weight. Spending gold on removal isn't worth it.</div></div>`;
+  const tooSmall = deck.length <= 8;
+  // Count remaining basic strikes for context
+  const strikesInDeck = deck.filter(c => {
+    const n = c.name.toLowerCase();
+    return n.includes('strike') &&
+      !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x=>n.includes(x));
+  }).length;
+
+  if (tooSmall && topScore < 4.0) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Deck Too Thin</div><div class="verdict-text">Only ${deck.length} cards — don't remove anything yet except Curses. Add more cards first.</div></div>`;
+  } else if (safeCuts.length === 0 && strikesInDeck === 0 && topScore < 2.5) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">✅ Deck Is Healthy</div><div class="verdict-text">No Strikes left and every card is contributing. Save your gold — removal isn't worth it right now.</div></div>`;
+  } else if (topScore < 2.5) {
+    removalVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Save Your Gold</div><div class="verdict-text">Every card is contributing to your current build. Spend gold elsewhere.</div></div>`;
   } else if (safeCuts.length === 1) {
-    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Only <strong>${safeCuts[0].name}</strong> is worth removing. After that, keep your gold.</div></div>`;
+    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ One Clear Cut</div><div class="verdict-text">Remove <strong>${safeCuts[0].name}</strong> — it's the obvious cut. Re-evaluate after.</div></div>`;
+  } else if (safeCuts.length > 1) {
+    removalVerdict = `<div class="verdict"><div class="verdict-title">✂ ${safeCuts.length} Cuts Available</div><div class="verdict-text">Start with <strong>${safeCuts[0].name}</strong> — it's the weakest link. Re-evaluate after each removal since the calculation changes.</div></div>`;
   }
 
   resultEl.innerHTML = removalVerdict + scored.map((s,i) => {

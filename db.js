@@ -10737,6 +10737,7 @@ const DB = {
     }
   ],
   "dupePenalties": {
+    "Stone Armor": -4,
     "Barricade": -99,
     "Demon Form": -2.5,
     "Corruption": -2.5,
