@@ -26,6 +26,24 @@ function ensureDbNames() {
 ensureDbNames();
 
 
+const STARTER_NAMES = new Set([
+  'strike','defend','wound','burn','dazed','slimed','void',
+  'bash',
+  'survivor','neutralize',
+  'zap','dualcast',
+  'venerate',
+  'soul spark',
+  'shiv','debris',
+]);
+
+const STARTERS = {
+  ironclad:    ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Bash'],
+  silent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Defend','Survivor','Neutralize'],
+  defect:      ['Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Zap','Dualcast'],
+  regent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Venerate'],
+  necrobinder: ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Soul Spark'],
+};
+
 function isStarter(cardName) {
   const n = cardName.toLowerCase();
   if (STARTER_NAMES.has(n)) return true;
@@ -547,23 +565,7 @@ function gradeColor(g) {
   return {S:'var(--s)',A:'var(--a)',B:'var(--b)',C:'var(--c)',D:'var(--d)',F:'var(--f)'}[g]||'var(--f)';
 }
 
-const STARTER_NAMES = new Set([
-  'strike','defend','wound','burn','dazed','slimed','void',
-  'bash',
-  'survivor','neutralize',
-  'zap','dualcast',
-  'venerate',
-  'soul spark',
-  'shiv','debris',
-]);
 
-const STARTERS = {
-  ironclad:    ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Bash'],
-  silent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Defend','Survivor','Neutralize'],
-  defect:      ['Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Zap','Dualcast'],
-  regent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Venerate'],
-  necrobinder: ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Soul Spark'],
-};
 
 function floorToAct(f) {
   return f <= 17 ? 1 : f <= 34 ? 2 : f <= 50 ? 3 : 4;
