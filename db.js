@@ -4009,7 +4009,7 @@ const DB = {
       },
       "DEFRAGMENT": {
         "id": "Defragment",
-        "tier": "A",
+        "tier": "S",
         "builds": [
           "orb"
         ],
@@ -4029,8 +4029,8 @@ const DB = {
         "role": "engine"
       },
       "ALL_FOR_ONE": {
-        "id": "All For One",
-        "tier": "S",
+        "id": "All for One",
+        "tier": "C",
         "builds": [
           "claw"
         ],
@@ -4053,7 +4053,7 @@ const DB = {
       },
       "CLAW": {
         "id": "Claw",
-        "tier": "A",
+        "tier": "D",
         "builds": [
           "claw"
         ],
@@ -4074,51 +4074,29 @@ const DB = {
         ],
         "role": "generator"
       },
-      "ELECTRODYNAMICS": {
-        "id": "Electrodynamics",
-        "tier": "A",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "lightning",
-          "orb",
-          "focus",
-          "aoe"
-        ],
-        "anti": [
-          "claw"
-        ],
-        "notes": "Lightning hits ALL enemies instead of random. Game-changing for orb builds.",
-        "mech": [
-          "orb_upgrade",
-          "aoe",
-          "lightning"
-        ],
-        "role": "engine"
-      },
       "BIASED_COGNITION": {
         "id": "Biased Cognition",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "orb"
         ],
         "syn": [
-          "focus",
           "orb",
+          "focus",
           "scaling"
         ],
         "anti": [],
-        "notes": "Massive Focus gain. With enough Focus, orbs become overwhelming.",
+        "notes": "Gain 4 Focus. Each turn, lose 1 Focus. B-tier — enormous immediate Focus boost (4 Focus = +4 to all Orb effects). Decays 1 per turn but still potent. With Loop maintaining orbs, still very strong.",
         "mech": [
           "focus",
+          "passive",
           "scaling"
         ],
         "role": "engine"
       },
       "UPROAR": {
         "id": "Uproar",
-        "tier": "S",
+        "tier": "D",
         "builds": [
           "any"
         ],
@@ -4196,7 +4174,7 @@ const DB = {
       },
       "COLD_SNAP": {
         "id": "Cold Snap",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "orb"
         ],
@@ -4216,7 +4194,7 @@ const DB = {
       },
       "GLACIER": {
         "id": "Glacier",
-        "tier": "B",
+        "tier": "S",
         "builds": [
           "orb"
         ],
@@ -4236,7 +4214,7 @@ const DB = {
       },
       "DARKNESS": {
         "id": "Darkness",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "orb"
         ],
@@ -4277,7 +4255,7 @@ const DB = {
       },
       "COMPILE_DRIVER": {
         "id": "Compile Driver",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "claw",
           "orb"
@@ -4297,7 +4275,7 @@ const DB = {
       },
       "SCRAPE": {
         "id": "Scrape",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "claw"
         ],
@@ -4317,8 +4295,8 @@ const DB = {
         "role": "generator"
       },
       "GO_FOR_THE_EYES": {
-        "id": "Go For The Eyes",
-        "tier": "A",
+        "id": "Go for the Eyes",
+        "tier": "B",
         "builds": [
           "claw",
           "any"
@@ -4362,7 +4340,7 @@ const DB = {
         "role": "generator"
       },
       "MULTICAST": {
-        "id": "Multicast",
+        "id": "Multi-Cast",
         "tier": "B",
         "builds": [
           "orb"
@@ -4399,30 +4377,9 @@ const DB = {
         ],
         "role": "payoff"
       },
-      "STATIC_DISCHARGE": {
-        "id": "Static Discharge",
-        "tier": "C",
-        "builds": [
-          "orb",
-          "any"
-        ],
-        "syn": [
-          "lightning",
-          "orb"
-        ],
-        "anti": [
-          "claw"
-        ],
-        "notes": "Channel lightning on taking damage. Strong passive orb generation.",
-        "mech": [
-          "lightning",
-          "passive"
-        ],
-        "role": "generator"
-      },
       "SUPERCRITICAL": {
         "id": "Supercritical",
-        "tier": "A",
+        "tier": "S",
         "builds": [
           "orb"
         ],
@@ -4460,7 +4417,7 @@ const DB = {
       },
       "REBOUND": {
         "id": "Rebound",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "orb",
           "any"
@@ -4476,141 +4433,29 @@ const DB = {
         ],
         "role": "generator"
       },
-      "BLIZZARD": {
-        "id": "Blizzard",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "frost",
-          "orb",
-          "aoe"
-        ],
-        "anti": [],
-        "notes": "AoE damage based on frost channeled. Good in frost builds.",
-        "mech": [
-          "frost",
-          "aoe",
-          "damage"
-        ],
-        "role": "payoff"
-      },
-      "BULLSEYE": {
-        "id": "Bullseye",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "lightning",
-          "orb",
-          "damage"
-        ],
-        "anti": [],
-        "notes": "Damage + more orb interaction.",
-        "mech": [
-          "damage",
-          "lightning"
-        ],
-        "role": "payoff"
-      },
-      "AGGREGATE": {
-        "id": "Aggregate",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "orb",
-          "energy_gain"
-        ],
-        "anti": [],
-        "notes": "Energy per orb type. Decent energy generation.",
-        "mech": [
-          "energy_gain",
-          "orb"
-        ],
-        "role": "generator"
-      },
       "STORM": {
         "id": "Storm",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "orb"
         ],
         "syn": [
-          "lightning",
           "orb",
-          "aoe"
+          "lightning",
+          "power"
         ],
         "anti": [],
-        "notes": "Channel lightning per skill played. AoE with skills.",
+        "notes": "Whenever you play a Power, Channel 1 Lightning. C-tier — generates Lightning passively for each Power. In Power-heavy builds, good Lightning generation.",
         "mech": [
-          "lightning",
+          "orb_channel",
           "passive",
-          "aoe"
-        ],
-        "role": "generator"
-      },
-      "RECURSION": {
-        "id": "Recursion",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "orb",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "Evoke then re-channel same orb. Cycling key orbs.",
-        "mech": [
-          "evoke",
-          "orb_channel"
-        ],
-        "role": "generator"
-      },
-      "FORCE_FIELD": {
-        "id": "Force Field",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "orb",
-          "block"
-        ],
-        "anti": [],
-        "notes": "Cost reduces per orb type. Free in diverse builds.",
-        "mech": [
-          "block",
-          "cost_reduction"
-        ],
-        "role": "payoff"
-      },
-      "CONSUME": {
-        "id": "Consume",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "focus",
-          "orb",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "Remove orb slot for Focus. Powerful in orb builds.",
-        "mech": [
-          "focus",
-          "scaling"
+          "lightning"
         ],
         "role": "engine"
       },
       "SKIM": {
         "id": "Skim",
-        "tier": "B",
+        "tier": "S",
         "builds": [
           "any"
         ],
@@ -4625,7 +4470,7 @@ const DB = {
         "role": "generator"
       },
       "TURBO": {
-        "id": "Turbo",
+        "id": "TURBO",
         "tier": "B",
         "builds": [
           "claw",
@@ -4642,28 +4487,9 @@ const DB = {
         ],
         "role": "generator"
       },
-      "PANACHE": {
-        "id": "Panache",
-        "tier": "B",
-        "builds": [
-          "claw"
-        ],
-        "syn": [
-          "zero_cost",
-          "aoe",
-          "claw"
-        ],
-        "anti": [],
-        "notes": "Deal 10 to all per 5 cards played. Great with claw spam.",
-        "mech": [
-          "aoe",
-          "per_card_payoff"
-        ],
-        "role": "payoff"
-      },
       "METEOR_STRIKE": {
         "id": "Meteor Strike",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "orb"
         ],
@@ -4683,7 +4509,7 @@ const DB = {
       },
       "ZAP": {
         "id": "Zap",
-        "tier": "C",
+        "tier": "D",
         "builds": [
           "orb"
         ],
@@ -4717,83 +4543,9 @@ const DB = {
         ],
         "role": "generator"
       },
-      "FINESSE": {
-        "id": "Finesse",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "draw",
-          "block"
-        ],
-        "anti": [],
-        "notes": "Draw 1, block 2. Not efficient enough.",
-        "mech": [
-          "draw",
-          "block"
-        ],
-        "role": "generator"
-      },
-      "LOCKON": {
-        "id": "Lockon",
-        "tier": "C",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "lightning",
-          "orb",
-          "vulnerable"
-        ],
-        "anti": [],
-        "notes": "Vulnerable. Useful with focus builds.",
-        "mech": [
-          "vulnerable"
-        ],
-        "role": "generator"
-      },
-      "THUNDER_STRIKE": {
-        "id": "Thunder Strike",
-        "tier": "B",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "lightning",
-          "orb",
-          "damage"
-        ],
-        "anti": [],
-        "notes": "Scales with lightning channeled. OK in lightning builds.",
-        "mech": [
-          "lightning",
-          "damage",
-          "scaling"
-        ],
-        "role": "payoff"
-      },
-      "REPROGRAM": {
-        "id": "Reprogram",
-        "tier": "C",
-        "builds": [
-          "orb"
-        ],
-        "syn": [
-          "focus",
-          "orb",
-          "strength"
-        ],
-        "anti": [],
-        "notes": "Lose Focus, gain Strength + Dexterity. Situational.",
-        "mech": [
-          "focus"
-        ],
-        "role": "engine"
-      },
       "GENETIC_ALGORITHM": {
         "id": "Genetic Algorithm",
-        "tier": "C",
+        "tier": "S",
         "builds": [
           "any"
         ],
@@ -4827,8 +4579,8 @@ const DB = {
         "role": "generator"
       },
       "HYPER_BEAM": {
-        "id": "Hyper Beam",
-        "tier": "C",
+        "id": "Hyperbeam",
+        "tier": "D",
         "builds": [
           "any"
         ],
@@ -4850,7 +4602,7 @@ const DB = {
       },
       "BOOT_SEQUENCE": {
         "id": "Boot Sequence",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "any"
         ],
@@ -4891,18 +4643,9 @@ const DB = {
           "block"
         ]
       },
-      "VOID": {
-        "id": "Void",
-        "tier": "D",
-        "builds": [],
-        "syn": [],
-        "anti": [],
-        "notes": "Status card enemy creates. Never take.",
-        "mech": []
-      },
       "FERAL": {
         "id": "Feral",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "claw"
         ],
@@ -4925,7 +4668,7 @@ const DB = {
       },
       "HOLOGRAM": {
         "id": "Hologram",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "claw"
         ],
@@ -4944,7 +4687,7 @@ const DB = {
       },
       "MOMENTUM_STRIKE": {
         "id": "Momentum Strike",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "claw"
         ],
@@ -4964,7 +4707,7 @@ const DB = {
       },
       "BEAM_CELL": {
         "id": "Beam Cell",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "claw",
           "orb"
@@ -4985,7 +4728,7 @@ const DB = {
       },
       "MACHINE_LEARNING": {
         "id": "Machine Learning",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "claw",
           "orb"
@@ -5004,7 +4747,7 @@ const DB = {
       },
       "CHILL": {
         "id": "Chill",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "orb"
         ],
@@ -5039,20 +4782,959 @@ const DB = {
         ],
         "role": "generator"
       },
-      "SELF_REPAIR": {
-        "id": "Self Repair",
+      "BOOST_AWAY": {
+        "id": "Boost Away",
+        "tier": "D",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "status_gen"
+        ],
+        "notes": "Gain 6 Block. Add a Dazed into Discard. D-tier — the Dazed pollutes your deck. Only useful in Status builds."
+      },
+      "CHARGE_BATTERY": {
+        "id": "Charge Battery",
         "tier": "B",
         "builds": [
           "orb",
           "any"
         ],
+        "role": "generator",
         "syn": [
+          "block",
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "energy_gain"
+        ],
+        "notes": "Gain 7 Block. Next turn, gain Energy. B-tier — reliable Block plus delayed Energy. One of the best defensive commons."
+      },
+      "FOCUSED_STRIKE": {
+        "id": "Focused Strike",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "focus"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "focus"
+        ],
+        "notes": "Deal 9 damage. Gain 1 Focus this turn. B-tier — damage plus temporary Focus buff. Great early when your orbs are weak."
+      },
+      "GUNK_UP": {
+        "id": "Gunk Up",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "generator",
+        "syn": [
+          "status",
+          "status_synergy"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit",
+          "status_gen"
+        ],
+        "notes": "Deal 4 damage 3 times. Add a Slimed into Discard. C-tier — multi-hit is nice but Slimed clogs deck unless you have Status synergy."
+      },
+      "HOTFIX": {
+        "id": "Hotfix",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "focus"
+        ],
+        "anti": [],
+        "mech": [
+          "focus"
+        ],
+        "notes": "Gain 2 Focus this turn. C-tier — temporary Focus only lasts 1 turn. Better than nothing early, replaced by Defragment and Synchronize."
+      },
+      "LEAP": {
+        "id": "Leap",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Gain 9 Block. B-tier — straightforward 1-Energy block. Reliable defensive card that fits anywhere."
+      },
+      "LIGHTNING_ROD": {
+        "id": "Lightning Rod",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "lightning",
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "orb_channel"
+        ],
+        "notes": "Gain 4 Block. Channel 1 Lightning at start of next 2 turns. B-tier — better Defend that also builds Lightning orb count passively."
+      },
+      "SWEEPING_BEAM": {
+        "id": "Sweeping Beam",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "aoe",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "draw"
+        ],
+        "notes": "Deal 6 AoE damage. Draw 1 card. C-tier — AoE damage plus draw is versatile but low damage numbers."
+      },
+      "BULK_UP": {
+        "id": "Bulk Up",
+        "tier": "C",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "strength",
+          "dexterity"
+        ],
+        "anti": [
+          "orb"
+        ],
+        "mech": [
+          "strength",
+          "dexterity"
+        ],
+        "notes": "Lose 1 Orb Slot. Gain 2 Strength and 2 Dexterity. C-tier — reduces Orb capacity which hurts most Defect builds. Only viable in Claw builds where orbs are ignored."
+      },
+      "CHAOS": {
+        "id": "Chaos",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "orb_channel"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel"
+        ],
+        "notes": "Channel 1 random Orb. C-tier — randomness is the limiting factor. Can hit Plasma for Energy or Glass, but unreliable compared to specific channelers."
+      },
+      "COMPACT": {
+        "id": "Compact",
+        "tier": "A",
+        "builds": [
+          "status"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "status",
+          "status_exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "status_exhaust"
+        ],
+        "notes": "Gain 6 Block. Transform all Status cards in Hand into Fuel. A-tier — in Status builds, converts junk into valuable Fuel cards while providing Block."
+      },
+      "DOUBLE_ENERGY": {
+        "id": "Double Energy",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "notes": "Double your Energy. Exhaust. S-tier — with 3 Energy, gives 6 total. With Plasma orbs giving +1, this becomes explosive. Enables enormous single-turn plays."
+      },
+      "ENERGY_SURGE": {
+        "id": "Energy Surge",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "notes": "ALL players gain 2 Energy. Exhaust. C-tier — free Energy but multiplayer-oriented. Solo value is 2 Energy once per fight."
+      },
+      "FIGHT_THROUGH": {
+        "id": "Fight Through",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "status"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "status_gen"
+        ],
+        "notes": "Gain 13 Block. Add 2 Wounds into Discard. C-tier — big Block but Wounds are dead cards. Only playable if you have Iteration or Flak Cannon to exploit the Status."
+      },
+      "FUSION": {
+        "id": "Fusion",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "plasma",
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "plasma"
+        ],
+        "notes": "Channel 1 Plasma. B-tier — Plasma passively gives Energy each turn. One Fusion in the right spot enables enormous extra plays every turn thereafter."
+      },
+      "GLASSWORK": {
+        "id": "Glasswork",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "glass",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "orb_channel",
+          "glass"
+        ],
+        "notes": "Gain 5 Block. Channel 1 Glass. A-tier — Glass orb deals 4 AoE each turn and evokes for 8 AoE. Glasswork gives both Block and the powerful Glass passive."
+      },
+      "HAILSTORM": {
+        "id": "Hailstorm",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "payoff",
+        "syn": [
+          "orb",
+          "frost",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "passive",
+          "frost"
+        ],
+        "notes": "At end of your turn, if you have Frost, deal 6 AoE. B-tier — free 6 AoE every turn you have any Frost orb. With Glacier and Chill, nearly always active."
+      },
+      "ITERATION": {
+        "id": "Iteration",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "engine",
+        "syn": [
+          "status",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "passive",
+          "status_synergy"
+        ],
+        "notes": "First time you draw a Status card each turn, draw 2 cards. C-tier — transforms Status cards from deck pollutants into draw triggers. Core Status engine card."
+      },
+      "NULL": {
+        "id": "Null",
+        "tier": "B",
+        "builds": [
+          "orb",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "dark",
+          "weak"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "weak",
+          "orb_channel",
+          "dark"
+        ],
+        "notes": "Deal 10 damage. Apply 2 Weak. Channel 1 Dark. B-tier — damage, debuff, and Dark orb in one card. Dark orbs grow massive with Loop or Consuming Shadow."
+      },
+      "OVERCLOCK": {
+        "id": "Overclock",
+        "tier": "C",
+        "builds": [
+          "claw",
+          "status"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "status"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "status_gen"
+        ],
+        "notes": "Draw 2 cards. Add a Burn into Discard. C-tier — great draw but adds Burn. In Claw or Status builds the Burn has upside. Otherwise net negative."
+      },
+      "REFRACT": {
+        "id": "Refract",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "glass"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit",
+          "orb_channel",
+          "glass"
+        ],
+        "notes": "Deal 9 damage twice. Channel 2 Glass. C-tier — multi-hit with Glass orb generation. Glass orbs deal AoE passively, making this solid in Glass builds."
+      },
+      "RIP_AND_TEAR": {
+        "id": "Rip and Tear",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "multi_hit"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit"
+        ],
+        "notes": "Deal 7 damage to a random enemy twice. B-tier — multi-hit at decent value. Hits through Blur effects. Solid filler in any build."
+      },
+      "ROCKET_PUNCH": {
+        "id": "Rocket Punch",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "payoff",
+        "syn": [
+          "status",
+          "damage",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "draw",
+          "cost_reduce",
+          "status_synergy"
+        ],
+        "notes": "Deal 13 damage. Draw 1 card. Reduces to 0 when a Status is created this turn. C-tier — in Status builds where Gunk Up, TURBO, Boost Away generate Status, this becomes free damage plus draw."
+      },
+      "SCAVENGE": {
+        "id": "Scavenge",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "exhaust",
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust",
+          "energy_gain"
+        ],
+        "notes": "Exhaust a card. Next turn, gain 2 Energy. B-tier — removes dead cards AND gains Energy. Deck thinning plus Energy generation in one card."
+      },
+      "SHADOW_SHIELD": {
+        "id": "Shadow Shield",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "dark",
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "orb_channel",
+          "dark"
+        ],
+        "notes": "Gain 11 Block. Channel 1 Dark. B-tier — above-rate Block plus Dark orb. Dark passively grows damage then deals it all at once."
+      },
+      "SMOKESTACK": {
+        "id": "Smokestack",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "engine",
+        "syn": [
+          "status",
+          "damage",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "passive",
+          "status_synergy"
+        ],
+        "notes": "Whenever you create a Status card, deal 5 AoE. C-tier — in Status builds with TURBO, Boost Away, Gunk Up, Overclock generating Status every turn, Smokestack deals 5 AoE per Status creation."
+      },
+      "SUBROUTINE": {
+        "id": "Subroutine",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "energy_gain",
+          "power"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "passive"
+        ],
+        "notes": "Whenever you play a Power, gain Energy. C-tier — free Energy per Power card. Scales well if you stack multiple Powers, but requires build-around."
+      },
+      "SUNDER": {
+        "id": "Sunder",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "energy_gain"
+        ],
+        "notes": "Deal 24 damage. If this kills an enemy, gain 3 Energy. B-tier — massive single-target damage with huge Energy refund on kill. Great for elites."
+      },
+      "SYNCHRONIZE": {
+        "id": "Synchronize",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "focus"
+        ],
+        "anti": [],
+        "mech": [
+          "focus",
+          "exhaust"
+        ],
+        "notes": "Gain 2 Focus per unique Orb you have. Exhaust. B-tier — with 3+ unique orbs (Lightning, Frost, Dark), gives 6+ temporary Focus for one massive turn. Exhaust is fine."
+      },
+      "SYNTHESIS": {
+        "id": "Synthesis",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "power",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "cost_reduce"
+        ],
+        "notes": "Deal 12 damage. Next Power costs 0. C-tier — enables free Defragment, free Machine Learning, or free Buffer. Decent enabler but only valuable if you have good targets."
+      },
+      "TEMPEST": {
+        "id": "Tempest",
+        "tier": "D",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "lightning"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "lightning",
+          "x_cost"
+        ],
+        "notes": "Channel X Lightning. D-tier — scales with Energy spent but Lightning passive damage is only 3 per orb. Requires massive Focus to be worthwhile."
+      },
+      "TESLA_COIL": {
+        "id": "Tesla Coil",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "payoff",
+        "syn": [
+          "orb",
+          "lightning"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "lightning",
+          "evoke"
+        ],
+        "notes": "Deal 3 damage. Trigger all Lightning against the enemy. B-tier — with Focus and multiple Lightning orbs, this deals massive concentrated damage. Lightning Evoke normally hits random — this focuses all on one target."
+      },
+      "THUNDER": {
+        "id": "Thunder",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "lightning"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "passive",
+          "lightning"
+        ],
+        "notes": "Whenever you Evoke Lightning, deal 6 AoE. C-tier — converts Lightning Evoke (normally single target) into AoE. Better in multi-enemy fights."
+      },
+      "ADAPTIVE_STRIKE": {
+        "id": "Adaptive Strike",
+        "tier": "C",
+        "builds": [
+          "claw"
+        ],
+        "role": "payoff",
+        "syn": [
+          "claw",
+          "zero_cost",
           "scaling"
         ],
         "anti": [],
-        "notes": "At end of combat heal 7 HP. Great sustain in orb builds.",
-        "mech": [],
-        "role": "payoff"
+        "mech": [
+          "damage",
+          "zero_cost"
+        ],
+        "notes": "Deal 18 damage. Add a 0-cost copy to Discard. C-tier — self-replicating 0-cost attack. In Claw builds gives more 0-cost cards for All for One and Feral. Weaker than actual Claw scaling though."
+      },
+      "CONSUMING_SHADOW": {
+        "id": "Consuming Shadow",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "dark",
+          "evoke"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "dark",
+          "passive",
+          "evoke"
+        ],
+        "notes": "Channel 2 Dark. At end of turn, Evoke leftmost Orb. A-tier — passive Evoke every turn plus 2 Dark Orbs. Dark orbs grow huge with Loop or Darkness. Auto-evokes for recurring damage."
+      },
+      "COOLANT": {
+        "id": "Coolant",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "frost",
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "passive"
+        ],
+        "notes": "At start of turn, gain 2 Block per unique Orb you have. A-tier — with 3+ unique orbs, gives 6+ free Block every single turn passively. In Frost builds with many orbs, this generates enormous Block."
+      },
+      "CREATIVE_AI": {
+        "id": "Creative AI",
+        "tier": "C",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "power"
+        ],
+        "anti": [],
+        "mech": [
+          "passive",
+          "power"
+        ],
+        "notes": "At start of turn, add a random Power to Hand. C-tier — free Power every turn but random. Can hit Defragment, Machine Learning, Buffer, or useless Powers. Too random for high-confidence builds."
+      },
+      "FLAK_CANNON": {
+        "id": "Flak Cannon",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "payoff",
+        "syn": [
+          "status",
+          "damage",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "exhaust",
+          "status_exhaust"
+        ],
+        "notes": "Exhaust all Status cards. Deal 8 damage per card Exhausted. C-tier — in Status builds with 3-5 Status cards, this deals 24-40 burst damage while cleaning the deck."
+      },
+      "HELIX_DRILL": {
+        "id": "Helix Drill",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "energy_gain",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "Deal 3 damage per Energy previously spent this turn. D-tier — requires spending 4+ Energy before playing it to be worth 1 slot. Telegraphed and awkward."
+      },
+      "ICE_LANCE": {
+        "id": "Ice Lance",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "frost"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "orb_channel",
+          "frost"
+        ],
+        "notes": "Deal 19 damage. Channel 3 Frost. B-tier — huge damage plus 3 Frost orbs in one card. With Focus, each Frost gives 2+ Block per turn. Excellent value for 3 Energy."
+      },
+      "IGNITION": {
+        "id": "Ignition",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "plasma"
+        ],
+        "anti": [],
+        "mech": [
+          "plasma",
+          "exhaust"
+        ],
+        "notes": "Another player Channels Plasma. Exhaust. D-tier — multiplayer-only value. No solo benefit. Avoid."
+      },
+      "MODDED": {
+        "id": "Modded",
+        "tier": "S",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "orb_slot",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_slot",
+          "draw",
+          "scaling"
+        ],
+        "notes": "Gain 1 Orb Slot and draw 1 card. Cost increases by 1 each play. S-tier at 0 cost — free Orb Slot plus draw. Diminishes at 1+ cost but still playable at 1."
+      },
+      "RAINBOW": {
+        "id": "Rainbow",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "generator",
+        "syn": [
+          "orb",
+          "lightning",
+          "frost",
+          "dark"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "exhaust"
+        ],
+        "notes": "Channel 1 Lightning + 1 Frost + 1 Dark. Exhaust. A-tier — fills all 3 major orb slots at once. Enables Coolant (3 unique = 6 Block/turn), Compile Driver (3 draws), and diverse passive effects."
+      },
+      "REBOOT": {
+        "id": "Reboot",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Shuffle ALL cards into Draw Pile. Draw 4. Exhaust. A-tier — resets draw pile when empty and draws 4. In fast Claw builds or when deck is almost exhausted, this refuels the hand entirely."
+      },
+      "SHATTER": {
+        "id": "Shatter",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "payoff",
+        "syn": [
+          "orb",
+          "evoke",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "evoke"
+        ],
+        "notes": "Deal 11 AoE damage. Evoke all Orbs. A-tier — mass Evoke plus AoE. With 3+ orbs, Evoking all deals massive damage. Glass orbs Evoke for 8 AoE each on top of the 11."
+      },
+      "SIGNAL_BOOST": {
+        "id": "Signal Boost",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "power",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "power",
+          "multiplier",
+          "exhaust"
+        ],
+        "notes": "Next Power you play is played an extra time. Exhaust. A-tier — doubles Defragment (2 Focus), Machine Learning (2 turns of extra draw), Buffer (2 HP prevention). Signal Boost into Defragment is one of the strongest plays."
+      },
+      "SPINNER": {
+        "id": "Spinner",
+        "tier": "S",
+        "builds": [
+          "orb"
+        ],
+        "role": "engine",
+        "syn": [
+          "orb",
+          "glass",
+          "aoe",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "glass",
+          "passive"
+        ],
+        "notes": "At start of turn, Channel 1 Glass. S-tier — free Glass Orb every single turn passively. Glass deals 4 AoE per turn then evokes for 8 AoE. Passive AoE engine that never stops."
+      },
+      "TRASH_TO_TREASURE": {
+        "id": "Trash to Treasure",
+        "tier": "C",
+        "builds": [
+          "status"
+        ],
+        "role": "engine",
+        "syn": [
+          "status",
+          "orb",
+          "orb_channel"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "passive",
+          "status_synergy"
+        ],
+        "notes": "Whenever you create a Status card, Channel 1 random Orb. C-tier — converts Status generation into Orb economy. Bridges Status and Orb builds."
+      },
+      "VOLTAIC": {
+        "id": "Voltaic",
+        "tier": "B",
+        "builds": [
+          "orb"
+        ],
+        "role": "payoff",
+        "syn": [
+          "orb",
+          "lightning",
+          "evoke"
+        ],
+        "anti": [],
+        "mech": [
+          "orb_channel",
+          "lightning",
+          "exhaust"
+        ],
+        "notes": "Channel Lightning equal to total Lightning Channeled this combat. Exhaust. B-tier — late in Orb builds where you've Channeled 10-20 Lightning, this floods all Orb slots with Lightning for massive passive damage the rest of the fight."
+      },
+      "QUADCAST": {
+        "id": "Quadcast",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "role": "payoff",
+        "syn": [
+          "orb",
+          "evoke"
+        ],
+        "anti": [],
+        "mech": [
+          "evoke"
+        ],
+        "notes": "Evoke your rightmost Orb 4 times. A-tier — Lightning x4 = 32+ damage with Focus. Dark Orb x4 = massive single-target burst. Best Evoke payoff card for dedicated Orb builds."
+      },
+      "HELLO_WORLD": {
+        "id": "Hello World",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "passive"
+        ],
+        "notes": "At start of turn, add a random Common card to Hand. C-tier — free card every turn but random. Event-only card."
       }
     },
     "regent": {
@@ -9215,6 +9897,22 @@ const DB = {
         "coreThresh": 3,
         "supportThresh": 2,
         "description": "Spam 0-cost Claws to grow their damage, use All for One to cycle the entire build"
+      },
+      {
+        "id": "status",
+        "name": "Status Engine",
+        "core": [
+          "status",
+          "status_synergy",
+          "status_exhaust"
+        ],
+        "support": [
+          "zero_cost",
+          "draw"
+        ],
+        "coreThresh": 2,
+        "supportThresh": 1,
+        "description": "Generate Status cards intentionally, then exploit them with Compact, Smokestack, Trash to Treasure, Flak Cannon, Rocket Punch"
       }
     ],
     "regent": [
@@ -9662,12 +10360,12 @@ const DB = {
     },
     {
       "deckCard": "Claw",
-      "offeredCard": "All For One",
+      "offeredCard": "All for One",
       "bonus": 2.5,
       "reason": "All For One pulls ALL 0-cost cards from discard including all Claws — the entire build's payoff in one card"
     },
     {
-      "deckCard": "All For One",
+      "deckCard": "All for One",
       "offeredCard": "Claw",
       "bonus": 2.5,
       "reason": "Each Claw permanently gains damage AND All For One pulls them all back — more Claws = bigger turns"
@@ -9685,7 +10383,7 @@ const DB = {
       "reason": "Feral is Echo Form for 0-cost cards — doubles every Claw play for the rest of combat"
     },
     {
-      "deckCard": "All For One",
+      "deckCard": "All for One",
       "offeredCard": "Feral",
       "bonus": 1.8,
       "reason": "Feral doubles 0-cost plays — All For One into Feral creates an avalanche of Claw hits"
@@ -9734,7 +10432,7 @@ const DB = {
     },
     {
       "deckCard": "Darkness",
-      "offeredCard": "Multicast",
+      "offeredCard": "Multi-Cast",
       "bonus": 1.5,
       "reason": "Multicast evokes Dark orbs early while fully charged — massive burst"
     },
@@ -12791,6 +13489,486 @@ const DB = {
       "offeredCard": "Graveblast",
       "bonus": 1.5,
       "reason": "Graveblast retrieves Discard cards — Undeath generates copies in Discard, giving Graveblast a reliable target to pull back for continuous Block."
+    },
+    {
+      "deckCard": "Echo Form",
+      "offeredCard": "Defragment",
+      "bonus": 2.5,
+      "reason": "Echo Form doubles the first card played — Defragment doubled = 2 Focus per play instead of 1. Fastest way to reach high Focus."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Echo Form",
+      "bonus": 2.5,
+      "reason": "Defragment gives 1 Focus — Echo Form doubles it to 2 Focus per Defragment play, accelerating Orb scaling massively."
+    },
+    {
+      "deckCard": "Echo Form",
+      "offeredCard": "Signal Boost",
+      "bonus": 2.0,
+      "reason": "Signal Boost makes next Power play twice — Echo Form doubles Signal Boost itself, making the next Power play 3 times total."
+    },
+    {
+      "deckCard": "Signal Boost",
+      "offeredCard": "Echo Form",
+      "bonus": 2.0,
+      "reason": "Echo Form doubles the first card each turn — Signal Boost doubled means the next Power plays 3 times total."
+    },
+    {
+      "deckCard": "Echo Form",
+      "offeredCard": "Machine Learning",
+      "bonus": 2.0,
+      "reason": "Echo Form doubles Machine Learning — instead of +1 draw per turn, you get +2 draw per turn permanently."
+    },
+    {
+      "deckCard": "Machine Learning",
+      "offeredCard": "Echo Form",
+      "bonus": 2.0,
+      "reason": "Machine Learning gives +1 draw per turn — Echo Form doubles it to +2 draw, making every turn draw 7 cards."
+    },
+    {
+      "deckCard": "Echo Form",
+      "offeredCard": "Coolant",
+      "bonus": 1.8,
+      "reason": "Echo Form doubles Coolant — instead of 2 Block per unique Orb, you get 4 Block per unique Orb every turn."
+    },
+    {
+      "deckCard": "Coolant",
+      "offeredCard": "Echo Form",
+      "bonus": 1.8,
+      "reason": "Coolant gives Block per unique Orb each turn — Echo Form doubles this passive Block generation."
+    },
+    {
+      "deckCard": "Signal Boost",
+      "offeredCard": "Defragment",
+      "bonus": 2.5,
+      "reason": "Signal Boost makes next Power play twice — Defragment doubled gives 2 Focus in one play, the fastest Focus acceleration available."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Signal Boost",
+      "bonus": 2.5,
+      "reason": "Defragment is the best Signal Boost target — doubled Defragment gives 2 Focus per card instead of 1."
+    },
+    {
+      "deckCard": "Signal Boost",
+      "offeredCard": "Coolant",
+      "bonus": 2.0,
+      "reason": "Coolant doubled via Signal Boost gives 4 Block per unique Orb per turn — with 4 orbs, 16 free Block every turn."
+    },
+    {
+      "deckCard": "Coolant",
+      "offeredCard": "Signal Boost",
+      "bonus": 2.0,
+      "reason": "Signal Boost doubles the next Power — Coolant doubled means twice the Block per unique Orb passively every turn."
+    },
+    {
+      "deckCard": "Signal Boost",
+      "offeredCard": "Machine Learning",
+      "bonus": 1.8,
+      "reason": "Signal Boost into Machine Learning plays it twice — gaining +2 extra card draws per turn instead of +1."
+    },
+    {
+      "deckCard": "Machine Learning",
+      "offeredCard": "Signal Boost",
+      "bonus": 1.8,
+      "reason": "Machine Learning doubled via Signal Boost gives +2 draw per turn permanently."
+    },
+    {
+      "deckCard": "Spinner",
+      "offeredCard": "Shatter",
+      "bonus": 2.0,
+      "reason": "Spinner generates Glass orbs every turn — Shatter Evokes all Orbs for massive AoE, with Glass Orbs each dealing 8 AoE on Evoke."
+    },
+    {
+      "deckCard": "Shatter",
+      "offeredCard": "Spinner",
+      "bonus": 2.0,
+      "reason": "Shatter Evokes all Orbs — Spinner ensures there's always at least 1 Glass Orb active for Shatter to Evoke for 8 AoE."
+    },
+    {
+      "deckCard": "Spinner",
+      "offeredCard": "Coolant",
+      "bonus": 1.8,
+      "reason": "Spinner adds Glass as a unique Orb every turn — Coolant gives 2 Block per unique Orb, making Spinner directly add 2 Block per turn to Coolant's output."
+    },
+    {
+      "deckCard": "Coolant",
+      "offeredCard": "Spinner",
+      "bonus": 1.8,
+      "reason": "Coolant scales with unique Orb types — Spinner provides a constant Glass Orb, adding 2 Block per turn to Coolant's passive generation."
+    },
+    {
+      "deckCard": "Spinner",
+      "offeredCard": "Compile Driver",
+      "bonus": 1.5,
+      "reason": "Spinner adds Glass as a unique Orb — Compile Driver draws 1 card per unique Orb, gaining +1 draw from Spinner's Glass."
+    },
+    {
+      "deckCard": "Compile Driver",
+      "offeredCard": "Spinner",
+      "bonus": 1.5,
+      "reason": "Compile Driver draws per unique Orb — Spinner's passive Glass Orb ensures Compile Driver always draws at least 1 extra card."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Spinner",
+      "bonus": 1.8,
+      "reason": "Defragment increases Focus — each Focus makes Glass Orb's passive AoE stronger. Spinner generates Glass free each turn to benefit."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Hailstorm",
+      "bonus": 1.8,
+      "reason": "Defragment boosts Focus — Hailstorm deals 6 AoE when Frost is active, but Focus increases Frost's passive Block which keeps Hailstorm always triggerable."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Consuming Shadow",
+      "bonus": 1.8,
+      "reason": "Defragment increases Focus — Dark Orbs grow 6 damage per turn. With higher Focus, Dark Orbs from Consuming Shadow evoke for even more damage."
+    },
+    {
+      "deckCard": "Consuming Shadow",
+      "offeredCard": "Defragment",
+      "bonus": 1.8,
+      "reason": "Consuming Shadow generates 2 Dark Orbs and auto-evokes — Defragment's Focus makes each Dark Orb accumulate more damage before Evoking."
+    },
+    {
+      "deckCard": "Consuming Shadow",
+      "offeredCard": "Loop",
+      "bonus": 2.0,
+      "reason": "Consuming Shadow auto-evokes leftmost Orb each turn — Loop triggers the rightmost Orb's passive. Together they give double passive Orb activation every turn."
+    },
+    {
+      "deckCard": "Loop",
+      "offeredCard": "Consuming Shadow",
+      "bonus": 2.0,
+      "reason": "Loop triggers rightmost Orb passive each turn — Consuming Shadow triggers leftmost. With both, every Orb slot passively activates twice per turn."
+    },
+    {
+      "deckCard": "Consuming Shadow",
+      "offeredCard": "Darkness",
+      "bonus": 1.8,
+      "reason": "Consuming Shadow channels 2 Dark and auto-evokes — Darkness channels another Dark and triggers all Dark passives. Together they maximize Dark Orb damage quickly."
+    },
+    {
+      "deckCard": "Darkness",
+      "offeredCard": "Consuming Shadow",
+      "bonus": 1.8,
+      "reason": "Darkness triggers all Dark Orb passives — Consuming Shadow auto-evokes them, creating a constant cycle of Dark Orb growth and Evoke."
+    },
+    {
+      "deckCard": "Coolant",
+      "offeredCard": "Rainbow",
+      "bonus": 2.0,
+      "reason": "Rainbow channels Lightning, Frost, and Dark simultaneously — Coolant gives 2 Block per unique Orb, making Rainbow instantly add 6 Block per turn."
+    },
+    {
+      "deckCard": "Rainbow",
+      "offeredCard": "Coolant",
+      "bonus": 2.0,
+      "reason": "Coolant gives 2 Block per unique Orb — Rainbow provides all 3 major Orb types at once, giving 6+ Block per turn immediately."
+    },
+    {
+      "deckCard": "Coolant",
+      "offeredCard": "Glacier",
+      "bonus": 1.8,
+      "reason": "Glacier channels 2 Frost and gives Block — Coolant rewards unique Orbs. Glacier adds Frost to Coolant's count and provides immediate Block on top."
+    },
+    {
+      "deckCard": "Glacier",
+      "offeredCard": "Coolant",
+      "bonus": 1.8,
+      "reason": "Coolant scales with unique Orbs — Glacier is the most efficient Frost provider, ensuring Frost is always in Coolant's count."
+    },
+    {
+      "deckCard": "Genetic Algorithm",
+      "offeredCard": "Scavenge",
+      "bonus": 1.8,
+      "reason": "Genetic Algorithm Exhausts after each play, gaining +3 Block permanently — Scavenge also Exhausts cards for Energy. Together they thin the deck while scaling Block."
+    },
+    {
+      "deckCard": "Scavenge",
+      "offeredCard": "Genetic Algorithm",
+      "bonus": 1.8,
+      "reason": "Genetic Algorithm grows Block each play then Exhausts — Scavenge provides Energy and Exhausts cards, enabling more Genetic Algorithm plays per run."
+    },
+    {
+      "deckCard": "Genetic Algorithm",
+      "offeredCard": "Echo Form",
+      "bonus": 2.0,
+      "reason": "Echo Form doubles the first card played — Genetic Algorithm doubled gains +6 Block permanently per play instead of +3. Scales twice as fast."
+    },
+    {
+      "deckCard": "Double Energy",
+      "offeredCard": "Multi-Cast",
+      "bonus": 2.5,
+      "reason": "Double Energy doubles current Energy — Multi-Cast uses all that Energy to Evoke Orbs X times. 6 Energy = 6 Evokes of Dark/Glass for enormous burst damage."
+    },
+    {
+      "deckCard": "Multi-Cast",
+      "offeredCard": "Double Energy",
+      "bonus": 2.5,
+      "reason": "Multi-Cast scales with available Energy — Double Energy doubles it, enabling 6+ Orb Evokes in one card play."
+    },
+    {
+      "deckCard": "Double Energy",
+      "offeredCard": "Tempest",
+      "bonus": 1.8,
+      "reason": "Double Energy then Tempest — with 6 Energy, Tempest channels 6 Lightning at once for massive end-of-turn damage."
+    },
+    {
+      "deckCard": "Tempest",
+      "offeredCard": "Double Energy",
+      "bonus": 1.8,
+      "reason": "Tempest channels Lightning equal to Energy spent — Double Energy doubles available Energy, making Tempest channel twice as many Lightning Orbs."
+    },
+    {
+      "deckCard": "Double Energy",
+      "offeredCard": "Voltaic",
+      "bonus": 2.0,
+      "reason": "Double Energy maximizes Energy for the turn — Voltaic channels Lightning equal to total Lightning Channeled this combat, flooding Orb slots for turn-end damage."
+    },
+    {
+      "deckCard": "Voltaic",
+      "offeredCard": "Double Energy",
+      "bonus": 2.0,
+      "reason": "Voltaic channels massive Lightning in late game — Double Energy ensures you have maximum Energy to play both Voltaic and other cards on the same turn."
+    },
+    {
+      "deckCard": "Shatter",
+      "offeredCard": "Glacier",
+      "bonus": 1.8,
+      "reason": "Glacier fills Orb slots with Frost — Shatter Evokes all Orbs. 2 Frost Evoked = 10 Block each, providing both offense and defense."
+    },
+    {
+      "deckCard": "Glacier",
+      "offeredCard": "Shatter",
+      "bonus": 1.8,
+      "reason": "Shatter Evokes all Orbs — Glacier provides Frost Orbs that Evoke for 5 Block each, giving both AoE damage and Block simultaneously."
+    },
+    {
+      "deckCard": "Shatter",
+      "offeredCard": "Consuming Shadow",
+      "bonus": 2.0,
+      "reason": "Consuming Shadow builds large Dark Orbs over turns — Shatter Evokes all Orbs including the accumulated Dark for massive single-target damage."
+    },
+    {
+      "deckCard": "Feral",
+      "offeredCard": "Claw",
+      "bonus": 2.0,
+      "reason": "Claw is a 0-cost Attack — Feral returns the first one played each turn to hand, effectively giving Claw an extra free play every turn."
+    },
+    {
+      "deckCard": "Scrape",
+      "offeredCard": "Claw",
+      "bonus": 1.8,
+      "reason": "Claw is 0-cost so Scrape keeps it — Scrape filters the hand to only 0-cost cards, ensuring your next turn is full of Claws."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Hologram",
+      "bonus": 1.8,
+      "reason": "Hologram retrieves a card from Discard — in Claw builds, pulls Claw back from Discard for another scaling hit before All for One arrives."
+    },
+    {
+      "deckCard": "Hologram",
+      "offeredCard": "Claw",
+      "bonus": 1.8,
+      "reason": "Claw benefits from retrieval via Hologram — retrieving Claw from Discard enables extra scaling plays before All for One."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Machine Learning",
+      "bonus": 1.5,
+      "reason": "Machine Learning draws an extra card per turn — in Claw builds, more draw means finding Claw faster and drawing more 0-cost cards for FTL and Scrape."
+    },
+    {
+      "deckCard": "Smokestack",
+      "offeredCard": "TURBO",
+      "bonus": 2.0,
+      "reason": "TURBO gains 2 Energy and adds a Void — Smokestack deals 5 AoE each time a Status is created. TURBO creates Status every play, giving 5 free AoE per TURBO."
+    },
+    {
+      "deckCard": "TURBO",
+      "offeredCard": "Smokestack",
+      "bonus": 2.0,
+      "reason": "Smokestack deals 5 AoE per Status created — TURBO creates a Void every play, triggering Smokestack for 5 AoE while giving 2 Energy."
+    },
+    {
+      "deckCard": "Smokestack",
+      "offeredCard": "Gunk Up",
+      "bonus": 1.8,
+      "reason": "Gunk Up creates a Slimed into Discard — Smokestack deals 5 AoE per Status created, making Gunk Up a 12 damage multi-hit plus 5 AoE."
+    },
+    {
+      "deckCard": "Gunk Up",
+      "offeredCard": "Smokestack",
+      "bonus": 1.8,
+      "reason": "Smokestack punishes Status creation with 5 AoE — Gunk Up creates a Slimed every play, triggering Smokestack reliably."
+    },
+    {
+      "deckCard": "Iteration",
+      "offeredCard": "TURBO",
+      "bonus": 1.8,
+      "reason": "TURBO adds a Void into Discard — Iteration draws 2 extra cards the first time you draw a Status each turn. TURBO ensures you always have a Status to draw."
+    },
+    {
+      "deckCard": "TURBO",
+      "offeredCard": "Iteration",
+      "bonus": 1.8,
+      "reason": "Iteration draws 2 extra cards on first Status draw each turn — TURBO adds Void to Discard guaranteeing Iteration triggers."
+    },
+    {
+      "deckCard": "Compact",
+      "offeredCard": "TURBO",
+      "bonus": 1.8,
+      "reason": "TURBO creates a Void — Compact transforms all Status cards in Hand into Fuel. Playing TURBO then Compact converts the Void to Fuel immediately."
+    },
+    {
+      "deckCard": "TURBO",
+      "offeredCard": "Compact",
+      "bonus": 1.8,
+      "reason": "Compact converts Status cards to Fuel — TURBO creates a Void for Compact to convert, turning every TURBO play into Energy plus Fuel."
+    },
+    {
+      "deckCard": "Flak Cannon",
+      "offeredCard": "Fight Through",
+      "bonus": 1.8,
+      "reason": "Fight Through adds 2 Wounds into Discard — Flak Cannon exhausts all Status cards dealing 8 damage per exhausted card. 2 Wounds = 16 damage burst."
+    },
+    {
+      "deckCard": "Fight Through",
+      "offeredCard": "Flak Cannon",
+      "bonus": 1.8,
+      "reason": "Flak Cannon deals 8 damage per Status Exhausted — Fight Through generates 2 Wounds for Flak Cannon to consume for 16 burst damage."
+    },
+    {
+      "deckCard": "Rocket Punch",
+      "offeredCard": "TURBO",
+      "bonus": 1.5,
+      "reason": "TURBO creates a Status (Void) on play — Rocket Punch reduces to 0-cost when a Status is created this turn, making TURBO enable free Rocket Punch plays."
+    },
+    {
+      "deckCard": "TURBO",
+      "offeredCard": "Rocket Punch",
+      "bonus": 1.5,
+      "reason": "Rocket Punch costs 0 when a Status is created this turn — TURBO creates a Void every play, enabling free 13-damage Rocket Punch plays."
+    },
+    {
+      "deckCard": "Trash to Treasure",
+      "offeredCard": "TURBO",
+      "bonus": 1.5,
+      "reason": "TURBO creates a Void Status every play — Trash to Treasure channels 1 random Orb each time a Status is created, turning TURBO into free Orb generation."
+    },
+    {
+      "deckCard": "Skim",
+      "offeredCard": "All for One",
+      "bonus": 1.8,
+      "reason": "All for One retrieves 0-cost cards from Discard — Skim draws 3 to find All for One, which then retrieves all Claws, FTLs, and Beam Cells."
+    },
+    {
+      "deckCard": "All for One",
+      "offeredCard": "Skim",
+      "bonus": 1.8,
+      "reason": "Skim draws 3 cards — helps find All for One which then retrieves all 0-cost cards from Discard for a massive spam turn."
+    },
+    {
+      "deckCard": "Rainbow",
+      "offeredCard": "Compile Driver",
+      "bonus": 2.0,
+      "reason": "Rainbow channels Lightning, Frost, and Dark at once — Compile Driver draws 1 per unique Orb, so Rainbow immediately gives Compile Driver a 3-card draw."
+    },
+    {
+      "deckCard": "Compile Driver",
+      "offeredCard": "Rainbow",
+      "bonus": 2.0,
+      "reason": "Compile Driver draws per unique Orb — Rainbow provides all 3 major Orb types at once, making Compile Driver draw 3 cards in one play."
+    },
+    {
+      "deckCard": "Quadcast",
+      "offeredCard": "Defragment",
+      "bonus": 1.8,
+      "reason": "Defragment increases Focus — with high Focus, Quadcast Evokes Lightning 4 times for 4x(8+Focus) damage, or Dark 4 times for massive single-target burst."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Quadcast",
+      "bonus": 1.8,
+      "reason": "Quadcast Evokes 4 times — each additional Focus from Defragment multiplies Quadcast's total damage across all 4 Evokes."
+    },
+    {
+      "deckCard": "Quadcast",
+      "offeredCard": "Consuming Shadow",
+      "bonus": 2.0,
+      "reason": "Consuming Shadow builds large Dark Orbs — Quadcast Evokes 4 times, dealing 4x the accumulated Dark damage in one play."
+    },
+    {
+      "deckCard": "Consuming Shadow",
+      "offeredCard": "Quadcast",
+      "bonus": 2.0,
+      "reason": "Quadcast delivers 4 Evokes — Consuming Shadow ensures Dark Orbs are always large and always being built for Quadcast to consume."
+    },
+    {
+      "deckCard": "Scavenge",
+      "offeredCard": "Double Energy",
+      "bonus": 1.5,
+      "reason": "Scavenge exhausts a card for 2 Energy next turn — Double Energy then doubles whatever Energy you have, compounding Scavenge's Energy gain."
+    },
+    {
+      "deckCard": "Double Energy",
+      "offeredCard": "Scavenge",
+      "bonus": 1.5,
+      "reason": "Scavenge generates 2 Energy next turn — Double Energy doubles total Energy, making Scavenge's extra 2 Energy worth 4 when doubled."
+    },
+    {
+      "deckCard": "Sunder",
+      "offeredCard": "Shatter",
+      "bonus": 1.5,
+      "reason": "Sunder deals 24 damage to one target — if Sunder kills the enemy, gain 3 Energy. Shatter then uses that Energy to Evoke all Orbs on the next enemy."
+    },
+    {
+      "deckCard": "Shatter",
+      "offeredCard": "Sunder",
+      "bonus": 1.5,
+      "reason": "Shatter Evokes all Orbs for massive AoE — Sunder softens or kills one enemy first, and its 3 Energy on kill helps pay for Shatter."
+    },
+    {
+      "deckCard": "Tesla Coil",
+      "offeredCard": "Defragment",
+      "bonus": 1.8,
+      "reason": "Tesla Coil triggers all Lightning against one target — Defragment's Focus increases each Lightning's damage by Focus amount. More Focus = more concentrated Tesla Coil damage."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Tesla Coil",
+      "bonus": 1.8,
+      "reason": "Tesla Coil focuses all Lightning on one enemy — Defragment's Focus multiplies this concentrated damage, making each Lightning Evoke deal 8+Focus damage."
+    },
+    {
+      "deckCard": "Hailstorm",
+      "offeredCard": "Glacier",
+      "bonus": 1.8,
+      "reason": "Glacier channels 2 Frost — Hailstorm deals 6 AoE at end of turn when Frost is active. Glacier guarantees Frost is always up for Hailstorm."
+    },
+    {
+      "deckCard": "Glacier",
+      "offeredCard": "Hailstorm",
+      "bonus": 1.8,
+      "reason": "Hailstorm needs Frost to deal 6 AoE each turn — Glacier is the most efficient Frost provider, ensuring Hailstorm always triggers."
+    },
+    {
+      "deckCard": "Hailstorm",
+      "offeredCard": "Chill",
+      "bonus": 2.0,
+      "reason": "Chill channels Frost for each enemy (multi-enemy = multiple Frost) — Hailstorm deals 6 AoE whenever Frost is active. Chill guarantees Frost immediately."
+    },
+    {
+      "deckCard": "Chill",
+      "offeredCard": "Hailstorm",
+      "bonus": 2.0,
+      "reason": "Hailstorm deals 6 AoE each turn when Frost active — Chill channels Frost for every enemy at once, instantly activating Hailstorm in any fight."
     }
   ],
   "dupePenalties": {
@@ -14726,6 +15904,230 @@ const DB = {
     {
       "n": "Protector",
       "c": "necrobinder"
+    },
+    {
+      "n": "All for One",
+      "c": "defect"
+    },
+    {
+      "n": "Go for the Eyes",
+      "c": "defect"
+    },
+    {
+      "n": "Multi-Cast",
+      "c": "defect"
+    },
+    {
+      "n": "TURBO",
+      "c": "defect"
+    },
+    {
+      "n": "Hyperbeam",
+      "c": "defect"
+    },
+    {
+      "n": "Boost Away",
+      "c": "defect"
+    },
+    {
+      "n": "Charge Battery",
+      "c": "defect"
+    },
+    {
+      "n": "Focused Strike",
+      "c": "defect"
+    },
+    {
+      "n": "Gunk Up",
+      "c": "defect"
+    },
+    {
+      "n": "Hotfix",
+      "c": "defect"
+    },
+    {
+      "n": "Leap",
+      "c": "defect"
+    },
+    {
+      "n": "Lightning Rod",
+      "c": "defect"
+    },
+    {
+      "n": "Sweeping Beam",
+      "c": "defect"
+    },
+    {
+      "n": "Bulk Up",
+      "c": "defect"
+    },
+    {
+      "n": "Chaos",
+      "c": "defect"
+    },
+    {
+      "n": "Compact",
+      "c": "defect"
+    },
+    {
+      "n": "Double Energy",
+      "c": "defect"
+    },
+    {
+      "n": "Energy Surge",
+      "c": "defect"
+    },
+    {
+      "n": "Fight Through",
+      "c": "defect"
+    },
+    {
+      "n": "Fusion",
+      "c": "defect"
+    },
+    {
+      "n": "Glasswork",
+      "c": "defect"
+    },
+    {
+      "n": "Hailstorm",
+      "c": "defect"
+    },
+    {
+      "n": "Iteration",
+      "c": "defect"
+    },
+    {
+      "n": "Null",
+      "c": "defect"
+    },
+    {
+      "n": "Overclock",
+      "c": "defect"
+    },
+    {
+      "n": "Refract",
+      "c": "defect"
+    },
+    {
+      "n": "Rip and Tear",
+      "c": "defect"
+    },
+    {
+      "n": "Rocket Punch",
+      "c": "defect"
+    },
+    {
+      "n": "Scavenge",
+      "c": "defect"
+    },
+    {
+      "n": "Shadow Shield",
+      "c": "defect"
+    },
+    {
+      "n": "Smokestack",
+      "c": "defect"
+    },
+    {
+      "n": "Subroutine",
+      "c": "defect"
+    },
+    {
+      "n": "Sunder",
+      "c": "defect"
+    },
+    {
+      "n": "Synchronize",
+      "c": "defect"
+    },
+    {
+      "n": "Synthesis",
+      "c": "defect"
+    },
+    {
+      "n": "Tempest",
+      "c": "defect"
+    },
+    {
+      "n": "Tesla Coil",
+      "c": "defect"
+    },
+    {
+      "n": "Thunder",
+      "c": "defect"
+    },
+    {
+      "n": "Adaptive Strike",
+      "c": "defect"
+    },
+    {
+      "n": "Consuming Shadow",
+      "c": "defect"
+    },
+    {
+      "n": "Coolant",
+      "c": "defect"
+    },
+    {
+      "n": "Creative AI",
+      "c": "defect"
+    },
+    {
+      "n": "Flak Cannon",
+      "c": "defect"
+    },
+    {
+      "n": "Helix Drill",
+      "c": "defect"
+    },
+    {
+      "n": "Ice Lance",
+      "c": "defect"
+    },
+    {
+      "n": "Ignition",
+      "c": "defect"
+    },
+    {
+      "n": "Modded",
+      "c": "defect"
+    },
+    {
+      "n": "Rainbow",
+      "c": "defect"
+    },
+    {
+      "n": "Reboot",
+      "c": "defect"
+    },
+    {
+      "n": "Shatter",
+      "c": "defect"
+    },
+    {
+      "n": "Signal Boost",
+      "c": "defect"
+    },
+    {
+      "n": "Spinner",
+      "c": "defect"
+    },
+    {
+      "n": "Trash to Treasure",
+      "c": "defect"
+    },
+    {
+      "n": "Voltaic",
+      "c": "defect"
+    },
+    {
+      "n": "Quadcast",
+      "c": "defect"
+    },
+    {
+      "n": "Hello World",
+      "c": "defect"
     }
   ]
 };
