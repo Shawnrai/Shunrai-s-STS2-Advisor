@@ -249,7 +249,6 @@ input[type=number]{width:60px}
       <div>
         <div class="sec-title">Removal Advice</div>
         <p style="font-size:.9rem;color:var(--text2);font-style:italic;margin-bottom:10px">Which cards to cut if given the chance.</p>
-        <button class="go-btn" id="removal-go">Analyze Deck →</button>
       </div>
       <div class="results" id="removal-results"></div>
     </div>
@@ -783,7 +782,6 @@ document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
 });
-document.getElementById('removal-go').addEventListener('click', analyzeRemoval);
 document.getElementById('removal-results').addEventListener('click', e => {
   const btn = e.target.closest('.rm-deck-btn');
   if (!btn || btn.disabled) return;
@@ -849,7 +847,7 @@ document.addEventListener('keydown', e => {
     if (!active) return;
     if (active.dataset.tab === 'rewards') analyze('reward');
     else if (active.dataset.tab === 'shop') analyze('shop');
-    else if (active.dataset.tab === 'removal') document.getElementById('removal-go').click();
+    else if (active.dataset.tab === 'removal') analyzeRemoval();
   } else if (e.key === 'f' || e.key === 'F') {
     e.preventDefault();
     document.getElementById('deck-search').focus();
@@ -863,6 +861,7 @@ document.getElementById('clear-save-btn').addEventListener('click', () => {
   renderDeck();
   renderRewardSlots();
   renderShopSlots();
+  maybeRefreshRemoval();
 });
 
 // INIT
