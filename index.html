@@ -150,6 +150,26 @@ input[type=number]{width:60px}
 .verdict.warn{background:rgba(102,119,136,.05);border-color:var(--f)}
 .verdict.warn .verdict-title{color:var(--f)}
 
+/* -- ENCYCLOPEDIA -- */
+.enc-filter-btn{background:transparent;border:1px solid var(--border2);color:var(--text3);font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer;font-family:'Cinzel',serif;letter-spacing:.04em;transition:all .15s}
+.enc-filter-btn.on{background:rgba(200,149,46,.1);border-color:var(--gold);color:var(--gold2)}
+.enc-filter-btn:hover:not(.on){color:var(--text2)}
+.ecard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.ecard-head{display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;user-select:none}
+.ecard-head:hover{background:rgba(200,149,46,.04)}
+.ecard-info{flex:1;min-width:0}
+.ecard-name{font-size:1.05rem;color:var(--text);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ecard-meta{font-size:.78rem;color:var(--text3);margin-top:2px}
+.ecard-chevron{color:var(--text3);font-size:.72rem;transition:transform .2s;flex-shrink:0}
+.ecard-chevron.open{transform:rotate(180deg)}
+.ecard-body{display:none;padding:8px 12px 10px;border-top:1px solid var(--border)}
+.ecard-body.open{display:block}
+.combo-row{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid rgba(46,37,21,.3);font-size:.84rem;line-height:1.4}
+.combo-row:last-child{border-bottom:none}
+.combo-partner{font-weight:600;min-width:110px;flex-shrink:0;color:var(--text2)}
+.combo-bonus{font-size:.72rem;color:var(--gold2);flex-shrink:0;margin-top:2px;min-width:28px}
+.combo-reason{flex:1;color:var(--text3)}
+.combo-sec{font-size:.72rem;font-family:'Cinzel',serif;letter-spacing:.07em;text-transform:uppercase;color:var(--text2);margin:8px 0 4px}
 /* -- SCROLLBAR -- */
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -221,6 +241,7 @@ input[type=number]{width:60px}
       <div class="tab on" data-tab="rewards">⚔ Card Rewards</div>
       <div class="tab" data-tab="shop">⚖ Shop</div>
       <div class="tab" data-tab="removal">✂ Removal</div>
+      <div class="tab" data-tab="encyclopedia">🂠 Cards</div>
     </div>
 
     <div class="pane on" id="pane-rewards">
@@ -251,6 +272,20 @@ input[type=number]{width:60px}
         <p style="font-size:.9rem;color:var(--text2);font-style:italic;margin-bottom:10px">Which cards to cut if given the chance.</p>
       </div>
       <div class="results" id="removal-results"></div>
+    </div>
+
+    <div class="pane" id="pane-encyclopedia">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;align-items:center">
+        <span id="enc-arch-filters" style="display:contents"></span>
+        <input id="enc-search" type="text" placeholder="Search..." autocomplete="off" spellcheck="false"
+          style="background:var(--bg2);border:1px solid var(--border2);color:var(--text);font-size:.85rem;padding:5px 10px;border-radius:var(--radius);width:130px;font-family:'Crimson Pro',serif">
+        <span style="display:flex;gap:5px;margin-left:4px">
+          <button id="enc-sort-tier"   onclick="setEncSort('tier')"   style="background:rgba(200,149,46,.12);border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">★ Tier</button>
+          <button id="enc-sort-combos" onclick="setEncSort('combos')" style="background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">⚡ Combos</button>
+        </span>
+        <span id="enc-stats" style="font-size:.78rem;color:var(--text3);margin-left:auto"></span>
+      </div>
+      <div id="encyclopedia-results" style="display:flex;flex-direction:column;gap:6px"></div>
     </div>
   </div>
 </div>
@@ -777,7 +812,7 @@ function loadStarters() {
   deck = (STARTERS[ch] || []).map(name => ({name}));
 }
 
-document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); });
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); encArchFilter='all'; if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
 document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
@@ -813,6 +848,7 @@ document.querySelectorAll('.tab').forEach(t => {
     t.classList.add('on');
     document.getElementById('pane-'+t.dataset.tab).classList.add('on');
     if (t.dataset.tab === 'removal') analyzeRemoval();
+    if (t.dataset.tab === 'encyclopedia') renderEncyclopedia();
   });
 });
 
@@ -842,6 +878,7 @@ document.addEventListener('keydown', e => {
   if (e.key === '1') document.querySelector('[data-tab="rewards"]').click();
   else if (e.key === '2') document.querySelector('[data-tab="shop"]').click();
   else if (e.key === '3') document.querySelector('[data-tab="removal"]').click();
+  else if (e.key === '4') document.querySelector('[data-tab="encyclopedia"]').click();
   else if (e.key === 'Enter') {
     const active = document.querySelector('.tab.on');
     if (!active) return;
@@ -855,6 +892,10 @@ document.addEventListener('keydown', e => {
 });
 
 // Clear save
+document.getElementById('enc-search').addEventListener('input', () => {
+  if (document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia();
+});
+
 document.getElementById('clear-save-btn').addEventListener('click', () => {
   localStorage.removeItem('sts2_advisor_state');
   loadStarters();
@@ -863,6 +904,121 @@ document.getElementById('clear-save-btn').addEventListener('click', () => {
   renderShopSlots();
   maybeRefreshRemoval();
 });
+
+// ── ENCYCLOPEDIA ──────────────────────────────────────────────────
+let encSortMode   = 'tier';
+let encArchFilter = 'all';
+
+function setEncSort(mode) {
+  encSortMode = mode;
+  document.getElementById('enc-sort-tier').style.background   = mode==='tier'   ? 'rgba(200,149,46,.12)' : 'transparent';
+  document.getElementById('enc-sort-tier').style.borderColor  = mode==='tier'   ? 'var(--gold)' : 'var(--border2)';
+  document.getElementById('enc-sort-tier').style.color        = mode==='tier'   ? 'var(--gold2)' : 'var(--text2)';
+  document.getElementById('enc-sort-combos').style.background = mode==='combos' ? 'rgba(200,149,46,.12)' : 'transparent';
+  document.getElementById('enc-sort-combos').style.borderColor= mode==='combos' ? 'var(--gold)' : 'var(--border2)';
+  document.getElementById('enc-sort-combos').style.color      = mode==='combos' ? 'var(--gold2)' : 'var(--text2)';
+  renderEncyclopedia();
+}
+
+function setEncFilter(arch) {
+  encArchFilter = arch;
+  document.querySelectorAll('.enc-filter-btn').forEach(b => b.classList.toggle('on', b.dataset.arch === arch));
+  renderEncyclopedia();
+}
+
+function getCardCombosDeduped(cardName) {
+  const n = norm(cardName);
+  const seen = new Set();
+  const result = [];
+  for (const c of DB.combos) {
+    const isMatch = norm(c.offeredCard)===n || norm(c.deckCard)===n;
+    if (!isMatch) continue;
+    const partner = norm(c.offeredCard)===n ? c.deckCard : c.offeredCard;
+    // Dedup by partner name — keep highest bonus version
+    const key = norm(partner);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push({partner, bonus: c.bonus, reason: c.reason});
+  }
+  return result.sort((a,b) => b.bonus - a.bonus);
+}
+
+function getComboCount(cardName) {
+  return getCardCombosDeduped(cardName).length;
+}
+
+function renderEncyclopedia() {
+  const ch = document.getElementById('char').value;
+  const el = document.getElementById('encyclopedia-results');
+  const statsEl = document.getElementById('enc-stats');
+  const searchVal = (document.getElementById('enc-search')?.value||'').trim().toLowerCase();
+  if (!el) return;
+
+  const charCards = DB.cards[ch] || {};
+  const TIER_ORDER = {S:0,A:1,B:2,C:3,D:4,F:5};
+
+  // Build arch filter buttons
+  const filtersEl = document.getElementById('enc-arch-filters');
+  if (filtersEl && !filtersEl.dataset.built || filtersEl.dataset.char !== ch) {
+    const archs = new Set();
+    Object.values(charCards).forEach(c => (c.builds||[]).filter(b=>b!=='any').forEach(b=>archs.add(b)));
+    filtersEl.innerHTML = '';
+    ['all',...archs].forEach(arch => {
+      const b = document.createElement('button');
+      b.className = 'enc-filter-btn' + (encArchFilter===arch?' on':'');
+      b.dataset.arch = arch;
+      b.textContent = arch==='all' ? 'All' : (BUILD_TAGS[arch] ? BUILD_TAGS[arch].emoji+' '+BUILD_TAGS[arch].label : arch);
+      b.onclick = () => setEncFilter(arch);
+      filtersEl.appendChild(b);
+    });
+    filtersEl.dataset.built = '1';
+    filtersEl.dataset.char  = ch;
+  }
+
+  let cards = Object.values(charCards).map(card => ({card, combos: getComboCount(card.id)}));
+
+  if (encArchFilter !== 'all')
+    cards = cards.filter(({card}) => (card.builds||[]).includes(encArchFilter));
+  if (searchVal.length >= 1)
+    cards = cards.filter(({card}) => card.id.toLowerCase().includes(searchVal));
+
+  if (encSortMode === 'tier')
+    cards.sort((a,b) => (TIER_ORDER[a.card.tier]??3)-(TIER_ORDER[b.card.tier]??3) || b.combos-a.combos);
+  else
+    cards.sort((a,b) => b.combos-a.combos || (TIER_ORDER[a.card.tier]??3)-(TIER_ORDER[b.card.tier]??3));
+
+  if (statsEl) statsEl.textContent = cards.length + ' cards';
+
+  el.innerHTML = cards.map(({card, combos}) => {
+    const cardCombos = getCardCombosDeduped(card.id);
+    const comboText = cardCombos.length > 0 ? `<span style="color:var(--gold2);font-size:.73rem">⚡ ${cardCombos.length} combo${cardCombos.length!==1?'s':''}</span>` : '';
+    const uid = 'e_'+card.id.replace(/[^a-zA-Z0-9]/g,'_');
+
+    const comboRows = cardCombos.map(c => `<div class="combo-row">
+        <span class="combo-partner">${c.partner}</span>
+        <span class="combo-bonus">+${c.bonus.toFixed(1)}</span>
+        <span class="combo-reason">${c.reason}</span>
+      </div>`).join('');
+
+    return `<div class="ecard">
+  <div class="ecard-head" onclick="(function(h){const b=h.nextElementSibling,ic=h.querySelector('.ecard-chevron');const o=b.classList.toggle('open');ic.classList.toggle('open',o)})(this)">
+    <div class="grade-box g-${card.tier}" style="width:36px;height:36px;font-size:1.05rem;flex-shrink:0">${card.tier}</div>
+    <div class="ecard-info">
+      <div class="ecard-name">${card.id}${getBuildTag(card.builds||[],null)}</div>
+      <div class="ecard-meta">${comboText}</div>
+    </div>
+    <span class="ecard-chevron">▼</span>
+  </div>
+  <div class="ecard-body">
+    ${card.notes?`<div class="card-notes" style="margin-bottom:8px">${card.notes}</div>`:''}
+    ${cardCombos.length>0?`<div class="combo-sec">Combos</div>${comboRows}`:'<div style="color:var(--text3);font-size:.85rem">No combo data.</div>'}
+  </div>
+</div>`;
+  }).join('');
+}
+
+// Enc search listener added at bottom
+// ── END ENCYCLOPEDIA ───────────────────────────────────────────────
 
 // INIT
 if (!loadSavedState()) {
