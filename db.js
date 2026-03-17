@@ -5217,28 +5217,28 @@ const DB = {
         "role": "payoff"
       },
       "GUARDS": {
-        "id": "Guards!!!",
+        "id": "GUARDS!!!",
         "tier": "S",
         "builds": [
           "stars",
           "any"
         ],
         "syn": [
-          "stellar",
-          "stars",
-          "block",
-          "exhaust"
+          "exhaust",
+          "damage",
+          "aoe"
         ],
         "anti": [
           "forge"
         ],
-        "notes": "Transform hand cards into Minion Sacrifice (0-cost, 9 block each). Targeted exhaust + defense.",
+        "notes": "Transforms entire hand into Minion Sacrifices for massive AoE burst. Exhaust. Devastating finisher.",
         "mech": [
-          "block",
           "exhaust",
-          "hand_transform"
+          "transform",
+          "damage",
+          "aoe"
         ],
-        "role": "generator"
+        "role": "payoff"
       },
       "COMET": {
         "id": "Comet",
@@ -5267,24 +5267,24 @@ const DB = {
         "role": "payoff"
       },
       "CHILD_OF_THE_STARS": {
-        "id": "Child Of The Stars",
+        "id": "Child of the Stars",
         "tier": "S",
         "builds": [
           "stars"
         ],
         "syn": [
-          "stellar",
-          "stars",
           "block",
+          "stars",
+          "star_gain",
           "scaling"
         ],
         "anti": [
           "forge"
         ],
-        "notes": "Gain 2 block for each star spent. Genesis = 6 free block per turn minimum.",
+        "notes": "Gain 2 Block for each Star spent. Passive — every Star expenditure becomes Block. With Genesis online, Block generation is massive every turn.",
         "mech": [
           "block",
-          "star_payoff",
+          "passive",
           "scaling"
         ],
         "role": "payoff"
@@ -5415,12 +5415,12 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "Next turn put 2 cards from draw pile into hand. Guaranteed key card retrieval.",
+        "notes": "Next turn, put 2 cards from your Draw Pile into your Hand. S-tier setup card — guarantees you draw your win conditions on the exact turn you need them.",
         "mech": [
           "card_retrieve",
           "draw"
         ],
-        "role": "generator"
+        "role": "engine"
       },
       "GAMMA_BLAST": {
         "id": "Gamma Blast",
@@ -5446,28 +5446,6 @@ const DB = {
         ],
         "role": "payoff"
       },
-      "SEALED_THRONE": {
-        "id": "Sealed Throne",
-        "tier": "A",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "stellar",
-          "stars",
-          "scaling"
-        ],
-        "anti": [
-          "forge"
-        ],
-        "notes": "Gain 1 star per card played. Near-infinite loops when assembled.",
-        "mech": [
-          "star_gain",
-          "passive",
-          "per_card_payoff"
-        ],
-        "role": "engine"
-      },
       "PHOTON_CUT": {
         "id": "Photon Cut",
         "tier": "A",
@@ -5492,7 +5470,7 @@ const DB = {
       },
       "ALIGNMENT": {
         "id": "Alignment",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "stars"
         ],
@@ -5504,7 +5482,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "0-cost gain 2 energy. Core of Glow+Alignment infinite. Strong energy conversion.",
+        "notes": "Gain 2 Energy — one of the few pure Energy cards Regent has. Vital in Star-heavy builds for playing expensive payoffs.",
         "mech": [
           "energy_gain",
           "zero_cost"
@@ -5578,25 +5556,26 @@ const DB = {
         "role": "payoff"
       },
       "DECISIONS_DECISIONS": {
-        "id": "Decisions Decisions",
-        "tier": "A",
+        "id": "Decisions, Decisions",
+        "tier": "S",
         "builds": [
-          "stars"
+          "stars",
+          "forge"
         ],
         "syn": [
-          "stellar",
           "stars",
-          "scaling",
-          "draw"
+          "forge",
+          "draw",
+          "exhaust"
         ],
         "anti": [
           "forge"
         ],
-        "notes": "0★10: draw 3, play chosen skill 3 times. D+D into Royal Gamble = 27 stars total.",
+        "notes": "Draw 3 then triple any Skill. Royal Gamble → 27 Stars. Reflect → 51 Block. The Smith → Forge 90. One of the strongest multiplier cards.",
         "mech": [
-          "skill_multiply",
           "draw",
-          "star_payoff"
+          "exhaust",
+          "multiplier"
         ],
         "role": "payoff"
       },
@@ -5745,7 +5724,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "AoE damage + Strength debuff. Ethereal.",
+        "notes": "Ethereal. 9 AoE damage plus enemies lose 9 Strength this turn. Excellent against multi-enemy rooms — effectively a huge Block card by neutering enemy damage.",
         "mech": [
           "damage",
           "aoe",
@@ -5767,7 +5746,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "Exhaust a card at turn start. Thins deck every turn. Core of infinite setups.",
+        "notes": "Draw 1 and Exhaust 1 each turn. Passive deck thinner and draw engine. Very good in Sly-adjacent Regent builds.",
         "mech": [
           "exhaust",
           "deck_thin"
@@ -5789,7 +5768,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Big block + Forge 10. Best reason to go forge builds.",
+        "notes": "13 Block plus Forge 10. Efficient defensive Forge card.",
         "mech": [
           "block",
           "forge"
@@ -5810,7 +5789,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Sovereign Blade hits all enemies this turn. Near-mandatory for forge builds.",
+        "notes": "Forge 7 plus Sovereign Blade hits ALL enemies. Huge in Forge builds, irrelevant otherwise.",
         "mech": [
           "forge",
           "aoe"
@@ -5818,27 +5797,22 @@ const DB = {
         "role": "payoff"
       },
       "PATTERN": {
-        "id": "Pattern",
-        "tier": "B",
+        "id": "Patter",
+        "tier": "C",
         "builds": [
-          "stars"
+          "any"
         ],
+        "role": "generator",
         "syn": [
-          "stellar",
           "block",
-          "strength",
-          "scaling"
+          "strength"
         ],
-        "anti": [
-          "forge"
-        ],
-        "notes": "Block + Vigor stacking. Core of Pattern → Celestial Might combo.",
+        "anti": [],
         "mech": [
           "block",
-          "strength",
-          "scaling"
+          "strength"
         ],
-        "role": "engine"
+        "notes": "Gain 8 Block plus 2 Vigor (temporary Strength this turn). Solid early card."
       },
       "CELESTIAL_MIGHT": {
         "id": "Celestial Might",
@@ -5855,7 +5829,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "18 total multi-hit. Scales with Vigor stacks.",
+        "notes": "6 damage 3 times. Multi-hit synergizes with Monarch's Gaze and Terraforming. Good with Strength scaling.",
         "mech": [
           "damage",
           "multi_hit",
@@ -5908,7 +5882,7 @@ const DB = {
       },
       "STARDUST": {
         "id": "Stardust",
-        "tier": "C",
+        "tier": "D",
         "builds": [
           "stars"
         ],
@@ -5920,7 +5894,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "Finisher vs single bosses. Dumps all stars. Situational.",
+        "notes": "Deals damage X times randomly — too random, needs massive Stars setup to be worthwhile.",
         "mech": [
           "damage",
           "star_payoff"
@@ -5929,7 +5903,7 @@ const DB = {
       },
       "LUNAR_BLAST": {
         "id": "Lunar Blast",
-        "tier": "C",
+        "tier": "D",
         "builds": [
           "stars"
         ],
@@ -5963,7 +5937,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "Strength per skill played. Goes A-tier with multiple Decisions Decisions.",
+        "notes": "Gain 1 Strength per card played this turn. Tempo-dependent — great on big turns, dead on small turns.",
         "mech": [
           "strength",
           "per_skill_payoff"
@@ -5972,7 +5946,7 @@ const DB = {
       },
       "CONQUEROR": {
         "id": "Conqueror",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "forge"
         ],
@@ -5984,7 +5958,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Double Sovereign Blade damage.",
+        "notes": "Forge 3 plus doubles Sovereign Blade damage this turn. Requires Forge setup to shine.",
         "mech": [
           "forge",
           "damage"
@@ -6019,7 +5993,7 @@ const DB = {
           "aoe"
         ],
         "anti": [],
-        "notes": "21 AoE but fills hand with unplayable Debris.",
+        "notes": "21 AoE but fills hand with Debris — nearly unplayable without exhaust support.",
         "mech": [
           "damage",
           "aoe"
@@ -6027,13 +6001,18 @@ const DB = {
         "role": "payoff"
       },
       "BUNDLE_OF_JOY": {
-        "id": "Bundle Of Joy",
+        "id": "Bundle of Joy",
         "tier": "F",
         "builds": [],
-        "syn": [],
+        "syn": [
+          "colorless"
+        ],
         "anti": [],
-        "notes": "Add 3 random Colorless cards. Clogs hand.",
-        "mech": [],
+        "notes": "Adds 3 random Colorless cards then Exhausts. Too random to reliably build around.",
+        "mech": [
+          "colorless",
+          "exhaust"
+        ],
         "role": "generator"
       },
       "KINGLY_KICK": {
@@ -6079,16 +6058,18 @@ const DB = {
         "role": "generator"
       },
       "SPOILS_OF_BATTLE": {
-        "id": "Spoils Of Battle",
+        "id": "Spoils of Battle",
         "tier": "D",
-        "builds": [],
+        "builds": [
+          "forge"
+        ],
         "syn": [
           "forge"
         ],
         "anti": [
           "stars"
         ],
-        "notes": "Grossly inefficient Forge.",
+        "notes": "Pure Forge 10. Only useful in dedicated Forge builds — dead otherwise.",
         "mech": [
           "forge"
         ],
@@ -6107,7 +6088,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Only triggers on Sovereign Blade. Very narrow.",
+        "notes": "Gain 6 Block whenever you play Sovereign Blade. Too conditional — Forge-only niche.",
         "mech": [
           "block",
           "forge",
@@ -6142,20 +6123,20 @@ const DB = {
         ]
       },
       "WROUGHT_IN_WAR": {
-        "id": "Wrought In War",
+        "id": "Wrought in War",
         "tier": "B",
         "builds": [
-          "forge"
+          "forge",
+          "any"
         ],
         "syn": [
           "forge",
-          "authority",
           "damage"
         ],
         "anti": [
           "stars"
         ],
-        "notes": "Damage + built-in Forge. Good early forge card without needing Sovereign Blade setup.",
+        "notes": "7 damage plus Forge 5. Efficient early Forge card that also deals damage.",
         "mech": [
           "damage",
           "forge"
@@ -6164,7 +6145,7 @@ const DB = {
       },
       "SUMMON_FORTH": {
         "id": "Summon Forth",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "forge"
         ],
@@ -6176,7 +6157,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Quintessential Forge card — lets you re-use the Sovereign Blade easily.",
+        "notes": "Forge 8 and retrieves Sovereign Blade from anywhere. Core Forge utility card.",
         "mech": [
           "forge",
           "card_retrieve"
@@ -6184,23 +6165,25 @@ const DB = {
         "role": "generator"
       },
       "BEAT_INTO_SHAPE": {
-        "id": "Beat Into Shape",
+        "id": "Beat into Shape",
         "tier": "A",
         "builds": [
           "forge"
         ],
         "syn": [
           "forge",
-          "authority",
+          "damage",
+          "multi_hit",
           "scaling"
         ],
         "anti": [
           "stars"
         ],
-        "notes": "One of the best Forge cards, especially alongside zero cost attacks.",
+        "notes": "5 damage + Forge 5, plus stacking Forge for each previous hit this turn. Exponential Forge value on multi-hit turns.",
         "mech": [
+          "damage",
           "forge",
-          "scaling"
+          "per_attack_payoff"
         ],
         "role": "generator"
       },
@@ -6218,7 +6201,7 @@ const DB = {
         "anti": [
           "stars"
         ],
-        "notes": "Consistent passive Forge for a low cost. Builds up over time.",
+        "notes": "Passive Forge 4 each turn. Consistent Forge engine that stacks with everything.",
         "mech": [
           "forge",
           "passive"
@@ -6240,7 +6223,7 @@ const DB = {
         "anti": [
           "forge"
         ],
-        "notes": "Applies Vulnerable. Useful setup for big star-cost attacks.",
+        "notes": "7 damage plus 1 Weak and 1 Vulnerable. Basic setup card — fine early, outclassed later.",
         "mech": [
           "vulnerable",
           "star_gain"
@@ -6248,27 +6231,25 @@ const DB = {
         "role": "generator"
       },
       "CLOAK_OF_STARS": {
-        "id": "Cloak Of Stars",
+        "id": "Cloak of Stars",
         "tier": "B",
         "builds": [
-          "stars"
+          "stars",
+          "any"
         ],
         "syn": [
-          "stellar",
-          "stars",
           "block",
-          "zero_cost"
+          "zero_cost",
+          "stars"
         ],
         "anti": [
           "forge"
         ],
-        "notes": "0-cost block using stars. Saves energy for bigger combos.",
+        "notes": "Zero-cost Block card. Saves Energy for Star spends or Forge plays. Universal include.",
         "mech": [
-          "block",
-          "zero_cost",
-          "star_payoff"
+          "block"
         ],
-        "role": "payoff"
+        "role": "generator"
       },
       "VENERATE": {
         "id": "Venerate",
@@ -6282,7 +6263,7 @@ const DB = {
       },
       "REFINE_BLADE": {
         "id": "Refine Blade",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "forge"
         ],
@@ -6292,12 +6273,537 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "Efficient Forge generator that also refunds tempo with next-turn Energy. Strong in Sovereign Blade builds.",
+        "notes": "Forge 6 plus Energy next turn. Efficient Forge card that also fixes tempo.",
         "mech": [
           "forge",
           "energy_gain"
         ],
         "role": "generator"
+      },
+      "BEGONE": {
+        "id": "BEGONE!",
+        "tier": "A",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "transform"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "transform"
+        ],
+        "notes": "Deal 4 damage and transform a hand card into Minion Dive Bomb. Good early damage with GUARDS!!! exhaust synergy. More useful than it first appears."
+      },
+      "COLLISION_COURSE": {
+        "id": "Collision Course",
+        "tier": "D",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "9 damage but adds Debris to hand — Debris clogs draw badly."
+      },
+      "CRUSH_UNDER": {
+        "id": "Crush Under",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "aoe",
+          "damage",
+          "debuff"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "damage"
+        ],
+        "notes": "7 AoE plus enemies lose 1 Strength. Good early multi-enemy control."
+      },
+      "GLITTERSTREAM": {
+        "id": "Glitterstream",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "delayed_block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "delayed_block"
+        ],
+        "notes": "11 Block plus 4 next turn — 15 total. Reliable defensive card."
+      },
+      "KNOW_THY_PLACE": {
+        "id": "Know Thy Place",
+        "tier": "B",
+        "builds": [
+          "stars",
+          "forge"
+        ],
+        "role": "generator",
+        "syn": [
+          "vulnerable",
+          "weak",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "vulnerable",
+          "weak",
+          "exhaust"
+        ],
+        "notes": "Weak + Vulnerable then Exhaust. Free setup for Comet, Gamma Blast, Sovereign Blade."
+      },
+      "CHARGE": {
+        "id": "CHARGE!!",
+        "tier": "A",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "transform"
+        ],
+        "anti": [],
+        "mech": [
+          "transform"
+        ],
+        "notes": "Transforms 2 draw pile cards into Minion Strikes. Deck thinning with some upside in the right setup."
+      },
+      "DEVASTATE": {
+        "id": "Devastate",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Deal 30 damage. No conditions, no setup. Reliable big hit for 2 Energy."
+      },
+      "LARGESSE": {
+        "id": "Largesse",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "colorless"
+        ],
+        "anti": [],
+        "mech": [
+          "colorless"
+        ],
+        "notes": "Gives another player a Colorless card. No solo value whatsoever."
+      },
+      "MANIFEST_AUTHORITY": {
+        "id": "Manifest Authority",
+        "tier": "B",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "colorless"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "colorless"
+        ],
+        "notes": "7 Block plus a random Colorless card. Fuels Arsenal and Pillar of Creation."
+      },
+      "ORBIT": {
+        "id": "Orbit",
+        "tier": "D",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "energy_gain",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "passive"
+        ],
+        "notes": "Every 4 Energy spent, gain 1 Energy. Too slow and too conditional for most runs."
+      },
+      "PALE_BLUE_DOT": {
+        "id": "Pale Blue Dot",
+        "tier": "C",
+        "builds": [
+          "stars"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "stars"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "passive",
+          "conditional"
+        ],
+        "notes": "Draw 1 next turn if you played 5+ cards. Passive draw in big-turn builds."
+      },
+      "PILLAR_OF_CREATION": {
+        "id": "Pillar of Creation",
+        "tier": "C",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "block",
+          "colorless",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "passive"
+        ],
+        "notes": "Gain 3 Block per card created. Needs Spectrum Shift/Quasar shell — too conditional otherwise."
+      },
+      "QUASAR": {
+        "id": "Quasar",
+        "tier": "C",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "colorless",
+          "stars"
+        ],
+        "anti": [],
+        "mech": [
+          "colorless"
+        ],
+        "notes": "Choose 1 of 3 Colorless cards. Flexible but random — feeds Arsenal/Pillar but not reliable enough for higher."
+      },
+      "SPECTRUM_SHIFT": {
+        "id": "Spectrum Shift",
+        "tier": "B",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "colorless",
+          "scaling",
+          "star_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "colorless",
+          "passive"
+        ],
+        "notes": "Add 1 random Colorless card at turn start. Passive engine for Arsenal and Pillar of Creation every turn."
+      },
+      "SUPERMASSIVE": {
+        "id": "Supermassive",
+        "tier": "C",
+        "builds": [
+          "stars"
+        ],
+        "role": "payoff",
+        "syn": [
+          "colorless",
+          "scaling",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "5 damage + 3 per card created. Good in Colorless shell, weak otherwise."
+      },
+      "TERRAFORMING": {
+        "id": "Terraforming",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "strength",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "strength"
+        ],
+        "notes": "6 Vigor (temp Strength). Good on multi-hit turns but does nothing on its own."
+      },
+      "ARSENAL": {
+        "id": "Arsenal",
+        "tier": "B",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "strength",
+          "colorless",
+          "scaling",
+          "permanent_scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "strength",
+          "passive",
+          "permanent_scaling"
+        ],
+        "notes": "Gain 1 permanent Strength per Colorless card played. Pairs with Spectrum Shift for passive scaling."
+      },
+      "HAMMER_TIME": {
+        "id": "Hammer Time",
+        "tier": "D",
+        "builds": [
+          "forge"
+        ],
+        "role": "engine",
+        "syn": [
+          "forge"
+        ],
+        "anti": [],
+        "mech": [
+          "forge",
+          "passive"
+        ],
+        "notes": "Forge extends to allies — solo play value is minimal."
+      },
+      "HEAVENLY_DRILL": {
+        "id": "Heavenly Drill",
+        "tier": "D",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "stars",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit",
+          "x_cost"
+        ],
+        "notes": "Deal 8 damage X times — doubles to 16xX when X is 4+. Needs Energy generation or Stars for maximum impact."
+      },
+      "HEIRLOOM_HAMMER": {
+        "id": "Heirloom Hammer",
+        "tier": "D",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "colorless"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "colorless"
+        ],
+        "notes": "17 damage plus duplicates a Colorless card in hand. Pairs with Arsenal for double Strength triggers."
+      },
+      "I_AM_INVINCIBLE": {
+        "id": "I Am Invincible",
+        "tier": "B",
+        "builds": [
+          "stars",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "block",
+          "scaling",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "recursive"
+        ],
+        "notes": "Gain 9 Block. If on top of draw pile at end of turn, plays again. Recurring Block engine."
+      },
+      "MAKE_IT_SO": {
+        "id": "Make It So",
+        "tier": "C",
+        "builds": [
+          "stars"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "stars",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "recurring"
+        ],
+        "notes": "6 damage that returns every 3 Skills. Interesting in Skill-heavy builds but too conditional."
+      },
+      "MONARCHS_GAZE": {
+        "id": "Monarch's Gaze",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "debuff",
+          "multi_hit",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "passive",
+          "debuff"
+        ],
+        "notes": "Each attack reduces enemy Strength by 1 this turn. Multi-hit attacks like Celestial Might or Seven Stars drain Strength rapidly."
+      },
+      "NEUTRON_AEGIS": {
+        "id": "Neutron Aegis",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "plating",
+          "permanent_scaling"
+        ],
+        "notes": "Gain 8 Plating (permanent flat damage reduction per hit). Decent defensive option but slower than Block-based defense in practice."
+      },
+      "ROYALTIES": {
+        "id": "Royalties",
+        "tier": "B",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "gold"
+        ],
+        "notes": "Gain 30 Gold at end of combat. Surprisingly strong — 30 Gold is significant economy and synergizes with shop-heavy strategies."
+      },
+      "SWORD_SAGE": {
+        "id": "Sword Sage",
+        "tier": "B",
+        "builds": [
+          "forge"
+        ],
+        "role": "engine",
+        "syn": [
+          "forge",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "passive",
+          "damage"
+        ],
+        "notes": "Sovereign Blade costs 1 more but hits an extra time. Net positive with high Forge values."
+      },
+      "THE_SMITH": {
+        "id": "The Smith",
+        "tier": "A",
+        "builds": [
+          "forge"
+        ],
+        "role": "payoff",
+        "syn": [
+          "forge"
+        ],
+        "anti": [],
+        "mech": [
+          "forge"
+        ],
+        "notes": "Forge 30 in one card. Near-instant win condition in Forge builds — one play often makes Sovereign Blade lethal."
+      },
+      "METEOR_SHOWER": {
+        "id": "Meteor Shower",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "aoe",
+          "damage",
+          "vulnerable",
+          "weak"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "damage",
+          "vulnerable",
+          "weak"
+        ],
+        "notes": "14 AoE damage plus 2 Weak and 2 Vulnerable to ALL enemies. Ancient card — insane setup for follow-up nukes like Comet or Seven Stars."
+      },
+      "THE_SEALED_THRONE": {
+        "id": "The Sealed Throne",
+        "tier": "A",
+        "builds": [
+          "stars"
+        ],
+        "role": "engine",
+        "syn": [
+          "stars",
+          "star_gain",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "star_gain",
+          "passive",
+          "scaling"
+        ],
+        "notes": "Gain 1 Star every card played. With Void Form free cards, generates Stars effortlessly. Effectively Genesis-tier passive Star engine."
       }
     },
     "necrobinder": {
@@ -8673,7 +9179,7 @@ const DB = {
     },
     {
       "deckCard": "Glow",
-      "offeredCard": "Child Of The Stars",
+      "offeredCard": "Child of the Stars",
       "bonus": 1.5,
       "reason": "Glow generates Stars — Child of Stars gives 2 block per star spent. Consistent free block."
     },
@@ -8685,7 +9191,7 @@ const DB = {
     },
     {
       "deckCard": "Genesis",
-      "offeredCard": "Child Of The Stars",
+      "offeredCard": "Child of the Stars",
       "bonus": 1.8,
       "reason": "Genesis gives 2 Stars per turn — Child of Stars converts each to 2 block. Free passive defense."
     },
@@ -8697,36 +9203,36 @@ const DB = {
     },
     {
       "deckCard": "Royal Gamble",
-      "offeredCard": "Child Of The Stars",
+      "offeredCard": "Child of the Stars",
       "bonus": 1.5,
       "reason": "Royal Gamble's 9 Stars = 18 free block from Child of Stars in one play"
     },
     {
-      "deckCard": "Decisions Decisions",
+      "deckCard": "Decisions, Decisions",
       "offeredCard": "Royal Gamble",
       "bonus": 2.5,
       "reason": "Decisions Decisions plays a skill 3 times — into Royal Gamble = 27 Stars. The core infinite loop."
     },
     {
       "deckCard": "Royal Gamble",
-      "offeredCard": "Decisions Decisions",
+      "offeredCard": "Decisions, Decisions",
       "bonus": 2.5,
       "reason": "Decisions Decisions triples Royal Gamble for 27 Stars — the primary infinite combo"
     },
     {
-      "deckCard": "Child Of The Stars",
+      "deckCard": "Child of the Stars",
       "offeredCard": "Genesis",
       "bonus": 1.8,
       "reason": "Genesis provides passive Stars every turn — Child of Stars converts them to free block"
     },
     {
       "deckCard": "Summon Forth",
-      "offeredCard": "Beat Into Shape",
+      "offeredCard": "Beat into Shape",
       "bonus": 1.5,
       "reason": "Both core Forge cards — more ways to Forge means Sovereign Blade scales faster"
     },
     {
-      "deckCard": "Beat Into Shape",
+      "deckCard": "Beat into Shape",
       "offeredCard": "Furnace",
       "bonus": 1.2,
       "reason": "Furnace passive Forge stacks alongside Beat Into Shape's active Forge"
@@ -8906,19 +9412,19 @@ const DB = {
       "reason": "Genesis generates Stars — Particle Wall consumes Stars for sustained passive block"
     },
     {
-      "deckCard": "Sealed Throne",
+      "deckCard": "The Sealed Throne",
       "offeredCard": "Convergence",
       "bonus": 1.8,
       "reason": "Sealed Throne generates Stars on attack — Convergence converts them to AoE burst"
     },
     {
-      "deckCard": "Sealed Throne",
+      "deckCard": "The Sealed Throne",
       "offeredCard": "Particle Wall",
       "bonus": 1.8,
       "reason": "Sealed Throne generates Stars on attack — Particle Wall converts them to block"
     },
     {
-      "deckCard": "Sealed Throne",
+      "deckCard": "The Sealed Throne",
       "offeredCard": "Radiate",
       "bonus": 1.8,
       "reason": "Sealed Throne generates Stars on attack — Radiate deals 3 AoE per Star"
@@ -8985,7 +9491,7 @@ const DB = {
     },
     {
       "deckCard": "Refine Blade",
-      "offeredCard": "Sealed Throne",
+      "offeredCard": "The Sealed Throne",
       "bonus": 1.4,
       "reason": "Refine Blade accelerates Forge plans and helps large Forge payoff cards come online faster"
     },
@@ -10734,6 +11240,486 @@ const DB = {
       "offeredCard": "Envenom",
       "bonus": 1.8,
       "reason": "Blade Dance generates 3 Shivs — with Envenom active each unblocked Shiv applies Poison. Natural bridge between Shiv and Poison builds."
+    },
+    {
+      "deckCard": "The Smith",
+      "offeredCard": "Conqueror",
+      "bonus": 2.5,
+      "reason": "The Smith forges 30 in one play — Conqueror then doubles that Sovereign Blade damage for a one-shot."
+    },
+    {
+      "deckCard": "Conqueror",
+      "offeredCard": "The Smith",
+      "bonus": 2.5,
+      "reason": "The Smith provides massive Forge for Conqueror to double — one of the cleanest Forge win conditions."
+    },
+    {
+      "deckCard": "The Smith",
+      "offeredCard": "Sword Sage",
+      "bonus": 2.0,
+      "reason": "The Smith maxes Forge — Sword Sage adds an extra hit at that damage, often doubling total output."
+    },
+    {
+      "deckCard": "Sword Sage",
+      "offeredCard": "The Smith",
+      "bonus": 2.0,
+      "reason": "Sword Sage adds extra Sovereign Blade hit — The Smith makes that hit enormous."
+    },
+    {
+      "deckCard": "The Smith",
+      "offeredCard": "Seeking Edge",
+      "bonus": 2.0,
+      "reason": "The Smith builds massive Sovereign Blade damage — Seeking Edge makes it hit all enemies simultaneously."
+    },
+    {
+      "deckCard": "Seeking Edge",
+      "offeredCard": "The Smith",
+      "bonus": 2.0,
+      "reason": "Seeking Edge enables AoE Sovereign Blade — The Smith makes that AoE lethal."
+    },
+    {
+      "deckCard": "Decisions, Decisions",
+      "offeredCard": "The Smith",
+      "bonus": 2.5,
+      "reason": "Decisions Decisions plays The Smith 3 times — Forge 90 total. Instant Forge win condition."
+    },
+    {
+      "deckCard": "The Smith",
+      "offeredCard": "Decisions, Decisions",
+      "bonus": 2.5,
+      "reason": "The Smith is the ideal Skill target for Decisions Decisions — 3x Forge 30 = Forge 90."
+    },
+    {
+      "deckCard": "Decisions, Decisions",
+      "offeredCard": "Reflect",
+      "bonus": 2.0,
+      "reason": "Decisions Decisions triples Reflect — 3x17=51 Block in one play."
+    },
+    {
+      "deckCard": "Reflect",
+      "offeredCard": "Decisions, Decisions",
+      "bonus": 2.0,
+      "reason": "Reflect triples for 51 Block — Decisions Decisions is the ultimate Reflect multiplier."
+    },
+    {
+      "deckCard": "Decisions, Decisions",
+      "offeredCard": "Know Thy Place",
+      "bonus": 1.8,
+      "reason": "Decisions Decisions triples Know Thy Place — 3 Weak and 3 Vulnerable on all enemies for free."
+    },
+    {
+      "deckCard": "Know Thy Place",
+      "offeredCard": "Decisions, Decisions",
+      "bonus": 1.8,
+      "reason": "Know Thy Place tripled means 3 stacks of Weak and Vulnerable — full setup for a massive nuke turn."
+    },
+    {
+      "deckCard": "Furnace",
+      "offeredCard": "Sword Sage",
+      "bonus": 1.5,
+      "reason": "Furnace passively Forges each turn — Sword Sage converts that accumulated Forge into extra Sovereign Blade hits."
+    },
+    {
+      "deckCard": "Sword Sage",
+      "offeredCard": "Furnace",
+      "bonus": 1.5,
+      "reason": "Sword Sage adds extra blade hits — Furnace ensures the blade value grows every turn passively."
+    },
+    {
+      "deckCard": "Seeking Edge",
+      "offeredCard": "Conqueror",
+      "bonus": 1.8,
+      "reason": "Seeking Edge makes Sovereign Blade hit all enemies — Conqueror then doubles that AoE damage."
+    },
+    {
+      "deckCard": "Conqueror",
+      "offeredCard": "Seeking Edge",
+      "bonus": 1.8,
+      "reason": "Conqueror doubles blade damage — Seeking Edge spreads that doubled damage to all enemies."
+    },
+    {
+      "deckCard": "Refine Blade",
+      "offeredCard": "Sword Sage",
+      "bonus": 1.5,
+      "reason": "Refine Blade provides Forge and Energy — Sword Sage converts Forge into extra blade hits."
+    },
+    {
+      "deckCard": "Sword Sage",
+      "offeredCard": "Refine Blade",
+      "bonus": 1.5,
+      "reason": "Sword Sage adds extra Sovereign Blade hits — Refine Blade fuels the Forge needed to make those hits devastating."
+    },
+    {
+      "deckCard": "Bulwark",
+      "offeredCard": "Seeking Edge",
+      "bonus": 1.5,
+      "reason": "Bulwark provides Block and Forge — Seeking Edge turns the Sovereign Blade that Forge powers into AoE."
+    },
+    {
+      "deckCard": "Seeking Edge",
+      "offeredCard": "Bulwark",
+      "bonus": 1.5,
+      "reason": "Seeking Edge enables AoE blade — Bulwark adds both defense and Forge to grow that AoE damage."
+    },
+    {
+      "deckCard": "The Sealed Throne",
+      "offeredCard": "Void Form",
+      "bonus": 2.0,
+      "reason": "The Sealed Throne gives Star per card played — Void Form makes first 2 cards free, generating Stars at no cost."
+    },
+    {
+      "deckCard": "Void Form",
+      "offeredCard": "The Sealed Throne",
+      "bonus": 2.0,
+      "reason": "Void Form plays cards for free — The Sealed Throne converts every free play into a Star passively."
+    },
+    {
+      "deckCard": "Radiate",
+      "offeredCard": "The Sealed Throne",
+      "bonus": 1.8,
+      "reason": "Radiate deals 3 AoE per Star gained this turn — The Sealed Throne generates a Star on every card played."
+    },
+    {
+      "deckCard": "The Sealed Throne",
+      "offeredCard": "Child of the Stars",
+      "bonus": 1.8,
+      "reason": "The Sealed Throne generates Stars constantly — Child of the Stars converts each Star spent into 2 Block."
+    },
+    {
+      "deckCard": "Child of the Stars",
+      "offeredCard": "The Sealed Throne",
+      "bonus": 1.8,
+      "reason": "Child of the Stars needs Star income — The Sealed Throne provides a Star every card played."
+    },
+    {
+      "deckCard": "Spectrum Shift",
+      "offeredCard": "Arsenal",
+      "bonus": 2.0,
+      "reason": "Spectrum Shift creates a free Colorless card each turn — Arsenal converts each Colorless played into permanent Strength."
+    },
+    {
+      "deckCard": "Arsenal",
+      "offeredCard": "Spectrum Shift",
+      "bonus": 2.0,
+      "reason": "Arsenal gains Strength per Colorless card played — Spectrum Shift provides a free Colorless every single turn."
+    },
+    {
+      "deckCard": "Pillar of Creation",
+      "offeredCard": "Spectrum Shift",
+      "bonus": 1.8,
+      "reason": "Spectrum Shift creates a Colorless card at turn start — Pillar of Creation gives 3 Block per creation, every turn for free."
+    },
+    {
+      "deckCard": "Spectrum Shift",
+      "offeredCard": "Pillar of Creation",
+      "bonus": 1.8,
+      "reason": "Pillar of Creation rewards card creation with Block — Spectrum Shift triggers it every turn automatically."
+    },
+    {
+      "deckCard": "Pillar of Creation",
+      "offeredCard": "Quasar",
+      "bonus": 1.5,
+      "reason": "Quasar creates a Colorless card — Pillar of Creation gives 3 Block each time, stacking fast in Colorless-heavy builds."
+    },
+    {
+      "deckCard": "Quasar",
+      "offeredCard": "Pillar of Creation",
+      "bonus": 1.5,
+      "reason": "Pillar of Creation gives 3 Block per card created — Quasar creates a Colorless on demand."
+    },
+    {
+      "deckCard": "Arsenal",
+      "offeredCard": "Quasar",
+      "bonus": 1.5,
+      "reason": "Quasar creates Colorless cards — Arsenal converts each one played into permanent Strength."
+    },
+    {
+      "deckCard": "Quasar",
+      "offeredCard": "Arsenal",
+      "bonus": 1.5,
+      "reason": "Arsenal gains Strength from Colorless cards played — Quasar provides them on demand."
+    },
+    {
+      "deckCard": "Arsenal",
+      "offeredCard": "Manifest Authority",
+      "bonus": 1.5,
+      "reason": "Manifest Authority creates a random Colorless card — Arsenal turns that into permanent Strength plus Block."
+    },
+    {
+      "deckCard": "Manifest Authority",
+      "offeredCard": "Arsenal",
+      "bonus": 1.5,
+      "reason": "Arsenal gains Strength from Colorless cards — Manifest Authority provides one while also giving Block."
+    },
+    {
+      "deckCard": "Arsenal",
+      "offeredCard": "Heirloom Hammer",
+      "bonus": 1.5,
+      "reason": "Heirloom Hammer duplicates a Colorless card in hand — Arsenal gains Strength from both the original and copy when played."
+    },
+    {
+      "deckCard": "Heirloom Hammer",
+      "offeredCard": "Arsenal",
+      "bonus": 1.5,
+      "reason": "Arsenal needs Colorless cards to gain Strength — Heirloom Hammer duplicates them, doubling Arsenal triggers."
+    },
+    {
+      "deckCard": "Spectrum Shift",
+      "offeredCard": "Supermassive",
+      "bonus": 1.5,
+      "reason": "Spectrum Shift creates a Colorless card every turn — Supermassive scales +3 per card created this combat."
+    },
+    {
+      "deckCard": "Supermassive",
+      "offeredCard": "Spectrum Shift",
+      "bonus": 1.5,
+      "reason": "Supermassive scales with cards created this combat — Spectrum Shift adds one free creation per turn."
+    },
+    {
+      "deckCard": "Know Thy Place",
+      "offeredCard": "Comet",
+      "bonus": 2.0,
+      "reason": "Know Thy Place applies Vulnerable (double damage) then Exhausts — Comet hits for 33 damage, effectively 66 against a Vulnerable enemy."
+    },
+    {
+      "deckCard": "Comet",
+      "offeredCard": "Know Thy Place",
+      "bonus": 2.0,
+      "reason": "Comet is a massive 33 damage nuke — Know Thy Place doubles that with Vulnerable and Weak for near-lethal hits."
+    },
+    {
+      "deckCard": "Know Thy Place",
+      "offeredCard": "Gamma Blast",
+      "bonus": 1.8,
+      "reason": "Know Thy Place applies Vulnerable — Gamma Blast already applies 2 more for 3 total, and hits for 13 on already-vulnerable target."
+    },
+    {
+      "deckCard": "Gamma Blast",
+      "offeredCard": "Know Thy Place",
+      "bonus": 1.5,
+      "reason": "Gamma Blast applies its own Vulnerable — Know Thy Place stacks additional setup for follow-up nukes."
+    },
+    {
+      "deckCard": "Meteor Shower",
+      "offeredCard": "Comet",
+      "bonus": 2.5,
+      "reason": "Meteor Shower applies 2 Vulnerable to all enemies — Comet then hits for effectively 66 AoE damage against Vulnerable targets."
+    },
+    {
+      "deckCard": "Comet",
+      "offeredCard": "Meteor Shower",
+      "bonus": 2.5,
+      "reason": "Comet is a 33 damage single target nuke — Meteor Shower first applies Vulnerable to all, making Comet land for double."
+    },
+    {
+      "deckCard": "Meteor Shower",
+      "offeredCard": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Meteor Shower applies 2 Weak and 2 Vulnerable to all enemies — Seven Stars then deals 7x7=49 AoE hits per enemy at doubled damage."
+    },
+    {
+      "deckCard": "Seven Stars",
+      "offeredCard": "Meteor Shower",
+      "bonus": 2.0,
+      "reason": "Seven Stars deals massive multi-hit AoE — Meteor Shower first debuffs all enemies with Vulnerable and Weak."
+    },
+    {
+      "deckCard": "Monarch's Gaze",
+      "offeredCard": "Celestial Might",
+      "bonus": 1.8,
+      "reason": "Monarch's Gaze reduces enemy Strength by 1 per attack — Celestial Might hits 3 times, draining 3 Strength in one card."
+    },
+    {
+      "deckCard": "Celestial Might",
+      "offeredCard": "Monarch's Gaze",
+      "bonus": 1.8,
+      "reason": "Celestial Might hits 3 times — Monarch's Gaze converts each hit into -1 enemy Strength this turn, compounding damage on multi-hit turns."
+    },
+    {
+      "deckCard": "Monarch's Gaze",
+      "offeredCard": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Monarch's Gaze reduces Strength per attack — Seven Stars hits 7x7=49 times, draining enormous enemy Strength each turn."
+    },
+    {
+      "deckCard": "Seven Stars",
+      "offeredCard": "Monarch's Gaze",
+      "bonus": 2.0,
+      "reason": "Seven Stars is 49 AoE hits — Monarch's Gaze turns each hit into Strength drain, stacking with itself massively."
+    },
+    {
+      "deckCard": "Black Hole",
+      "offeredCard": "Genesis",
+      "bonus": 1.8,
+      "reason": "Genesis generates 2 Stars per turn passively — Black Hole deals 3 AoE damage per Star gained, converting passive Stars into recurring AoE."
+    },
+    {
+      "deckCard": "Genesis",
+      "offeredCard": "Black Hole",
+      "bonus": 1.8,
+      "reason": "Black Hole deals 3 AoE per Star spent or gained — Genesis provides 2 free Stars per turn to trigger it passively."
+    },
+    {
+      "deckCard": "Black Hole",
+      "offeredCard": "Royal Gamble",
+      "bonus": 2.0,
+      "reason": "Royal Gamble dumps 9 Stars — Black Hole deals 3 AoE per Star, converting 9 Stars into 27 AoE damage instantly."
+    },
+    {
+      "deckCard": "Royal Gamble",
+      "offeredCard": "Black Hole",
+      "bonus": 2.0,
+      "reason": "Black Hole converts Star spending into AoE damage — Royal Gamble dumps 9 Stars for an immediate 27 AoE burst."
+    },
+    {
+      "deckCard": "Black Hole",
+      "offeredCard": "The Sealed Throne",
+      "bonus": 1.8,
+      "reason": "The Sealed Throne generates a Star per card played — Black Hole deals 3 AoE per Star, turning your card plays into passive AoE damage."
+    },
+    {
+      "deckCard": "The Sealed Throne",
+      "offeredCard": "Black Hole",
+      "bonus": 1.8,
+      "reason": "Black Hole deals 3 AoE per Star — The Sealed Throne ensures every card played generates a Star and therefore 3 AoE damage."
+    },
+    {
+      "deckCard": "Alignment",
+      "offeredCard": "Royal Gamble",
+      "bonus": 1.5,
+      "reason": "Royal Gamble generates 9 Stars — Alignment converts Stars into 2 Energy, giving massive energy for followup plays."
+    },
+    {
+      "deckCard": "Royal Gamble",
+      "offeredCard": "Alignment",
+      "bonus": 1.5,
+      "reason": "Alignment trades Stars for 2 Energy — Royal Gamble provides 9 Stars to fuel multiple Alignment activations."
+    },
+    {
+      "deckCard": "Hidden Cache",
+      "offeredCard": "Child of the Stars",
+      "bonus": 1.8,
+      "reason": "Hidden Cache gives 1+3 Stars over 2 turns — Child of the Stars converts those 4 Stars into 8 Block passively."
+    },
+    {
+      "deckCard": "Child of the Stars",
+      "offeredCard": "Hidden Cache",
+      "bonus": 1.8,
+      "reason": "Child of the Stars gains 2 Block per Star spent — Hidden Cache provides a big delayed Star dump for mass Block generation."
+    },
+    {
+      "deckCard": "Hidden Cache",
+      "offeredCard": "Radiate",
+      "bonus": 1.5,
+      "reason": "Hidden Cache provides 4 Stars over 2 turns — Radiate converts each Star gained this turn into 3 AoE damage."
+    },
+    {
+      "deckCard": "Radiate",
+      "offeredCard": "Hidden Cache",
+      "bonus": 1.5,
+      "reason": "Radiate deals 3 AoE per Star gained this turn — Hidden Cache provides 1 immediately then 3 next turn for recurring Radiate value."
+    },
+    {
+      "deckCard": "Shining Strike",
+      "offeredCard": "Child of the Stars",
+      "bonus": 1.5,
+      "reason": "Shining Strike gains 2 Stars on attack — Child of the Stars converts those Stars into 4 Block per Shining Strike played."
+    },
+    {
+      "deckCard": "Child of the Stars",
+      "offeredCard": "Shining Strike",
+      "bonus": 1.5,
+      "reason": "Child of the Stars rewards Star spending with Block — Shining Strike provides Stars reliably on each attack."
+    },
+    {
+      "deckCard": "Shining Strike",
+      "offeredCard": "Radiate",
+      "bonus": 1.5,
+      "reason": "Shining Strike gains 2 Stars on attack — Radiate converts those Stars into 6 AoE damage per Shining Strike."
+    },
+    {
+      "deckCard": "Radiate",
+      "offeredCard": "Shining Strike",
+      "bonus": 1.5,
+      "reason": "Radiate deals 3 damage per Star gained this turn — Shining Strike provides 2 Stars on hit for 6 AoE damage per attack."
+    },
+    {
+      "deckCard": "Convergence",
+      "offeredCard": "Radiate",
+      "bonus": 1.8,
+      "reason": "Convergence retains hand and grants Stars next turn — those Stars get spent for Radiate AoE on the following turn."
+    },
+    {
+      "deckCard": "Make It So",
+      "offeredCard": "Void Form",
+      "bonus": 1.5,
+      "reason": "Make It So returns to hand every 3 Skills — Void Form makes the first 2 cards free, accelerating how often you reach 3 Skills."
+    },
+    {
+      "deckCard": "Void Form",
+      "offeredCard": "Make It So",
+      "bonus": 1.5,
+      "reason": "Void Form plays cards free — Make It So triggers off Skills played, returning to hand faster with free card spam."
+    },
+    {
+      "deckCard": "Pale Blue Dot",
+      "offeredCard": "Void Form",
+      "bonus": 1.5,
+      "reason": "Pale Blue Dot draws if you play 5+ cards — Void Form makes first 2 free, trivially enabling 5+ card turns."
+    },
+    {
+      "deckCard": "Void Form",
+      "offeredCard": "Pale Blue Dot",
+      "bonus": 1.5,
+      "reason": "Void Form enables big card count turns easily — Pale Blue Dot gives extra draw next turn when you hit 5+ cards."
+    },
+    {
+      "deckCard": "Terraforming",
+      "offeredCard": "Celestial Might",
+      "bonus": 1.8,
+      "reason": "Terraforming gives 6 Vigor (temporary Strength) — Celestial Might hits 3 times, applying that Strength 3 times for massive burst damage."
+    },
+    {
+      "deckCard": "Celestial Might",
+      "offeredCard": "Terraforming",
+      "bonus": 1.8,
+      "reason": "Celestial Might is a 3-hit attack — Terraforming grants 6 temporary Strength, turning each hit into a massive damage spike."
+    },
+    {
+      "deckCard": "Terraforming",
+      "offeredCard": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Terraforming gives 6 Vigor — Seven Stars hits 49 times across all enemies, applying that Strength on every single hit for enormous burst."
+    },
+    {
+      "deckCard": "Seven Stars",
+      "offeredCard": "Terraforming",
+      "bonus": 2.0,
+      "reason": "Seven Stars is 49 multi-hit AoE — Terraforming grants 6 temporary Strength that multiplies across all those hits."
+    },
+    {
+      "deckCard": "I Am Invincible",
+      "offeredCard": "Cosmic Indifference",
+      "bonus": 1.5,
+      "reason": "I Am Invincible replays if on top of draw pile — Cosmic Indifference puts a card on top of draw, useful for positioning."
+    },
+    {
+      "deckCard": "Cosmic Indifference",
+      "offeredCard": "I Am Invincible",
+      "bonus": 1.5,
+      "reason": "I Am Invincible is a recurring Block engine when on top — Cosmic Indifference helps manage draw pile positioning."
+    },
+    {
+      "deckCard": "Neutron Aegis",
+      "offeredCard": "I Am Invincible",
+      "bonus": 1.5,
+      "reason": "Both are defensive power cards — Neutron Aegis provides permanent Plating while I Am Invincible provides recurring Block."
+    },
+    {
+      "deckCard": "I Am Invincible",
+      "offeredCard": "Neutron Aegis",
+      "bonus": 1.5,
+      "reason": "I Am Invincible provides recurring Block — Neutron Aegis adds 8 permanent Plating on top for layered defense."
     }
   ],
   "dupePenalties": {
@@ -11699,10 +12685,6 @@ const DB = {
       "c": "regent"
     },
     {
-      "n": "Beat Into Shape",
-      "c": "regent"
-    },
-    {
       "n": "Big Bang",
       "c": "regent"
     },
@@ -11719,19 +12701,7 @@ const DB = {
       "c": "regent"
     },
     {
-      "n": "Bundle Of Joy",
-      "c": "regent"
-    },
-    {
       "n": "Celestial Might",
-      "c": "regent"
-    },
-    {
-      "n": "Child Of The Stars",
-      "c": "regent"
-    },
-    {
-      "n": "Cloak Of Stars",
       "c": "regent"
     },
     {
@@ -11756,10 +12726,6 @@ const DB = {
     },
     {
       "n": "Crescent Spear",
-      "c": "regent"
-    },
-    {
-      "n": "Decisions Decisions",
       "c": "regent"
     },
     {
@@ -11803,10 +12769,6 @@ const DB = {
       "c": "regent"
     },
     {
-      "n": "Guards!!!",
-      "c": "regent"
-    },
-    {
       "n": "Guiding Star",
       "c": "regent"
     },
@@ -11847,10 +12809,6 @@ const DB = {
       "c": "regent"
     },
     {
-      "n": "Pattern",
-      "c": "regent"
-    },
-    {
       "n": "Photon Cut",
       "c": "regent"
     },
@@ -11879,10 +12837,6 @@ const DB = {
       "c": "regent"
     },
     {
-      "n": "Sealed Throne",
-      "c": "regent"
-    },
-    {
       "n": "Seeking Edge",
       "c": "regent"
     },
@@ -11896,10 +12850,6 @@ const DB = {
     },
     {
       "n": "Solar Strike",
-      "c": "regent"
-    },
-    {
-      "n": "Spoils Of Battle",
       "c": "regent"
     },
     {
@@ -11924,10 +12874,6 @@ const DB = {
     },
     {
       "n": "Void Form",
-      "c": "regent"
-    },
-    {
-      "n": "Wrought In War",
       "c": "regent"
     },
     {
@@ -12413,6 +13359,158 @@ const DB = {
     {
       "n": "The Hunt",
       "c": "silent"
+    },
+    {
+      "n": "GUARDS!!!",
+      "c": "regent"
+    },
+    {
+      "n": "Child of the Stars",
+      "c": "regent"
+    },
+    {
+      "n": "Decisions, Decisions",
+      "c": "regent"
+    },
+    {
+      "n": "Patter",
+      "c": "regent"
+    },
+    {
+      "n": "Bundle of Joy",
+      "c": "regent"
+    },
+    {
+      "n": "Spoils of Battle",
+      "c": "regent"
+    },
+    {
+      "n": "Wrought in War",
+      "c": "regent"
+    },
+    {
+      "n": "Beat into Shape",
+      "c": "regent"
+    },
+    {
+      "n": "Cloak of Stars",
+      "c": "regent"
+    },
+    {
+      "n": "BEGONE!",
+      "c": "regent"
+    },
+    {
+      "n": "Collision Course",
+      "c": "regent"
+    },
+    {
+      "n": "Crush Under",
+      "c": "regent"
+    },
+    {
+      "n": "Glitterstream",
+      "c": "regent"
+    },
+    {
+      "n": "Know Thy Place",
+      "c": "regent"
+    },
+    {
+      "n": "CHARGE!!",
+      "c": "regent"
+    },
+    {
+      "n": "Devastate",
+      "c": "regent"
+    },
+    {
+      "n": "Largesse",
+      "c": "regent"
+    },
+    {
+      "n": "Manifest Authority",
+      "c": "regent"
+    },
+    {
+      "n": "Orbit",
+      "c": "regent"
+    },
+    {
+      "n": "Pale Blue Dot",
+      "c": "regent"
+    },
+    {
+      "n": "Pillar of Creation",
+      "c": "regent"
+    },
+    {
+      "n": "Quasar",
+      "c": "regent"
+    },
+    {
+      "n": "Spectrum Shift",
+      "c": "regent"
+    },
+    {
+      "n": "Supermassive",
+      "c": "regent"
+    },
+    {
+      "n": "Terraforming",
+      "c": "regent"
+    },
+    {
+      "n": "Arsenal",
+      "c": "regent"
+    },
+    {
+      "n": "Hammer Time",
+      "c": "regent"
+    },
+    {
+      "n": "Heavenly Drill",
+      "c": "regent"
+    },
+    {
+      "n": "Heirloom Hammer",
+      "c": "regent"
+    },
+    {
+      "n": "I Am Invincible",
+      "c": "regent"
+    },
+    {
+      "n": "Make It So",
+      "c": "regent"
+    },
+    {
+      "n": "Monarch's Gaze",
+      "c": "regent"
+    },
+    {
+      "n": "Neutron Aegis",
+      "c": "regent"
+    },
+    {
+      "n": "Royalties",
+      "c": "regent"
+    },
+    {
+      "n": "Sword Sage",
+      "c": "regent"
+    },
+    {
+      "n": "The Smith",
+      "c": "regent"
+    },
+    {
+      "n": "Meteor Shower",
+      "c": "regent"
+    },
+    {
+      "n": "The Sealed Throne",
+      "c": "regent"
     }
   ]
 };
