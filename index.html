@@ -474,10 +474,22 @@ function buildSlot(id, label) {
   return d;
 }
 
+function focusNextSlot(currentId) {
+  // Always move to the next slot in order, empty or not
+  const pane = document.querySelector('.pane.on');
+  if (!pane) return;
+  const inputs = [...pane.querySelectorAll('.slot-input')];
+  const curIdx = inputs.findIndex(i => i.id === currentId);
+  if (curIdx === -1 || curIdx >= inputs.length - 1) return;
+  inputs[curIdx + 1].focus();
+  inputs[curIdx + 1].select();
+}
+
 function attachSlotAC(id) {
   const inp = document.getElementById(id);
-  const ac = document.getElementById(id+'-ac');
-  if (!inp||!ac) return;
+  const ac  = document.getElementById(id+'-ac');
+  if (!inp || !ac) return;
+
   inp.addEventListener('input', () => {
     const q = inp.value.trim().toLowerCase();
     if (q.length < 2) { ac.classList.remove('open'); return; }
@@ -486,11 +498,52 @@ function attachSlotAC(id) {
     if (!hits.length) { ac.classList.remove('open'); return; }
     ac.innerHTML = hits.map(h => `<div class="ac-item" data-name="${h.n}"><span>${h.n}</span></div>`).join('');
     ac.classList.add('open');
+    // Highlight first item by default so ArrowDown works immediately
+    const first = ac.querySelector('.ac-item');
+    if (first) first.classList.add('hi');
     ac.querySelectorAll('.ac-item').forEach(el => {
-      el.addEventListener('mousedown', e => { e.preventDefault(); inp.value=el.dataset.name; ac.classList.remove('open'); });
+      el.addEventListener('mousedown', e => {
+        e.preventDefault();
+        inp.value = el.dataset.name;
+        ac.classList.remove('open');
+        focusNextSlot(id);
+      });
     });
   });
-  document.addEventListener('click', e => { if (!ac.contains(e.target) && e.target!==inp) ac.classList.remove('open'); });
+
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { ac.classList.remove('open'); return; }
+    const items = [...ac.querySelectorAll('.ac-item')];
+    if (!items.length) return;
+    const cur = ac.querySelector('.hi');
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      let idx = cur ? items.indexOf(cur) : -1;
+      if (cur) cur.classList.remove('hi');
+      idx = e.key === 'ArrowDown' ? Math.min(idx+1, items.length-1) : Math.max(idx-1, 0);
+      items[idx].classList.add('hi');
+      items[idx].scrollIntoView({block:'nearest'});
+      return;
+    }
+
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // If only 1 result, auto-select immediately
+      const target = cur || items[0];
+      if (target) {
+        inp.value = target.dataset.name;
+        ac.classList.remove('open');
+        // Move to next available slot
+        focusNextSlot(id);
+      }
+      return;
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (!ac.contains(e.target) && e.target !== inp) ac.classList.remove('open');
+  });
 }
 
 function renderRewardSlots() {
