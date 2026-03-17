@@ -132,6 +132,9 @@ input[type=number]{width:60px}
 .add-deck-btn{background:rgba(53,168,96,.08);border:1px solid var(--green);color:var(--green2);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;padding:3px 8px;border-radius:2px;cursor:pointer;transition:all .15s;white-space:nowrap;vertical-align:middle;margin-left:7px;display:inline-block}
 .add-deck-btn:hover{background:rgba(53,168,96,.2)}
 .add-deck-btn:disabled{opacity:.5;cursor:default}
+.rm-deck-btn{background:rgba(184,48,37,.08);border:1px solid var(--red);color:var(--red2);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.05em;padding:3px 8px;border-radius:2px;cursor:pointer;transition:all .15s;white-space:nowrap;vertical-align:middle;margin-left:7px;display:inline-block}
+.rm-deck-btn:hover{background:rgba(184,48,37,.25)}
+.rm-deck-btn:disabled{opacity:.4;cursor:default}
 .rcard-body{padding:11px 16px}
 .card-notes{font-size:.95rem;color:var(--text);font-style:italic;margin-bottom:8px;line-height:1.5}
 .reasons{display:flex;flex-direction:column;gap:2px}
@@ -639,14 +642,14 @@ function analyzeRemoval() {
     const isTop = i===0 && s.safeToRemove;
     const warningBadge = s.safeToRemove === false ? '<span class="badge badge-skip">⚠ Keep</span>' : '';
     const cutBadge = isTop ? '<span class="badge badge-top-remove">🗑 Cut First</span>' : '';
+    const rmBtn = `<button class="rm-deck-btn" data-rmname="${s.name}">- Remove</button>`;
     return `<div class="rcard${isTop?' best':''}">
   <div class="rcard-head">
     <div class="grade-box g-${s.grade}">${s.grade}</div>
     <div class="rcard-info">
-      <div class="rcard-name">${s.name}</div>
+      <div class="rcard-name">${s.name}${cutBadge}${warningBadge}${rmBtn}</div>
       <div class="rcard-meta">Remove priority ${s.score.toFixed(1)}/5</div>
     </div>
-    <div class="badges">${cutBadge}${warningBadge}</div>
   </div>
   <div class="rcard-body"><div class="card-notes">${s.reason}</div></div>
 </div>`;
@@ -668,6 +671,19 @@ document.getElementById('floor').addEventListener('input', () => {
 document.getElementById('reward-go').addEventListener('click', ()=>analyze('reward'));
 document.getElementById('shop-go').addEventListener('click', ()=>analyze('shop'));
 document.getElementById('removal-go').addEventListener('click', analyzeRemoval);
+document.getElementById('removal-results').addEventListener('click', e => {
+  const btn = e.target.closest('.rm-deck-btn');
+  if (!btn || btn.disabled) return;
+  const name = btn.dataset.rmname;
+  const idx = deck.findIndex(c => c.name === name);
+  if (idx !== -1) {
+    deck.splice(idx, 1);
+    btn.textContent = '✓ Removed';
+    btn.disabled = true;
+    renderDeck();
+    setTimeout(() => analyzeRemoval(), 150);
+  }
+});
 document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
 document.getElementById('shop-add').addEventListener('click', ()=>{ shopCount++; renderShopSlots(); });
 
