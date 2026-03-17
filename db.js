@@ -2285,29 +2285,6 @@ const DB = {
         ],
         "role": "engine"
       },
-      "AFTER_IMAGE": {
-        "id": "Afterimage",
-        "tier": "A",
-        "builds": [
-          "shiv",
-          "sly",
-          "any"
-        ],
-        "syn": [
-          "shiv",
-          "sly",
-          "block",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "Whenever you play a card, gain 1 Block. Passive block engine in any build — in Shiv spam turns playing 10 cards = 10 free Block. In Sly chains each triggered Sly card also procs Afterimage. Universal engine.",
-        "mech": [
-          "block",
-          "passive",
-          "per_card_payoff"
-        ],
-        "role": "engine"
-      },
       "REFLEX": {
         "id": "Reflex",
         "tier": "S",
@@ -3985,6 +3962,29 @@ const DB = {
           "exhaust"
         ],
         "role": "payoff"
+      },
+      "AFTERIMAGE": {
+        "id": "Afterimage",
+        "tier": "A",
+        "builds": [
+          "shiv",
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "shiv",
+          "sly",
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Whenever you play a card, gain 1 Block. Passive block engine in any build — in Shiv spam turns playing 10 cards = 10 free Block. In Sly chains each triggered Sly card also procs Afterimage. Universal engine.",
+        "mech": [
+          "block",
+          "passive",
+          "per_card_payoff"
+        ],
+        "role": "engine"
       }
     },
     "defect": {
@@ -11944,10 +11944,6 @@ const DB = {
     },
     {
       "n": "Adrenaline",
-      "c": "silent"
-    },
-    {
-      "n": "After Image",
       "c": "silent"
     },
     {
