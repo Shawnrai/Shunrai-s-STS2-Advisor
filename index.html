@@ -354,7 +354,7 @@ function renderDeck() {
     const el = document.createElement('div');
     el.className = 'deck-entry';
     el.innerHTML = `<div class="grade-pip" style="background:${gradeColor(grade)}"></div><span>${card.name}</span><span class="rm">✕</span>`;
-    el.addEventListener('click', () => { deck.splice(i,1); renderDeck(); });
+    el.addEventListener('click', () => { deck.splice(i,1); renderDeck(); maybeRefreshRemoval(); });
     list.appendChild(el);
   }
 
@@ -687,12 +687,21 @@ document.getElementById('removal-results').addEventListener('click', e => {
 document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
 document.getElementById('shop-add').addEventListener('click', ()=>{ shopCount++; renderShopSlots(); });
 
+function isRemovalActive() {
+  return document.getElementById('pane-removal').classList.contains('on');
+}
+function maybeRefreshRemoval() {
+  if (isRemovalActive()) analyzeRemoval();
+}
+
+
 document.querySelectorAll('.tab').forEach(t => {
   t.addEventListener('click', ()=>{
     document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
     document.querySelectorAll('.pane').forEach(x=>x.classList.remove('on'));
     t.classList.add('on');
     document.getElementById('pane-'+t.dataset.tab).classList.add('on');
+    if (t.dataset.tab === 'removal') analyzeRemoval();
   });
 });
 
@@ -704,6 +713,7 @@ document.querySelectorAll('.tab').forEach(t => {
     deck.push({name:btn.dataset.name});
     renderDeck();
     btn.textContent = '✓ Added'; btn.disabled=true;
+    maybeRefreshRemoval();
   });
 });
 
@@ -711,7 +721,7 @@ document.querySelectorAll('.tab').forEach(t => {
 makeAC(
   document.getElementById('deck-search'),
   document.getElementById('deck-ac'),
-  name => { deck.push({name}); renderDeck(); }
+  name => { deck.push({name}); renderDeck(); maybeRefreshRemoval(); }
 );
 
 // Keyboard shortcuts
