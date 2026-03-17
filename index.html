@@ -598,18 +598,34 @@ function maybeAutoAnalyze(mode) {
 }
 
 function renderRewardSlots() {
-  const c = document.getElementById('reward-slots'); c.innerHTML='';
-  for (let i=0;i<rewardCount;i++) {
+  const c = document.getElementById('reward-slots');
+  const existing = c.querySelectorAll('.slot').length;
+  // Save existing values before any rebuild
+  const saved = {};
+  c.querySelectorAll('.slot-input').forEach(inp => { saved[inp.id] = inp.value; });
+  if (existing === 0) c.innerHTML = '';
+  for (let i = existing; i < rewardCount; i++) {
     c.appendChild(buildSlot('reward-'+i, `Option ${i+1}`));
+    attachSlotAC('reward-'+i);
   }
-  for (let i=0;i<rewardCount;i++) attachSlotAC('reward-'+i);
+  // Restore saved values (for char change rebuilds)
+  Object.entries(saved).forEach(([id, val]) => {
+    const el = document.getElementById(id); if (el) el.value = val;
+  });
 }
 function renderShopSlots() {
-  const c = document.getElementById('shop-slots'); c.innerHTML='';
-  for (let i=0;i<shopCount;i++) {
+  const c = document.getElementById('shop-slots');
+  const existing = c.querySelectorAll('.slot').length;
+  const saved = {};
+  c.querySelectorAll('.slot-input').forEach(inp => { saved[inp.id] = inp.value; });
+  if (existing === 0) c.innerHTML = '';
+  for (let i = existing; i < shopCount; i++) {
     c.appendChild(buildSlot('shop-'+i, `Card ${i+1}`));
+    attachSlotAC('shop-'+i);
   }
-  for (let i=0;i<shopCount;i++) attachSlotAC('shop-'+i);
+  Object.entries(saved).forEach(([id, val]) => {
+    const el = document.getElementById(id); if (el) el.value = val;
+  });
 }
 
 // RESULT CARD HTML
