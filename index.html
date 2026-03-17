@@ -160,7 +160,7 @@ input[type=number]{width:60px}
 </head>
 <body>
 <header>
-  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.20 • Mar 2026</span></div>
+  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.30 • Mar 2026</span></div>
   <div class="header-fields">
     <div class="field-group"><span class="field-label">Character</span>
       <select id="char">
@@ -229,7 +229,6 @@ input[type=number]{width:60px}
         <div class="slots" id="reward-slots"></div>
         <div class="actions" style="margin-top:10px">
           <button class="add-btn" id="reward-add">+ Add Slot</button>
-          <button class="go-btn" id="reward-go">Analyze →</button>
         </div>
       </div>
       <div class="results" id="reward-results"></div>
@@ -241,7 +240,6 @@ input[type=number]{width:60px}
         <div class="slots" id="shop-slots"></div>
         <div class="actions" style="margin-top:10px">
           <button class="add-btn" id="shop-add">+ Add Slot</button>
-          <button class="go-btn" id="shop-go">Analyze →</button>
         </div>
       </div>
       <div class="results" id="shop-results"></div>
@@ -266,6 +264,7 @@ input[type=number]{width:60px}
 
 let deck = [];
 let rewardCount = 3, shopCount = 4;
+let autoAnalyzeTimer = null;
 
 function saveDeck() {
   try {
@@ -498,15 +497,18 @@ function attachSlotAC(id) {
     if (!hits.length) { ac.classList.remove('open'); return; }
     ac.innerHTML = hits.map(h => `<div class="ac-item" data-name="${h.n}"><span>${h.n}</span></div>`).join('');
     ac.classList.add('open');
-    // Highlight first item by default so ArrowDown works immediately
     const first = ac.querySelector('.ac-item');
     if (first) first.classList.add('hi');
+    const chExact = document.getElementById('char').value;
+    const namesExact = new Set(DB.names.filter(n=>n.c===chExact||n.c==='colorless').map(n=>n.n.toLowerCase()));
+    if (namesExact.has(q)) maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
     ac.querySelectorAll('.ac-item').forEach(el => {
       el.addEventListener('mousedown', e => {
         e.preventDefault();
         inp.value = el.dataset.name;
         ac.classList.remove('open');
         focusNextSlot(id);
+        maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
       });
     });
   });
@@ -534,8 +536,8 @@ function attachSlotAC(id) {
       if (target) {
         inp.value = target.dataset.name;
         ac.classList.remove('open');
-        // Move to next available slot
         focusNextSlot(id);
+        maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
       }
       return;
     }
@@ -544,6 +546,21 @@ function attachSlotAC(id) {
   document.addEventListener('click', e => {
     if (!ac.contains(e.target) && e.target !== inp) ac.classList.remove('open');
   });
+}
+
+function maybeAutoAnalyze(mode) {
+  const prefix = mode === 'shop' ? 'shop' : 'reward';
+  const count  = mode === 'shop' ? shopCount : rewardCount;
+  const ch = document.getElementById('char').value;
+  const allNames = new Set(DB.names.filter(n => n.c===ch||n.c==='colorless').map(n => n.n.toLowerCase()));
+  let hasExact = false;
+  for (let i = 0; i < count; i++) {
+    const inp = document.getElementById(`${prefix}-${i}`);
+    if (inp && allNames.has(inp.value.trim().toLowerCase())) { hasExact = true; break; }
+  }
+  if (!hasExact) return;
+  clearTimeout(autoAnalyzeTimer);
+  autoAnalyzeTimer = setTimeout(() => analyze(mode), 300);
 }
 
 function renderRewardSlots() {
@@ -766,8 +783,6 @@ document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
 });
-document.getElementById('reward-go').addEventListener('click', ()=>analyze('reward'));
-document.getElementById('shop-go').addEventListener('click', ()=>analyze('shop'));
 document.getElementById('removal-go').addEventListener('click', analyzeRemoval);
 document.getElementById('removal-results').addEventListener('click', e => {
   const btn = e.target.closest('.rm-deck-btn');
@@ -812,6 +827,7 @@ document.querySelectorAll('.tab').forEach(t => {
     renderDeck();
     btn.textContent = '✓ Added'; btn.disabled=true;
     maybeRefreshRemoval();
+    setTimeout(() => { btn.textContent = '+ Deck'; btn.disabled=false; }, 1000);
   });
 });
 
@@ -831,8 +847,8 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'Enter') {
     const active = document.querySelector('.tab.on');
     if (!active) return;
-    if (active.dataset.tab === 'rewards') document.getElementById('reward-go').click();
-    else if (active.dataset.tab === 'shop') document.getElementById('shop-go').click();
+    if (active.dataset.tab === 'rewards') analyze('reward');
+    else if (active.dataset.tab === 'shop') analyze('shop');
     else if (active.dataset.tab === 'removal') document.getElementById('removal-go').click();
   } else if (e.key === 'f' || e.key === 'F') {
     e.preventDefault();
