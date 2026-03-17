@@ -2141,12 +2141,13 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "Free energy and draw. One of the best 0-cost cards in the game.",
+        "notes": "0-cost: gain 1 energy, draw 2. One of the best 0-cost cards in the game period — pure resource generation with no downside.",
         "mech": [
           "draw",
           "energy_gain",
           "zero_cost"
-        ]
+        ],
+        "role": "generator"
       },
       "WELL_LAID_PLANS": {
         "id": "Well-Laid Plans",
@@ -2163,7 +2164,7 @@ const DB = {
           "poison",
           "shiv"
         ],
-        "notes": "Retain a card each turn. Essential for holding key Sly/combo pieces.",
+        "notes": "At the end of your turn, Retain up to 1 card. Hold your best Sly payoff or combo piece for next turn. Enables setting up turns in advance — retain a Reflex, Tactician, or Burst for guaranteed access.",
         "mech": [
           "retain",
           "combo_enabler"
@@ -2195,7 +2196,7 @@ const DB = {
       },
       "NOXIOUS_FUMES": {
         "id": "Noxious Fumes",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "poison"
         ],
@@ -2216,7 +2217,7 @@ const DB = {
       },
       "ACCURACY": {
         "id": "Accuracy",
-        "tier": "S",
+        "tier": "B",
         "builds": [
           "shiv"
         ],
@@ -2230,7 +2231,7 @@ const DB = {
           "sly",
           "poison"
         ],
-        "notes": "Each copy adds to Shiv damage. Stack multiples. Turns Shivs from 4 to 20+ damage.",
+        "notes": "Shivs deal 4 additional damage. Each copy stacks. In Shiv build with Infinite Blades, every passive Shiv goes from 4 to 8+ damage. Needs Shiv generators to be online first.",
         "mech": [
           "shiv_amplify",
           "scaling",
@@ -2240,29 +2241,31 @@ const DB = {
       },
       "BURST": {
         "id": "Burst",
-        "tier": "C",
+        "tier": "B",
         "builds": [
+          "sly",
           "poison",
-          "sly"
+          "shiv"
         ],
         "syn": [
+          "sly",
           "poison",
-          "scaling",
-          "draw"
+          "shiv",
+          "skill_synergy"
         ],
         "anti": [
           "shiv"
         ],
-        "notes": "Next skill plays twice.",
+        "notes": "This turn, your next Skill is played an extra time. Most Poison applicators are Skills — Burst+Noxious Fumes applies double Poison stacks, Burst+Deadly Poison double stacks, Burst+Haze double AoE Poison. Also doubles Calculated Gamble for double hand refresh and double Sly triggers. Only works on Skills, not Powers or Attacks.",
         "mech": [
           "skill_doubler",
           "combo_enabler"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
       "INFINITE_BLADES": {
         "id": "Infinite Blades",
-        "tier": "S",
+        "tier": "C",
         "builds": [
           "shiv"
         ],
@@ -2275,7 +2278,7 @@ const DB = {
           "sly",
           "poison"
         ],
-        "notes": "Shiv at start of turn. Upgraded = Innate, guaranteed turn 1. Core shiv card.",
+        "notes": "At start of turn, add a Shiv to hand. Passive free Shiv every turn — feeds Accuracy, Finisher, After Image permanently. Engine for Shiv builds but needs payoffs to matter.",
         "mech": [
           "shiv_generator",
           "passive"
@@ -2283,27 +2286,27 @@ const DB = {
         "role": "engine"
       },
       "AFTER_IMAGE": {
-        "id": "After Image",
+        "id": "Afterimage",
         "tier": "A",
         "builds": [
           "shiv",
-          "sly"
+          "sly",
+          "any"
         ],
         "syn": [
-          "shiv_synergy",
+          "shiv",
+          "sly",
           "block",
           "scaling"
         ],
-        "anti": [
-          "poison"
-        ],
-        "notes": "Block per card played. With Shiv spam = massive free block every turn.",
+        "anti": [],
+        "notes": "Whenever you play a card, gain 1 Block. Passive block engine in any build — in Shiv spam turns playing 10 cards = 10 free Block. In Sly chains each triggered Sly card also procs Afterimage. Universal engine.",
         "mech": [
           "block",
           "passive",
           "per_card_payoff"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
       "REFLEX": {
         "id": "Reflex",
@@ -2349,7 +2352,7 @@ const DB = {
       },
       "BLADE_DANCE": {
         "id": "Blade Dance",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "shiv"
         ],
@@ -2371,7 +2374,7 @@ const DB = {
       },
       "CLOAK_AND_DAGGER": {
         "id": "Cloak And Dagger",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "shiv",
           "any"
@@ -2391,7 +2394,7 @@ const DB = {
       },
       "KNIFE_TRAP": {
         "id": "Knife Trap",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "shiv"
         ],
@@ -2410,7 +2413,7 @@ const DB = {
       },
       "DEADLY_POISON": {
         "id": "Deadly Poison",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "poison"
         ],
@@ -2429,7 +2432,7 @@ const DB = {
       },
       "POISONED_STAB": {
         "id": "Poisoned Stab",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "poison"
         ],
@@ -2450,7 +2453,7 @@ const DB = {
       },
       "BOUNCING_FLASK": {
         "id": "Bouncing Flask",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "poison"
         ],
@@ -2492,7 +2495,7 @@ const DB = {
       },
       "ACCELERANT": {
         "id": "Accelerant",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "poison"
         ],
@@ -2504,12 +2507,12 @@ const DB = {
           "sly",
           "shiv"
         ],
-        "notes": "Doubles poison damage. Best power in poison builds. Upgraded is insane.",
+        "notes": "Poison is triggered 1 additional time each turn. With Accelerant active, enemies take poison damage twice per turn instead of once — effectively doubles poison DPS without increasing stacks. Stack multiple copies for 3x, 4x triggers.",
         "mech": [
           "poison_amplify",
           "scaling"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
       "ACROBATICS": {
         "id": "Acrobatics",
@@ -2534,7 +2537,7 @@ const DB = {
       },
       "PREPARED": {
         "id": "Prepared",
-        "tier": "S",
+        "tier": "A",
         "builds": [
           "sly",
           "any"
@@ -2575,7 +2578,7 @@ const DB = {
       },
       "FINISHER": {
         "id": "Finisher",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "shiv"
         ],
@@ -2597,31 +2600,9 @@ const DB = {
         ],
         "role": "payoff"
       },
-      "CORPSE_EXPLOSION": {
-        "id": "Corpse Explosion",
-        "tier": "A",
-        "builds": [
-          "poison"
-        ],
-        "syn": [
-          "poison",
-          "aoe",
-          "damage"
-        ],
-        "anti": [
-          "sly",
-          "shiv"
-        ],
-        "notes": "Spreads poison damage on kill. Key AoE for multi-enemy rooms in poison builds.",
-        "mech": [
-          "poison_payoff",
-          "aoe"
-        ],
-        "role": "payoff"
-      },
       "MIRAGE": {
         "id": "Mirage",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "poison"
         ],
@@ -2638,27 +2619,6 @@ const DB = {
         ],
         "role": "payoff"
       },
-      "CRIPPLING_CLOUD": {
-        "id": "Crippling Cloud",
-        "tier": "A",
-        "builds": [
-          "poison",
-          "any"
-        ],
-        "syn": [
-          "poison",
-          "aoe",
-          "weak"
-        ],
-        "anti": [],
-        "notes": "AoE poison + weak. One of few Silent AoE options.",
-        "mech": [
-          "poison",
-          "aoe",
-          "weak"
-        ],
-        "role": "generator"
-      },
       "BLUR": {
         "id": "Blur",
         "tier": "A",
@@ -2670,11 +2630,12 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "Block that carries over. Retained block each cycle.",
+        "notes": "Gain 5 Block. Block is not removed at start of next turn. Persistent block — better than Defend in most situations. Pairs with Barricade-equivalent effects.",
         "mech": [
           "block",
           "retain"
-        ]
+        ],
+        "role": "generator"
       },
       "DAGGER_THROW": {
         "id": "Dagger Throw",
@@ -2685,12 +2646,12 @@ const DB = {
         ],
         "syn": [
           "sly",
-          "damage",
           "draw",
-          "discard"
+          "discard",
+          "damage"
         ],
         "anti": [],
-        "notes": "Damage, draw 1, discard 1. Sly enabler with offensive value.",
+        "notes": "Deal 9 damage. Draw 1 card. Discard 1 card. Sly enabler — the discard triggers any Sly card in hand for free while dealing solid damage. Cycles your deck. 9 damage + draw + Sly activation for 1 energy is excellent value.",
         "mech": [
           "damage",
           "draw",
@@ -2701,7 +2662,7 @@ const DB = {
       },
       "DASH": {
         "id": "Dash",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "any"
         ],
@@ -2714,7 +2675,8 @@ const DB = {
         "mech": [
           "block",
           "damage"
-        ]
+        ],
+        "role": "generator"
       },
       "SURVIVOR": {
         "id": "Survivor",
@@ -2739,7 +2701,7 @@ const DB = {
       },
       "EXPERTISE": {
         "id": "Expertise",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "sly",
           "any"
@@ -2757,7 +2719,7 @@ const DB = {
       },
       "BUBBLE_BUBBLE": {
         "id": "Bubble Bubble",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "poison"
         ],
@@ -2766,7 +2728,7 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "Efficient poison enhancer. Requires poison already on target.",
+        "notes": "If the enemy has Poison, apply 9 Poison. Conditional but extremely efficient — 9 Poison for 1 energy if any Poison is already on target. Requires just 1 stack to activate. Twisted Funnel relic makes it work from turn 1.",
         "mech": [
           "poison_amplify"
         ],
@@ -2774,7 +2736,7 @@ const DB = {
       },
       "BACKSTAB": {
         "id": "Backstab",
-        "tier": "B",
+        "tier": "D",
         "builds": [
           "any"
         ],
@@ -2786,32 +2748,12 @@ const DB = {
         "mech": [
           "damage",
           "innate"
-        ]
-      },
-      "BANE": {
-        "id": "Bane",
-        "tier": "B",
-        "builds": [
-          "poison"
         ],
-        "syn": [
-          "poison",
-          "damage"
-        ],
-        "anti": [
-          "sly",
-          "shiv"
-        ],
-        "notes": "Deals double damage to poisoned enemies. Solid in poison builds.",
-        "mech": [
-          "damage",
-          "poison_payoff"
-        ],
-        "role": "payoff"
+        "role": "generator"
       },
       "FAN_OF_KNIVES": {
         "id": "Fan Of Knives",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "shiv",
           "any"
@@ -2822,16 +2764,18 @@ const DB = {
           "aoe"
         ],
         "anti": [],
-        "notes": "Generates Shivs that hit ALL enemies. Strong vs groups.",
+        "notes": "Shivs now hit ALL enemies. Add 4 Shivs into your Hand. Dual effect — permanently makes all Shivs AoE AND generates 4 Shivs immediately. With Accuracy, those 4 Shivs hit all enemies for 8+ damage each. Core multi-enemy Shiv card.",
         "mech": [
           "shiv_generator",
-          "aoe"
+          "shiv_buff",
+          "aoe",
+          "passive"
         ],
         "role": "generator"
       },
       "SNAKEBITE": {
         "id": "Snakebite",
-        "tier": "B",
+        "tier": "D",
         "builds": [
           "poison"
         ],
@@ -2843,10 +2787,10 @@ const DB = {
           "sly",
           "shiv"
         ],
-        "notes": "Attack + poison. Good early poison applier.",
+        "notes": "Retain. Apply 7 Poison. Retained so you can hold it until optimal moment. 7 Poison is a solid stack. The Retain makes it more flexible — hold it for a turn when you have room.",
         "mech": [
-          "damage",
-          "poison"
+          "poison",
+          "retain"
         ],
         "role": "generator"
       },
@@ -2861,29 +2805,12 @@ const DB = {
           "block"
         ],
         "anti": [],
-        "notes": "Permanent Dexterity. Boosts all block cards.",
+        "notes": "Permanent +1 Dexterity. Every block card gains +1 block for the rest of combat, permanently. Stacks with copies. S-tier because it fundamentally upgrades your entire defensive suite.",
         "mech": [
           "dexterity",
           "permanent_scaling"
-        ]
-      },
-      "NUNCHAKU": {
-        "id": "Nunchaku",
-        "tier": "B",
-        "builds": [
-          "shiv",
-          "any"
         ],
-        "syn": [
-          "shiv_synergy",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "Energy per 10 attacks. Shiv decks trigger this constantly.",
-        "mech": [
-          "energy_gain",
-          "per_attack_payoff"
-        ]
+        "role": "engine"
       },
       "OUTMANEUVER": {
         "id": "Outmaneuver",
@@ -2899,11 +2826,12 @@ const DB = {
         "mech": [
           "block",
           "draw"
-        ]
+        ],
+        "role": "generator"
       },
       "SKEWER": {
         "id": "Skewer",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "any"
         ],
@@ -2916,51 +2844,8 @@ const DB = {
         "mech": [
           "damage",
           "scaling"
-        ]
-      },
-      "CONCENTRATE": {
-        "id": "Concentrate",
-        "tier": "B",
-        "builds": [
-          "sly"
         ],
-        "syn": [
-          "discard",
-          "sly",
-          "draw"
-        ],
-        "anti": [
-          "poison",
-          "shiv"
-        ],
-        "notes": "Discard 3, draw 1, gain 2 energy. Strong Sly enabler in discard builds.",
-        "mech": [
-          "discard",
-          "sly_enabler",
-          "energy_gain"
-        ],
-        "role": "generator"
-      },
-      "UNLOAD": {
-        "id": "Unload",
-        "tier": "B",
-        "builds": [
-          "sly",
-          "any"
-        ],
-        "syn": [
-          "discard",
-          "sly",
-          "damage"
-        ],
-        "anti": [],
-        "notes": "High damage, discard hand. Triggers all Sly cards.",
-        "mech": [
-          "damage",
-          "discard",
-          "sly_enabler"
-        ],
-        "role": "generator"
+        "role": "payoff"
       },
       "FOLLOW_THROUGH": {
         "id": "Follow Through",
@@ -2970,15 +2855,18 @@ const DB = {
           "any"
         ],
         "syn": [
-          "shiv_synergy",
           "aoe",
-          "weak"
+          "weak",
+          "damage",
+          "tracking_synergy"
         ],
         "anti": [],
-        "notes": "AoE with mass Weak application.",
+        "notes": "Deal 6 damage to ALL enemies. If the last card you played this turn was a Skill, apply 1 Weak to ALL enemies. Consistent AoE Weak application in Skill-heavy builds. Synergizes with Tracking — apply Weak then Tracking doubles all attack damage.",
         "mech": [
+          "damage",
           "aoe",
-          "weak"
+          "weak",
+          "conditional"
         ],
         "role": "payoff"
       },
@@ -2997,24 +2885,27 @@ const DB = {
         "mech": [
           "block",
           "weak"
-        ]
+        ],
+        "role": "generator"
       },
       "SHADOWMELD": {
         "id": "Shadowmeld",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "any"
         ],
         "syn": [
           "block",
-          "retain"
+          "dexterity",
+          "scaling"
         ],
         "anti": [],
-        "notes": "Block that stays next turn. Defensive safety.",
+        "notes": "Double your Block gain this turn. NOT fixed block — it doubles ALL block you gain this turn from any source. With Footwork active and multiple block cards, this can generate 30+ block in one turn. Best in block-heavy turns.",
         "mech": [
-          "block",
-          "retain"
-        ]
+          "block_doubler",
+          "conditional"
+        ],
+        "role": "payoff"
       },
       "PREDATOR": {
         "id": "Predator",
@@ -3027,34 +2918,12 @@ const DB = {
           "draw"
         ],
         "anti": [],
-        "notes": "Attack + draw. Good cycling.",
+        "notes": "Deal 15 damage. Next turn, draw 2 cards. Strong single-target damage with delayed draw payoff. 15 damage is above-average for 1 energy. The next-turn draw helps maintain hand quality in any build.",
         "mech": [
           "damage",
           "draw"
-        ]
-      },
-      "NIGHT_TERROR": {
-        "id": "Night Terror",
-        "tier": "B",
-        "builds": [
-          "sly"
         ],
-        "syn": [
-          "sly",
-          "damage",
-          "discard"
-        ],
-        "anti": [
-          "poison",
-          "shiv"
-        ],
-        "notes": "Sly damage card.",
-        "mech": [
-          "sly",
-          "damage",
-          "discard"
-        ],
-        "role": "payoff"
+        "role": "generator"
       },
       "RICOCHET": {
         "id": "Ricochet",
@@ -3079,7 +2948,7 @@ const DB = {
       },
       "FLICK_FLACK": {
         "id": "Flick Flack",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "sly"
         ],
@@ -3102,7 +2971,7 @@ const DB = {
       },
       "UNTOUCHABLE": {
         "id": "Untouchable",
-        "tier": "S",
+        "tier": "A",
         "builds": [
           "sly"
         ],
@@ -3123,20 +2992,24 @@ const DB = {
       },
       "ASSASSINATE": {
         "id": "Assassinate",
-        "tier": "C",
+        "tier": "A",
         "builds": [
           "any"
         ],
         "syn": [
-          "damage"
+          "vulnerable",
+          "damage",
+          "innate"
         ],
         "anti": [],
-        "notes": "Innate 0-cost. Always in opening hand. Decent early damage.",
+        "notes": "Innate. Deal 10 damage. Apply 1 Vulnerable. Exhaust. Always in opening hand — guaranteed 10 damage plus 1 Vulnerable on turn 1. The Vulnerable amplifies follow-up attacks. Exhausts so never clogs deck.",
         "mech": [
           "damage",
+          "vulnerable",
           "innate",
-          "zero_cost"
-        ]
+          "exhaust"
+        ],
+        "role": "payoff"
       },
       "DISTRACTION": {
         "id": "Distraction",
@@ -3159,53 +3032,40 @@ const DB = {
         ],
         "role": "generator"
       },
-      "FLASH": {
-        "id": "Flash",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "damage",
-          "weak"
-        ],
-        "anti": [],
-        "notes": "Low damage + Weak application.",
-        "mech": [
-          "damage",
-          "weak"
-        ]
-      },
       "NIGHTMARE": {
         "id": "Nightmare",
         "tier": "C",
         "builds": [
+          "sly",
           "any"
         ],
         "syn": [
-          "scaling"
+          "sly",
+          "scaling",
+          "combo_enabler"
         ],
         "anti": [],
-        "notes": "Too slow and expensive.",
-        "mech": []
+        "notes": "Choose a card. Next turn, add 3 copies of that card into your Hand. Exhaust. Triple a key card — 3x Accelerant means Poison triggers 4 times per turn, 3x Reflex draws 6 cards for free, 3x Tactician gives 3 free energy, 3x Wraith Form = 6 turns of Intangible.",
+        "mech": [],
+        "role": "engine"
       },
       "MASTER_PLANNER": {
         "id": "Master Planner",
-        "tier": "A",
+        "tier": "B",
         "builds": [
+          "sly",
           "any"
         ],
         "syn": [
           "sly",
           "discard"
         ],
-        "anti": [
-          "poison",
-          "shiv"
-        ],
-        "notes": "Sly effects from skills.",
+        "anti": [],
+        "notes": "When you play a Skill, it gains Sly. Permanent passive — every Skill you play becomes a Sly card. Play Calculated Gamble, it becomes Sly and triggers immediately on discard. Works on every Skill every turn. Far more powerful than a one-time hand buff.",
         "mech": [
-          "sly"
+          "sly_granter",
+          "passive",
+          "permanent"
         ],
         "role": "engine"
       },
@@ -3238,7 +3098,9 @@ const DB = {
       "GRAND_FINALE": {
         "id": "Grand Finale",
         "tier": "D",
-        "builds": [],
+        "builds": [
+          "any"
+        ],
         "syn": [],
         "anti": [
           "poison",
@@ -3246,22 +3108,8 @@ const DB = {
           "sly"
         ],
         "notes": "Nearly impossible to trigger consistently.",
-        "mech": []
-      },
-      "DEADLY_POISON+": {
-        "id": "Deadly Poison+",
-        "tier": "B",
-        "builds": [
-          "poison"
-        ],
-        "syn": [
-          "poison"
-        ],
-        "anti": [],
-        "notes": "Upgraded applies 7 poison - much stronger.",
-        "mech": [
-          "poison"
-        ]
+        "mech": [],
+        "role": "payoff"
       },
       "TOOLS_OF_THE_TRADE": {
         "id": "Tools Of The Trade",
@@ -3290,7 +3138,7 @@ const DB = {
       },
       "HAND_TRICK": {
         "id": "Hand Trick",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "sly",
           "shiv",
@@ -3298,15 +3146,17 @@ const DB = {
         ],
         "syn": [
           "sly",
-          "shiv_synergy",
+          "shiv",
           "poison",
-          "scaling"
+          "block"
         ],
         "anti": [],
-        "notes": "Sly. Hybrid enabler - lands Sly on Burst/Adrenaline enabling any combo.",
+        "notes": "Gain 7 Block. Add Sly to a Skill in your Hand this turn. Gives ANY Skill the Sly keyword for this turn — if you discard it, it plays for free. Land it on Burst for a free next-skill-plays-twice, or Adrenaline for free energy+draw. PCGamesN calls this incredible for hybrid builds.",
         "mech": [
-          "sly",
-          "combo_enabler"
+          "block",
+          "sly_granter",
+          "conditional",
+          "hybrid_enabler"
         ],
         "role": "engine"
       },
@@ -3325,47 +3175,27 @@ const DB = {
         "mech": [
           "passive",
           "damage"
-        ]
-      },
-      "EVISCERATE": {
-        "id": "Eviscerate",
-        "tier": "B",
-        "builds": [
-          "sly",
-          "any"
         ],
-        "syn": [
-          "sly",
-          "damage",
-          "discard"
-        ],
-        "anti": [
-          "poison"
-        ],
-        "notes": "Costs 1 less for each card discarded this turn. Often free with discard setup.",
-        "mech": [
-          "damage",
-          "cost_reduction",
-          "discard"
-        ],
-        "role": "payoff"
+        "role": "generator"
       },
       "STORM_OF_STEEL": {
         "id": "Storm Of Steel",
         "tier": "B",
         "builds": [
-          "shiv"
+          "shiv",
+          "sly"
         ],
         "syn": [
           "shiv",
-          "shiv_synergy",
-          "damage"
+          "sly",
+          "discard",
+          "shiv_synergy"
         ],
         "anti": [
           "sly",
           "poison"
         ],
-        "notes": "Discard hand, create a Shiv for each card discarded. Exhaust. Massive Shiv generation.",
+        "notes": "Discard your Hand. Add 1 Shiv into your Hand for each card discarded. Double payoff — discarding triggers ALL Sly cards in hand for free, THEN you get Shivs equal to hand size. With 6 cards = 6 free Sly triggers + 6 Shivs.",
         "mech": [
           "shiv_generator",
           "discard",
@@ -3380,34 +3210,781 @@ const DB = {
           "any"
         ],
         "syn": [
-          "weak",
-          "block"
+          "debuff",
+          "damage_reduction",
+          "aoe"
         ],
         "anti": [],
-        "notes": "Apply 6 Weak to ALL enemies. Exhaust. Massive AoE weak setup.",
+        "notes": "ALL enemies lose 6 Strength this turn. Exhaust. Massive AoE Strength reduction — cuts all enemy damage by 6 for their next attack. Not Weak, not permanent, but 6 Strength gone is enormous against hard-hitting enemies and bosses.",
         "mech": [
-          "weak",
+          "strength_reduction",
           "aoe",
           "exhaust"
-        ]
+        ],
+        "role": "generator"
       },
-      "DOPPELGANGER": {
-        "id": "Doppelganger",
+      "ANTICIPATE": {
+        "id": "Anticipate",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "block",
+          "dexterity",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Gain 3 Dexterity this turn. Temporary burst defense — 3 Dex with several block cards in hand is huge. Excellent with Footwork already active since the two stack. Best in turns where you're playing many block cards.",
+        "mech": [
+          "dexterity",
+          "temporary",
+          "conditional"
+        ],
+        "role": "generator"
+      },
+      "BACKFLIP": {
+        "id": "Backflip",
         "tier": "B",
         "builds": [
           "any"
         ],
         "syn": [
+          "block",
           "draw",
+          "sly"
+        ],
+        "anti": [],
+        "notes": "Gain 5 Block. Draw 2 cards. Efficient at everything — defense and cycling in one card. Block benefits from Footwork Dex. The Draw 2 finds Sly triggers or more combo pieces. Core early defensive pickup for any Silent build.",
+        "mech": [
+          "block",
+          "draw"
+        ],
+        "role": "generator"
+      },
+      "DAGGER_SPRAY": {
+        "id": "Dagger Spray",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "aoe",
+          "damage",
+          "poison"
+        ],
+        "anti": [],
+        "notes": "Deal 4 damage to ALL enemies twice. Silent's only common AoE attack — niche but useful in multi-enemy rooms. Each hit triggers Envenom separately for 2 Poison stacks per enemy per cast.",
+        "mech": [
+          "damage",
+          "aoe",
+          "multi_hit"
+        ],
+        "role": "generator"
+      },
+      "DEFLECT": {
+        "id": "Deflect",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "notes": "Gain 4 Block. Pure block with no secondary effect. Strictly worse than every other Silent block card — Backflip draws 2, Dash has higher block, Blur retains, Dodge and Roll spreads across 2 turns. Only take if desperate early.",
+        "mech": [
+          "block"
+        ],
+        "role": "generator"
+      },
+      "DODGE_AND_ROLL": {
+        "id": "Dodge And Roll",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "block",
+          "dexterity",
           "scaling"
         ],
         "anti": [],
-        "notes": "Next turn draw X more cards and gain X energy. Big setup turn.",
+        "notes": "Gain 4 Block. Next turn, gain 4 Block. 8 total block for 1 energy spread over 2 turns — very efficient. Both block instances benefit from Footwork's Dexterity. The delayed second block is passive safety. Great mid-game pick with at least one Footwork.",
         "mech": [
-          "draw",
-          "energy_gain"
+          "block",
+          "delayed_block"
         ],
         "role": "generator"
+      },
+      "LEADING_STRIKE": {
+        "id": "Leading Strike",
+        "tier": "B",
+        "builds": [
+          "shiv"
+        ],
+        "syn": [
+          "shiv",
+          "damage"
+        ],
+        "anti": [
+          "poison",
+          "sly"
+        ],
+        "notes": "Deal 7 damage. Add 1 Shiv to your Hand. Shiv build support — deals solid damage while generating a Shiv that immediately benefits from Accuracy. The Shiv also triggers Envenom and After Image when played.",
+        "mech": [
+          "damage",
+          "shiv_generator"
+        ],
+        "role": "generator"
+      },
+      "SLICE": {
+        "id": "Slice",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "sly"
+        ],
+        "anti": [],
+        "notes": "Deal 6 damage. 0-cost attack — fires for free with Sly discards and triggers After Image and Nunchaku. Purely filler otherwise. Worth keeping only in Sly/Shiv builds where playing many 0-cost cards matters for Speedster or After Image procs.",
+        "mech": [
+          "damage",
+          "zero_cost"
+        ],
+        "role": "generator"
+      },
+      "SUCKER_PUNCH": {
+        "id": "Sucker Punch",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "weak"
+        ],
+        "anti": [],
+        "notes": "Deal 8 damage. Apply 1 Weak. Decent early tempo — damage plus a Weak stack. 1 Weak reduces enemy damage by 25% for a turn. Outclassed mid-game by better debuff options like Leg Sweep and Piercing Wail.",
+        "mech": [
+          "damage",
+          "weak"
+        ],
+        "role": "generator"
+      },
+      "ESCAPE_PLAN": {
+        "id": "Escape Plan",
+        "tier": "A",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "block",
+          "draw",
+          "sly"
+        ],
+        "anti": [],
+        "notes": "Draw 1 card. If you draw a Skill, gain 3 Block. In skill-heavy Silent decks almost always triggers — draw a skill and get 3 free block. Chains with Sly since the drawn Skill might have Sly. Steam community confirms it as core in cycling builds.",
+        "mech": [
+          "draw",
+          "block",
+          "conditional"
+        ],
+        "role": "generator"
+      },
+      "EXPOSE": {
+        "id": "Expose",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "vulnerable",
+          "damage",
+          "poison"
+        ],
+        "anti": [],
+        "notes": "Remove all Artifact and Block from the enemy. Apply 2 Vulnerable. Exhaust. Removes Artifact — the hard counter to all Silent debuff builds. Also strips all enemy Block and applies 2 Vulnerable. Crucial for Poison and Shiv builds against Artifact bosses.",
+        "mech": [
+          "artifact_removal",
+          "vulnerable",
+          "block_removal",
+          "exhaust"
+        ],
+        "role": "generator"
+      },
+      "FLANKING": {
+        "id": "Flanking",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [],
+        "anti": [],
+        "notes": "The enemy takes double damage from other players this turn. CO-OP ONLY card — completely useless in solo play. Only relevant in multiplayer runs where other players deal damage. Skip in every solo encounter.",
+        "mech": [
+          "coop_only",
+          "damage_multiplier"
+        ],
+        "role": "generator"
+      },
+      "FLECHETTES": {
+        "id": "Flechettes",
+        "tier": "B",
+        "builds": [
+          "sly",
+          "shiv"
+        ],
+        "syn": [
+          "sly",
+          "damage",
+          "scaling"
+        ],
+        "anti": [
+          "poison"
+        ],
+        "notes": "Deal 5 damage for each Skill in your Hand. Damage scales with how many Skills you're holding — Well-Laid Plans retaining Skills makes this hit harder. Master Planner giving all Skills Sly means you'll hold many Skills before discarding. Can hit for 20-40+ damage in a loaded hand.",
+        "mech": [
+          "damage",
+          "per_skill_in_hand",
+          "scaling"
+        ],
+        "role": "payoff"
+      },
+      "ABRASIVE": {
+        "id": "Abrasive",
+        "tier": "A",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "sly",
+          "dexterity",
+          "thorns",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Sly. Gain 1 Dexterity. Gain 4 Thorns. When discarded for free: costs 0 AND permanently gains 1 Dex + 4 Thorns. Stack multiple copies via Sly chains for massive Thorns and permanent Dex scaling. Works in any build that discards.",
+        "mech": [
+          "sly",
+          "dexterity",
+          "thorns",
+          "permanent_scaling"
+        ],
+        "role": "engine"
+      },
+      "BLADE_OF_INK": {
+        "id": "Blade Of Ink",
+        "tier": "D",
+        "builds": [
+          "shiv"
+        ],
+        "syn": [
+          "shiv_synergy",
+          "damage",
+          "strength"
+        ],
+        "anti": [
+          "poison",
+          "sly"
+        ],
+        "notes": "This turn, whenever you play an Attack, gain 2 Strength this turn. Temporary Strength per attack — in a 10-Shiv turn that's 20 temporary Strength boosting all hits. Highly conditional and build-specific, fades at turn end.",
+        "mech": [
+          "strength",
+          "temporary",
+          "per_attack_payoff"
+        ],
+        "role": "generator"
+      },
+      "BULLET_TIME": {
+        "id": "Bullet Time",
+        "tier": "B",
+        "builds": [
+          "sly",
+          "shiv"
+        ],
+        "syn": [
+          "sly",
+          "shiv",
+          "zero_cost"
+        ],
+        "anti": [],
+        "notes": "You cannot draw additional cards this turn. ALL cards in your Hand are free to play this turn. Play your entire hand for 0 energy — but you can't draw more. Best when hand is already full of Sly cards or Shivs. Pairs with Well-Laid Plans to set up a big hand.",
+        "mech": [
+          "zero_cost_enabler",
+          "hand_free",
+          "no_draw"
+        ],
+        "role": "engine"
+      },
+      "CORROSIVE_WAVE": {
+        "id": "Corrosive Wave",
+        "tier": "A",
+        "builds": [
+          "poison",
+          "sly"
+        ],
+        "syn": [
+          "poison",
+          "sly",
+          "draw",
+          "aoe"
+        ],
+        "anti": [],
+        "notes": "Whenever you draw a card this turn, apply 3 Poison to ALL enemies. Draw 4 cards in one turn = 12 Poison to all enemies for free. Stacks explosively with Acrobatics, Expertise, Backflip. Natural fit in draw-heavy Sly builds doubling as Poison AoE.",
+        "mech": [
+          "poison",
+          "aoe",
+          "per_draw_payoff",
+          "passive"
+        ],
+        "role": "generator"
+      },
+      "ECHOING_SLASH": {
+        "id": "Echoing Slash",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "aoe",
+          "damage"
+        ],
+        "anti": [],
+        "notes": "Deal 10 damage to ALL enemies. Repeat this effect for each enemy killed. Solid base AoE that chains on kills — clearing a weak enemy repeats the 10 AoE on survivors. Most valuable in multi-enemy rooms.",
+        "mech": [
+          "damage",
+          "aoe",
+          "on_kill_repeat"
+        ],
+        "role": "payoff"
+      },
+      "MALAISE": {
+        "id": "Malaise",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "weak",
+          "debuff",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Enemy loses X Strength. Apply X Weak. Exhaust. At 2 energy: -2 Strength permanently and 2 Weak. Strips enemy damage scaling AND amplifies your own damage simultaneously. Works in every Silent archetype — universally powerful debuff.",
+        "mech": [
+          "strength_reduction",
+          "weak",
+          "exhaust",
+          "scaling"
+        ],
+        "role": "generator"
+      },
+      "MURDER": {
+        "id": "Murder",
+        "tier": "C",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "draw",
+          "damage",
+          "scaling",
+          "sly"
+        ],
+        "anti": [],
+        "notes": "Deal 1 damage. Deals 1 additional damage for each card drawn this combat. Scales with TOTAL cards drawn all combat — by late fight with 50+ cards drawn this is 50+ damage for 1 energy. Weak early, devastating late.",
+        "mech": [
+          "damage",
+          "scaling",
+          "per_combat_draw"
+        ],
+        "role": "payoff"
+      },
+      "SERPENT_FORM": {
+        "id": "Serpent Form",
+        "tier": "C",
+        "builds": [
+          "sly",
+          "shiv",
+          "any"
+        ],
+        "syn": [
+          "sly",
+          "shiv",
+          "damage",
+          "passive"
+        ],
+        "anti": [],
+        "notes": "Whenever you play a card, deal 4 damage to a random enemy. In high-card Sly or Shiv turns: 8 cards played = 32 passive damage. Hits random enemies so unreliable in multi-enemy, but in single-target fights it adds up quickly.",
+        "mech": [
+          "damage",
+          "passive",
+          "per_card_payoff",
+          "random"
+        ],
+        "role": "engine"
+      },
+      "SHADOW_STEP": {
+        "id": "Shadow Step",
+        "tier": "D",
+        "builds": [
+          "sly",
+          "shiv"
+        ],
+        "syn": [
+          "sly",
+          "shiv",
+          "discard",
+          "damage"
+        ],
+        "anti": [],
+        "notes": "Discard your Hand. Next turn, Attacks deal double damage. Discarding triggers ALL Sly cards in hand for free — then next turn every Shiv and attack hits for double. Setup card requiring a strong follow-up turn.",
+        "mech": [
+          "discard",
+          "sly_trigger",
+          "damage_multiplier",
+          "next_turn"
+        ],
+        "role": "engine"
+      },
+      "SNEAKY": {
+        "id": "Sneaky",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [],
+        "anti": [],
+        "notes": "Sly. Whenever another player attacks an enemy, gain 1 Block. Coop-only card — completely useless in single player. In multiplayer gains block whenever a teammate attacks. Skip in solo runs.",
+        "mech": [
+          "coop",
+          "block",
+          "sly"
+        ],
+        "role": "generator"
+      },
+      "TRACKING": {
+        "id": "Tracking",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "weak",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Weak enemies take double damage from Attacks. Permanent multiplier — with Piercing Wail, Malaise, Leg Sweep, or Sucker Punch applying Weak, every attack deals double damage for the rest of combat. Pairs with literally every attack card Silent has.",
+        "mech": [
+          "damage_multiplier",
+          "weak_synergy",
+          "passive",
+          "permanent"
+        ],
+        "role": "engine"
+      },
+      "SUPPRESS": {
+        "id": "Suppress",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "weak",
+          "damage",
+          "innate"
+        ],
+        "anti": [],
+        "notes": "Innate. Deal 11 damage. Apply 3 Weak. Exhaust. Ancient card — always in opening hand, guaranteed 3 Weak turn 1 plus solid damage. Exhausts so never clogs deck. 3 Weak is a powerful debuff that pairs with Tracking for double damage.",
+        "mech": [
+          "damage",
+          "weak",
+          "innate",
+          "exhaust"
+        ],
+        "role": "generator"
+      },
+      "WRAITH_FORM": {
+        "id": "Wraith Form",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "intangible",
+          "survival"
+        ],
+        "anti": [
+          "dexterity",
+          "block"
+        ],
+        "notes": "Gain 2 Intangible. At the start of your turn, lose 1 Dexterity. Intangible reduces ALL damage to 1 for 2 turns — effectively immune. Downside: lose Dex each turn, so block scales down. Play late in combat or with no Footwork investment. Game-winning in boss fights.",
+        "mech": [
+          "intangible",
+          "dexterity_loss",
+          "survival"
+        ],
+        "role": "engine"
+      },
+      "NEUTRALIZE": {
+        "id": "Neutralize",
+        "tier": "D",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "weak",
+          "damage"
+        ],
+        "anti": [],
+        "notes": "Deal 3 damage. Apply 1 Weak. Basic starter card — low damage, single Weak stack. Only useful very early Act 1 as a debuff source. Remove once better Weak options like Leg Sweep or Malaise appear.",
+        "mech": [
+          "damage",
+          "weak"
+        ],
+        "role": "generator"
+      },
+      "HIDDEN_DAGGERS": {
+        "id": "Hidden Daggers",
+        "tier": "C",
+        "builds": [
+          "shiv",
+          "sly"
+        ],
+        "syn": [
+          "shiv",
+          "sly",
+          "discard"
+        ],
+        "anti": [],
+        "notes": "Discard 2 cards. Add 2 Shivs into your Hand. Discards 2 cards triggering Sly effects for free AND generates 2 Shivs. Core Shiv+Sly hybrid card. Mobalytics C.",
+        "mech": [
+          "discard",
+          "shiv_generator",
+          "sly_trigger"
+        ],
+        "role": "generator"
+      },
+      "MEMENTO_MORI": {
+        "id": "Memento Mori",
+        "tier": "C",
+        "builds": [
+          "sly"
+        ],
+        "syn": [
+          "sly",
+          "discard",
+          "damage"
+        ],
+        "anti": [
+          "poison",
+          "shiv"
+        ],
+        "notes": "Deal 8 damage. Deals 4 additional damage for each card discarded this turn. In a Sly turn with 5 discards = 28 total damage for 1 energy. Scales with discard volume. Mobalytics C.",
+        "mech": [
+          "damage",
+          "per_discard_payoff"
+        ],
+        "role": "payoff"
+      },
+      "OUTBREAK": {
+        "id": "Outbreak",
+        "tier": "C",
+        "builds": [
+          "poison"
+        ],
+        "syn": [
+          "poison",
+          "aoe"
+        ],
+        "anti": [
+          "sly",
+          "shiv"
+        ],
+        "notes": "Every 3 times you apply Poison, deal 11 damage to ALL enemies. Passive AoE trigger in Poison builds. With Noxious Fumes + Envenom applying stacks constantly, fires multiple times per fight. Mobalytics C.",
+        "mech": [
+          "poison",
+          "aoe",
+          "passive",
+          "conditional"
+        ],
+        "role": "payoff"
+      },
+      "PHANTOM_BLADES": {
+        "id": "Phantom Blades",
+        "tier": "D",
+        "builds": [
+          "shiv"
+        ],
+        "syn": [
+          "shiv",
+          "shiv_synergy"
+        ],
+        "anti": [],
+        "notes": "Shivs gain Retain. The first Shiv you play each turn deals 9 additional damage. Retained Shivs persist between turns and first Shiv hits much harder. Niche — requires established Shiv engine. Mobalytics D.",
+        "mech": [
+          "shiv_synergy",
+          "retain",
+          "damage_boost"
+        ],
+        "role": "engine"
+      },
+      "PINPOINT": {
+        "id": "Pinpoint",
+        "tier": "A",
+        "builds": [
+          "sly",
+          "shiv",
+          "any"
+        ],
+        "syn": [
+          "sly",
+          "damage",
+          "skills_in_hand"
+        ],
+        "anti": [],
+        "notes": "Deal 17 damage. Costs 1 less for each Skill played this turn. After 3 Skills played costs 0 for 17 damage. In Sly turns playing many Skills this can be free repeatedly. Mobalytics A.",
+        "mech": [
+          "damage",
+          "cost_reduction",
+          "conditional"
+        ],
+        "role": "payoff"
+      },
+      "POUNCE": {
+        "id": "Pounce",
+        "tier": "C",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "sly",
+          "damage",
+          "energy"
+        ],
+        "anti": [],
+        "notes": "Deal 12 damage. The next Skill you play costs 0. 12 damage plus makes next Skill free — enables a free Burst, Noxious Fumes, or Calculated Gamble. Solid combo enabler. Mobalytics C.",
+        "mech": [
+          "damage",
+          "cost_reduction",
+          "combo_enabler"
+        ],
+        "role": "generator"
+      },
+      "PRECISE_CUT": {
+        "id": "Precise Cut",
+        "tier": "B",
+        "builds": [
+          "sly",
+          "shiv"
+        ],
+        "syn": [
+          "sly",
+          "discard",
+          "damage"
+        ],
+        "anti": [],
+        "notes": "Deal 13 damage. Deals 2 less damage for each other card in your Hand. Best after a big Sly discard turn with few cards remaining — 13 damage for 1 energy. Sequence after Calculated Gamble for full value. Mobalytics B.",
+        "mech": [
+          "damage",
+          "per_hand_scaling",
+          "conditional"
+        ],
+        "role": "payoff"
+      },
+      "SPEEDSTER": {
+        "id": "Speedster",
+        "tier": "C",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "draw",
+          "aoe",
+          "damage",
+          "sly"
+        ],
+        "anti": [],
+        "notes": "Whenever you draw a card during your turn, deal 2 damage to ALL enemies. Silent draws constantly — Acrobatics draws 3 (6 AoE), Expertise draws 4+ (8+ AoE). In full draw turns this is massive passive AoE. Mobalytics C.",
+        "mech": [
+          "passive",
+          "aoe",
+          "per_draw_payoff"
+        ],
+        "role": "engine"
+      },
+      "STRANGLE": {
+        "id": "Strangle",
+        "tier": "C",
+        "builds": [
+          "sly",
+          "any"
+        ],
+        "syn": [
+          "sly",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "notes": "Deal 8 damage. Whenever you play a card this turn, the enemy loses 2 HP. HP loss bypasses Block. In a Sly turn playing 8 cards = 16 HP drain + 8 damage = 24 total ignoring armor. Mobalytics C.",
+        "mech": [
+          "damage",
+          "hp_drain",
+          "per_card_payoff",
+          "block_bypass"
+        ],
+        "role": "payoff"
+      },
+      "UP_MY_SLEEVE": {
+        "id": "Up My Sleeve",
+        "tier": "C",
+        "builds": [
+          "shiv"
+        ],
+        "syn": [
+          "shiv",
+          "shiv_synergy",
+          "scaling"
+        ],
+        "anti": [
+          "poison",
+          "sly"
+        ],
+        "notes": "Add 3 Shivs into your Hand. Reduce this card's cost by 1. Generates 3 Shivs and gets cheaper every cast — eventually free. No exhaust unlike Blade Dance, so reusable every turn. Mobalytics C.",
+        "mech": [
+          "shiv_generator",
+          "cost_reduction",
+          "scaling"
+        ],
+        "role": "generator"
+      },
+      "THE_HUNT": {
+        "id": "The Hunt",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "damage",
+          "card_reward"
+        ],
+        "anti": [],
+        "notes": "Deal 10 damage. If Fatal, gain an additional card reward. Exhaust. S-tier on Mobalytics — killing an enemy mid-combat gives an extra card reward. With Silent's multiple attacks per turn, landing kills is consistent. Exhausts so no clutter.",
+        "mech": [
+          "damage",
+          "on_kill_reward",
+          "exhaust"
+        ],
+        "role": "payoff"
       }
     },
     "defect": {
@@ -7951,16 +8528,10 @@ const DB = {
       "reason": "Mirage gives block = total poison on all enemies — Noxious Fumes keeps growing that number"
     },
     {
-      "deckCard": "Burst",
-      "offeredCard": "Accelerant",
-      "bonus": 1.2,
-      "reason": "Burst plays Accelerant twice — poison damage quadruples in one turn"
-    },
-    {
       "deckCard": "Envenom",
       "offeredCard": "Infinite Blades",
       "bonus": 1.5,
-      "reason": "Envenom poisons on every attack — Infinite Blades gives a free attack each turn = free poison every turn"
+      "reason": "Envenom poisons whenever an Attack deals unblocked damage — Infinite Blades gives a free attack each turn = free poison every turn"
     },
     {
       "deckCard": "Accuracy",
@@ -7982,7 +8553,7 @@ const DB = {
     },
     {
       "deckCard": "Accuracy",
-      "offeredCard": "After Image",
+      "offeredCard": "Afterimage",
       "bonus": 1.2,
       "reason": "After Image blocks per card played — Shiv spam with Accuracy = offense AND defense simultaneously"
     },
@@ -8000,12 +8571,12 @@ const DB = {
     },
     {
       "deckCard": "Infinite Blades",
-      "offeredCard": "After Image",
+      "offeredCard": "Afterimage",
       "bonus": 1.5,
       "reason": "After Image blocks per card played — free Shiv each turn means free block every turn"
     },
     {
-      "deckCard": "After Image",
+      "deckCard": "Afterimage",
       "offeredCard": "Infinite Blades",
       "bonus": 1.5,
       "reason": "Infinite Blades gives a free card play per turn — After Image converts that to free block"
@@ -8431,12 +9002,6 @@ const DB = {
       "reason": "Cinder exhausts a card every play — Feel No Pain gains block for each exhaust. Free block alongside damage."
     },
     {
-      "deckCard": "Charon's Ashes",
-      "offeredCard": "Cinder",
-      "bonus": 1.2,
-      "reason": "Cinder exhausts a card — Charon's Ashes deals 3 AoE per exhaust. Free AoE every time Cinder is played."
-    },
-    {
       "deckCard": "Corruption",
       "offeredCard": "Cinder",
       "bonus": 1.0,
@@ -8582,12 +9147,6 @@ const DB = {
     },
     {
       "deckCard": "Drum of Battle",
-      "offeredCard": "Charon's Ashes",
-      "bonus": 1.5,
-      "reason": "Drum passively exhausts 1 each turn — Charon's Ashes deals 3 AoE per exhaust. Free AoE every single turn."
-    },
-    {
-      "deckCard": "Drum of Battle",
       "offeredCard": "Forgotten Ritual",
       "bonus": 2.0,
       "reason": "Drum exhausts at turn START — Forgotten Ritual fires for +3 energy every turn automatically. Free energy engine."
@@ -8657,12 +9216,6 @@ const DB = {
       "offeredCard": "Howl from Beyond",
       "bonus": 1.5,
       "reason": "Howl cycles through exhaust each turn, triggering Feel No Pain for free block every turn on top of the 16 free AoE."
-    },
-    {
-      "deckCard": "Charon's Ashes",
-      "offeredCard": "Howl from Beyond",
-      "bonus": 2.0,
-      "reason": "Howl from Beyond exhausts at turn start every turn — Charon's Ashes deals 3 AoE per exhaust. Two sources of free AoE every turn."
     },
     {
       "deckCard": "One-Two Punch",
@@ -9247,70 +9800,940 @@ const DB = {
       "reason": "Battle Trance draws 3 cards — with Corruption active, any skills drawn are free, turning Battle Trance's draw into free plays."
     },
     {
-      "deckCard": "Rupture",
-      "offeredCard": "Tear Asunder",
-      "bonus": 1.5,
-      "reason": "Rupture gains Strength from HP loss — Tear Asunder scales its hits from the same HP losses. Both benefit from every self-damage event."
+      "deckCard": "Burst",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Burst makes next skill play twice — Calculated Gamble plays twice, discarding hand TWICE, triggering every Sly card in hand twice in one turn."
     },
     {
-      "deckCard": "Tear Asunder",
-      "offeredCard": "Rupture",
-      "bonus": 1.5,
-      "reason": "Tear Asunder scales with total HP losses this combat — Rupture gains Strength from those same losses. One self-damage engine powers both."
+      "deckCard": "Calculated Gamble",
+      "offeredCard": "Burst",
+      "bonus": 2.0,
+      "reason": "Calculated Gamble plays twice with Burst — double discard = every Sly card fires twice. Explosive turn."
     },
     {
-      "deckCard": "Bloodletting",
-      "offeredCard": "Tear Asunder",
+      "deckCard": "Burst",
+      "offeredCard": "Blade Dance",
+      "bonus": 1.5,
+      "reason": "Burst doubles Blade Dance — 6 Shivs instead of 3 in one turn. Massive Shiv burst with Accuracy online."
+    },
+    {
+      "deckCard": "Master Planner",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 2.5,
+      "reason": "Master Planner gives all Skills Sly — Calculated Gamble discards your entire hand, playing every Sly-tagged card for free. Entire hand plays itself."
+    },
+    {
+      "deckCard": "Calculated Gamble",
+      "offeredCard": "Master Planner",
+      "bonus": 2.5,
+      "reason": "With Master Planner active, Calculated Gamble discards entire hand triggering all skills as Sly for free. The modern Sly win condition."
+    },
+    {
+      "deckCard": "Master Planner",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 2.0,
+      "reason": "Tools of the Trade discards each turn — with Master Planner giving all Skills Sly, every skill in hand fires for free each turn passively."
+    },
+    {
+      "deckCard": "Master Planner",
+      "offeredCard": "Noxious Fumes",
       "bonus": 1.8,
-      "reason": "Bloodletting loses HP every play — each one adds an extra hit to Tear Asunder permanently for the rest of the fight."
+      "reason": "Master Planner gives Noxious Fumes Sly — discard it for free Poison stacking every turn without spending energy."
     },
     {
-      "deckCard": "Tear Asunder",
-      "offeredCard": "Bloodletting",
-      "bonus": 1.8,
-      "reason": "Tear Asunder scales with total HP losses — Bloodletting played multiple times stacks extra hits, making Tear Asunder hit harder each time."
-    },
-    {
-      "deckCard": "Brutality",
-      "offeredCard": "Tear Asunder",
+      "deckCard": "Footwork",
+      "offeredCard": "Blur",
       "bonus": 1.5,
-      "reason": "Brutality loses 1 HP every turn passively — each turn adds another hit to Tear Asunder automatically for the rest of the fight."
+      "reason": "Footwork gives permanent Dex — Blur's retained block gets +1 from Dex, stacking over multiple turns with Footwork active."
     },
     {
-      "deckCard": "Tear Asunder",
-      "offeredCard": "Brutality",
+      "deckCard": "Footwork",
+      "offeredCard": "Shadowmeld",
       "bonus": 1.5,
-      "reason": "Tear Asunder scales with HP losses — Brutality guarantees one extra hit per turn passively, compounding across the whole fight."
+      "reason": "Footwork's permanent Dex boosts Shadowmeld's retained block — better defense each turn Footwork is active."
     },
     {
-      "deckCard": "Inferno",
-      "offeredCard": "Tear Asunder",
+      "deckCard": "Footwork",
+      "offeredCard": "Afterimage",
       "bonus": 1.5,
-      "reason": "Inferno fires AoE from HP loss — Tear Asunder adds more hits from the same HP losses. Both scale off the same self-damage events."
+      "reason": "Footwork gives Dex — After Image's block per card played is boosted by Dexterity. More cards played = more Dex-boosted block."
     },
     {
-      "deckCard": "Tear Asunder",
-      "offeredCard": "Inferno",
-      "bonus": 1.5,
-      "reason": "Tear Asunder scales with HP losses — Inferno converts those same HP losses to 6 AoE each. Stack both for maximum value from every HP loss."
-    },
-    {
-      "deckCard": "Offering",
-      "offeredCard": "Tear Asunder",
+      "deckCard": "Footwork",
+      "offeredCard": "Backflip",
       "bonus": 1.2,
-      "reason": "Offering loses 6 HP in one card — adds a permanent extra hit to Tear Asunder for the rest of the fight alongside the cards and energy."
+      "reason": "Backflip gains block that benefits from Footwork's Dexterity — every block card in deck gets better."
     },
     {
-      "deckCard": "Double Tap",
-      "offeredCard": "Tear Asunder",
-      "bonus": 1.5,
-      "reason": "Double Tap plays next attack twice — Tear Asunder late in a fight can hit 8-10 times naturally, doubled to 16-20 hits is devastating."
+      "deckCard": "Nightmare",
+      "offeredCard": "Reflex",
+      "bonus": 2.0,
+      "reason": "Nightmare creates 3 Reflex — discard all three for Draw 6 total for free. Entire deck cycle in one turn."
     },
     {
-      "deckCard": "One-Two Punch",
-      "offeredCard": "Tear Asunder",
+      "deckCard": "Nightmare",
+      "offeredCard": "Tactician",
+      "bonus": 2.0,
+      "reason": "Nightmare creates 3 Tactician — discard all three for 3 free energy. Effectively unlimited energy next turn."
+    },
+    {
+      "deckCard": "Nightmare",
+      "offeredCard": "Burst",
+      "bonus": 1.8,
+      "reason": "Nightmare creates 3 Burst — triple the next-skill-plays-twice effect. Each Burst chains into another for absurd multiplication."
+    },
+    {
+      "deckCard": "Speedster",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Speedster makes hand free — Calculated Gamble plus all Sly cards in hand play for 0 energy. Entire combo turn costs nothing."
+    },
+    {
+      "deckCard": "Speedster",
+      "offeredCard": "Master Planner",
+      "bonus": 2.0,
+      "reason": "Speedster + Master Planner = all skills cost 0 AND have Sly. Play the free skills, discard the Sly ones for more free triggers. Infinite loop potential."
+    },
+    {
+      "deckCard": "Speedster",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Speedster lets you play every attack for free — Finisher's damage per attack played this turn becomes enormous with a free full hand."
+    },
+    {
+      "deckCard": "Abrasive",
+      "offeredCard": "Footwork",
+      "bonus": 1.8,
+      "reason": "Both give permanent Dexterity — Abrasive gives +1 Dex when discarded for free, Footwork gives +1 on play. Stack both for massive sustained Dex."
+    },
+    {
+      "deckCard": "Footwork",
+      "offeredCard": "Abrasive",
+      "bonus": 1.8,
+      "reason": "Abrasive gives permanent Dex when discarded via Sly — stacks with Footwork for rapidly scaling block values."
+    },
+    {
+      "deckCard": "Tools Of The Trade",
+      "offeredCard": "Abrasive",
+      "bonus": 2.0,
+      "reason": "Tools of the Trade discards 1 each turn — if Abrasive is discarded, gain +1 permanent Dex every single turn passively. Scales infinitely."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Blade Dance",
+      "bonus": 2.0,
+      "reason": "Bullet Time doubles next Skill — Blade Dance plays twice = 6 Shivs in one turn. Enormous Shiv burst."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 1.8,
+      "reason": "Bullet Time doubles Calculated Gamble — discard hand twice triggering double Sly effects."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Noxious Fumes",
       "bonus": 1.5,
-      "reason": "One-Two Punch doubles next attack — Tear Asunder with 8 accumulated HP losses hits 9 times, doubled to 18 hits for massive damage."
+      "reason": "Bullet Time doubles Noxious Fumes — two stacks of passive poison per turn instead of one."
+    },
+    {
+      "deckCard": "Accuracy",
+      "offeredCard": "Up My Sleeve",
+      "bonus": 1.5,
+      "reason": "Accuracy boosts every Shiv's damage — Up My Sleeve generates Shivs every turn without exhausting, giving consistent Accuracy-boosted hits."
+    },
+    {
+      "deckCard": "Accuracy",
+      "offeredCard": "Hidden Daggers",
+      "bonus": 1.8,
+      "reason": "Hidden Daggers generates 2 Shivs when discarded for free — each gets Accuracy's full damage bonus immediately."
+    },
+    {
+      "deckCard": "Tools Of The Trade",
+      "offeredCard": "Corrosive Wave",
+      "bonus": 2.0,
+      "reason": "Tools of the Trade discards 1 each turn — Corrosive Wave applies 4 AoE Poison for free when discarded. Free AoE Poison every turn passively."
+    },
+    {
+      "deckCard": "Noxious Fumes",
+      "offeredCard": "Corrosive Wave",
+      "bonus": 1.5,
+      "reason": "Both apply passive Poison — Noxious Fumes per turn + free Corrosive Wave when discarded stacks Poison rapidly on all enemies."
+    },
+    {
+      "deckCard": "Noxious Fumes",
+      "offeredCard": "Memento Mori",
+      "bonus": 1.5,
+      "reason": "Noxious Fumes stacks Poison over turns — Memento Mori checks if Poison is present and applies 9 stacks. Guaranteed 9 Poison per cast after Fumes fires."
+    },
+    {
+      "deckCard": "Deadly Poison",
+      "offeredCard": "Memento Mori",
+      "bonus": 1.2,
+      "reason": "Deadly Poison applies initial stacks — Memento Mori then dumps 9 more on already-Poisoned enemies."
+    },
+    {
+      "deckCard": "Tools Of The Trade",
+      "offeredCard": "Shadow Step",
+      "bonus": 1.5,
+      "reason": "Tools discards 1 each turn — Shadow Step applies 5 retained Block for free when discarded. Passive free block every turn."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Master Planner",
+      "bonus": 1.5,
+      "reason": "Master Planner gives all Skills Sly — discarding skills counts toward Flechettes' per-skill damage. Free skills + Flechettes damage simultaneously."
+    },
+    {
+      "deckCard": "Calculated Gamble",
+      "offeredCard": "Flechettes",
+      "bonus": 1.5,
+      "reason": "Calculated Gamble discards entire hand — each Sly-tagged skill that fires also counts toward Flechettes' damage this turn."
+    },
+    {
+      "deckCard": "Noxious Fumes",
+      "offeredCard": "Nightmare",
+      "bonus": 1.5,
+      "reason": "Nightmare creates 3 Noxious Fumes — play all three for 3 passive Poison stacks per turn. Accelerates Poison engine massively."
+    },
+    {
+      "deckCard": "Accelerant",
+      "offeredCard": "Nightmare",
+      "bonus": 1.8,
+      "reason": "Nightmare creates 3 Accelerant — play all three for triple Poison amplification. With stacked Poison this is a guaranteed win condition."
+    },
+    {
+      "deckCard": "Accelerant",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 2.0,
+      "reason": "Noxious Fumes stacks poison every turn — Accelerant makes it trigger twice per turn. Every Noxious Fumes stack deals double damage with Accelerant active."
+    },
+    {
+      "deckCard": "Noxious Fumes",
+      "offeredCard": "Accelerant",
+      "bonus": 2.0,
+      "reason": "Accelerant doubles poison tick rate — Noxious Fumes' passive stacks become twice as deadly. Core Poison scaling engine."
+    },
+    {
+      "deckCard": "Accelerant",
+      "offeredCard": "Deadly Poison",
+      "bonus": 1.5,
+      "reason": "Deadly Poison stacks 5+ poison — Accelerant makes those stacks deal damage twice per turn."
+    },
+    {
+      "deckCard": "Accelerant",
+      "offeredCard": "Bubble Bubble",
+      "bonus": 1.5,
+      "reason": "Bubble Bubble amplifies existing poison — Accelerant then makes those amplified stacks trigger twice per turn."
+    },
+    {
+      "deckCard": "Nightmare",
+      "offeredCard": "Accelerant",
+      "bonus": 2.0,
+      "reason": "Nightmare creates 3 copies of Accelerant — play all three next turn for poison triggering 4 times per turn. Unstoppable poison scaling."
+    },
+    {
+      "deckCard": "Anticipate",
+      "offeredCard": "Footwork",
+      "bonus": 1.8,
+      "reason": "Anticipate's 3 temporary Dex stacks on top of Footwork's permanent Dex — every block card this turn gets boosted by both, potentially 15+ extra block in one turn."
+    },
+    {
+      "deckCard": "Footwork",
+      "offeredCard": "Anticipate",
+      "bonus": 1.8,
+      "reason": "Footwork's permanent Dex multiplies Anticipate's burst — combined Dex of 4+ on a turn with multiple block cards is massive."
+    },
+    {
+      "deckCard": "Anticipate",
+      "offeredCard": "Dodge And Roll",
+      "bonus": 1.2,
+      "reason": "Both Dodge and Roll block instances (now and next turn) benefit from Anticipate's Dex this turn."
+    },
+    {
+      "deckCard": "Backflip",
+      "offeredCard": "Footwork",
+      "bonus": 1.3,
+      "reason": "Footwork's Dex boosts Backflip's block — with 2 Footwork stacks, Backflip becomes 7 Block plus 2 draws."
+    },
+    {
+      "deckCard": "Backflip",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.2,
+      "reason": "Both cycle cards — combined they let you see most of your deck each turn to find Sly payoffs."
+    },
+    {
+      "deckCard": "Backflip",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.2,
+      "reason": "Poison build needs early survival — Backflip provides 5 Block plus 2 draws to find more Poison stackers."
+    },
+    {
+      "deckCard": "Dagger Spray",
+      "offeredCard": "Envenom",
+      "bonus": 2.0,
+      "reason": "Envenom applies Poison whenever an Attack deals unblocked damage — Dagger Spray hits ALL enemies twice. Each hit per enemy applies Poison = 2 Poison stacks per enemy per cast. Silent's best AoE Poison spreader."
+    },
+    {
+      "deckCard": "Envenom",
+      "offeredCard": "Dagger Spray",
+      "bonus": 2.0,
+      "reason": "Dagger Spray hits all enemies twice — with Envenom that's 2 Poison stacks per enemy in one card. Best AoE Poison application available."
+    },
+    {
+      "deckCard": "Dodge And Roll",
+      "offeredCard": "Footwork",
+      "bonus": 1.8,
+      "reason": "Footwork's Dex boosts BOTH of Dodge and Roll's block instances — the now and next-turn block both get Dex bonus. Multiple sources call this the top Footwork combo."
+    },
+    {
+      "deckCard": "Footwork",
+      "offeredCard": "Dodge And Roll",
+      "bonus": 1.8,
+      "reason": "Dodge and Roll gives 8 total block across 2 turns — both procs benefit from Footwork's permanent Dex. Extremely efficient with Footwork active."
+    },
+    {
+      "deckCard": "Dodge And Roll",
+      "offeredCard": "Blur",
+      "bonus": 1.5,
+      "reason": "Blur retains block — next-turn Dodge and Roll block stacks with Blur's retained block for massive accumulated defense."
+    },
+    {
+      "deckCard": "Dodge And Roll",
+      "offeredCard": "Afterimage",
+      "bonus": 1.2,
+      "reason": "Playing Dodge and Roll triggers After Image once, then the delayed next-turn block triggers again passively — 2 After Image procs plus 8 block from 1 card."
+    },
+    {
+      "deckCard": "Leading Strike",
+      "offeredCard": "Accuracy",
+      "bonus": 2.0,
+      "reason": "Leading Strike generates a Shiv — that Shiv immediately benefits from Accuracy's +4 damage. With 2 Accuracy copies the generated Shiv hits for 12 damage."
+    },
+    {
+      "deckCard": "Accuracy",
+      "offeredCard": "Leading Strike",
+      "bonus": 2.0,
+      "reason": "Leading Strike generates a Shiv that gets full Accuracy bonus — consistent Accuracy-boosted Shiv generation every turn."
+    },
+    {
+      "deckCard": "Leading Strike",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Leading Strike + the generated Shiv + Finisher = 3 attacks this turn. Finisher hits for 3x its base damage in sequence."
+    },
+    {
+      "deckCard": "Leading Strike",
+      "offeredCard": "Afterimage",
+      "bonus": 1.5,
+      "reason": "Leading Strike then playing the generated Shiv = 2 cards played = 2 After Image block procs for free."
+    },
+    {
+      "deckCard": "Leading Strike",
+      "offeredCard": "Envenom",
+      "bonus": 1.5,
+      "reason": "Leading Strike is an attack — Envenom poisons on it. The generated Shiv also triggers Envenom when played. 2 Poison stacks from one card."
+    },
+    {
+      "deckCard": "Escape Plan",
+      "offeredCard": "Well-Laid Plans",
+      "bonus": 1.5,
+      "reason": "Well-Laid Plans retains cards — hold Escape Plan for turns when you need both block and draw, then play for guaranteed block since retained card is likely a Skill."
+    },
+    {
+      "deckCard": "Escape Plan",
+      "offeredCard": "Master Planner",
+      "bonus": 1.8,
+      "reason": "Master Planner makes all Skills Sly — Escape Plan draws a Skill that with Master Planner active also has Sly. Block plus a free Sly trigger from one card."
+    },
+    {
+      "deckCard": "Escape Plan",
+      "offeredCard": "Expertise",
+      "bonus": 1.5,
+      "reason": "Expertise fills hand with cards — with more Skills in deck, Escape Plan reliably draws a Skill for the block bonus."
+    },
+    {
+      "deckCard": "Expose",
+      "offeredCard": "Finisher",
+      "bonus": 2.0,
+      "reason": "Expose applies 2 Vulnerable then Exhaust — follow with Finisher for 50%+ more damage per hit multiplied by attacks played. Strips Artifact first so Vulnerable actually applies."
+    },
+    {
+      "deckCard": "Expose",
+      "offeredCard": "Dagger Throw",
+      "bonus": 1.5,
+      "reason": "Expose Vulnerables the enemy — Dagger Throw hits a Vulnerable target for 50% more damage. Natural 2-card combo."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Well-Laid Plans",
+      "bonus": 1.5,
+      "reason": "Well-Laid Plans retains Skills between turns — carry Skills over from last turn so you start the next with more Skills in hand for a bigger Flechettes hit."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Expertise",
+      "bonus": 1.8,
+      "reason": "Expertise fills your hand with cards drawn until 6 — with a Skill-heavy deck that's 4-5 Skills in hand for 20-25 Flechettes damage immediately after."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Burst",
+      "bonus": 1.8,
+      "reason": "Burst makes next Skill play twice — Flechettes is a Skill. Play Burst then Flechettes for double Flechettes damage in one turn."
+    },
+    {
+      "deckCard": "Sucker Punch",
+      "offeredCard": "Malaise",
+      "bonus": 1.3,
+      "reason": "Both apply Weak — stacking Weak sources reduces enemy damage consistently. Sucker Punch on top of Malaise Weak application deepens the debuff package."
+    },
+    {
+      "deckCard": "Sucker Punch",
+      "offeredCard": "Leg Sweep",
+      "bonus": 1.2,
+      "reason": "Both apply Weak — Sucker Punch on attack and Leg Sweep on block means every turn adds Weak stacks while also progressing offense and defense."
+    },
+    {
+      "deckCard": "Escape Plan",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 1.5,
+      "reason": "Tools of the Trade cycles each turn drawing cards — in a skill-heavy deck Escape Plan's conditional block triggers consistently. Both feed the cycling engine."
+    },
+    {
+      "deckCard": "Escape Plan",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.2,
+      "reason": "Both cycle cards — Escape Plan draws 1 conditional, Acrobatics draws 3. Together they let you see most of your deck each turn finding Sly payoffs."
+    },
+    {
+      "deckCard": "Expose",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.8,
+      "reason": "Artifact blocks all Poison application — Expose removes Artifact enabling Noxious Fumes to stack freely. Critical combo against Artifact enemies."
+    },
+    {
+      "deckCard": "Expose",
+      "offeredCard": "Envenom",
+      "bonus": 1.8,
+      "reason": "Envenom applies Poison on attacks but Artifact blocks it — Expose removes Artifact then every subsequent attack freely applies Poison."
+    },
+    {
+      "deckCard": "Well-Laid Plans",
+      "offeredCard": "Flechettes",
+      "bonus": 2.0,
+      "reason": "Retaining Skills inflates hand Skill count — Flechettes deals 5 damage per Skill in hand. Retain 3 Skills and Flechettes deals 15+ bonus damage before the hand you play this turn."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.5,
+      "reason": "Acrobatics draws 3 cards — more draws means more Skills in hand when Flechettes fires. Play Acrobatics to load up then Flechettes to cash out."
+    },
+    {
+      "deckCard": "Dodge And Roll",
+      "offeredCard": "Well-Laid Plans",
+      "bonus": 1.3,
+      "reason": "Well-Laid Plans can retain Dodge and Roll — play it when it will hit both blocks across optimal turns."
+    },
+    {
+      "deckCard": "Anticipate",
+      "offeredCard": "Afterimage",
+      "bonus": 1.2,
+      "reason": "After Image gives 1 Block per card played — with Anticipate's 3 Dex active each After Image proc gives +3 block. Spam cheap cards for stacked block generation."
+    },
+    {
+      "deckCard": "Slice",
+      "offeredCard": "Afterimage",
+      "bonus": 1.2,
+      "reason": "Slice costs 0 — plays for free triggering After Image's 1 Block per card. In Sly builds Slice can fire multiple times for free."
+    },
+    {
+      "deckCard": "Sucker Punch",
+      "offeredCard": "Finisher",
+      "bonus": 1.2,
+      "reason": "Sucker Punch applies Weak reducing enemy damage, then Finisher's damage is boosted by the attack count including Sucker Punch."
+    },
+    {
+      "deckCard": "Abrasive",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 2.0,
+      "reason": "Tools of the Trade discards 1 each turn — if Abrasive is discarded via Sly, gain +1 permanent Dex and +4 Thorns every single turn passively. Infinite scaling."
+    },
+    {
+      "deckCard": "Abrasive",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 1.5,
+      "reason": "Calculated Gamble discards entire hand — if Abrasive is there, it fires for free. Multiple Abrasive copies in hand = multiple permanent Dex stacks in one turn."
+    },
+    {
+      "deckCard": "Afterimage",
+      "offeredCard": "Blade Dance",
+      "bonus": 2.0,
+      "reason": "Blade Dance generates 3 Shivs — play Blade Dance (1 proc) then 3 Shivs (3 procs) = 4 Afterimage block from one card sequence."
+    },
+    {
+      "deckCard": "Afterimage",
+      "offeredCard": "Storm Of Steel",
+      "bonus": 2.0,
+      "reason": "Storm of Steel discards hand generating Shivs equal to hand size — each Sly trigger and each Shiv played procs Afterimage. Massive block generation."
+    },
+    {
+      "deckCard": "Afterimage",
+      "offeredCard": "Master Planner",
+      "bonus": 1.8,
+      "reason": "Master Planner enables playing many cards via Sly — each card played procs Afterimage. A full Sly turn with 8 cards = 8 free Block."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Well-Laid Plans",
+      "bonus": 2.0,
+      "reason": "Well-Laid Plans retains cards between turns — build up a big hand of Sly cards then play Bullet Time to play everything for free. Pre-loads the hand for maximum Bullet Time value."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Bullet Time makes all cards free — spam attacks then Finisher for massive per-attack damage. The more free attacks played the bigger Finisher hits."
+    },
+    {
+      "deckCard": "Bullet Time",
+      "offeredCard": "Flechettes",
+      "bonus": 1.8,
+      "reason": "Bullet Time makes all Skills free — hold a hand full of Skills, play Bullet Time, then Flechettes for huge damage equal to 5x all Skills in hand."
+    },
+    {
+      "deckCard": "Corrosive Wave",
+      "offeredCard": "Acrobatics",
+      "bonus": 2.0,
+      "reason": "Acrobatics draws 3 cards — with Corrosive Wave active that's 9 Poison to ALL enemies from one card. Stack both for instant massive Poison application."
+    },
+    {
+      "deckCard": "Corrosive Wave",
+      "offeredCard": "Expertise",
+      "bonus": 2.0,
+      "reason": "Expertise draws until hand has 6 — if you had 2 cards, 4 draws = 12 Poison to all enemies just from playing Expertise with Corrosive Wave active."
+    },
+    {
+      "deckCard": "Corrosive Wave",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 1.8,
+      "reason": "Calculated Gamble draws equal to discarded — with Corrosive Wave each draw applies 3 AoE Poison. Discard 5, draw 5 = 15 Poison to all enemies."
+    },
+    {
+      "deckCard": "Corrosive Wave",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.5,
+      "reason": "Both apply AoE Poison — Corrosive Wave on draws, Noxious Fumes passively each turn. Together they stack Poison on all enemies extremely fast."
+    },
+    {
+      "deckCard": "Malaise",
+      "offeredCard": "Tracking",
+      "bonus": 2.5,
+      "reason": "Malaise applies Weak — Tracking makes Weak enemies take double damage from all attacks. Malaise + Tracking = every attack does 2x damage for the rest of combat."
+    },
+    {
+      "deckCard": "Tracking",
+      "offeredCard": "Malaise",
+      "bonus": 2.5,
+      "reason": "Tracking doubles damage on Weak enemies — Malaise applies X Weak AND removes X Strength. Maximum debuff setup for Tracking's double damage payoff."
+    },
+    {
+      "deckCard": "Malaise",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Malaise weakens enemy — Finisher hits a Weakened target for 50% more damage per attack. The more attacks played, the bigger the Malaise+Finisher combo."
+    },
+    {
+      "deckCard": "Malaise",
+      "offeredCard": "Piercing Wail",
+      "bonus": 1.5,
+      "reason": "Both reduce Strength to all enemies — Malaise single target deep Weak, Piercing Wail AoE Strength reduction. Stack both for maximum damage amplification."
+    },
+    {
+      "deckCard": "Murder",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.8,
+      "reason": "Acrobatics draws 3 every play — more draws means more Murder stacks. By mid-fight Murder hits for 30+ damage with consistent drawing."
+    },
+    {
+      "deckCard": "Murder",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 1.5,
+      "reason": "Tools of the Trade draws 1 every turn — constant draw stacking Murder's per-draw damage throughout the run."
+    },
+    {
+      "deckCard": "Murder",
+      "offeredCard": "Expertise",
+      "bonus": 1.8,
+      "reason": "Expertise draws up to 6 — each Expertise play adds multiple draws to Murder's damage counter. Late game Murder + Expertise is devastating."
+    },
+    {
+      "deckCard": "Serpent Form",
+      "offeredCard": "Blade Dance",
+      "bonus": 1.5,
+      "reason": "Blade Dance generates 3 Shivs — play Blade Dance (1 proc) then 3 Shivs (3 procs) = 4 Serpent Form pings of 4 damage each = 16 passive damage."
+    },
+    {
+      "deckCard": "Serpent Form",
+      "offeredCard": "Master Planner",
+      "bonus": 1.8,
+      "reason": "Master Planner enables playing many cards via Sly — each card played pings for 4 damage from Serpent Form. A full 8-card Sly turn = 32 passive damage."
+    },
+    {
+      "deckCard": "Serpent Form",
+      "offeredCard": "Afterimage",
+      "bonus": 1.5,
+      "reason": "Both trigger per card played — Serpent Form deals 4 damage and Afterimage gives 1 Block per play. Stack both for simultaneous offense and defense scaling."
+    },
+    {
+      "deckCard": "Shadow Step",
+      "offeredCard": "Reflex",
+      "bonus": 1.8,
+      "reason": "Shadow Step discards hand — if Reflex is in hand it fires for free drawing 2 cards. Triggers Sly chains AND sets up double damage attacks next turn."
+    },
+    {
+      "deckCard": "Shadow Step",
+      "offeredCard": "Tactician",
+      "bonus": 1.8,
+      "reason": "Shadow Step discards hand — Tactician fires for free giving 1 energy. Sly energy gain plus double attack damage next turn setup."
+    },
+    {
+      "deckCard": "Shadow Step",
+      "offeredCard": "Finisher",
+      "bonus": 2.0,
+      "reason": "Shadow Step doubles attacks next turn — Finisher hits for per-attack damage. With double damage active Finisher's damage is doubled on top of its scaling."
+    },
+    {
+      "deckCard": "Storm Of Steel",
+      "offeredCard": "Accuracy",
+      "bonus": 2.5,
+      "reason": "Storm of Steel generates Shivs equal to hand size — with Accuracy every Shiv hits for 8+ damage. A 6-card hand = 6 boosted Shivs in one play."
+    },
+    {
+      "deckCard": "Storm Of Steel",
+      "offeredCard": "Reflex",
+      "bonus": 1.8,
+      "reason": "Storm of Steel discards hand — Reflex fires for free drawing 2 cards. Replenish hand after dumping it, then play the generated Shivs."
+    },
+    {
+      "deckCard": "Tracking",
+      "offeredCard": "Leg Sweep",
+      "bonus": 1.8,
+      "reason": "Leg Sweep applies Weak while blocking — with Tracking active it also doubles all attack damage going forward. Defensive play with offensive multiplier payoff."
+    },
+    {
+      "deckCard": "Tracking",
+      "offeredCard": "Suppress",
+      "bonus": 2.0,
+      "reason": "Suppress is Innate applying 3 Weak turn 1 — Tracking is already active turn 1 making Suppress's 3 Weak immediately enable double damage from the opening hand."
+    },
+    {
+      "deckCard": "Suppress",
+      "offeredCard": "Tracking",
+      "bonus": 2.0,
+      "reason": "Suppress applies 3 Weak on turn 1 (Innate) — with Tracking in play that immediately means double damage from all attacks for the whole fight from the start."
+    },
+    {
+      "deckCard": "Suppress",
+      "offeredCard": "Finisher",
+      "bonus": 1.5,
+      "reason": "Suppress applies 3 Weak — Finisher on a Weakened enemy deals 50% more damage per attack. Innate Weak setup into Finisher payoff."
+    },
+    {
+      "deckCard": "Wraith Form",
+      "offeredCard": "Nightmare",
+      "bonus": 2.0,
+      "reason": "Nightmare creates 3 copies of a card — triple Wraith Form means 6 turns of Intangible back to back. Near-infinite immunity window while Dex loss is manageable."
+    },
+    {
+      "deckCard": "Wraith Form",
+      "offeredCard": "Footwork",
+      "bonus": 1.5,
+      "reason": "Wraith Form loses 1 Dex per turn start — Footwork's permanent Dex gain partially offsets the loss, extending the window before block degrades significantly."
+    },
+    {
+      "deckCard": "Piercing Wail",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.5,
+      "reason": "Piercing Wail removes 6 Strength from all enemies this turn — while Noxious Fumes stacks Poison. Reduces incoming damage while Poison slowly kills. Strong defensive + offensive combo."
+    },
+    {
+      "deckCard": "Piercing Wail",
+      "offeredCard": "Blur",
+      "bonus": 1.3,
+      "reason": "Piercing Wail cuts enemy damage by 6 this turn — combine with Blur's block for a near-zero damage turn against most enemies."
+    },
+    {
+      "deckCard": "Follow Through",
+      "offeredCard": "Tracking",
+      "bonus": 2.0,
+      "reason": "Follow Through applies 1 Weak to ALL enemies if last card was a Skill — Tracking makes Weak enemies take double damage. Natural combo: play a Skill, Follow Through for AoE Weak, all future attacks deal double."
+    },
+    {
+      "deckCard": "Tracking",
+      "offeredCard": "Follow Through",
+      "bonus": 2.0,
+      "reason": "Tracking doubles damage on Weak enemies — Follow Through applies AoE Weak if preceded by a Skill. Consistent AoE Weak application feeding Tracking's double damage multiplier."
+    },
+    {
+      "deckCard": "Assassinate",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Assassinate is Innate — turn 1 it applies Vulnerable before Finisher. Every attack in the Finisher chain hits the Vulnerabled target for 50% more damage from the very first turn."
+    },
+    {
+      "deckCard": "Assassinate",
+      "offeredCard": "Pinpoint",
+      "bonus": 1.5,
+      "reason": "Assassinate applies Vulnerable early — Pinpoint's 17 damage on a Vulnerable target deals 25+ damage. Both exhaust so no deck clutter."
+    },
+    {
+      "deckCard": "Shadowmeld",
+      "offeredCard": "Footwork",
+      "bonus": 2.0,
+      "reason": "Shadowmeld doubles all Block gained this turn — Footwork's Dex makes every block card give more block. With 3 Dex and Shadowmeld, each block card's value is dramatically multiplied."
+    },
+    {
+      "deckCard": "Shadowmeld",
+      "offeredCard": "Dodge And Roll",
+      "bonus": 1.8,
+      "reason": "Shadowmeld doubles Block gain this turn — Dodge and Roll normally gives 4 Block, with Shadowmeld that's 8 Block now plus another doubled 8 Block next turn."
+    },
+    {
+      "deckCard": "Shadowmeld",
+      "offeredCard": "Blur",
+      "bonus": 1.5,
+      "reason": "Shadowmeld doubles Blur's retained block — instead of 5 retained block, you retain 10. Carry doubled block into next turn."
+    },
+    {
+      "deckCard": "The Hunt",
+      "offeredCard": "Finisher",
+      "bonus": 1.5,
+      "reason": "The Hunt kills a weak enemy granting extra card reward — then Finisher cleans up the rest with damage per attack already played this turn."
+    },
+    {
+      "deckCard": "The Hunt",
+      "offeredCard": "Blade Dance",
+      "bonus": 1.3,
+      "reason": "The Hunt kills a target then Exhausts — Blade Dance generates Shivs to finish remaining enemies with the bonus card reward lined up."
+    },
+    {
+      "deckCard": "Dagger Throw",
+      "offeredCard": "Reflex",
+      "bonus": 1.8,
+      "reason": "Dagger Throw draws 1 then discards 1 — if Reflex is discarded it fires for free drawing 2 more cards. Damage + net card draw + Sly chain in one play."
+    },
+    {
+      "deckCard": "Dagger Throw",
+      "offeredCard": "Tactician",
+      "bonus": 1.8,
+      "reason": "Dagger Throw's discard triggers Tactician for free — 9 damage plus draw plus free 1 energy. Efficient Sly enabler attack."
+    },
+    {
+      "deckCard": "Pounce",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.8,
+      "reason": "Pounce makes next Skill cost 0 — Noxious Fumes costs 2. Pounce + free Noxious Fumes = 3-cost Poison engine setup for 1 energy total."
+    },
+    {
+      "deckCard": "Pounce",
+      "offeredCard": "Burst",
+      "bonus": 2.0,
+      "reason": "Pounce makes next Skill free — Burst is 1 cost. Pounce + free Burst = your next Skill plays twice for 0 energy. Game-changing combo enabler."
+    },
+    {
+      "deckCard": "Memento Mori",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Calculated Gamble discards entire hand — play Memento Mori after for 8 + 4 per card discarded. With 6 discards that's 32 damage for 1 energy."
+    },
+    {
+      "deckCard": "Outbreak",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 2.0,
+      "reason": "Noxious Fumes applies 2 Poison to ALL enemies each turn — Outbreak fires 11 AoE every 3 Poison applications. Noxious Fumes alone triggers Outbreak consistently across multi-enemy rooms."
+    },
+    {
+      "deckCard": "Outbreak",
+      "offeredCard": "Envenom",
+      "bonus": 1.8,
+      "reason": "Envenom applies Poison whenever an Attack deals unblocked damage — with multiple attacks per turn Outbreak's 3-stack threshold fires rapidly for repeated 11 AoE damage."
+    },
+    {
+      "deckCard": "Hidden Daggers",
+      "offeredCard": "Accuracy",
+      "bonus": 2.0,
+      "reason": "Hidden Daggers generates 2 Shivs AND discards 2 triggering Sly effects. Both generated Shivs get Accuracy's full damage bonus immediately."
+    },
+    {
+      "deckCard": "Hidden Daggers",
+      "offeredCard": "Reflex",
+      "bonus": 1.8,
+      "reason": "Hidden Daggers discards 2 — if Reflex is discarded it fires for free drawing 2 cards. Sly chain + Shiv generation from one card."
+    },
+    {
+      "deckCard": "Precise Cut",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Calculated Gamble discards entire hand — immediately after, Precise Cut hits for full 13 damage with 0 cards in hand. Natural sequence."
+    },
+    {
+      "deckCard": "Strangle",
+      "offeredCard": "Master Planner",
+      "bonus": 2.0,
+      "reason": "Master Planner makes every Skill gain Sly when played — each Skill played counts toward Strangle's 2 HP drain per card. Full Sly chain = 16+ HP bypass plus Strangle's 8 base damage."
+    },
+    {
+      "deckCard": "Speedster",
+      "offeredCard": "Acrobatics",
+      "bonus": 2.0,
+      "reason": "Acrobatics draws 3 — with Speedster each draw pings for 2 AoE = 6 free AoE from one card. Stack multiple Acrobatics for rapid AoE accumulation."
+    },
+    {
+      "deckCard": "Speedster",
+      "offeredCard": "Expertise",
+      "bonus": 1.8,
+      "reason": "Expertise draws until hand has 6 — if you had 2 cards, 4 draws = 8 AoE damage just from playing Expertise with Speedster active."
+    },
+    {
+      "deckCard": "Up My Sleeve",
+      "offeredCard": "Accuracy",
+      "bonus": 2.0,
+      "reason": "Up My Sleeve generates 3 Shivs that get cheaper each cast — all 3 get Accuracy's full damage bonus. Eventually free repeatable Shiv supply."
+    },
+    {
+      "deckCard": "Up My Sleeve",
+      "offeredCard": "Finisher",
+      "bonus": 1.8,
+      "reason": "Up My Sleeve generates 3 Shivs — play them then Finisher for 4 attacks worth of damage. Reusable unlike Blade Dance for consistent Finisher setup."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Deadly Poison",
+      "bonus": 1.8,
+      "reason": "Deadly Poison is a Skill — Burst doubles it, applying 10 Poison for 1 energy. Strong early Poison ramp."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Haze",
+      "bonus": 1.8,
+      "reason": "Haze is a Sly Skill that applies 4 AoE Poison — Burst doubles it for 8 AoE Poison. Both are Skills, valid Burst target."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.5,
+      "reason": "Acrobatics is a Skill — Burst doubles it for Draw 6, Discard 2. Massive cycle turn triggering 2 Sly discards."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Mirage",
+      "bonus": 1.5,
+      "reason": "Mirage is a Skill — Burst doubles it, gaining block equal to Poison on ALL enemies twice. Emergency double block in Poison builds."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Piercing Wail",
+      "bonus": 1.8,
+      "reason": "Piercing Wail is a Skill — Burst doubles it, removing 12 Strength from ALL enemies this turn instead of 6. Massive damage reduction on heavy-hitting turns."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Expertise",
+      "bonus": 1.5,
+      "reason": "Expertise is a Skill — Burst makes it play twice, filling your hand twice up to 6 cards each time. Massive card draw setup."
+    },
+    {
+      "deckCard": "Burst",
+      "offeredCard": "Shadowmeld",
+      "bonus": 1.8,
+      "reason": "Shadowmeld is a Skill that doubles Block gain — Burst plays it twice. First doubles your block, second doubles it again. Potentially 4x block from all sources this turn."
+    },
+    {
+      "deckCard": "Outbreak",
+      "offeredCard": "Bouncing Flask",
+      "bonus": 1.8,
+      "reason": "Mobalytics guide specifically pairs these — Bouncing Flask applies 3 Poison 3 times (9 total), making it easy to trigger Outbreak's 3-Poison-application threshold for 11 AoE damage."
+    },
+    {
+      "deckCard": "Bouncing Flask",
+      "offeredCard": "Outbreak",
+      "bonus": 1.8,
+      "reason": "Bouncing Flask hits 3 enemies with Poison — Outbreak fires 11 AoE every 3 Poison applications. Bouncing Flask alone can trigger Outbreak in one play."
+    },
+    {
+      "deckCard": "Hidden Daggers",
+      "offeredCard": "Untouchable",
+      "bonus": 1.8,
+      "reason": "Hidden Daggers discards 2 cards — Untouchable has Sly (9 Block when discarded for free). Discard Untouchable via Hidden Daggers for 9 free Block plus 2 Shivs."
+    },
+    {
+      "deckCard": "Hidden Daggers",
+      "offeredCard": "Abrasive",
+      "bonus": 1.8,
+      "reason": "Hidden Daggers discards 2 cards — Abrasive has Sly (1 Dex + 4 Thorns when discarded free). Discard Abrasive via Hidden Daggers for permanent Dex + Thorns plus 2 Shivs."
+    },
+    {
+      "deckCard": "Knife Trap",
+      "offeredCard": "Serpent Form",
+      "bonus": 2.0,
+      "reason": "Mobalytics guide: Knife Trap plays every Shiv in exhaust pile — Serpent Form deals 4 damage per card played. Playing 15-20 Shivs via Knife Trap = 60-80 passive damage from Serpent Form simultaneously."
+    },
+    {
+      "deckCard": "Serpent Form",
+      "offeredCard": "Knife Trap",
+      "bonus": 2.0,
+      "reason": "Knife Trap fires all exhaust Shivs — each Shiv played procs Serpent Form's 4 damage. 15 Shivs = 60 extra damage from Serpent Form on top of Shiv damage."
+    },
+    {
+      "deckCard": "Well-Laid Plans",
+      "offeredCard": "Burst",
+      "bonus": 1.8,
+      "reason": "Well-Laid Plans retains a card between turns — hold Burst until you have a key Skill in hand, then Burst+Skill for double effect. Reliable setup for Burst combos."
+    },
+    {
+      "deckCard": "Hand Trick",
+      "offeredCard": "Burst",
+      "bonus": 2.0,
+      "reason": "PCGamesN guide: Hand Trick adds Sly to a Skill in hand — if you land Sly on Burst, discarding it plays Burst for free. Free next-Skill-plays-twice is explosive value."
+    },
+    {
+      "deckCard": "Hand Trick",
+      "offeredCard": "Adrenaline",
+      "bonus": 1.8,
+      "reason": "PCGamesN guide: Hand Trick adds Sly to a Skill — if Adrenaline gets Sly, discarding plays it free for energy + 2 cards at no cost. Free Adrenaline is among the best Sly hits possible."
+    },
+    {
+      "deckCard": "Haze",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 2.0,
+      "reason": "Haze is Sly — Tools of the Trade's passive discard triggers Haze for free every turn applying 4 AoE Poison. Core Sly+Poison overlap combo."
+    },
+    {
+      "deckCard": "Accuracy",
+      "offeredCard": "Accuracy",
+      "bonus": 2.5,
+      "reason": "Each Accuracy adds 4 damage to every Shiv. Two copies = +8 per Shiv, three = +12. Mobalytics guide says 'get as many as you can'. Stacking Accuracy is the core Shiv scaling strategy."
+    },
+    {
+      "deckCard": "Nightmare",
+      "offeredCard": "Wraith Form",
+      "bonus": 2.0,
+      "reason": "Nightmare creates 3 copies of Wraith Form — play all three for 6 turns of Intangible. Near-invincible for multiple turns. Dualshockers guide calls this game-winning."
+    },
+    {
+      "deckCard": "Envenom",
+      "offeredCard": "Blade Dance",
+      "bonus": 1.8,
+      "reason": "Mobalytics guide: Envenom applies Poison on unblocked attack damage — Blade Dance generates 3 Shivs. Each Shiv that deals unblocked damage applies 1 Poison. Shiv+Poison hybrid core combo."
+    },
+    {
+      "deckCard": "Blade Dance",
+      "offeredCard": "Envenom",
+      "bonus": 1.8,
+      "reason": "Blade Dance generates 3 Shivs — with Envenom active each unblocked Shiv applies Poison. Natural bridge between Shiv and Poison builds."
     }
   ],
   "dupePenalties": {
@@ -10535,10 +11958,6 @@ const DB = {
       "c": "silent"
     },
     {
-      "n": "Bane",
-      "c": "silent"
-    },
-    {
       "n": "Blade Dance",
       "c": "silent"
     },
@@ -10571,18 +11990,6 @@ const DB = {
       "c": "silent"
     },
     {
-      "n": "Concentrate",
-      "c": "silent"
-    },
-    {
-      "n": "Corpse Explosion",
-      "c": "silent"
-    },
-    {
-      "n": "Crippling Cloud",
-      "c": "silent"
-    },
-    {
       "n": "Dagger Throw",
       "c": "silent"
     },
@@ -10595,10 +12002,6 @@ const DB = {
       "c": "silent"
     },
     {
-      "n": "Deadly Poison+",
-      "c": "silent"
-    },
-    {
       "n": "Defend",
       "c": "silent"
     },
@@ -10607,15 +12010,7 @@ const DB = {
       "c": "silent"
     },
     {
-      "n": "Doppelganger",
-      "c": "silent"
-    },
-    {
       "n": "Envenom",
-      "c": "silent"
-    },
-    {
-      "n": "Eviscerate",
       "c": "silent"
     },
     {
@@ -10628,10 +12023,6 @@ const DB = {
     },
     {
       "n": "Finisher",
-      "c": "silent"
-    },
-    {
-      "n": "Flash",
       "c": "silent"
     },
     {
@@ -10679,19 +12070,11 @@ const DB = {
       "c": "silent"
     },
     {
-      "n": "Night Terror",
-      "c": "silent"
-    },
-    {
       "n": "Nightmare",
       "c": "silent"
     },
     {
       "n": "Noxious Fumes",
-      "c": "silent"
-    },
-    {
-      "n": "Nunchaku",
       "c": "silent"
     },
     {
@@ -10752,10 +12135,6 @@ const DB = {
     },
     {
       "n": "Tools Of The Trade",
-      "c": "silent"
-    },
-    {
-      "n": "Unload",
       "c": "silent"
     },
     {
@@ -10837,6 +12216,206 @@ const DB = {
     {
       "n": "Tear Asunder",
       "c": "ironclad"
+    },
+    {
+      "n": "Anticipate",
+      "c": "silent"
+    },
+    {
+      "n": "Backflip",
+      "c": "silent"
+    },
+    {
+      "n": "Dagger Spray",
+      "c": "silent"
+    },
+    {
+      "n": "Deflect",
+      "c": "silent"
+    },
+    {
+      "n": "Dodge And Roll",
+      "c": "silent"
+    },
+    {
+      "n": "Leading Strike",
+      "c": "silent"
+    },
+    {
+      "n": "Slice",
+      "c": "silent"
+    },
+    {
+      "n": "Sucker Punch",
+      "c": "silent"
+    },
+    {
+      "n": "Escape Plan",
+      "c": "silent"
+    },
+    {
+      "n": "Expose",
+      "c": "silent"
+    },
+    {
+      "n": "Flanking",
+      "c": "silent"
+    },
+    {
+      "n": "Flechettes",
+      "c": "silent"
+    },
+    {
+      "n": "Anticipate",
+      "c": "silent"
+    },
+    {
+      "n": "Backflip",
+      "c": "silent"
+    },
+    {
+      "n": "Dagger Spray",
+      "c": "silent"
+    },
+    {
+      "n": "Deflect",
+      "c": "silent"
+    },
+    {
+      "n": "Dodge And Roll",
+      "c": "silent"
+    },
+    {
+      "n": "Leading Strike",
+      "c": "silent"
+    },
+    {
+      "n": "Slice",
+      "c": "silent"
+    },
+    {
+      "n": "Sucker Punch",
+      "c": "silent"
+    },
+    {
+      "n": "Escape Plan",
+      "c": "silent"
+    },
+    {
+      "n": "Expose",
+      "c": "silent"
+    },
+    {
+      "n": "Flanking",
+      "c": "silent"
+    },
+    {
+      "n": "Flechettes",
+      "c": "silent"
+    },
+    {
+      "n": "Abrasive",
+      "c": "silent"
+    },
+    {
+      "n": "Afterimage",
+      "c": "silent"
+    },
+    {
+      "n": "Blade Of Ink",
+      "c": "silent"
+    },
+    {
+      "n": "Bullet Time",
+      "c": "silent"
+    },
+    {
+      "n": "Corrosive Wave",
+      "c": "silent"
+    },
+    {
+      "n": "Echoing Slash",
+      "c": "silent"
+    },
+    {
+      "n": "Malaise",
+      "c": "silent"
+    },
+    {
+      "n": "Murder",
+      "c": "silent"
+    },
+    {
+      "n": "Serpent Form",
+      "c": "silent"
+    },
+    {
+      "n": "Shadow Step",
+      "c": "silent"
+    },
+    {
+      "n": "Sneaky",
+      "c": "silent"
+    },
+    {
+      "n": "Tracking",
+      "c": "silent"
+    },
+    {
+      "n": "Suppress",
+      "c": "silent"
+    },
+    {
+      "n": "Wraith Form",
+      "c": "silent"
+    },
+    {
+      "n": "Neutralize",
+      "c": "silent"
+    },
+    {
+      "n": "Hidden Daggers",
+      "c": "silent"
+    },
+    {
+      "n": "Memento Mori",
+      "c": "silent"
+    },
+    {
+      "n": "Outbreak",
+      "c": "silent"
+    },
+    {
+      "n": "Phantom Blades",
+      "c": "silent"
+    },
+    {
+      "n": "Pinpoint",
+      "c": "silent"
+    },
+    {
+      "n": "Pounce",
+      "c": "silent"
+    },
+    {
+      "n": "Precise Cut",
+      "c": "silent"
+    },
+    {
+      "n": "Speedster",
+      "c": "silent"
+    },
+    {
+      "n": "Strangle",
+      "c": "silent"
+    },
+    {
+      "n": "Up My Sleeve",
+      "c": "silent"
+    },
+    {
+      "n": "The Hunt",
+      "c": "silent"
     }
   ]
 };
