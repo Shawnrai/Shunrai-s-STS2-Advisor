@@ -6809,25 +6809,26 @@ const DB = {
     "necrobinder": {
       "DEMESNE": {
         "id": "Demesne",
-        "tier": "A",
+        "tier": "S",
         "builds": [
-          "soul"
+          "soul",
+          "any"
         ],
         "syn": [
-          "soul",
-          "exhaust",
+          "energy_gain",
+          "draw",
           "scaling"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "3-cost power: gain 1 energy AND draw 1 extra card every turn. Strongest scaling card in deck.",
+        "notes": "Ethereal. At start of turn, gain Energy and draw 1 additional card. S-tier permanent passive — +1 Energy and +1 draw every turn, at the cost of Ethereal (discards if not played).",
         "mech": [
           "energy_gain",
           "draw",
           "passive",
-          "permanent_scaling"
+          "ethereal"
         ],
         "role": "engine"
       },
@@ -6857,7 +6858,7 @@ const DB = {
       },
       "HAUNT": {
         "id": "Haunt",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "soul"
         ],
@@ -6882,7 +6883,7 @@ const DB = {
       },
       "SOUL_STORM": {
         "id": "Soul Storm",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "soul"
         ],
@@ -6905,8 +6906,8 @@ const DB = {
         "role": "payoff"
       },
       "END_OF_DAYS": {
-        "id": "End Of Days",
-        "tier": "B",
+        "id": "End of Days",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -6932,168 +6933,166 @@ const DB = {
         "id": "Neurosurge",
         "tier": "S",
         "builds": [
-          "soul",
+          "doom",
           "any"
         ],
         "syn": [
-          "soul",
+          "energy_gain",
           "draw",
-          "damage",
+          "doom",
           "scaling"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "Gain 3 Energy, draw 2 cards, but apply 3 Doom to yourself each turn. High risk, massive reward.",
+        "notes": "Gain 3 Energy and draw 2. Each turn applies 3 Doom to yourself. S-tier setup card — the Energy and draw alone are worth it. Self-Doom is manageable.",
         "mech": [
-          "damage",
-          "draw_payoff",
-          "scaling"
+          "energy_gain",
+          "draw",
+          "doom",
+          "passive"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
       "CAPTURE_SPIRIT": {
         "id": "Capture Spirit",
-        "tier": "B",
+        "tier": "S",
         "builds": [
           "soul"
         ],
         "syn": [
           "soul",
-          "exhaust",
-          "scaling"
+          "draw"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "1-cost: enemy loses 3 HP, add 3 Souls to draw pile. Core soul generation.",
+        "notes": "Enemy loses 3 HP. Add 3 Souls into Draw Pile. S-tier engine — generates 3 Souls AND deals chip damage. Each Soul drawn fuels Haunt, Death March, Soul Storm.",
         "mech": [
-          "soul_generator",
-          "damage"
+          "soul_gen",
+          "draw"
         ],
-        "role": "generator"
+        "role": "engine"
       },
       "DEVOUR_LIFE": {
         "id": "Devour Life",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "soul",
           "osty"
         ],
         "syn": [
           "soul",
-          "exhaust",
-          "summon",
-          "scaling"
+          "osty",
+          "summon"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "Whenever you play a Soul, Summon 1 (raises Osty's HP). Turns soul cycling into Osty growth.",
+        "notes": "Whenever you play a Soul, Summon 1. A-tier passive — every Soul played grows Osty. In Soul-heavy builds, Osty grows to enormous HP passively.",
         "mech": [
-          "soul_payoff",
           "summon",
-          "osty_buff"
+          "passive"
         ],
         "role": "engine"
       },
       "DREDGE": {
         "id": "Dredge",
-        "tier": "A",
+        "tier": "S",
         "builds": [
           "soul",
           "any"
         ],
         "syn": [
           "soul",
-          "exhaust",
-          "draw",
-          "scaling"
+          "draw"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "Retrieve 3 cards from discard. Exhaust. Pulls 3 key cards at once.",
+        "notes": "Put 3 cards from Discard into Hand then Exhaust. Incredible setup card — retrieves key cards exactly when needed.",
         "mech": [
-          "card_retrieve",
-          "exhaust"
+          "draw",
+          "soul_retrieve"
         ],
         "role": "generator"
       },
       "LETHALITY": {
         "id": "Lethality",
-        "tier": "B",
+        "tier": "A",
         "builds": [
-          "doom"
+          "doom",
+          "any"
         ],
         "syn": [
           "doom",
-          "debuff",
-          "damage"
-        ],
-        "anti": [
-          "soul",
-          "osty"
-        ],
-        "notes": "1-cost: 8 damage + apply Doom equal to damage. Efficient damage + doom stack.",
-        "mech": [
           "damage",
-          "doom"
-        ],
-        "role": "generator"
-      },
-      "DEATHS_DOOR": {
-        "id": "Death's Door",
-        "tier": "S",
-        "builds": [
-          "doom"
-        ],
-        "syn": [
-          "doom",
-          "debuff",
-          "block",
           "scaling"
         ],
         "anti": [
           "soul",
           "osty"
         ],
-        "notes": "Gain 6 Block. If you applied Doom this turn, gain 18 Block total. Primary survival tool for fragile Necrobinder.",
+        "notes": "Ethereal. First Attack each turn deals 50% additional damage. A-tier — massive damage multiplier on your best attack each turn. Ethereal means you always want to draw and play it same turn.",
         "mech": [
-          "block",
-          "doom_payoff"
+          "damage",
+          "passive",
+          "ethereal"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
-      "RATTLE": {
-        "id": "Rattle",
-        "tier": "C",
+      "DEATHS_DOOR": {
+        "id": "Death's Door",
+        "tier": "A",
         "builds": [
           "doom"
         ],
         "syn": [
+          "block",
           "doom",
-          "debuff",
-          "aoe"
+          "scaling"
         ],
         "anti": [
           "soul",
           "osty"
         ],
-        "notes": "9 total Doom spread to random enemies 3 times.",
+        "notes": "Gain 6 Block. If you applied Doom this turn, gain Block 2 more times — total 18 Block. A-tier payoff — trivial to trigger in Doom builds, massive defensive value.",
         "mech": [
-          "doom",
-          "aoe"
+          "block",
+          "conditional"
         ],
-        "role": "generator"
+        "role": "payoff"
+      },
+      "RATTLE": {
+        "id": "Rattle",
+        "tier": "A",
+        "builds": [
+          "osty"
+        ],
+        "syn": [
+          "osty",
+          "multi_hit",
+          "scaling"
+        ],
+        "anti": [
+          "soul",
+          "osty"
+        ],
+        "notes": "Osty deals 7 damage. Hits again for each other time Osty attacked this turn. A-tier payoff — with Fetch and Sic Em setting up, Rattle becomes massive multi-hit.",
+        "mech": [
+          "osty_atk",
+          "multi_hit",
+          "per_attack_payoff"
+        ],
+        "role": "payoff"
       },
       "COUNTDOWN": {
         "id": "Countdown",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -7115,7 +7114,7 @@ const DB = {
       },
       "ERADICATE": {
         "id": "Eradicate",
-        "tier": "C",
+        "tier": "D",
         "builds": [
           "doom"
         ],
@@ -7144,24 +7143,25 @@ const DB = {
           "osty"
         ],
         "syn": [
-          "summon",
-          "damage"
+          "osty",
+          "draw",
+          "zero_cost"
         ],
         "anti": [
           "doom",
           "soul"
         ],
-        "notes": "0-cost Osty attack + first time each turn: draw 1. Free Osty activation.",
+        "notes": "Osty deals 3 damage. First time each turn, draw 1 card. A-tier — 0-cost Osty attack that cycles itself. Enables Rattle chains and draws.",
         "mech": [
-          "osty_attack",
+          "osty_atk",
           "draw",
-          "zero_cost"
+          "conditional"
         ],
         "role": "generator"
       },
       "BONE_SHARDS": {
         "id": "Bone Shards",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "osty"
         ],
@@ -7211,24 +7211,24 @@ const DB = {
       },
       "GRAVEBLAST": {
         "id": "Graveblast",
-        "tier": "A",
+        "tier": "S",
         "builds": [
           "soul",
           "any"
         ],
         "syn": [
           "soul",
-          "damage",
           "draw"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "1-cost: 4 damage + retrieve card from discard.",
+        "notes": "Deal 4 damage. Put a card from Discard into Hand. Exhaust. S-tier retrieval — cycles key cards back on demand.",
         "mech": [
           "damage",
-          "card_retrieve"
+          "draw",
+          "soul_retrieve"
         ],
         "role": "generator"
       },
@@ -7236,27 +7236,30 @@ const DB = {
         "id": "Debilitate",
         "tier": "A",
         "builds": [
-          "doom"
+          "doom",
+          "any"
         ],
         "syn": [
           "doom",
-          "debuff",
-          "damage"
+          "weak",
+          "vulnerable"
         ],
         "anti": [
           "soul",
           "osty"
         ],
-        "notes": "7 damage + double debuff effectiveness for 3 turns. Massive with Weak/Vulnerable.",
+        "notes": "Deal 7 damage. Vulnerable and Weak are twice as effective for 3 turns. A-tier — this doubles ALL Vulnerable and Weak on the enemy for 3 turns. Insane multiplier for debuff builds.",
         "mech": [
           "damage",
-          "debuff"
+          "weak",
+          "vulnerable",
+          "scaling"
         ],
-        "role": "payoff"
+        "role": "generator"
       },
       "SCOURGE": {
         "id": "Scourge",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "doom"
         ],
@@ -7280,7 +7283,7 @@ const DB = {
       },
       "DEATHBRINGER": {
         "id": "Deathbringer",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -7305,27 +7308,28 @@ const DB = {
         "id": "Parse",
         "tier": "A",
         "builds": [
-          "soul"
+          "soul",
+          "any"
         ],
         "syn": [
           "soul",
-          "damage",
-          "scaling"
+          "draw",
+          "ethereal"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "10 damage + upgrade 2 random cards from discard. Improves deck over time.",
+        "notes": "Ethereal. Draw 3 cards. A-tier — 0-cost Ethereal draw 3. Pairs with Pagestorm (Ethereal triggers draw), Spirit of Ash (4 Block), and Demesne.",
         "mech": [
-          "damage",
-          "upgrade"
+          "draw",
+          "ethereal"
         ],
-        "role": "payoff"
+        "role": "generator"
       },
       "BANSHEES_CRY": {
         "id": "Banshee's Cry",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "doom",
           "doom"
@@ -7351,7 +7355,7 @@ const DB = {
       },
       "NO_ESCAPE": {
         "id": "No Escape",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -7372,8 +7376,8 @@ const DB = {
         "role": "generator"
       },
       "SCYTHE": {
-        "id": "Scythe",
-        "tier": "B",
+        "id": "The Scythe",
+        "tier": "C",
         "builds": [
           "any"
         ],
@@ -7437,79 +7441,82 @@ const DB = {
       },
       "HIGH_FIVE": {
         "id": "High Five",
-        "tier": "B",
+        "tier": "A",
+        "builds": [
+          "osty",
+          "any"
+        ],
+        "syn": [
+          "osty",
+          "vulnerable",
+          "aoe"
+        ],
+        "anti": [
+          "doom",
+          "soul"
+        ],
+        "notes": "Osty deals 11 AoE and applies 2 Vulnerable to ALL enemies. A-tier setup — free Vulnerable on everything, great before big damage turns.",
+        "mech": [
+          "osty_atk",
+          "vulnerable",
+          "aoe"
+        ],
+        "role": "generator"
+      },
+      "SIC_EM": {
+        "id": "Sic 'Em",
+        "tier": "A",
         "builds": [
           "osty"
         ],
         "syn": [
+          "osty",
           "summon",
-          "damage",
           "scaling"
         ],
         "anti": [
           "doom",
           "soul"
         ],
-        "notes": "Permanent Osty buff. Stacks with copies.",
+        "notes": "Osty deals 5 damage. Whenever Osty hits this enemy this turn, Summon 2. A-tier engine — each Osty attack generates Summon, compounding with Rattle.",
         "mech": [
-          "osty_buff",
-          "permanent_scaling"
+          "osty_atk",
+          "summon",
+          "passive"
         ],
         "role": "engine"
       },
-      "SIC_EM": {
-        "id": "Sic Em",
-        "tier": "B",
-        "builds": [
-          "osty"
-        ],
-        "syn": [
-          "summon",
-          "damage"
-        ],
-        "anti": [
-          "doom",
-          "soul"
-        ],
-        "notes": "0-cost Osty attack scaling with his HP.",
-        "mech": [
-          "osty_attack",
-          "zero_cost",
-          "damage"
-        ],
-        "role": "payoff"
-      },
       "TRANSFIGURE": {
         "id": "Transfigure",
-        "tier": "S",
+        "tier": "A",
         "builds": [
-          "soul"
+          "soul",
+          "any"
         ],
         "syn": [
           "soul",
-          "damage",
-          "exhaust"
+          "scaling",
+          "replay"
         ],
         "anti": [
           "doom",
           "osty"
         ],
-        "notes": "10 damage + free card removal post-combat. Sustains deck thinning.",
+        "notes": "Add Replay to a card in Hand (costs +1 Energy). Exhaust. A-tier — Replay causes a card to play twice. On Undeath this creates 2 copies. On Death March, doubles damage output.",
         "mech": [
-          "damage",
-          "deck_thin"
+          "replay",
+          "exhaust"
         ],
-        "role": "payoff"
+        "role": "engine"
       },
       "DEATH_MARCH": {
         "id": "Death March",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "soul"
         ],
         "syn": [
           "soul",
-          "draw",
           "damage",
           "scaling"
         ],
@@ -7517,10 +7524,10 @@ const DB = {
           "doom",
           "osty"
         ],
-        "notes": "Damage per card drawn. Scales with Soul cycling.",
+        "notes": "Deal 8 damage + 3 per card drawn this turn. A-tier — in Soul builds drawing 5-7 cards per turn, this deals 23-29 damage for 2 Energy.",
         "mech": [
           "damage",
-          "draw_payoff"
+          "scaling"
         ],
         "role": "payoff"
       },
@@ -7568,7 +7575,7 @@ const DB = {
       },
       "DANSE_MACABRE": {
         "id": "Danse Macabre",
-        "tier": "B",
+        "tier": "D",
         "builds": [
           "doom"
         ],
@@ -7590,7 +7597,7 @@ const DB = {
       },
       "DIRGE": {
         "id": "Dirge",
-        "tier": "B",
+        "tier": "D",
         "builds": [
           "soul",
           "osty"
@@ -7636,7 +7643,7 @@ const DB = {
       },
       "TIMES_UP": {
         "id": "Time's Up",
-        "tier": "S",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -7680,7 +7687,7 @@ const DB = {
       },
       "BURY": {
         "id": "Bury",
-        "tier": "C",
+        "tier": "D",
         "builds": [],
         "syn": [
           "damage"
@@ -7734,22 +7741,22 @@ const DB = {
       },
       "SHARED_FATE": {
         "id": "Shared Fate",
-        "tier": "D",
+        "tier": "A",
         "builds": [
-          "doom"
+          "doom",
+          "any"
         ],
         "syn": [
           "doom",
-          "energy_gain"
+          "scaling"
         ],
         "anti": [
           "soul",
           "osty"
         ],
-        "notes": "Eternal + self-doom + energy. Self-doom builds up.",
+        "notes": "Lose 2 Strength. Enemy loses 2 Strength. Exhaust. A-tier — free Strength drain that permanently weakens the enemy. The self-Strength cost is negligible vs permanent enemy debuff.",
         "mech": [
-          "doom",
-          "energy_gain"
+          "debuff"
         ],
         "role": "generator"
       },
@@ -7781,52 +7788,27 @@ const DB = {
       },
       "REANIMATE": {
         "id": "Reanimate",
-        "tier": "B",
-        "builds": [
-          "osty"
-        ],
-        "syn": [
-          "summon",
-          "osty_buff",
-          "scaling"
-        ],
-        "anti": [
-          "doom",
-          "soul"
-        ],
-        "notes": "Bring Osty back and boost his HP. Core Osty recovery card.",
-        "mech": [
-          "summon",
-          "osty_buff"
-        ],
-        "role": "generator"
-      },
-      "SYMBIOSIS": {
-        "id": "Symbiosis",
         "tier": "A",
         "builds": [
           "osty"
         ],
         "syn": [
-          "summon",
-          "osty_buff",
-          "block",
-          "scaling"
+          "osty",
+          "summon"
         ],
         "anti": [
           "doom",
           "soul"
         ],
-        "notes": "Boost Osty's HP and gain Block. Keeps Osty alive and you defended.",
+        "notes": "Summon 20. Exhaust. A-tier — massive Osty boost in one card. Turns Osty into a serious HP tank immediately.",
         "mech": [
-          "osty_buff",
-          "block"
+          "summon"
         ],
         "role": "generator"
       },
       "BODYGUARD": {
         "id": "Bodyguard",
-        "tier": "A",
+        "tier": "D",
         "builds": [
           "osty"
         ],
@@ -7847,45 +7829,9 @@ const DB = {
         ],
         "role": "generator"
       },
-      "SOUL_SPARK": {
-        "id": "Soul Spark",
-        "tier": "D",
-        "builds": [],
-        "syn": [
-          "damage"
-        ],
-        "anti": [],
-        "notes": "Starter attack card. Upgraded deals 9 and applies Vulnerable.",
-        "mech": [
-          "damage"
-        ],
-        "role": "generator"
-      },
-      "DOOM_SPIKE": {
-        "id": "Doom Spike",
-        "tier": "A",
-        "builds": [
-          "doom"
-        ],
-        "syn": [
-          "doom",
-          "debuff",
-          "damage"
-        ],
-        "anti": [
-          "soul",
-          "osty"
-        ],
-        "notes": "Damage + Doom application together. Efficient dual-purpose Doom card.",
-        "mech": [
-          "damage",
-          "doom"
-        ],
-        "role": "generator"
-      },
       "OBLIVION": {
         "id": "Oblivion",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "doom"
         ],
@@ -7909,7 +7855,7 @@ const DB = {
       },
       "REAVE": {
         "id": "Reave",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "soul"
         ],
@@ -7931,7 +7877,7 @@ const DB = {
       },
       "UNLEASH": {
         "id": "Unleash",
-        "tier": "A",
+        "tier": "D",
         "builds": [
           "osty"
         ],
@@ -7955,7 +7901,7 @@ const DB = {
       },
       "SQUEEZE": {
         "id": "Squeeze",
-        "tier": "A",
+        "tier": "C",
         "builds": [
           "osty"
         ],
@@ -7979,7 +7925,7 @@ const DB = {
       },
       "FLATTEN": {
         "id": "Flatten",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "osty",
           "soul"
@@ -8003,7 +7949,7 @@ const DB = {
       },
       "PULL_AGGRO": {
         "id": "Pull Aggro",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "osty"
         ],
@@ -8043,6 +7989,633 @@ const DB = {
           "damage"
         ],
         "role": "generator"
+      },
+      "DEFILE": {
+        "id": "Defile",
+        "tier": "B",
+        "builds": [
+          "doom"
+        ],
+        "role": "generator",
+        "syn": [
+          "doom",
+          "damage",
+          "ethereal"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "ethereal"
+        ],
+        "notes": "Ethereal. Deal 13 damage. B-tier early Doom card — efficient damage that helps drop enemies low enough for Doom thresholds. Ethereal is fine since you want to play it immediately."
+      },
+      "DEFY": {
+        "id": "Defy",
+        "tier": "C",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "weak",
+          "ethereal"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "weak",
+          "ethereal"
+        ],
+        "notes": "Ethereal. Gain 6 Block plus apply 1 Weak. C-tier — decent early, but Weak is only 1 stack and Ethereal limits flexibility."
+      },
+      "DRAIN_POWER": {
+        "id": "Drain Power",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "upgrade"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "draw",
+          "upgrade"
+        ],
+        "notes": "Deal 10 damage. Upgrade 2 random Discard Pile cards. B-tier — damage plus free upgrades compounds over time. Good in any build."
+      },
+      "INVOKE": {
+        "id": "Invoke",
+        "tier": "C",
+        "builds": [
+          "osty",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "summon",
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "summon",
+          "energy_gain"
+        ],
+        "notes": "Next turn, Summon 2 and gain 2 Energy. C-tier — delayed payoff hurts. Good when you can plan turns ahead but too slow otherwise."
+      },
+      "POKE": {
+        "id": "Poke",
+        "tier": "B",
+        "builds": [
+          "osty"
+        ],
+        "role": "generator",
+        "syn": [
+          "osty",
+          "zero_cost"
+        ],
+        "anti": [],
+        "mech": [
+          "osty_atk"
+        ],
+        "notes": "Osty deals 6 damage. B-tier — cheap Osty attack that enables Rattle multi-hit chains. The 0-cost version upgraded is excellent."
+      },
+      "REAP": {
+        "id": "Reap",
+        "tier": "D",
+        "builds": [],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "retain"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "retain"
+        ],
+        "notes": "Retain. Deal 27 damage. D-tier — huge damage but 3 Energy is extremely expensive. Too slow for what it does in most situations."
+      },
+      "SCULPTING_STRIKE": {
+        "id": "Sculpting Strike",
+        "tier": "C",
+        "builds": [
+          "soul"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "ethereal"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "ethereal"
+        ],
+        "notes": "Deal 8 damage. Add Ethereal to a card in Hand. C-tier — adds Ethereal for Spirit of Ash/Pagestorm synergy but the application is narrow."
+      },
+      "SOW": {
+        "id": "Sow",
+        "tier": "C",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "aoe",
+          "retain"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "aoe",
+          "retain"
+        ],
+        "notes": "Retain. Deal 8 damage to ALL enemies. C-tier — AoE with Retain is flexible but 2 Energy for 8 AoE is unimpressive without big Strength scaling."
+      },
+      "WISP": {
+        "id": "Wisp",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "notes": "Gain Energy. Exhaust. C-tier — free Energy that removes itself from deck. Fine in small decks, outclassed by Friendship and Neurosurge."
+      },
+      "CALCIFY": {
+        "id": "Calcify",
+        "tier": "C",
+        "builds": [
+          "osty"
+        ],
+        "role": "engine",
+        "syn": [
+          "osty",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "osty_buff",
+          "passive"
+        ],
+        "notes": "Osty attacks deal 4 additional damage. C-tier — flat Osty damage buff. Only good if Osty attacks a lot (Rattle, Fetch, Sic Em builds)."
+      },
+      "CLEANSE": {
+        "id": "Cleanse",
+        "tier": "S",
+        "builds": [
+          "osty",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "summon",
+          "exhaust",
+          "deck_thin"
+        ],
+        "anti": [],
+        "mech": [
+          "summon",
+          "exhaust"
+        ],
+        "notes": "Summon 3 then Exhaust 1 from Draw Pile. S-tier — grows Osty AND thins deck simultaneously. Double value every play."
+      },
+      "FRIENDSHIP": {
+        "id": "Friendship",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "energy_gain",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "passive"
+        ],
+        "notes": "Lose 2 Strength. Gain Energy at start of each turn. S-tier — permanent +1 Energy every turn. The Strength cost is negligible compared to the Energy gain."
+      },
+      "LEGION_OF_BONE": {
+        "id": "Legion of Bone",
+        "tier": "D",
+        "builds": [
+          "osty"
+        ],
+        "role": "generator",
+        "syn": [
+          "summon"
+        ],
+        "anti": [],
+        "mech": [
+          "summon",
+          "exhaust"
+        ],
+        "notes": "ALL players Summon 6. Exhaust. D-tier — splitting Summon with allies limits solo value. Exhaust means no repeat use."
+      },
+      "MELANCHOLY": {
+        "id": "Melancholy",
+        "tier": "C",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "cost_reduce"
+        ],
+        "notes": "Gain 13 Block. Reduces cost by 1 each time ANYONE dies. C-tier — becomes powerful late game when enemies are dying regularly. Too slow early."
+      },
+      "PAGESTORM": {
+        "id": "Pagestorm",
+        "tier": "C",
+        "builds": [
+          "soul"
+        ],
+        "role": "engine",
+        "syn": [
+          "soul",
+          "draw",
+          "ethereal"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "passive",
+          "ethereal"
+        ],
+        "notes": "Whenever you draw an Ethereal card, draw 1 more card. C-tier — strong in Ethereal-heavy builds with Parse, Demesne, Call of the Void but narrow otherwise."
+      },
+      "PULL_FROM_BELOW": {
+        "id": "Pull from Below",
+        "tier": "C",
+        "builds": [
+          "soul"
+        ],
+        "role": "payoff",
+        "syn": [
+          "ethereal",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "Deal 5 damage per Ethereal card played this combat. C-tier — scales with Ethereal plays. Good in dedicated Ethereal shell, weak otherwise."
+      },
+      "PUTREFY": {
+        "id": "Putrefy",
+        "tier": "A",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "doom",
+          "weak",
+          "vulnerable",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "weak",
+          "vulnerable",
+          "exhaust"
+        ],
+        "notes": "Apply 2 Weak + 2 Vulnerable then Exhaust. A-tier setup — Exhaust means it's not a dead draw late. Pairs with Debilitate to double all debuff effectiveness."
+      },
+      "RIGHT_HAND_HAND": {
+        "id": "Right Hand Hand",
+        "tier": "C",
+        "builds": [
+          "osty"
+        ],
+        "role": "generator",
+        "syn": [
+          "osty",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "osty_atk",
+          "recurring"
+        ],
+        "notes": "Osty deals 4 damage. Returns from Discard when you play a 2+ Energy card. C-tier — recurring Osty attack but weak damage and conditional return."
+      },
+      "SEVERANCE": {
+        "id": "Severance",
+        "tier": "B",
+        "builds": [
+          "soul"
+        ],
+        "role": "generator",
+        "syn": [
+          "soul",
+          "damage",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "soul_gen"
+        ],
+        "notes": "Deal 13 damage. Add a Soul to Draw Pile, Hand, and Discard Pile. B-tier — 13 damage plus 3 Souls spread across the deck. Great Soul generation in one card."
+      },
+      "SHROUD": {
+        "id": "Shroud",
+        "tier": "C",
+        "builds": [
+          "doom"
+        ],
+        "role": "engine",
+        "syn": [
+          "doom",
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "passive"
+        ],
+        "notes": "Whenever you apply Doom, gain 2 Block. C-tier — passive Block per Doom application. In pure Doom builds with Scourge/Deathbringer/Negative Pulse, provides decent defense."
+      },
+      "SLEIGHT_OF_FLESH": {
+        "id": "Sleight of Flesh",
+        "tier": "C",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "doom",
+          "weak",
+          "vulnerable",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "passive"
+        ],
+        "notes": "Whenever you apply a debuff to an enemy, they take 9 damage. C-tier — in debuff-heavy builds (Putrefy, Defy, Debilitate), each debuff application pings for 9 bonus damage."
+      },
+      "SPUR": {
+        "id": "Spur",
+        "tier": "B",
+        "builds": [
+          "osty"
+        ],
+        "role": "generator",
+        "syn": [
+          "osty",
+          "summon",
+          "retain",
+          "healing"
+        ],
+        "anti": [],
+        "mech": [
+          "summon",
+          "retain",
+          "healing"
+        ],
+        "notes": "Retain. Summon 3. Osty heals 5 HP. B-tier — Retain makes it safe to hold. Heals and grows Osty simultaneously. Great for keeping Osty alive through Necro Mastery turns."
+      },
+      "VEILPIERCER": {
+        "id": "Veilpiercer",
+        "tier": "C",
+        "builds": [
+          "soul"
+        ],
+        "role": "generator",
+        "syn": [
+          "ethereal",
+          "zero_cost",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "cost_reduce"
+        ],
+        "notes": "Deal 10 damage. Next Ethereal card costs 0. C-tier — enables free Parse, free Demesne, free Seance. Narrow but powerful in Ethereal builds."
+      },
+      "EIDOLON": {
+        "id": "Eidolon",
+        "tier": "D",
+        "builds": [],
+        "role": "payoff",
+        "syn": [
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust",
+          "intangible"
+        ],
+        "notes": "Exhaust your Hand. If 9+ cards were Exhausted, gain 1 Intangible. D-tier — nearly impossible condition. Requires massive hand size and most of your cards to be exhaustable."
+      },
+      "GLIMPSE_BEYOND": {
+        "id": "Glimpse Beyond",
+        "tier": "D",
+        "builds": [
+          "soul"
+        ],
+        "role": "generator",
+        "syn": [
+          "soul"
+        ],
+        "anti": [],
+        "mech": [
+          "soul_gen",
+          "exhaust"
+        ],
+        "notes": "ALL players add 3 Souls to Draw Pile. Exhaust. D-tier — splits the benefit with allies. Solo value is just 3 Souls and Exhaust — outclassed by Capture Spirit and Severance."
+      },
+      "HANG": {
+        "id": "Hang",
+        "tier": "C",
+        "builds": [
+          "doom"
+        ],
+        "role": "payoff",
+        "syn": [
+          "doom",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "Deal 10 damage. Doubles ALL Hang damage to this enemy. C-tier — exponential scaling but extremely slow to reach meaningful numbers against tanky enemies."
+      },
+      "MISERY": {
+        "id": "Misery",
+        "tier": "C",
+        "builds": [
+          "doom",
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "doom",
+          "weak",
+          "vulnerable",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "debuff",
+          "aoe"
+        ],
+        "notes": "Deal 7 damage. Apply all enemy debuffs to ALL other enemies. C-tier — spreads Weak/Vulnerable/Doom to all enemies. Devastating in multi-enemy fights with Debilitate pre-applied."
+      },
+      "SEANCE": {
+        "id": "Seance",
+        "tier": "S",
+        "builds": [
+          "soul"
+        ],
+        "role": "engine",
+        "syn": [
+          "soul",
+          "exhaust",
+          "deck_thin"
+        ],
+        "anti": [],
+        "mech": [
+          "soul_gen",
+          "exhaust",
+          "transform"
+        ],
+        "notes": "Ethereal. Transform a Draw Pile card into a Soul. S-tier — converts dead cards into Souls for Haunt, Death March, Soul Storm. Deck thinning + Soul generation simultaneously."
+      },
+      "SENTRY_MODE": {
+        "id": "Sentry Mode",
+        "tier": "C",
+        "builds": [
+          "osty"
+        ],
+        "role": "engine",
+        "syn": [
+          "osty",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "osty_atk",
+          "passive"
+        ],
+        "notes": "At start of turn, add 1 Sweeping Gaze to Hand. C-tier — generates a free Osty attack each turn but Sweeping Gaze is weak on its own."
+      },
+      "SPIRIT_OF_ASH": {
+        "id": "Spirit of Ash",
+        "tier": "C",
+        "builds": [
+          "soul"
+        ],
+        "role": "engine",
+        "syn": [
+          "block",
+          "ethereal",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "passive",
+          "ethereal"
+        ],
+        "notes": "Whenever you play an Ethereal card, gain 4 Block. C-tier — in Ethereal builds (Parse, Demesne, Seance, Call of the Void), generates consistent passive Block each turn."
+      },
+      "UNDEATH": {
+        "id": "Undeath",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "block",
+          "scaling",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "recursive"
+        ],
+        "notes": "Gain 7 Block. Add a copy to Discard Pile. S-tier — recurring Block engine that never depletes. Every copy adds another copy, producing infinite Block over time. Pairs with Transfigure for Replay doubling."
+      },
+      "FORBIDDEN_GRIMOIRE": {
+        "id": "Forbidden Grimoire",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "exhaust",
+          "deck_thin",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust",
+          "passive",
+          "eternal"
+        ],
+        "notes": "At end of combat, remove a card from deck. Eternal. Ancient — free removal after every fight. Eternal means it stays forever. Essentially a permanent Removal Room after every combat."
+      },
+      "PROTECTOR": {
+        "id": "Protector",
+        "tier": "A",
+        "builds": [
+          "osty"
+        ],
+        "role": "payoff",
+        "syn": [
+          "osty",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "osty_atk",
+          "scaling"
+        ],
+        "notes": "Osty deals 10 damage plus additional damage equal to Osty's Max HP. A-tier — with high Summon stacks from Reanimate/Cleanse/Spur, Osty's Max HP becomes enormous, making this a massive nuke."
       }
     },
     "colorless": {
@@ -9323,19 +9896,19 @@ const DB = {
     },
     {
       "deckCard": "Scourge",
-      "offeredCard": "End Of Days",
+      "offeredCard": "End of Days",
       "bonus": 1.5,
       "reason": "Scourge stacks Doom exponentially — End of Days executes enemies at the threshold"
     },
     {
-      "deckCard": "End Of Days",
+      "deckCard": "End of Days",
       "offeredCard": "Scourge",
       "bonus": 1.5,
       "reason": "Scourge is the fastest way to reach the Doom execute threshold that End of Days exploits"
     },
     {
       "deckCard": "Countdown",
-      "offeredCard": "End Of Days",
+      "offeredCard": "End of Days",
       "bonus": 1.2,
       "reason": "Countdown's passive Doom per turn sets up End of Days execute windows"
     },
@@ -9347,7 +9920,7 @@ const DB = {
     },
     {
       "deckCard": "Borrowed Time",
-      "offeredCard": "End Of Days",
+      "offeredCard": "End of Days",
       "bonus": 1.0,
       "reason": "Borrowed Time provides free energy to afford End of Days' 3-cost more easily"
     },
@@ -9442,7 +10015,7 @@ const DB = {
       "reason": "Void Form accumulates Stars — Radiate converts each Star to 3 AoE damage"
     },
     {
-      "deckCard": "End Of Days",
+      "deckCard": "End of Days",
       "offeredCard": "Oblivion",
       "bonus": 2.0,
       "reason": "End of Days executes Doomed enemies — Oblivion applies Doom to all enemies simultaneously"
@@ -11720,6 +12293,504 @@ const DB = {
       "offeredCard": "Neutron Aegis",
       "bonus": 1.5,
       "reason": "I Am Invincible provides recurring Block — Neutron Aegis adds 8 permanent Plating on top for layered defense."
+    },
+    {
+      "deckCard": "Capture Spirit",
+      "offeredCard": "Death March",
+      "bonus": 2.0,
+      "reason": "Capture Spirit adds 3 Souls to Draw Pile — Death March deals 3 bonus damage per card drawn this turn, turning Soul draws into massive damage."
+    },
+    {
+      "deckCard": "Death March",
+      "offeredCard": "Capture Spirit",
+      "bonus": 2.0,
+      "reason": "Death March scales with cards drawn — Capture Spirit reliably generates 3 Souls per play, fueling huge Death March turns."
+    },
+    {
+      "deckCard": "Seance",
+      "offeredCard": "Death March",
+      "bonus": 1.8,
+      "reason": "Seance converts dead cards into Souls — Death March scores 3 bonus damage per drawn card, Souls drawn count toward its scaling."
+    },
+    {
+      "deckCard": "Death March",
+      "offeredCard": "Seance",
+      "bonus": 1.8,
+      "reason": "Death March rewards high draw — Seance thins deck into Souls, making every draw more valuable and triggering Death March's bonus."
+    },
+    {
+      "deckCard": "Severance",
+      "offeredCard": "Haunt",
+      "bonus": 1.8,
+      "reason": "Severance adds 3 Souls across deck, hand, and discard simultaneously — Haunt triggers on each Soul played for 18 total HP loss per Severance."
+    },
+    {
+      "deckCard": "Haunt",
+      "offeredCard": "Severance",
+      "bonus": 1.8,
+      "reason": "Haunt deals 6 HP per Soul played — Severance floods all three piles with Souls immediately for huge Haunt value."
+    },
+    {
+      "deckCard": "Devour Life",
+      "offeredCard": "Capture Spirit",
+      "bonus": 2.0,
+      "reason": "Devour Life Summons 1 per Soul played — Capture Spirit generates 3 Souls, giving 3 free Summons plus growing Osty each time."
+    },
+    {
+      "deckCard": "Capture Spirit",
+      "offeredCard": "Devour Life",
+      "bonus": 2.0,
+      "reason": "Capture Spirit provides reliable Soul income — Devour Life converts every Soul into Osty growth, linking Soul and Osty engines."
+    },
+    {
+      "deckCard": "Devour Life",
+      "offeredCard": "Severance",
+      "bonus": 1.8,
+      "reason": "Devour Life Summons 1 per Soul — Severance adds 3 Souls at once, giving 3 immediate Summons and Osty growth in one card."
+    },
+    {
+      "deckCard": "Severance",
+      "offeredCard": "Devour Life",
+      "bonus": 1.8,
+      "reason": "Severance floods deck with Souls — Devour Life converts each Soul play into Osty Summon, bridging Soul and Osty archetypes."
+    },
+    {
+      "deckCard": "Transfigure",
+      "offeredCard": "Undeath",
+      "bonus": 2.5,
+      "reason": "Transfigure adds Replay to a card — on Undeath, Replay makes it play twice, adding 2 copies to Discard instead of 1. Exponential Block generation."
+    },
+    {
+      "deckCard": "Undeath",
+      "offeredCard": "Transfigure",
+      "bonus": 2.5,
+      "reason": "Undeath copies itself into Discard each play — Transfigure's Replay doubles this, making 2 copies per play for explosive Block scaling."
+    },
+    {
+      "deckCard": "Dredge",
+      "offeredCard": "Graveblast",
+      "bonus": 1.8,
+      "reason": "Both retrieve cards from Discard — combining them creates a near-infinite recursion loop, pulling key cards back every turn."
+    },
+    {
+      "deckCard": "Graveblast",
+      "offeredCard": "Dredge",
+      "bonus": 1.8,
+      "reason": "Dredge retrieves 3 Discard cards — Graveblast retrieves 1, together ensuring key cards like Capture Spirit or Undeath are always accessible."
+    },
+    {
+      "deckCard": "Demesne",
+      "offeredCard": "Parse",
+      "bonus": 2.0,
+      "reason": "Demesne gives +1 draw per turn passively — Parse is an Ethereal draw 3, and Demesne already drew 1 extra making Parse effectively draw 4 in context."
+    },
+    {
+      "deckCard": "Parse",
+      "offeredCard": "Demesne",
+      "bonus": 2.0,
+      "reason": "Parse is free Ethereal draw 3 — Demesne's passive +1 draw means turning every turn into massive card advantage when Parse cycles through."
+    },
+    {
+      "deckCard": "Pagestorm",
+      "offeredCard": "Parse",
+      "bonus": 2.0,
+      "reason": "Parse is Ethereal — Pagestorm draws 1 whenever you draw an Ethereal card, making Parse effectively draw 4 total cards for 0 Energy."
+    },
+    {
+      "deckCard": "Parse",
+      "offeredCard": "Pagestorm",
+      "bonus": 2.0,
+      "reason": "Pagestorm triggers on Ethereal draws — Parse being Ethereal itself draws 3, and Pagestorm adds 1 more for free."
+    },
+    {
+      "deckCard": "Pagestorm",
+      "offeredCard": "Call of the Void",
+      "bonus": 1.8,
+      "reason": "Call of the Void adds an Ethereal card to hand each turn — Pagestorm draws 1 whenever you draw Ethereal, giving passive +1 draw every single turn."
+    },
+    {
+      "deckCard": "Call of the Void",
+      "offeredCard": "Pagestorm",
+      "bonus": 1.8,
+      "reason": "Pagestorm triggers on Ethereal card draws — Call of the Void generates a free Ethereal each turn, making Pagestorm draw 1 extra every turn passively."
+    },
+    {
+      "deckCard": "Spirit of Ash",
+      "offeredCard": "Parse",
+      "bonus": 1.8,
+      "reason": "Parse is Ethereal — Spirit of Ash gains 4 Block per Ethereal played, making Parse a 0-cost draw 3 plus 4 Block simultaneously."
+    },
+    {
+      "deckCard": "Parse",
+      "offeredCard": "Spirit of Ash",
+      "bonus": 1.8,
+      "reason": "Spirit of Ash gives 4 Block per Ethereal — Parse is the most efficient Ethereal since it's 0-cost draw 3 for maximum Spirit of Ash value."
+    },
+    {
+      "deckCard": "Spirit of Ash",
+      "offeredCard": "Call of the Void",
+      "bonus": 1.5,
+      "reason": "Call of the Void adds an Ethereal card each turn — Spirit of Ash gains 4 Block each time you play it, giving passive 4 Block every turn."
+    },
+    {
+      "deckCard": "Call of the Void",
+      "offeredCard": "Spirit of Ash",
+      "bonus": 1.5,
+      "reason": "Spirit of Ash rewards Ethereal plays — Call of the Void creates a free Ethereal each turn for consistent 4 Block from Spirit of Ash."
+    },
+    {
+      "deckCard": "Veilpiercer",
+      "offeredCard": "Demesne",
+      "bonus": 1.8,
+      "reason": "Veilpiercer makes next Ethereal free — Demesne is Ethereal and costs 0 this way, giving permanent +1 Energy and +1 draw for free."
+    },
+    {
+      "deckCard": "Demesne",
+      "offeredCard": "Veilpiercer",
+      "bonus": 1.8,
+      "reason": "Demesne is Ethereal — Veilpiercer reduces its cost to 0, making the permanent draw and Energy engine completely free to install."
+    },
+    {
+      "deckCard": "Pull from Below",
+      "offeredCard": "Call of the Void",
+      "bonus": 1.5,
+      "reason": "Call of the Void generates Ethereal cards each turn — Pull from Below scales on Ethereal cards played this combat, growing with every free Ethereal."
+    },
+    {
+      "deckCard": "Call of the Void",
+      "offeredCard": "Pull from Below",
+      "bonus": 1.5,
+      "reason": "Pull from Below deals 5 damage per Ethereal played combat-wide — Call of the Void adds a free Ethereal every single turn."
+    },
+    {
+      "deckCard": "Debilitate",
+      "offeredCard": "Putrefy",
+      "bonus": 2.0,
+      "reason": "Debilitate makes Weak and Vulnerable twice as effective for 3 turns — Putrefy applies 2 of each, effectively making enemy take 4x debuff impact."
+    },
+    {
+      "deckCard": "Putrefy",
+      "offeredCard": "Debilitate",
+      "bonus": 2.0,
+      "reason": "Putrefy applies Weak + Vulnerable — Debilitate then doubles both, making attacks during next 3 turns deal enormous bonus damage."
+    },
+    {
+      "deckCard": "Debilitate",
+      "offeredCard": "Deathbringer",
+      "bonus": 1.8,
+      "reason": "Deathbringer applies 21 Doom AoE plus Weak — Debilitate doubles Weak effectiveness, making all enemy attacks lighter while Doom counts down."
+    },
+    {
+      "deckCard": "Deathbringer",
+      "offeredCard": "Debilitate",
+      "bonus": 1.8,
+      "reason": "Debilitate doubles Weak and Vulnerable — Deathbringer applies 1 Weak AoE, which Debilitate makes 2x effective for 3 turns against all enemies."
+    },
+    {
+      "deckCard": "Scourge",
+      "offeredCard": "Death's Door",
+      "bonus": 1.8,
+      "reason": "Death's Door requires Doom application to gain 18 Block — Scourge applies 13 Doom plus draws a card, enabling Death's Door perfectly."
+    },
+    {
+      "deckCard": "Death's Door",
+      "offeredCard": "Negative Pulse",
+      "bonus": 1.8,
+      "reason": "Negative Pulse applies 7 AoE Doom and gives 5 Block — Death's Door needs any Doom application to gain 18 Block, instantly fulfilled."
+    },
+    {
+      "deckCard": "Negative Pulse",
+      "offeredCard": "Death's Door",
+      "bonus": 1.8,
+      "reason": "Death's Door needs Doom application for 18 Block — Negative Pulse applies 7 AoE Doom simultaneously, always triggering Death's Door."
+    },
+    {
+      "deckCard": "Shroud",
+      "offeredCard": "Scourge",
+      "bonus": 1.5,
+      "reason": "Shroud gives 2 Block per Doom application — Scourge applies 13 Doom in one card, giving 2 Block for each stack = 26 Block from one Scourge play."
+    },
+    {
+      "deckCard": "Scourge",
+      "offeredCard": "Shroud",
+      "bonus": 1.5,
+      "reason": "Scourge applies 13 Doom — Shroud converts each Doom application into 2 Block. With Shroud active, Scourge gives 26 Block while drawing a card."
+    },
+    {
+      "deckCard": "Shroud",
+      "offeredCard": "Deathbringer",
+      "bonus": 1.8,
+      "reason": "Deathbringer applies 21 Doom AoE — with Shroud active, this gives 2 Block per Doom application. One Deathbringer = 42 Block with Shroud."
+    },
+    {
+      "deckCard": "Deathbringer",
+      "offeredCard": "Shroud",
+      "bonus": 1.8,
+      "reason": "Shroud grants 2 Block per Doom applied — Deathbringer hits ALL enemies with 21 Doom each, making Shroud generate massive Block per Deathbringer play."
+    },
+    {
+      "deckCard": "Sleight of Flesh",
+      "offeredCard": "Putrefy",
+      "bonus": 1.8,
+      "reason": "Sleight of Flesh deals 9 damage per debuff applied — Putrefy applies 2 Weak and 2 Vulnerable (4 debuffs) = 36 bonus damage from one Putrefy."
+    },
+    {
+      "deckCard": "Putrefy",
+      "offeredCard": "Sleight of Flesh",
+      "bonus": 1.8,
+      "reason": "Sleight of Flesh punishes each debuff with 9 damage — Putrefy applies 4 debuffs at once for 36 bonus damage per Putrefy cast."
+    },
+    {
+      "deckCard": "Sleight of Flesh",
+      "offeredCard": "Deathbringer",
+      "bonus": 1.5,
+      "reason": "Deathbringer applies 1 Weak AoE — Sleight of Flesh deals 9 damage per debuff, so Deathbringer triggers 9 damage per enemy hit."
+    },
+    {
+      "deckCard": "Sleight of Flesh",
+      "offeredCard": "Misery",
+      "bonus": 1.8,
+      "reason": "Misery spreads all enemy debuffs to other enemies — each spread debuff triggers Sleight of Flesh's 9 damage, dealing massive multi-target damage."
+    },
+    {
+      "deckCard": "Misery",
+      "offeredCard": "Sleight of Flesh",
+      "bonus": 1.8,
+      "reason": "Sleight of Flesh deals 9 damage per debuff — Misery spreads all current debuffs to every enemy, triggering Sleight for each application."
+    },
+    {
+      "deckCard": "Misery",
+      "offeredCard": "Debilitate",
+      "bonus": 1.8,
+      "reason": "Debilitate doubles Weak and Vulnerable effectiveness — Misery spreads these doubled debuffs to all enemies, making every enemy take double debuff effects."
+    },
+    {
+      "deckCard": "Debilitate",
+      "offeredCard": "Misery",
+      "bonus": 1.8,
+      "reason": "Misery spreads all debuffs to other enemies — after Debilitate doubles Weak/Vulnerable, Misery applies those doubled debuffs to every enemy."
+    },
+    {
+      "deckCard": "Neurosurge",
+      "offeredCard": "Borrowed Time",
+      "bonus": 2.0,
+      "reason": "Neurosurge gives 3 Energy and 2 draw — Borrowed Time gains Energy for 3 self-Doom, and Neurosurge's Energy fuels playing both in one explosive turn."
+    },
+    {
+      "deckCard": "Borrowed Time",
+      "offeredCard": "Neurosurge",
+      "bonus": 2.0,
+      "reason": "Borrowed Time trades self-Doom for Energy — Neurosurge's 3 Energy and draw enable playing multiple high-cost cards including Borrowed Time itself."
+    },
+    {
+      "deckCard": "Friendship",
+      "offeredCard": "Neurosurge",
+      "bonus": 1.8,
+      "reason": "Friendship gives +1 Energy per turn passively — Neurosurge gives another 3 Energy burst plus draw, creating enormous explosive turns."
+    },
+    {
+      "deckCard": "Neurosurge",
+      "offeredCard": "Friendship",
+      "bonus": 1.8,
+      "reason": "Friendship provides sustained Energy each turn — Neurosurge provides a burst of 3 Energy plus draw, together enabling consistently large turns."
+    },
+    {
+      "deckCard": "Rattle",
+      "offeredCard": "Fetch",
+      "bonus": 2.5,
+      "reason": "Fetch enables the first Osty attack cheaply and draws a card — Rattle then hits again for each previous Osty attack this turn, compounding with Fetch's hit."
+    },
+    {
+      "deckCard": "Fetch",
+      "offeredCard": "Rattle",
+      "bonus": 2.5,
+      "reason": "Rattle multiplies hits per Osty attack this turn — Fetch provides a cheap first Osty hit that draw a card, setting up Rattle's chain damage."
+    },
+    {
+      "deckCard": "Sic 'Em",
+      "offeredCard": "Rattle",
+      "bonus": 2.0,
+      "reason": "Rattle hits again for each Osty attack this turn — Sic 'Em generates Summon 2 per Osty hit, and each Rattle hit triggers more Summon stacking."
+    },
+    {
+      "deckCard": "Rattle",
+      "offeredCard": "Sic 'Em",
+      "bonus": 2.0,
+      "reason": "Sic 'Em summons 2 per Osty hit this turn — Rattle's multi-hit triggers Sic 'Em repeatedly, generating enormous Summon totals per turn."
+    },
+    {
+      "deckCard": "Necro Mastery",
+      "offeredCard": "Sacrifice",
+      "bonus": 2.5,
+      "reason": "Sacrifice kills Osty and gains double his Max HP as Block — Necro Mastery first makes all enemies lose HP equal to damage Osty takes, so Sacrifice triggers massive AoE damage before giving Block."
+    },
+    {
+      "deckCard": "Sacrifice",
+      "offeredCard": "Necro Mastery",
+      "bonus": 2.5,
+      "reason": "Necro Mastery converts Osty HP loss into enemy HP loss — Sacrifice kills Osty for massive Block, but first Necro Mastery turns that death into AoE damage equal to Osty's full HP."
+    },
+    {
+      "deckCard": "Necro Mastery",
+      "offeredCard": "Bone Shards",
+      "bonus": 2.0,
+      "reason": "Bone Shards deals 9 AoE and gives 9 Block then kills Osty — Necro Mastery makes ALL enemies lose HP equal to Osty's HP when he dies, adding enormous AoE on top."
+    },
+    {
+      "deckCard": "Bone Shards",
+      "offeredCard": "Necro Mastery",
+      "bonus": 2.0,
+      "reason": "Necro Mastery converts Osty death into enemy HP loss — Bone Shards kills Osty after dealing 9 AoE, and Necro Mastery adds Osty's full HP as bonus AoE."
+    },
+    {
+      "deckCard": "High Five",
+      "offeredCard": "Rattle",
+      "bonus": 1.8,
+      "reason": "High Five applies 2 Vulnerable to all enemies via Osty — Rattle then hits the Vulnerable enemy multiple times, each hit dealing 50% more damage."
+    },
+    {
+      "deckCard": "Rattle",
+      "offeredCard": "High Five",
+      "bonus": 1.8,
+      "reason": "Rattle multi-hits deal exponential damage against Vulnerable targets — High Five first applies 2 Vulnerable AoE via Osty to maximize Rattle's damage."
+    },
+    {
+      "deckCard": "Protector",
+      "offeredCard": "Reanimate",
+      "bonus": 2.0,
+      "reason": "Reanimate gives Osty +20 Max HP — Protector deals 10 damage plus Osty's Max HP, making Protector hit for 30+ damage with Reanimate's boost."
+    },
+    {
+      "deckCard": "Reanimate",
+      "offeredCard": "Protector",
+      "bonus": 2.0,
+      "reason": "Protector deals damage equal to Osty's Max HP — Reanimate adds 20 Max HP to Osty, directly increasing Protector's damage by 20."
+    },
+    {
+      "deckCard": "Protector",
+      "offeredCard": "Spur",
+      "bonus": 1.5,
+      "reason": "Spur Summons 3 and heals Osty — every Summon adds to Osty's Max HP, increasing Protector's bonus damage with each Spur play."
+    },
+    {
+      "deckCard": "Spur",
+      "offeredCard": "Protector",
+      "bonus": 1.5,
+      "reason": "Protector scales with Osty's Max HP — Spur grows Osty's Max HP via Summon, each Spur play making the next Protector hit harder."
+    },
+    {
+      "deckCard": "Calcify",
+      "offeredCard": "Rattle",
+      "bonus": 1.5,
+      "reason": "Calcify adds flat +4 damage to all Osty attacks — Rattle hits multiple times scaling with prior Osty attacks, making Calcify's bonus multiply across all hits."
+    },
+    {
+      "deckCard": "Rattle",
+      "offeredCard": "Calcify",
+      "bonus": 1.5,
+      "reason": "Rattle's multi-hit multiplies Calcify's +4 bonus — with Fetch and Poke setting up, Rattle can hit 4-6 times, making Calcify add 16-24 damage."
+    },
+    {
+      "deckCard": "Flatten",
+      "offeredCard": "Fetch",
+      "bonus": 1.8,
+      "reason": "Fetch enables a free first Osty attack this turn — Flatten costs 0 if Osty attacked this turn, making both cards chain for free Osty damage."
+    },
+    {
+      "deckCard": "Fetch",
+      "offeredCard": "Flatten",
+      "bonus": 1.8,
+      "reason": "Flatten costs 0 if Osty attacked this turn — Fetch is that free Osty attack, enabling Flatten for 0 Energy total and chaining attacks."
+    },
+    {
+      "deckCard": "Flatten",
+      "offeredCard": "Poke",
+      "bonus": 1.5,
+      "reason": "Poke is a cheap Osty attack — Flatten becomes 0-cost if Osty attacked this turn, making Poke into Flatten a 1-Energy chain of Osty damage."
+    },
+    {
+      "deckCard": "Poke",
+      "offeredCard": "Flatten",
+      "bonus": 1.5,
+      "reason": "Flatten costs 0 when Osty attacks — Poke cheaply enables this, making Poke into Flatten an efficient 2-card Osty combo."
+    },
+    {
+      "deckCard": "Cleanse",
+      "offeredCard": "Devour Life",
+      "bonus": 1.8,
+      "reason": "Cleanse Summons 3 and thins deck — Devour Life Summons 1 per Soul played, and Cleanse can transform drawn cards into Souls via Seance before Cleaning."
+    },
+    {
+      "deckCard": "Devour Life",
+      "offeredCard": "Cleanse",
+      "bonus": 1.8,
+      "reason": "Devour Life bridges Soul and Osty archetypes — Cleanse grows Osty via Summon while also thinning the deck, feeding both mechanics."
+    },
+    {
+      "deckCard": "Forbidden Grimoire",
+      "offeredCard": "Cleanse",
+      "bonus": 1.5,
+      "reason": "Forbidden Grimoire removes a card after each fight passively — Cleanse also thins deck by exhausting a Draw Pile card, stacking deck quality improvements."
+    },
+    {
+      "deckCard": "Lethality",
+      "offeredCard": "Debilitate",
+      "bonus": 1.8,
+      "reason": "Lethality makes first Attack deal 50% more damage — Debilitate doubles Vulnerable effectiveness, making the Lethality-buffed attack land for massive damage."
+    },
+    {
+      "deckCard": "Debilitate",
+      "offeredCard": "Lethality",
+      "bonus": 1.8,
+      "reason": "Lethality amplifies first Attack by 50% — Debilitate pre-doubles Vulnerable so the Lethality attack lands against a doubly vulnerable target."
+    },
+    {
+      "deckCard": "Lethality",
+      "offeredCard": "Rattle",
+      "bonus": 1.8,
+      "reason": "Lethality makes first Attack 50% stronger — if Rattle is that first attack with multiple prior Osty attacks set up, the base hit plus all chain hits are amplified."
+    },
+    {
+      "deckCard": "Rattle",
+      "offeredCard": "Lethality",
+      "bonus": 1.8,
+      "reason": "Rattle is the strongest single Attack in Osty builds — Lethality makes the first attack each turn deal 50% more, and Rattle's multi-hit makes that 50% enormous."
+    },
+    {
+      "deckCard": "Friendship",
+      "offeredCard": "Borrowed Time",
+      "bonus": 1.8,
+      "reason": "Friendship gives +1 Energy each turn passively — Borrowed Time converts self-Doom into Energy, together giving massive Energy every turn for big plays."
+    },
+    {
+      "deckCard": "Borrowed Time",
+      "offeredCard": "Friendship",
+      "bonus": 1.8,
+      "reason": "Friendship gives passive Energy each turn — Borrowed Time adds more Energy via self-Doom, enabling consistently large multi-card turns."
+    },
+    {
+      "deckCard": "Neurosurge",
+      "offeredCard": "Death March",
+      "bonus": 1.8,
+      "reason": "Neurosurge draws 2 cards — Death March deals 3 bonus damage per card drawn this turn, making Neurosurge's draw directly add 6+ damage to Death March."
+    },
+    {
+      "deckCard": "Death March",
+      "offeredCard": "Neurosurge",
+      "bonus": 1.8,
+      "reason": "Death March scales with cards drawn this turn — Neurosurge draws 2 cards directly, adding 6 damage to Death March and enabling more card plays with its 3 Energy."
+    },
+    {
+      "deckCard": "Graveblast",
+      "offeredCard": "Undeath",
+      "bonus": 1.5,
+      "reason": "Undeath copies itself to Discard — Graveblast retrieves a Discard card on demand, making it easy to pull Undeath back for another Block generation cycle."
+    },
+    {
+      "deckCard": "Undeath",
+      "offeredCard": "Graveblast",
+      "bonus": 1.5,
+      "reason": "Graveblast retrieves Discard cards — Undeath generates copies in Discard, giving Graveblast a reliable target to pull back for continuous Block."
     }
   ],
   "dupePenalties": {
@@ -13511,6 +14582,150 @@ const DB = {
     {
       "n": "The Sealed Throne",
       "c": "regent"
+    },
+    {
+      "n": "End of Days",
+      "c": "necrobinder"
+    },
+    {
+      "n": "The Scythe",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Sic 'Em",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Defile",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Defy",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Drain Power",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Invoke",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Poke",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Reap",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Sculpting Strike",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Sow",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Wisp",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Calcify",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Cleanse",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Friendship",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Legion of Bone",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Melancholy",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Pagestorm",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Pull from Below",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Putrefy",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Right Hand Hand",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Severance",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Shroud",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Sleight of Flesh",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Spur",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Veilpiercer",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Eidolon",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Glimpse Beyond",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Hang",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Misery",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Seance",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Sentry Mode",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Spirit of Ash",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Undeath",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Forbidden Grimoire",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Protector",
+      "c": "necrobinder"
     }
   ]
 };
