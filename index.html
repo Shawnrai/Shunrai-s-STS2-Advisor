@@ -381,26 +381,60 @@ function renderDeckHealth(ch, da) {
   if (!deck.length) { zone.style.display = 'none'; return; }
   zone.style.display = 'block';
 
-  const roles = { enabler: 0, scaler: 0, engine: 0, finisher: 0, defense: 0, utility: 0 };
+  // Detect top archetype for context-aware role counting
+  const topArchId    = da.detected.length > 0 ? da.detected[0].arch.id : null;
+  const archStrength = da.detected.length > 0 ? da.detected[0].strength : 0;
+
+  // Archetypes where draw/discard cards also function as engines
+  const drawIsEngine = ['sly','claw'].includes(topArchId) && archStrength >= 0.3;
+  // Archetypes where poison applicators also function as generators+engines
+  const poisonIsEngine = topArchId === 'poison' && archStrength >= 0.4;
+
+  const roles = { engine: 0, generator: 0, payoff: 0, defense: 0, utility: 0 };
   let attacks = 0, blocks = 0;
+
   for (const card of deck) {
     const d = getCard(ch, card.name);
     if (!d) continue;
     const role = getFunctionalRole(d);
-    roles[role] = (roles[role] || 0) + 1;
+    const m = d.mech || [];
+    const s = d.syn  || [];
     const n = card.name.toLowerCase();
-    const isAtk = n.includes('strike') || (d.mech && (d.mech.includes('damage') || d.mech.includes('multi_hit') || d.mech.includes('multi_attack') || d.mech.includes('aoe')));
+
+    // Context-aware dual-counting:
+    // In Sly/Claw builds, cards that draw AND discard count as both generator AND engine
+    const isDrawDiscard = (m.includes('draw') || s.includes('draw')) &&
+                          (m.includes('discard') || s.includes('discard') ||
+                           m.includes('sly') || s.includes('sly') ||
+                           m.includes('sly_trigger') || m.includes('sly_enabler'));
+
+    // In Poison builds, passive poison appliers count as engine (they run the engine every turn)
+    const isPassivePoison = m.includes('passive') && (m.includes('poison') || s.includes('poison'));
+
+    if (drawIsEngine && isDrawDiscard) {
+      // Count as engine AND generator
+      roles.engine++;
+      roles.generator++;
+    } else if (poisonIsEngine && isPassivePoison) {
+      // Count as engine (passive poison IS the engine)
+      roles.engine++;
+    } else {
+      roles[role] = (roles[role] || 0) + 1;
+    }
+
+    const isAtk = n.includes('strike') ||
+      (d.mech && (d.mech.includes('damage') || d.mech.includes('multi_hit') ||
+                  d.mech.includes('multi_attack') || d.mech.includes('aoe')));
     const isBlk = n.includes('defend') || (d.syn && d.syn.includes('block'));
     if (isAtk) attacks++;
     if (isBlk) blocks++;
   }
 
   const visible = [
-    ['Enablers', roles.enabler, 'var(--a)'],
-    ['Scalers', roles.scaler, 'var(--green2)'],
-    ['Engines', roles.engine, 'var(--blue2)'],
-    ['Finishers', roles.finisher, 'var(--gold2)'],
-    ['Defense', roles.defense, 'var(--c)']
+    ['Generators', roles.generator, 'var(--a)'],
+    ['Engines',    roles.engine,    'var(--blue2)'],
+    ['Payoffs',    roles.payoff,    'var(--gold2)'],
+    ['Defense',    roles.defense,   'var(--c)'],
   ];
   const maxBar = Math.max(...visible.map(v => v[1]), 1);
   const bar = (val, color, max) =>
@@ -411,20 +445,17 @@ function renderDeckHealth(ch, da) {
   ).join('');
 
   const warns = [];
-  if (attacks < 3) warns.push(`Only ${attacks} attacks`);
-  if (blocks < 3) warns.push(`Only ${blocks} block sources`);
-  if (roles.defense === 0 && blocks < 3) warns.push('No real defense package');
+  if (attacks < 2) warns.push(`Only ${attacks} damage source${attacks===1?'':'s'}`);
+  if (blocks < 2) warns.push(`Only ${blocks} block source${blocks===1?'':'s'}`);
   if (warns.length) html += `<div class="health-warn">⚠ ${warns.join(' · ')}</div>`;
 
   if (da.detected.length > 0) {
     const chips = [];
-    const engineOk = roles.engine >= 1;
-    const scalerOk = roles.scaler >= 1;
-    const finisherOk = roles.finisher >= 1;
-    const defenseOk = roles.defense >= 1 || blocks >= 3;
-    chips.push(`<span class="health-chip ${engineOk?'chip-ok':'chip-bad'}">Engine ${engineOk?'✓':'✗'}</span>`);
-    chips.push(`<span class="health-chip ${scalerOk?'chip-ok':roles.scaler>=1?'chip-warn':'chip-bad'}">Scaler ${roles.scaler}/1+</span>`);
-    chips.push(`<span class="health-chip ${finisherOk?'chip-ok':'chip-warn'}">Finisher ${finisherOk?'✓':'✗'}</span>`);
+    const engineOk  = roles.engine  >= 1;
+    const payoffOk  = roles.payoff  >= 1;
+    const defenseOk = roles.defense >= 1 || blocks >= 2;
+    chips.push(`<span class="health-chip ${engineOk ?'chip-ok':'chip-bad'}">Engine ${engineOk ?'✓':'✗'}</span>`);
+    chips.push(`<span class="health-chip ${payoffOk ?'chip-ok':'chip-warn'}">Payoff ${roles.payoff}/1+</span>`);
     chips.push(`<span class="health-chip ${defenseOk?'chip-ok':'chip-bad'}">Defense ${defenseOk?'✓':'✗'}</span>`);
     html += `<div class="health-ready">${chips.join('')}</div>`;
   }
