@@ -93,23 +93,32 @@ function analyzeDeck(char, deckCards) {
   const archs = (DB.archetypes[char] || []);
   const detected = [];
   for (const arch of archs) {
+    // Use union counts — each card contributes at most 1 per tag (no syn+mech double-count)
     let coreCount = 0, supportCount = 0;
     for (const t of arch.core) {
-      coreCount += (tagCounts[t]||0) + (mechCounts[t]||0);
+      coreCount += (allUnionCounts[t]||0);
     }
     for (const t of arch.support) {
-      supportCount += (tagCounts[t]||0) + (mechCounts[t]||0);
+      supportCount += (allUnionCounts[t]||0);
     }
-    const coreThresh = arch.coreThresh ?? arch.threshold ?? 3;
+    const coreThresh    = arch.coreThresh    ?? arch.threshold ?? 3;
     const supportThresh = arch.supportThresh ?? Math.max(1, Math.floor(coreThresh / 2));
-    const meetsCore = coreCount >= coreThresh;
-    const meetsPartial = coreCount >= Math.ceil(coreThresh * 0.6) && supportCount >= supportThresh;
+    const meetsCore    = coreCount >= coreThresh;
+    // Raised partial threshold from 60% to 75% — harder to false-trigger
+    const meetsPartial = coreCount >= Math.ceil(coreThresh * 0.75) && supportCount >= supportThresh;
     if (meetsCore || meetsPartial) {
-      const strength = Math.min(1, (coreCount / arch.coreThresh) * 0.65 + (supportCount / Math.max(arch.supportThresh,1)) * 0.35);
-      detected.push({arch, strength: Math.min(1, strength)});
+      const strength = Math.min(1, (coreCount / coreThresh) * 0.65 + (supportCount / Math.max(supportThresh,1)) * 0.35);
+      // Tiebreaker: prefer arch where more cards list it as PRIMARY (first) build
+      const primaryCount = meaningfulCards.filter(c => {
+        const d = getCard(char, c.name);
+        const builds = (d?.builds||[]).filter(b=>b!=='any');
+        return builds.length > 0 && builds[0] === arch.id;
+      }).length;
+      detected.push({arch, strength: Math.min(1, strength), primaryCount});
     }
   }
-  detected.sort((a,b) => b.strength - a.strength);
+  // Sort by strength, break ties by how many cards list this as primary build
+  detected.sort((a,b) => b.strength - a.strength || b.primaryCount - a.primaryCount);
 
   return {detected, tagCounts: allTagCounts, mechCounts: allMechCounts, total: deckCards.length,
     meaningfulCount: meaningfulCards.length,
