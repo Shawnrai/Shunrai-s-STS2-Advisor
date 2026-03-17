@@ -36,11 +36,10 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 - All cards supported
 - Archetypes: Strike, Bloodletting, Exhaust, Strength, Block
 
-**_Silent_** - unfinished
-- 29 combos between cards
-- 65 cards supported
+**_Silent_**
+- 184 combos between cards
+- All cards supported
 - Archetypes: Sly, Poison, Shiv
-- Unfinished
 
 **_Regent_** - unfinished
 - 21 different combos between cards
