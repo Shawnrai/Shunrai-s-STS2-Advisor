@@ -3741,7 +3741,7 @@ const DB = {
           "discard"
         ],
         "anti": [],
-        "notes": "Discard 2 cards. Add 2 Shivs into your Hand. Discards 2 cards triggering Sly effects for free AND generates 2 Shivs. Core Shiv+Sly hybrid card. Mobalytics C.",
+        "notes": "Discard 2 cards. Add 2 Shivs into your Hand. Discards 2 cards triggering Sly effects for free AND generates 2 Shivs. Core Shiv+Sly hybrid card.",
         "mech": [
           "discard",
           "shiv_generator",
@@ -3764,7 +3764,7 @@ const DB = {
           "poison",
           "shiv"
         ],
-        "notes": "Deal 8 damage. Deals 4 additional damage for each card discarded this turn. In a Sly turn with 5 discards = 28 total damage for 1 energy. Scales with discard volume. Mobalytics C.",
+        "notes": "Deal 8 damage. Deals 4 additional damage for each card discarded this turn. In a Sly turn with 5 discards = 28 total damage for 1 energy. Scales with discard volume.",
         "mech": [
           "damage",
           "per_discard_payoff"
@@ -3785,7 +3785,7 @@ const DB = {
           "sly",
           "shiv"
         ],
-        "notes": "Every 3 times you apply Poison, deal 11 damage to ALL enemies. Passive AoE trigger in Poison builds. With Noxious Fumes + Envenom applying stacks constantly, fires multiple times per fight. Mobalytics C.",
+        "notes": "Every 3 times you apply Poison, deal 11 damage to ALL enemies. Passive AoE trigger in Poison builds. With Noxious Fumes + Envenom applying stacks constantly, fires multiple times per fight.",
         "mech": [
           "poison",
           "aoe",
@@ -3805,7 +3805,7 @@ const DB = {
           "shiv_synergy"
         ],
         "anti": [],
-        "notes": "Shivs gain Retain. The first Shiv you play each turn deals 9 additional damage. Retained Shivs persist between turns and first Shiv hits much harder. Niche — requires established Shiv engine. Mobalytics D.",
+        "notes": "Shivs gain Retain. The first Shiv you play each turn deals 9 additional damage. Retained Shivs persist between turns and first Shiv hits much harder. Niche — requires established Shiv engine.",
         "mech": [
           "shiv_synergy",
           "retain",
@@ -3827,7 +3827,7 @@ const DB = {
           "skills_in_hand"
         ],
         "anti": [],
-        "notes": "Deal 17 damage. Costs 1 less for each Skill played this turn. After 3 Skills played costs 0 for 17 damage. In Sly turns playing many Skills this can be free repeatedly. Mobalytics A.",
+        "notes": "Deal 17 damage. Costs 1 less for each Skill played this turn. After 3 Skills played costs 0 for 17 damage. In Sly turns playing many Skills this can be free repeatedly.",
         "mech": [
           "damage",
           "cost_reduction",
@@ -3848,7 +3848,7 @@ const DB = {
           "energy"
         ],
         "anti": [],
-        "notes": "Deal 12 damage. The next Skill you play costs 0. 12 damage plus makes next Skill free — enables a free Burst, Noxious Fumes, or Calculated Gamble. Solid combo enabler. Mobalytics C.",
+        "notes": "Deal 12 damage. The next Skill you play costs 0. 12 damage plus makes next Skill free — enables a free Burst, Noxious Fumes, or Calculated Gamble. Solid combo enabler.",
         "mech": [
           "damage",
           "cost_reduction",
@@ -3869,7 +3869,7 @@ const DB = {
           "damage"
         ],
         "anti": [],
-        "notes": "Deal 13 damage. Deals 2 less damage for each other card in your Hand. Best after a big Sly discard turn with few cards remaining — 13 damage for 1 energy. Sequence after Calculated Gamble for full value. Mobalytics B.",
+        "notes": "Deal 13 damage. Deals 2 less damage for each other card in your Hand. Best after a big Sly discard turn with few cards remaining — 13 damage for 1 energy. Sequence after Calculated Gamble for full value.",
         "mech": [
           "damage",
           "per_hand_scaling",
@@ -3891,7 +3891,7 @@ const DB = {
           "sly"
         ],
         "anti": [],
-        "notes": "Whenever you draw a card during your turn, deal 2 damage to ALL enemies. Silent draws constantly — Acrobatics draws 3 (6 AoE), Expertise draws 4+ (8+ AoE). In full draw turns this is massive passive AoE. Mobalytics C.",
+        "notes": "Whenever you draw a card during your turn, deal 2 damage to ALL enemies. Silent draws constantly — Acrobatics draws 3 (6 AoE), Expertise draws 4+ (8+ AoE). In full draw turns this is massive passive AoE.",
         "mech": [
           "passive",
           "aoe",
@@ -3912,7 +3912,7 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "Deal 8 damage. Whenever you play a card this turn, the enemy loses 2 HP. HP loss bypasses Block. In a Sly turn playing 8 cards = 16 HP drain + 8 damage = 24 total ignoring armor. Mobalytics C.",
+        "notes": "Deal 8 damage. Whenever you play a card this turn, the enemy loses 2 HP. HP loss bypasses Block. In a Sly turn playing 8 cards = 16 HP drain + 8 damage = 24 total ignoring armor.",
         "mech": [
           "damage",
           "hp_drain",
@@ -3936,7 +3936,7 @@ const DB = {
           "poison",
           "sly"
         ],
-        "notes": "Add 3 Shivs into your Hand. Reduce this card's cost by 1. Generates 3 Shivs and gets cheaper every cast — eventually free. No exhaust unlike Blade Dance, so reusable every turn. Mobalytics C.",
+        "notes": "Add 3 Shivs into your Hand. Reduce this card's cost by 1. Generates 3 Shivs and gets cheaper every cast — eventually free. No exhaust unlike Blade Dance, so reusable every turn.",
         "mech": [
           "shiv_generator",
           "cost_reduction",
@@ -3955,7 +3955,7 @@ const DB = {
           "card_reward"
         ],
         "anti": [],
-        "notes": "Deal 10 damage. If Fatal, gain an additional card reward. Exhaust. S-tier on Mobalytics — killing an enemy mid-combat gives an extra card reward. With Silent's multiple attacks per turn, landing kills is consistent. Exhausts so no clutter.",
+        "notes": "Deal 10 damage. If Fatal, gain an additional card reward. Exhaust. killing an enemy mid-combat gives an extra card reward. With Silent's multiple attacks per turn, landing kills is consistent. Exhausts so no clutter.",
         "mech": [
           "damage",
           "on_kill_reward",
@@ -10655,7 +10655,7 @@ const DB = {
       "deckCard": "Outbreak",
       "offeredCard": "Bouncing Flask",
       "bonus": 1.8,
-      "reason": "Mobalytics guide specifically pairs these — Bouncing Flask applies 3 Poison 3 times (9 total), making it easy to trigger Outbreak's 3-Poison-application threshold for 11 AoE damage."
+      "reason": "Bouncing Flask applies 3 Poison 3 times (9 total), making it easy to trigger Outbreak's 3-Poison-application threshold for 11 AoE damage."
     },
     {
       "deckCard": "Bouncing Flask",
@@ -10679,7 +10679,7 @@ const DB = {
       "deckCard": "Knife Trap",
       "offeredCard": "Serpent Form",
       "bonus": 2.0,
-      "reason": "Mobalytics guide: Knife Trap plays every Shiv in exhaust pile — Serpent Form deals 4 damage per card played. Playing 15-20 Shivs via Knife Trap = 60-80 passive damage from Serpent Form simultaneously."
+      "reason": "Knife Trap plays every Shiv in exhaust pile — Serpent Form deals 4 damage per card played. Playing 15-20 Shivs via Knife Trap = 60-80 passive damage from Serpent Form simultaneously."
     },
     {
       "deckCard": "Serpent Form",
@@ -10715,7 +10715,7 @@ const DB = {
       "deckCard": "Accuracy",
       "offeredCard": "Accuracy",
       "bonus": 2.5,
-      "reason": "Each Accuracy adds 4 damage to every Shiv. Two copies = +8 per Shiv, three = +12. Mobalytics guide says 'get as many as you can'. Stacking Accuracy is the core Shiv scaling strategy."
+      "reason": "Each Accuracy adds 4 damage to every Shiv. Two copies = +8 per Shiv, three = +12. get as many as you can. Stacking Accuracy is the core Shiv scaling strategy."
     },
     {
       "deckCard": "Nightmare",
@@ -10727,7 +10727,7 @@ const DB = {
       "deckCard": "Envenom",
       "offeredCard": "Blade Dance",
       "bonus": 1.8,
-      "reason": "Mobalytics guide: Envenom applies Poison on unblocked attack damage — Blade Dance generates 3 Shivs. Each Shiv that deals unblocked damage applies 1 Poison. Shiv+Poison hybrid core combo."
+      "reason": "Envenom applies Poison on unblocked attack damage — Blade Dance generates 3 Shivs. Each Shiv that deals unblocked damage applies 1 Poison. Shiv+Poison hybrid core combo."
     },
     {
       "deckCard": "Blade Dance",
