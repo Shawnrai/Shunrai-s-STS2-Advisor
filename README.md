@@ -41,18 +41,20 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 - All cards supported
 - Archetypes: Sly, Poison, Shiv
 
-**_Regent_** - unfinished
-- 21 different combos between cards
-- 60 cards supported
-- Archetypes: Strike, Bloodletting, Exhaust, Strength, Block
-
-**_Necrobinder_** - unfinished
-- 21 combos between cards
-- 56 cards supported
+**_Regent_**
+- 57 different combos between cards
+- All cards supported
+- Archetypes: Stars, Forge
+  
+**_Necrobinder_**
+- 60 combos between cards
+- All cards supported
 - Archetypes: Soul, Osty, Doom
 
 **_Defect_**
-- Not enough character understanding
+- 54 combos between cards
+- All cards supported
+- Archetypes: Orb, Claw, Status
 
 ---
 
