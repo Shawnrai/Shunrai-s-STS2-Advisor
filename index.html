@@ -1061,7 +1061,7 @@ function analyzeRemoval() {
 
   if (!deck.length) { resultEl.innerHTML='<div style="color:var(--text3);font-style:italic;font-size:.9rem">Add cards to your deck first.</div>'; return; }
 
-  const scored = deck.map(card => scoreRemoval(card.name, ch, da, deck));
+  const scored = deck.map(card => scoreRemoval(card.name, ch, da, deck, equippedRelics));
   scored.sort((a,b)=>b.score-a.score);
 
   const topScore = scored[0]?.score ?? 0;

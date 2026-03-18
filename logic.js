@@ -487,42 +487,48 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     builds:data.builds||[], char};
 }
 
-function scoreRemoval(cardName, char, da, deckCards) {
+function scoreRemoval(cardName, char, da, deckCards, equippedRelics) {
+  equippedRelics = equippedRelics || [];
   const name = cardName.toLowerCase();
 
   // ── 1. CURSES / STATUSES — always cut immediately ─────────────
-  const isCurse = name.includes('curse') ||
-    ['wound','burn','dazed','slimed','void','shiv','debris'].includes(name);
+  const CURSE_NAMES = new Set(['wound','burn','dazed','slimed','void','debris']);
+  const isCurse = name.includes('curse') || CURSE_NAMES.has(name);
   if (isCurse) return {name:cardName, score:5, grade:'S',
     reason:'Curse/Status — remove immediately, these only hurt you.', safeToRemove:true};
 
   const data      = getCard(char, cardName);
   const baseGrade = data ? data.tier : 'C';
-  const baseVal   = GRADE_VALS[baseGrade] ?? 2; // S=5 A=4 B=3 C=2 D=1
-  const cardRole  = data ? (data.role  || 'generator') : 'generator';
+  const baseVal   = GRADE_VALS[baseGrade] ?? 2;
+  const cardRole  = data ? (data.role  || 'utility') : 'utility';
   const cardBuilds= data ? (data.builds|| []).filter(b => b !== 'any') : [];
   const cardAnti  = data ? (data.anti  || []) : [];
   const cardMech  = data ? (data.mech  || []) : [];
   const cardSyn   = data ? (data.syn   || []) : [];
 
   // ── IDENTIFICATION ─────────────────────────────────────────────
-  const isStrike = name.includes('strike') &&
-    !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x => name.includes(x));
+  const STRIKE_EXCEPTIONS = ['shining','solar','pommel','perfected','ashen','leading','setup'];
+  const isStrike = name.includes('strike') && !STRIKE_EXCEPTIONS.some(x => name.includes(x));
   const isDefend = name === 'defend' || name === 'defend+';
-  const isUtilityStarter = ['bash','bash+','survivor','survivor+','neutralize','neutralize+',
-    'zap','zap+','dualcast','dualcast+','venerate','venerate+',
-    'soul spark','soul spark+'].includes(name);
+  const UTILITY_STARTERS = new Set(['bash','bash+','survivor','survivor+','neutralize','neutralize+',
+    'zap','zap+','dualcast','dualcast+','venerate','venerate+','soul spark','soul spark+']);
+  const isUtilityStarter = UTILITY_STARTERS.has(name);
+  const isPower = cardMech.includes('power') || cardSyn.includes('power') ||
+    (data && data.notes && data.notes.toLowerCase().includes('power'));
+  const isExhaust = cardMech.includes('exhaust') || cardSyn.includes('exhaust');
 
-  // ── ARCHETYPE CONTEXT ──────────────────────────────────────────
+  // ── CONTEXT ────────────────────────────────────────────────────
   const topArch      = da.detected.length > 0 ? da.detected[0] : null;
   const topArchId    = topArch ? topArch.arch.id : null;
   const archStrength = topArch ? topArch.strength : 0;
   const isStrikeBuild = topArchId === 'strike' && archStrength >= 0.35;
-  // Thin-deck builds (Sly, Claw) want aggressive removal
-  const isThinBuild = ['sly','claw'].includes(topArchId) && archStrength >= 0.35;
+  const isThinBuild = ['sly','claw','stars'].includes(topArchId) && archStrength >= 0.35;
+  const deckSize = deckCards.length;
+
+  // Deck bloat factor — bigger decks need more aggressive removal
+  const bloatFactor = deckSize >= 30 ? 0.8 : deckSize >= 25 ? 0.5 : deckSize >= 20 ? 0.2 : 0;
 
   // ── DECK COMPOSITION ───────────────────────────────────────────
-  // Remove exactly ONE copy of this card when counting "others"
   let removedOne = false;
   const otherCards = deckCards.filter(c => {
     if (!removedOne && c.name === cardName) { removedOne = true; return false; }
@@ -531,22 +537,21 @@ function scoreRemoval(cardName, char, da, deckCards) {
 
   const basicStrikesLeft = otherCards.filter(c => {
     const n = c.name.toLowerCase();
-    return n.includes('strike') &&
-      !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x => n.includes(x));
+    return n.includes('strike') && !STRIKE_EXCEPTIONS.some(x => n.includes(x));
   }).length;
 
-  // Real damage sources = anything that can deal damage to enemies
-  // Includes: basic strikes, attack cards, damage-mech cards, damage payoffs (Body Slam etc)
+  const basicDefendsLeft = otherCards.filter(c => {
+    const n = c.name.toLowerCase();
+    return n === 'defend' || n === 'defend+';
+  }).length;
+
+  // Damage sources
   const isDamageSource = c => {
     const n = c.name.toLowerCase();
     const d = getCard(char, c.name);
-    const isBS = n.includes('strike') &&
-      !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x => n.includes(x));
-    if (isBS) return true;
+    if (n.includes('strike') && !STRIKE_EXCEPTIONS.some(x => n.includes(x))) return true;
     if (!d) return false;
-    const m = d.mech || [];
-    const s = d.syn  || [];
-    // Attack cards, AoE, multi-hit, or payoffs that convert to damage
+    const m = d.mech || []; const s = d.syn || [];
     return m.includes('damage') || m.includes('multi_hit') || m.includes('aoe') ||
            m.includes('block_conversion') || m.includes('per_attack_payoff') ||
            m.includes('poison') || m.includes('doom') || m.includes('hp_drain') ||
@@ -555,114 +560,129 @@ function scoreRemoval(cardName, char, da, deckCards) {
   const otherDamageSources = otherCards.filter(isDamageSource).length;
   const thisIsDamageSource = isDamageSource({name: cardName});
 
-  // Real block generators = cards that actually produce block
+  const realNonStrikeAtks = otherCards.filter(c => {
+    const n = c.name.toLowerCase();
+    if (n.includes('strike') && !STRIKE_EXCEPTIONS.some(x => n.includes(x))) return false;
+    const d = getCard(char, c.name);
+    if (!d) return false;
+    const m = d.mech || []; const s = d.syn || [];
+    return m.includes('damage') || m.includes('multi_hit') || m.includes('aoe') ||
+           m.includes('block_conversion') || m.includes('poison') ||
+           m.includes('doom') || m.includes('hp_drain') ||
+           (d.role === 'payoff' && s.includes('block'));
+  }).length;
+
+  // Block sources
   const isBlockGen = c => {
     const n = c.name.toLowerCase();
     const d = getCard(char, c.name);
     if (n === 'defend' || n === 'defend+') return true;
     if (!d) return false;
-    const m = d.mech || [];
-    const s = d.syn  || [];
+    const m = d.mech || []; const s = d.syn || [];
     return m.includes('block') || m.includes('retain') || m.includes('delayed_block') ||
-           s.includes('block') || m.includes('intangible');
+           s.includes('block') || m.includes('intangible') || m.includes('plating');
   };
   const otherBlockSources = otherCards.filter(isBlockGen).length;
-  const thisIsBlockSource  = isBlockGen({name: cardName});
+  const thisIsBlockSource = isBlockGen({name: cardName});
 
-  // ── 2. PRIORITY: BASIC STRIKES ────────────────────────────────
+  const realNonDefendBlock = otherCards.filter(c => {
+    const n = c.name.toLowerCase();
+    if (n === 'defend' || n === 'defend+') return false;
+    return isBlockGen(c);
+  }).length;
+
+  // ── 2. BASIC STRIKES ──────────────────────────────────────────
   if (isStrike) {
-    // Strike build — Strikes are fuel, protect them
     if (isStrikeBuild)
       return {name:cardName, score:0.5, grade:'D',
         reason:`Strike build detected — basic Strikes are Perfected Strike fuel. Keep them.`,
         safeToRemove:false};
 
-    // Count real non-Strike damage sources in the rest of the deck
-    const realNonStrikeAtks = otherCards.filter(c => {
-      const n = c.name.toLowerCase();
-      const d = getCard(char, c.name);
-      const isBS = n.includes('strike') &&
-        !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x=>n.includes(x));
-      if (isBS) return false;
-      if (!d) return false;
-      const m = d.mech || []; const s = d.syn || [];
-      return m.includes('damage') || m.includes('multi_hit') || m.includes('aoe') ||
-             m.includes('block_conversion') || m.includes('poison') ||
-             m.includes('doom') || m.includes('hp_drain') ||
-             (d.role === 'payoff' && s.includes('block'));
-    }).length;
-
-    // Count ALL remaining damage sources (including other Strikes)
-    const allRemDamage = otherCards.filter(c => {
-      const n = c.name.toLowerCase();
-      const d = getCard(char, c.name);
-      const isBS = n.includes('strike') &&
-        !['shining','solar','pommel','perfected','ashen','leading','setup'].some(x=>n.includes(x));
-      if (isBS) return true;
-      if (!d) return false;
-      const m = d.mech || []; const s = d.syn || [];
-      return m.includes('damage') || m.includes('multi_hit') || m.includes('aoe') ||
-             m.includes('block_conversion') || m.includes('poison') ||
-             m.includes('doom') || m.includes('hp_drain') ||
-             (d.role === 'payoff' && s.includes('block'));
-    }).length;
-
-    // Need at least 2 total damage sources after the cut
-    if (allRemDamage < 2)
+    // Safety: need at least 2 total damage sources after the cut
+    if (otherDamageSources < 2)
       return {name:cardName, score:2.0, grade:'C',
-        reason:`Only ${allRemDamage} damage source${allRemDamage===1?'':'s'} would remain — need at least 2. Add more cards first.`,
+        reason:`Only ${otherDamageSources} damage source${otherDamageSources===1?'':'s'} would remain — add more attack cards first.`,
         safeToRemove:false};
 
-    // Have total coverage but no real non-Strike cards yet
-    if (realNonStrikeAtks === 0)
-      return {name:cardName, score:2.5, grade:'B',
-        reason:`No real attack cards yet — add some first, then remove Strikes.`,
-        safeToRemove:false};
-
-    // Thin build (Sly) — extra urgency
-    if (isThinBuild)
-      return {name:cardName, score:5, grade:'S',
-        reason:`Basic Strike — ${topArch.arch.name} build needs a lean deck. Cut immediately.`,
+    // Have real attack cards — safe to cut
+    if (realNonStrikeAtks >= 1) {
+      if (isThinBuild)
+        return {name:cardName, score:5, grade:'S',
+          reason:`Basic Strike — ${topArch.arch.name} build needs a lean deck. Top removal priority.`,
+          safeToRemove:true};
+      // Bloated deck = more urgency
+      const bloatBoost = bloatFactor > 0 ? ` Deck has ${deckSize} cards — thinning is high value.` : '';
+      return {name:cardName, score: Math.min(5, 4.5 + bloatFactor), grade:'S',
+        reason:`Basic Strike — worst card in your deck. Removing it directly improves every draw.${bloatBoost}`,
         safeToRemove:true};
+    }
 
-    // Normal case
-    return {name:cardName, score:4.5, grade:'S',
-      reason:'Basic Strike — dead weight once you have real cards. First thing to cut.',
+    // No real attacks yet but have total damage coverage — mild push
+    return {name:cardName, score:3.0, grade:'B',
+      reason:`Basic Strike — you should remove it, but add a real attack card soon to replace the damage.`,
       safeToRemove:true};
   }
 
-  // ── 3. PRIORITY: BASIC DEFENDS ────────────────────────────────
+  // ── 3. BASIC DEFENDS ──────────────────────────────────────────
   if (isDefend) {
-    // Keep if removing would leave too little block
-    if (otherBlockSources < 3)
-      return {name:cardName, score:1.5, grade:'D',
-        reason:`Basic Defend — only cut once you have more real block sources (${otherBlockSources} now, want 3+).`,
+    // If Strikes still exist, cut those first
+    const strikesInDeck = deckCards.filter(c => {
+      const n = c.name.toLowerCase();
+      return n.includes('strike') && !STRIKE_EXCEPTIONS.some(x => n.includes(x));
+    }).length;
+
+    if (strikesInDeck > 0 && !isThinBuild)
+      return {name:cardName, score:1.8, grade:'C',
+        reason:`Remove your ${strikesInDeck} basic Strike${strikesInDeck>1?'s':''} first — Defends provide more value than Strikes.`,
         safeToRemove:false};
-    // Have enough real block
-    return {name:cardName, score:3.5, grade:'A',
-      reason:`Basic Defend — you have ${otherBlockSources} real block sources, safe to remove.`,
-      safeToRemove:true};
+
+    // Need minimum block coverage
+    if (otherBlockSources < 2)
+      return {name:cardName, score:1.2, grade:'D',
+        reason:`Only ${otherBlockSources} block source${otherBlockSources===1?'':'s'} would remain — too risky to cut.`,
+        safeToRemove:false};
+
+    // Have real non-Defend block
+    if (realNonDefendBlock >= 2) {
+      if (isThinBuild)
+        return {name:cardName, score:5, grade:'S',
+          reason:`Basic Defend — ${topArch.arch.name} build needs a lean deck. You have ${realNonDefendBlock} real block cards.`,
+          safeToRemove:true};
+      return {name:cardName, score: Math.min(5, 3.5 + bloatFactor), grade:'A',
+        reason:`Basic Defend — you have ${realNonDefendBlock} real block sources. Safe to remove for better draws.`,
+        safeToRemove:true};
+    }
+
+    // Marginal — have some block but not ideal
+    return {name:cardName, score:2.2, grade:'C',
+      reason:`Basic Defend — only ${realNonDefendBlock} real block card${realNonDefendBlock===1?'':'s'}. Consider adding better block before cutting.`,
+      safeToRemove:false};
   }
 
-  // ── 4. PRIORITY: UTILITY STARTERS ─────────────────────────────
+  // ── 4. UTILITY STARTERS ───────────────────────────────────────
   if (isUtilityStarter) {
     if (basicStrikesLeft > 0)
       return {name:cardName, score:1.5, grade:'D',
-        reason:`Cut your ${basicStrikesLeft} basic Strike${basicStrikesLeft>1?'s':''} first — ${cardName} has real utility and outvalues a Strike.`,
+        reason:`Cut your ${basicStrikesLeft} basic Strike${basicStrikesLeft>1?'s':''} first — ${cardName} provides real utility.`,
         safeToRemove:false};
-    // No strikes left — now evaluate normally but with a base protection
-    // Fall through to real card scoring with a score floor
+
+    if (basicDefendsLeft > 0 && realNonDefendBlock < 2)
+      return {name:cardName, score:1.8, grade:'C',
+        reason:`${cardName} still has utility — consider cutting Defends or low-synergy cards first.`,
+        safeToRemove:false};
+
+    // No starters left — utility starters are now on the block
+    // Fall through to real card scoring but with a nudge
   }
 
-  // ── SAFETY RAILS — apply before any scoring ───────────────────
-  // Never leave deck with zero damage or zero block
+  // ── SAFETY RAILS ──────────────────────────────────────────────
   if (thisIsDamageSource && otherDamageSources === 0)
-    return {name:cardName, score:0.5, grade:'D',
-      reason:`Removing this leaves no damage sources in your deck. Keep it.`,
+    return {name:cardName, score:0.3, grade:'D',
+      reason:`Your only damage source — removing this means you can't kill anything.`,
       safeToRemove:false};
   if (thisIsBlockSource && otherBlockSources === 0)
-    return {name:cardName, score:0.5, grade:'D',
-      reason:`Removing this leaves no block sources in your deck. Keep it.`,
+    return {name:cardName, score:0.3, grade:'D',
+      reason:`Your only block source — removing this leaves you completely exposed.`,
       safeToRemove:false};
 
   // ══════════════════════════════════════════════════════════════
@@ -674,6 +694,19 @@ function scoreRemoval(cardName, char, da, deckCards) {
     da.detected.some(d => cardBuilds.includes(d.arch.id));
   const conflictsWithBuild = archStrength >= 0.4 &&
     cardAnti.some(a => da.detected.some(d => d.arch.id === a));
+
+  // Synergy overlap — how many of this card's tags actually appear in the rest of the deck?
+  const allDeckTags = new Set();
+  for (const c of otherCards) {
+    const d = getCard(char, c.name);
+    if (d) {
+      for (const t of (d.syn||[])) allDeckTags.add(t);
+      for (const t of (d.mech||[])) allDeckTags.add(t);
+    }
+  }
+  const cardAllTags = [...cardSyn, ...cardMech];
+  const tagOverlap = cardAllTags.filter(t => allDeckTags.has(t)).length;
+  const isDeadWeight = tagOverlap === 0 && cardAllTags.length > 0 && !isUtilityStarter;
 
   // Role scarcity
   const sameRoleFit = otherCards.filter(c => {
@@ -687,7 +720,7 @@ function scoreRemoval(cardName, char, da, deckCards) {
   // Duplicate count
   const copies = deckCards.filter(c => c.name === cardName).length;
 
-  // Generator clog — too many generators relative to engines+payoffs
+  // Generator clog
   const deckEngines  = deckCards.filter(c => { const d=getCard(char,c.name); return d&&d.role==='engine'; }).length;
   const deckPayoffs  = deckCards.filter(c => { const d=getCard(char,c.name); return d&&d.role==='payoff'; }).length;
   const deckGens     = deckCards.filter(c => { const d=getCard(char,c.name); return d&&d.role==='generator'; }).length;
@@ -695,95 +728,144 @@ function scoreRemoval(cardName, char, da, deckCards) {
     deckGens > (deckEngines + deckPayoffs) * 2 + 2 &&
     !fitsDetectedBuild && archStrength >= 0.3;
 
+  // Relic synergy — does an equipped relic specifically reward keeping this card?
+  let relicProtect = 0;
+  if (equippedRelics.length > 0 && DB.relicCombos) {
+    const equippedSet = new Set(equippedRelics.map(r => r.toLowerCase()));
+    for (const rc of DB.relicCombos) {
+      if (equippedSet.has(rc.relic.toLowerCase()) && norm(rc.card) === norm(cardName)) {
+        relicProtect += rc.bonus;
+      }
+    }
+  }
+
   // ── SCORE BUILDING ─────────────────────────────────────────────
   let score = 0;
   const reasons = [];
 
-  // Base tier — mild contribution only
-  score += Math.max(0, (3.5 - baseVal) * 0.4); // D=1.0, C=0.6, B=0.2, A/S=0
+  // Base tier — lower tier = more removable
+  score += Math.max(0, (3.5 - baseVal) * 0.5); // D=1.25, C=0.75, B=0.25, A/S=0
 
-  // Build fit is the primary driver
+  // === PRIMARY: Build fit ===
   if (archStrength >= 0.3) {
     if (fitsDetectedBuild) {
+      // Core card — protect it
       score = Math.max(0, score - archStrength * 2.5);
       if (archStrength >= 0.5) reasons.push(`Core to your ${topArch.arch.name} build`);
     } else if (cardBuilds.length > 0) {
-      score += archStrength * 2.0;
+      // Off-archetype — strong removal candidate
+      const offPen = archStrength * 2.5;
+      score += offPen;
       reasons.push(`Off-archetype — built for ${cardBuilds.join('/')} not your ${topArch.arch.name} build`);
     }
-    // No archetype on card = neutral, let tier decide
   }
 
-  // Active conflict with build
-  if (conflictsWithBuild) {
+  // === Dead weight — zero synergy overlap with rest of deck ===
+  if (isDeadWeight && !isUtilityStarter) {
     score += 1.5;
-    reasons.push(`Conflicts with ${topArch.arch.name} build`);
+    reasons.push(`No synergy overlap with any other card in your deck`);
   }
 
-  // Sole engine — never cut
+  // === Conflict with build ===
+  if (conflictsWithBuild) {
+    score += 1.8;
+    reasons.push(`Actively conflicts with your ${topArch.arch.name} build`);
+  }
+
+  // === Power card protection — plays once then leaves deck ===
+  if (isPower && fitsDetectedBuild && !conflictsWithBuild) {
+    score = Math.min(score, 0.5);
+    reasons.length = 0;
+    reasons.push(`Power card — plays once then leaves your draw pile. Minimal deck clog.`);
+  }
+
+  // === Exhaust cards self-thin — lower removal priority ===
+  if (isExhaust && fitsDetectedBuild && !conflictsWithBuild && score > 1.0) {
+    score = Math.max(0.8, score - 0.6);
+    reasons.push(`Self-exhausting — thins itself from deck during combat`);
+  }
+
+  // === Sole engine — never cut ===
   if (isOnlyEngine) {
     score = 0.2;
     reasons.length = 0;
-    reasons.push(`Only engine in deck — do not cut until you find a replacement`);
+    reasons.push(`Only engine in deck — cutting this dismantles your build`);
   }
 
-  // Sole payoff — heavily protect
+  // === Sole payoff — heavily protect ===
   if (isOnlyPayoff) {
-    score = Math.min(score, 0.8);
+    score = Math.min(score, 0.6);
     reasons.length = 0;
-    reasons.push(`Only payoff card for your ${topArch ? topArch.arch.name : 'current'} build`);
+    reasons.push(`Only payoff for your ${topArch ? topArch.arch.name : 'current'} build — protect it`);
   }
 
-  // High tier floor — A/S cards are hard to justify cutting
-  if (baseVal >= 4 && !conflictsWithBuild && !genClog) {
-    score = Math.min(score, 1.2);
-    if (!reasons.length) reasons.push(`${baseGrade}-tier card`);
+  // === High tier protection — A/S cards rarely worth cutting ===
+  if (baseVal >= 4 && !conflictsWithBuild && !genClog && !isDeadWeight) {
+    score = Math.min(score, 1.0);
+    if (!reasons.length) reasons.push(`${baseGrade}-tier card — too valuable to cut`);
   }
 
-  // Generator clog
+  // === Generator clog ===
   if (genClog) {
-    score = Math.max(score, 2.5);
-    reasons.push(`Generator surplus — ${deckGens} generators but only ${deckEngines+deckPayoffs} engines/payoffs`);
-  }
-
-  // Utility starter with no Strikes left — slight push to cut
-  if (isUtilityStarter) {
     score = Math.max(score, 2.8);
-    if (!reasons.length) reasons.push(`Starter card with no Strikes remaining`);
+    reasons.push(`Generator surplus — ${deckGens} generators vs ${deckEngines+deckPayoffs} engines/payoffs`);
   }
 
-  // Thin build bonus — Sly/Claw want every cut they can get
-  if (isThinBuild && score >= 2.0) {
-    score = Math.min(5, score + 0.5);
-    if (!reasons.some(r => r.includes('thin')))
+  // === Utility starter with no Strikes/Defends left ===
+  if (isUtilityStarter) {
+    const starterScore = Math.max(score, 2.5 + bloatFactor);
+    score = starterScore;
+    if (!reasons.length) reasons.push(`Starter card — weaker than real cards you've added`);
+  }
+
+  // === Thin build bonus ===
+  if (isThinBuild && score >= 1.5) {
+    score = Math.min(5, score + 0.6);
+    if (!reasons.some(r => r.includes('lean')))
       reasons.push(`${topArch.arch.name} build benefits from a lean deck`);
   }
 
-  // Duplicate handling — context aware
+  // === Deck bloat pressure ===
+  if (bloatFactor > 0 && score >= 1.5) {
+    score = Math.min(5, score + bloatFactor);
+    if (!reasons.some(r => r.includes('cards')))
+      reasons.push(`Deck has ${deckSize} cards — thinning improves consistency`);
+  }
+
+  // === Duplicate handling ===
   if (copies > 1) {
-    // Scaling stackable cards (Accuracy, Footwork etc) — 2nd copy is fine
     const isStackable = cardMech.includes('permanent_scaling') ||
       cardMech.includes('dexterity') || cardMech.includes('strength') ||
       cardSyn.includes('scaling');
     if (!isStackable || copies > 2) {
-      score += copies > 2 ? 1.0 : 0.5;
-      reasons.push(`${copies} copies in deck`);
+      const dupePen = copies > 2 ? 1.2 : 0.6;
+      score += dupePen;
+      reasons.push(`${copies} copies — redundant draws`);
     }
   }
 
-  // Small deck protection
-  if (deckCards.length <= 10 && score < 4.0) {
-    score = Math.min(score, 1.8);
+  // === Relic protection — equipped relics synergize with this card ===
+  if (relicProtect > 0) {
+    const protection = Math.min(2.0, relicProtect * 0.5);
+    score = Math.max(0.3, score - protection);
+    reasons.push(`Equipped relic synergy — worth more with your current relics`);
+  }
+
+  // === Small deck safety — don't over-thin ===
+  if (deckSize <= 8 && score < 4.0) {
+    score = Math.min(score, 1.5);
+    if (!reasons.some(r => r.includes('thin')))
+      reasons.push(`Deck only has ${deckSize} cards — don't over-thin`);
   }
 
   score = Math.min(5, Math.max(0, score));
 
   // ── REASON STRING ──────────────────────────────────────────────
   let reasonStr = reasons.length ? reasons.join(' · ') + '. ' : '';
-  reasonStr += score >= 4   ? 'Strong cut.'
-    : score >= 3             ? 'Worth removing.'
-    : score >= 2             ? 'Consider removing if you find better.'
-    : score >= 1             ? 'Decent card — keep unless deck is bloated.'
+  reasonStr += score >= 4   ? 'Strong cut — remove when you can.'
+    : score >= 3             ? 'Worth removing at the next opportunity.'
+    : score >= 2             ? 'Consider removing if nothing worse exists.'
+    : score >= 1             ? 'Decent card — keep unless your deck is bloated.'
     :                          'Keep this card.';
 
   return {name:cardName, score, grade:SCORE_GRADE(score), reason:reasonStr,
