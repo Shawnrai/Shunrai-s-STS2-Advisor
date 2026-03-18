@@ -57,7 +57,7 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 - Archetypes: Orb, Claw, Status
 
 **_Colorless_**
-- 63 combos between cards
+- 73 combos between cards
 - All cards supported
 
 ---
