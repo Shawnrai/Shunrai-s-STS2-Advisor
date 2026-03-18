@@ -15919,6 +15919,354 @@ const DB = {
       "offeredCard": "Equilibrium",
       "bonus": 1.8,
       "reason": "Equilibrium retains Hand and gives 13 Block — Convergence also retains and gives Stars/Energy next turn. Combining them gives Block AND resources for a massive next turn."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Genetic Algorithm",
+      "bonus": 2.5,
+      "reason": "Hidden Gem gives Replay 2 — Genetic Algorithm with Replay 2 plays 3 times, gaining +9 Block permanently per draw instead of +3. Triples scaling speed."
+    },
+    {
+      "deckCard": "Genetic Algorithm",
+      "offeredCard": "Hidden Gem",
+      "bonus": 2.5,
+      "reason": "Genetic Algorithm permanently gains +3 Block each play — Hidden Gem's Replay 2 makes it play 3 times in one draw, gaining +9 Block permanently at once."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Defragment",
+      "bonus": 2.0,
+      "reason": "Hidden Gem gives Replay 2 — Defragment with Replay 2 gives 3 Focus in one play instead of 1. Fastest possible Focus acceleration for Orb builds."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Hidden Gem",
+      "bonus": 2.0,
+      "reason": "Defragment gains 1 Focus — Hidden Gem's Replay 2 makes it play 3 times, giving 3 Focus instantly. Signal Boost can only double it; Hidden Gem triples it."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Claw",
+      "bonus": 2.0,
+      "reason": "Hidden Gem gives Replay 2 — Claw with Replay 2 plays 3 times, raising all Claw damage by 6 per draw instead of 2. Triples scaling per Claw drawn."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Hidden Gem",
+      "bonus": 2.0,
+      "reason": "Claw scales all Claw damage by 2 per play — Hidden Gem's Replay 2 makes each Claw drawn increase all Claw damage by 6 instead of 2."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Undeath",
+      "bonus": 2.0,
+      "reason": "Hidden Gem gives Replay 2 — Undeath with Replay 2 plays 3 times, adding 3 copies to Discard instead of 1. Block generation triples immediately."
+    },
+    {
+      "deckCard": "Undeath",
+      "offeredCard": "Hidden Gem",
+      "bonus": 2.0,
+      "reason": "Undeath copies itself into Discard each play — Hidden Gem's Replay 2 makes it play 3 times, flooding Discard with 3 copies at once for explosive Block scaling."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Echo Form",
+      "bonus": 1.8,
+      "reason": "Hidden Gem gives Replay 2 — Echo Form with Replay 2 means the first card you play each turn is played 4 times total (Echo Form doubles it, Replay makes Echo Form trigger twice more)."
+    },
+    {
+      "deckCard": "Echo Form",
+      "offeredCard": "Hidden Gem",
+      "bonus": 1.8,
+      "reason": "Echo Form already doubles the first card — Hidden Gem's Replay 2 on Echo Form means you get additional doublings per turn for the rest of combat."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Maul",
+      "bonus": 1.5,
+      "reason": "Hidden Gem gives Replay 2 — Maul with Replay 2 plays 3 times, increasing all Maul damage by 3 per draw instead of 1. With multiple Mauls, damage compounds rapidly."
+    },
+    {
+      "deckCard": "Maul",
+      "offeredCard": "Hidden Gem",
+      "bonus": 1.5,
+      "reason": "Maul scales all Maul cards by 1 damage per play — Hidden Gem's Replay 2 makes each Maul add +3 to all Mauls per draw."
+    },
+    {
+      "deckCard": "Hidden Gem",
+      "offeredCard": "Rupture",
+      "bonus": 1.8,
+      "reason": "Hidden Gem gives Replay 2 — Rupture with Replay 2 triggers 3 times per play. In Bloodletting builds where you take HP damage repeatedly, Rupture gaining Strength 3x per trigger is devastating."
+    },
+    {
+      "deckCard": "Rupture",
+      "offeredCard": "Hidden Gem",
+      "bonus": 1.8,
+      "reason": "Rupture gains Strength from HP loss — Hidden Gem's Replay 2 means Rupture triggers 3 times per play, turning each HP loss event into 3 Strength instead of 1."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Claw",
+      "bonus": 1.8,
+      "reason": "Nostalgia puts the first card played back on top of Draw — playing Claw returns it to the top of Draw, enabling consistent Claw scaling every turn without needing All for One."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Nostalgia",
+      "bonus": 1.8,
+      "reason": "Nostalgia returns first card played to Draw Pile top — Claw as first play each turn returns itself for next turn, creating a reliable scaling loop without cycling through all cards."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Thrumming Hatchet",
+      "bonus": 1.5,
+      "reason": "Thrumming Hatchet already returns itself next turn — Nostalgia also returns the first card played to top of Draw. If Hatchet is first, it effectively plays every turn from two sources."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Body Slam",
+      "bonus": 1.8,
+      "reason": "Nostalgia returns first card played to Draw top — Body Slam as first play each turn comes back for next turn. In Block builds with Barricade, this means Body Slam is always available for consistent damage."
+    },
+    {
+      "deckCard": "Body Slam",
+      "offeredCard": "Nostalgia",
+      "bonus": 1.8,
+      "reason": "Nostalgia recycles first card played each turn — Body Slam recycled means guaranteed damage every turn in Block builds, no longer dependent on draw order."
+    },
+    {
+      "deckCard": "Mayhem",
+      "offeredCard": "Nostalgia",
+      "bonus": 2.0,
+      "reason": "Nostalgia puts first card played on top of Draw — Mayhem plays the top card for free at turn start. Together: choose your best card with Nostalgia, then Mayhem plays it for free next turn."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Mayhem",
+      "bonus": 2.0,
+      "reason": "Mayhem plays Draw Pile top card free each turn — Nostalgia controls what's on top, making Mayhem always play your best card rather than a random one."
+    },
+    {
+      "deckCard": "Mayhem",
+      "offeredCard": "Scrawl",
+      "bonus": 1.8,
+      "reason": "Mayhem plays top card for free each turn — if Scrawl is on top, Mayhem plays it for free, filling your entire hand for 0 Energy at the start of every turn."
+    },
+    {
+      "deckCard": "Scrawl",
+      "offeredCard": "Mayhem",
+      "bonus": 1.8,
+      "reason": "Scrawl draws until hand is full — Mayhem plays it for free if it's on top of Draw. With Nostalgia or Thinking Ahead placing Scrawl on top, every turn starts with a full hand."
+    },
+    {
+      "deckCard": "Automation",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.8,
+      "reason": "Automation gains Energy every 10 cards drawn — Acrobatics draws 3 per play. In Sly builds with Acrobatics cycling constantly, Automation triggers every 3-4 turns for free Energy."
+    },
+    {
+      "deckCard": "Acrobatics",
+      "offeredCard": "Automation",
+      "bonus": 1.8,
+      "reason": "Automation gains Energy per 10 cards drawn — Acrobatics draws 3 cards each play. With heavy Sly cycling through 10+ cards per turn, Automation gives free Energy almost every turn."
+    },
+    {
+      "deckCard": "Automation",
+      "offeredCard": "Machine Learning",
+      "bonus": 1.5,
+      "reason": "Automation gains Energy per 10 cards drawn — Machine Learning draws 1 extra card per turn. The additional passive draw accelerates reaching Automation's 10-card trigger threshold."
+    },
+    {
+      "deckCard": "Machine Learning",
+      "offeredCard": "Automation",
+      "bonus": 1.5,
+      "reason": "Machine Learning adds +1 draw per turn — Automation converts that extra draw into Energy every 10 cards. In long fights, both compound into significant free Energy."
+    },
+    {
+      "deckCard": "Automation",
+      "offeredCard": "Scrape",
+      "bonus": 1.8,
+      "reason": "Automation gains Energy every 10 cards drawn — Scrape draws 4 cards at once. One Scrape play counts as 4 toward Automation's threshold, making it trigger after only 2-3 Scrapes."
+    },
+    {
+      "deckCard": "Scrape",
+      "offeredCard": "Automation",
+      "bonus": 1.8,
+      "reason": "Scrape draws 4 cards at once — Automation gains Energy per 10 cards drawn. Scrape accelerates reaching the threshold faster than any other draw card."
+    },
+    {
+      "deckCard": "Calamity",
+      "offeredCard": "Claw",
+      "bonus": 1.8,
+      "reason": "Calamity adds a random Attack to hand whenever you play an Attack — in Claw builds playing 10+ attacks per turn, Calamity floods the hand with additional Attacks, fueling further plays."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Calamity",
+      "bonus": 1.8,
+      "reason": "Calamity generates a random Attack per attack played — Claw builds play many attacks per turn, making Calamity provide a cascade of additional Attacks every turn."
+    },
+    {
+      "deckCard": "Calamity",
+      "offeredCard": "Panache",
+      "bonus": 1.5,
+      "reason": "Calamity floods hand with attacks — more attacks in hand means more cards played per turn, accelerating Panache's 10-AoE-per-5-cards trigger rate."
+    },
+    {
+      "deckCard": "Fisticuffs",
+      "offeredCard": "Inflame",
+      "bonus": 1.8,
+      "reason": "Fisticuffs gains Block equal to damage dealt — Inflame adds permanent Strength, making Fisticuffs deal more damage AND gain more Block with every Strength point added."
+    },
+    {
+      "deckCard": "Inflame",
+      "offeredCard": "Fisticuffs",
+      "bonus": 1.8,
+      "reason": "Fisticuffs deals damage and gains equal Block — Inflame's permanent Strength increases both Fisticuffs' damage and Block gain simultaneously with each point of Strength."
+    },
+    {
+      "deckCard": "Fisticuffs",
+      "offeredCard": "Juggernaut",
+      "bonus": 1.5,
+      "reason": "Fisticuffs gains Block equal to damage — Juggernaut deals damage whenever you gain Block. Fisticuffs gaining 7+ Block triggers Juggernaut for free damage simultaneously."
+    },
+    {
+      "deckCard": "Juggernaut",
+      "offeredCard": "Fisticuffs",
+      "bonus": 1.5,
+      "reason": "Juggernaut deals damage on Block gain — Fisticuffs gains Block equal to damage dealt, triggering Juggernaut every play for additional damage on top of Fisticuffs itself."
+    },
+    {
+      "deckCard": "Prowess",
+      "offeredCard": "Celestial Might",
+      "bonus": 1.5,
+      "reason": "Prowess gives permanent Strength and Dexterity — Celestial Might hits 3 times, applying Strength to each hit. Prowess adds +3 total damage to Celestial Might immediately."
+    },
+    {
+      "deckCard": "Prowess",
+      "offeredCard": "Seven Stars",
+      "bonus": 1.8,
+      "reason": "Prowess gives permanent Strength — Seven Stars hits 49 times across all enemies. Even 1 Strength from Prowess adds 49 total damage to Seven Stars."
+    },
+    {
+      "deckCard": "Seven Stars",
+      "offeredCard": "Prowess",
+      "bonus": 1.8,
+      "reason": "Seven Stars' 49 multi-hits multiply every point of Strength — Prowess gives +1 permanent Strength, adding 49 damage to Seven Stars per Prowess played."
+    },
+    {
+      "deckCard": "Prowess",
+      "offeredCard": "Rattle",
+      "bonus": 1.5,
+      "reason": "Prowess gives Strength and Dexterity — Rattle multi-hits scale with Strength. Prowess directly improves every Rattle hit while also improving all Block cards with Dexterity."
+    },
+    {
+      "deckCard": "Equilibrium",
+      "offeredCard": "Body Slam",
+      "bonus": 1.8,
+      "reason": "Equilibrium retains your hand — Body Slam deals damage equal to current Block. Playing Equilibrium (13 Block) then retaining Body Slam means next turn Body Slam hits for at least 13 more damage."
+    },
+    {
+      "deckCard": "Body Slam",
+      "offeredCard": "Equilibrium",
+      "bonus": 1.8,
+      "reason": "Body Slam deals damage equal to Block — Equilibrium gives 13 Block AND retains your hand including Body Slam, setting up a massive Body Slam hit next turn."
+    },
+    {
+      "deckCard": "Equilibrium",
+      "offeredCard": "Calculated Gamble",
+      "bonus": 1.5,
+      "reason": "Equilibrium retains your entire hand — Calculated Gamble discards hand and draws same amount. After Equilibrium, you can play Calculated Gamble next turn with a full retained hand for massive Sly triggers."
+    },
+    {
+      "deckCard": "Calculated Gamble",
+      "offeredCard": "Equilibrium",
+      "bonus": 1.5,
+      "reason": "Calculated Gamble discards and redraws — Equilibrium retains the hand first, giving you full control over timing the Sly-trigger explosion that Calculated Gamble enables."
+    },
+    {
+      "deckCard": "Salvo",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.5,
+      "reason": "Salvo retains your hand this turn — with Sly cards like Acrobatics retained, next turn you play them naturally then discard triggers all Sly effects for free."
+    },
+    {
+      "deckCard": "Acrobatics",
+      "offeredCard": "Salvo",
+      "bonus": 1.5,
+      "reason": "Acrobatics enables Sly triggers via discard — Salvo retains your entire hand including Sly cards, setting up a perfect next turn where you control exactly which Sly cards trigger."
+    },
+    {
+      "deckCard": "Eternal Armor",
+      "offeredCard": "Necro Mastery",
+      "bonus": 1.5,
+      "reason": "Necro Mastery converts Osty HP loss to enemy HP loss — Eternal Armor's Plating reduces damage Osty takes per hit, meaning Osty survives longer and Necro Mastery triggers more consistently each fight."
+    },
+    {
+      "deckCard": "Necro Mastery",
+      "offeredCard": "Eternal Armor",
+      "bonus": 1.5,
+      "reason": "Eternal Armor gives 7 Plating (flat damage reduction per hit) — this protects Osty from taking HP damage, allowing Necro Mastery to convert only intended HP losses (Sacrifice, Bone Shards) to AoE."
+    },
+    {
+      "deckCard": "Eternal Armor",
+      "offeredCard": "Barricade",
+      "bonus": 1.5,
+      "reason": "Eternal Armor gives permanent Plating — Barricade retains Block between turns. Both provide durable defense that accumulates; Plating reduces incoming damage so Barricade's Block erodes slower."
+    },
+    {
+      "deckCard": "Barricade",
+      "offeredCard": "Eternal Armor",
+      "bonus": 1.5,
+      "reason": "Eternal Armor's Plating reduces damage taken per hit — Barricade retains Block each turn. With Plating absorbing part of hits, Barricade's retained Block erodes far more slowly."
+    },
+    {
+      "deckCard": "Beat Down",
+      "offeredCard": "Whirlwind",
+      "bonus": 1.8,
+      "reason": "Beat Down plays 3 random Attacks from Discard — if Whirlwind is in Discard, Beat Down can replay it for free, dealing X-cost multi-hit AoE damage without spending any Energy."
+    },
+    {
+      "deckCard": "Whirlwind",
+      "offeredCard": "Beat Down",
+      "bonus": 1.8,
+      "reason": "Beat Down replays Attacks from Discard — Whirlwind in Discard can be replayed by Beat Down for free multi-hit AoE without spending the X Energy cost."
+    },
+    {
+      "deckCard": "Beat Down",
+      "offeredCard": "Seven Stars",
+      "bonus": 1.8,
+      "reason": "Beat Down plays 3 random Attacks from Discard — if Seven Stars is in Discard, Beat Down replays it for free, dealing 49 AoE hits without spending 3 Energy."
+    },
+    {
+      "deckCard": "Alchemize",
+      "offeredCard": "Neurosurge",
+      "bonus": 1.5,
+      "reason": "Alchemize provides a free potion — energy potions pair with Neurosurge's already massive Energy output, potentially enabling enormous 10+ Energy turns in Necrobinder builds."
+    },
+    {
+      "deckCard": "Production",
+      "offeredCard": "Void Form",
+      "bonus": 1.8,
+      "reason": "Void Form costs 3 Energy but makes first 2 cards free each turn — Production gives 2 free Energy to help pay for Void Form's setup cost on the turn you install it."
+    },
+    {
+      "deckCard": "Void Form",
+      "offeredCard": "Production",
+      "bonus": 1.8,
+      "reason": "Void Form is expensive at 3 Energy — Production provides 2 free Energy to help install it on the same turn you play other cards, removing the tempo loss of playing an expensive Power."
+    },
+    {
+      "deckCard": "Scrawl",
+      "offeredCard": "Death March",
+      "bonus": 2.0,
+      "reason": "Scrawl draws cards until hand is full (5-7 draws) — Death March deals 3 bonus damage per card drawn this turn. Scrawl alone adds 15-21 damage to Death March for 0 Energy."
+    },
+    {
+      "deckCard": "Death March",
+      "offeredCard": "Scrawl",
+      "bonus": 2.0,
+      "reason": "Death March scales with cards drawn this turn — Scrawl draws until hand is full for 0 Energy, adding up to 21 bonus damage to Death March in one play."
     }
   ],
   "dupePenalties": {
