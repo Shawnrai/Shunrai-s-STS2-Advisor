@@ -474,6 +474,7 @@ function renderDeckRelics() {
       equippedRelics.splice(idx, 1);
       renderDeckRelics();
       saveDeck();
+      maybeRefreshRewards();
     });
   });
 }
@@ -716,7 +717,7 @@ function renderDeck() {
     const el = document.createElement('div');
     el.className = 'deck-entry';
     el.innerHTML = `<div class="grade-pip" style="background:${gradeColor(grade)}"></div><span>${card.name}</span><span class="rm">✕</span>`;
-    el.addEventListener('click', () => { deck.splice(i,1); renderDeck(); maybeRefreshRemoval(); });
+    el.addEventListener('click', () => { deck.splice(i,1); renderDeck(); maybeRefreshRemoval(); maybeRefreshRewards(); });
     list.appendChild(el);
   }
 
@@ -1184,7 +1185,7 @@ document.getElementById('removal-results').addEventListener('click', e => {
     btn.textContent = '✓ Removed';
     btn.disabled = true;
     renderDeck();
-    setTimeout(() => analyzeRemoval(), 150);
+    setTimeout(() => { analyzeRemoval(); maybeRefreshRewards(); }, 150);
   }
 });
 document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
@@ -1196,6 +1197,11 @@ function isRemovalActive() {
 }
 function maybeRefreshRemoval() {
   if (isRemovalActive()) analyzeRemoval();
+}
+function maybeRefreshRewards() {
+  if (document.getElementById('pane-rewards').classList.contains('on')) {
+    analyze('reward'); analyzeRelics();
+  }
 }
 
 
@@ -1220,6 +1226,8 @@ document.querySelectorAll('.tab').forEach(t => {
     renderDeck();
     btn.textContent = '✓ Added'; btn.disabled=true;
     maybeRefreshRemoval();
+    // Refresh all reward results so relic scores update with new deck card
+    if (id === 'reward-results') setTimeout(() => { analyze('reward'); analyzeRelics(); }, 350);
     setTimeout(() => { btn.textContent = '+ Deck'; btn.disabled=false; }, 1000);
   });
 });
@@ -1235,6 +1243,8 @@ document.getElementById('reward-relic-result').addEventListener('click', e => {
     saveDeck();
   }
   btn.textContent = '✓ Equipped'; btn.disabled = true;
+  // Refresh all reward results so card scores update with new relic
+  setTimeout(() => { analyze('reward'); analyzeRelics(); }, 350);
   setTimeout(() => { btn.textContent = '◈ Equip'; btn.disabled = false; }, 1000);
 });
 
@@ -1242,7 +1252,7 @@ document.getElementById('reward-relic-result').addEventListener('click', e => {
 makeAC(
   document.getElementById('deck-search'),
   document.getElementById('deck-ac'),
-  name => { deck.push({name}); renderDeck(); maybeRefreshRemoval(); }
+  name => { deck.push({name}); renderDeck(); maybeRefreshRemoval(); maybeRefreshRewards(); }
 );
 
 // Keyboard shortcuts
