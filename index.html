@@ -283,6 +283,7 @@ input[type=number]{width:60px}
           <button id="enc-sort-tier"   onclick="setEncSort('tier')"   style="background:rgba(200,149,46,.12);border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">★ Tier</button>
           <button id="enc-sort-combos" onclick="setEncSort('combos')" style="background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">⚡ Combos</button>
         </span>
+        <button id="enc-colorless-btn" onclick="toggleEncColorless()" style="background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer;letter-spacing:.04em;transition:all .15s">◈ Colorless</button>
         <span id="enc-stats" style="font-size:.78rem;color:var(--text3);margin-left:auto"></span>
       </div>
       <div id="encyclopedia-results" style="display:flex;flex-direction:column;gap:6px"></div>
@@ -830,7 +831,7 @@ function loadStarters() {
   deck = (STARTERS[ch] || []).map(name => ({name}));
 }
 
-document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); encArchFilter='all'; if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
 document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
@@ -924,8 +925,9 @@ document.getElementById('clear-save-btn').addEventListener('click', () => {
 });
 
 // ── ENCYCLOPEDIA ──────────────────────────────────────────────────
-let encSortMode   = 'tier';
-let encArchFilter = 'all';
+let encSortMode      = 'tier';
+let encArchFilter    = 'all';
+let encShowColorless = false;
 
 function setEncSort(mode) {
   encSortMode = mode;
@@ -941,6 +943,20 @@ function setEncSort(mode) {
 function setEncFilter(arch) {
   encArchFilter = arch;
   document.querySelectorAll('.enc-filter-btn').forEach(b => b.classList.toggle('on', b.dataset.arch === arch));
+  renderEncyclopedia();
+}
+
+function toggleEncColorless() {
+  encShowColorless = !encShowColorless;
+  encArchFilter = 'all';
+  const btn = document.getElementById('enc-colorless-btn');
+  if (btn) {
+    btn.style.background  = encShowColorless ? 'rgba(200,149,46,.12)' : 'transparent';
+    btn.style.borderColor = encShowColorless ? 'var(--gold)'          : 'var(--border2)';
+    btn.style.color       = encShowColorless ? 'var(--gold2)'         : 'var(--text2)';
+  }
+  const fe = document.getElementById('enc-arch-filters');
+  if (fe) { fe.dataset.built = ''; fe.dataset.char = ''; }
   renderEncyclopedia();
 }
 
@@ -972,31 +988,65 @@ function renderEncyclopedia() {
   const searchVal = (document.getElementById('enc-search')?.value||'').trim().toLowerCase();
   if (!el) return;
 
-  const charCards = DB.cards[ch] || {};
   const TIER_ORDER = {S:0,A:1,B:2,C:3,D:4,F:5};
-
-  // Build arch filter buttons
-  const filtersEl = document.getElementById('enc-arch-filters');
-  if (filtersEl && !filtersEl.dataset.built || filtersEl.dataset.char !== ch) {
-    const archs = new Set();
-    Object.values(charCards).forEach(c => (c.builds||[]).filter(b=>b!=='any').forEach(b=>archs.add(b)));
-    filtersEl.innerHTML = '';
-    ['all',...archs].forEach(arch => {
-      const b = document.createElement('button');
-      b.className = 'enc-filter-btn' + (encArchFilter===arch?' on':'');
-      b.dataset.arch = arch;
-      b.textContent = arch==='all' ? 'All' : (BUILD_TAGS[arch] ? BUILD_TAGS[arch].emoji+' '+BUILD_TAGS[arch].label : arch);
-      b.onclick = () => setEncFilter(arch);
-      filtersEl.appendChild(b);
-    });
-    filtersEl.dataset.built = '1';
-    filtersEl.dataset.char  = ch;
+  const COLORLESS_TYPES = ['Uncommon','Rare','Ancient','Token','Status','Curse','Quest','Event'];
+  const COLORLESS_TOKENS  = new Set(['Fuel','Giant Rock','Luminesce','Minion Dive Bomb','Minion Sacrifice','Minion Strike','Shiv','Soul','Sovereign Blade','Sweeping Gaze']);
+  const COLORLESS_EVENTS  = new Set(['Byrd Swoop','Enlightenment','Exterminate','Feeding Frenzy','Metamorphosis','Peck','Squash','Toric Toughness']);
+  const COLORLESS_ANCIENTS= new Set(['Apotheosis','Apparition','Brightest Flame','Maul',"Neow's Fury",'Relax','Whistle','Wish']);
+  const COLORLESS_STATUSES= new Set(['Beckon','Burn','Dazed','Debris','Disintegration','Frantic Escape','Infection','Mind Rot','Slimed','Sloth','Soot','Toxic','Void','Waste Away','Wound']);
+  const COLORLESS_CURSES  = new Set(["Ascender's Bane",'Bad Luck','Clumsy','Curse of the Bell','Debt','Decay','Doubt','Enthralled','Folly','Greed','Guilty','Injury','Normality','Poor Sleep','Regret','Shame','Spore Mind','Writhe']);
+  const COLORLESS_QUESTS  = new Set(['Byrdonis Egg','Lantern Key','Spoils Map']);
+  function getColorlessType(card) {
+    if (COLORLESS_CURSES.has(card.id))   return 'Curse';
+    if (COLORLESS_STATUSES.has(card.id)) return 'Status';
+    if (COLORLESS_QUESTS.has(card.id))   return 'Quest';
+    if (COLORLESS_TOKENS.has(card.id))   return 'Token';
+    if (COLORLESS_EVENTS.has(card.id))   return 'Event';
+    if (COLORLESS_ANCIENTS.has(card.id)) return 'Ancient';
+    // Rarity by tier: S/A/B are Rare, rest Uncommon (rough heuristic)
+    return ['S','A','B'].includes(card.tier) ? 'Rare' : 'Uncommon';
   }
 
-  let cards = Object.values(charCards).map(card => ({card, combos: getComboCount(card.id)}));
+  const poolCards = encShowColorless ? (DB.cards.colorless || {}) : (DB.cards[ch] || {});
+  const cacheKey  = encShowColorless ? '__colorless__' : ch;
 
-  if (encArchFilter !== 'all')
-    cards = cards.filter(({card}) => (card.builds||[]).includes(encArchFilter));
+  const filtersEl = document.getElementById('enc-arch-filters');
+  if (filtersEl && (filtersEl.dataset.built !== '1' || filtersEl.dataset.char !== cacheKey)) {
+    filtersEl.innerHTML = '';
+    if (encShowColorless) {
+      ['all', ...COLORLESS_TYPES].forEach(type => {
+        const b = document.createElement('button');
+        b.className = 'enc-filter-btn' + (encArchFilter===type?' on':'');
+        b.dataset.arch = type;
+        b.textContent = type === 'all' ? 'All' : type;
+        b.onclick = () => setEncFilter(type);
+        filtersEl.appendChild(b);
+      });
+    } else {
+      const archs = new Set();
+      Object.values(poolCards).forEach(c => (c.builds||[]).filter(b=>b!=='any').forEach(b=>archs.add(b)));
+      ['all',...archs].forEach(arch => {
+        const b = document.createElement('button');
+        b.className = 'enc-filter-btn' + (encArchFilter===arch?' on':'');
+        b.dataset.arch = arch;
+        b.textContent = arch==='all' ? 'All' : (BUILD_TAGS[arch] ? BUILD_TAGS[arch].emoji+' '+BUILD_TAGS[arch].label : arch);
+        b.onclick = () => setEncFilter(arch);
+        filtersEl.appendChild(b);
+      });
+    }
+    filtersEl.dataset.built = '1';
+    filtersEl.dataset.char  = cacheKey;
+  }
+
+  let cards = Object.values(poolCards).map(card => ({card, combos: getComboCount(card.id)}));
+
+  if (encArchFilter !== 'all') {
+    if (encShowColorless) {
+      cards = cards.filter(({card}) => getColorlessType(card) === encArchFilter);
+    } else {
+      cards = cards.filter(({card}) => (card.builds||[]).includes(encArchFilter));
+    }
+  }
   if (searchVal.length >= 1)
     cards = cards.filter(({card}) => card.id.toLowerCase().includes(searchVal));
 

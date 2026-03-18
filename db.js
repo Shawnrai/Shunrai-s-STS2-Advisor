@@ -9318,37 +9318,19 @@ const DB = {
         ],
         "role": "engine"
       },
-      "BLIND": {
-        "id": "Blind",
-        "tier": "B",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "weak",
-          "debuff"
-        ],
-        "anti": [],
-        "notes": "Apply Weak to all enemies. Excellent AoE debuff.",
-        "mech": [
-          "weak",
-          "aoe",
-          "debuff"
-        ],
-        "role": "generator"
-      },
       "FLASH_OF_STEEL": {
-        "id": "Flash Of Steel",
+        "id": "Flash of Steel",
         "tier": "B",
         "builds": [
+          "claw",
           "any"
         ],
         "syn": [
-          "damage",
-          "draw"
+          "draw",
+          "damage"
         ],
         "anti": [],
-        "notes": "Attack + draw. Universal filler.",
+        "notes": "Deal 5 damage. Draw 1 card. B-tier — 0-cost damage and draw. Perfect in Claw Defect builds for Scrape cycling.",
         "mech": [
           "damage",
           "draw"
@@ -9356,172 +9338,76 @@ const DB = {
         "role": "generator"
       },
       "JACK_OF_ALL_TRADES": {
-        "id": "Jack Of All Trades",
-        "tier": "B",
+        "id": "Jack of All Trades",
+        "tier": "C",
         "builds": [
           "any"
         ],
         "syn": [
-          "draw",
-          "scaling"
+          "any"
         ],
         "anti": [],
-        "notes": "Colorless card to hand. Flexible.",
+        "notes": "Add 1 random Colorless card to Hand. Exhaust. C-tier — random value. Occasionally hits Apotheosis or Apparition for huge upside.",
         "mech": [
-          "draw"
+          "exhaust"
         ],
         "role": "generator"
       },
       "APOTHEOSIS": {
         "id": "Apotheosis",
-        "tier": "B",
+        "tier": "S",
         "builds": [
           "any"
         ],
         "syn": [
-          "scaling"
+          "scaling",
+          "exhaust"
         ],
         "anti": [],
-        "notes": "Upgrade all cards in deck. Very powerful mid-run.",
+        "notes": "Innate. Upgrade ALL cards. Exhaust. S-tier — instant full deck upgrade mid-combat. Turns every card into its upgraded form for the rest of the fight.",
         "mech": [
           "upgrade",
-          "permanent_scaling"
-        ],
-        "role": "engine"
-      },
-      "PANACEA": {
-        "id": "Panacea",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [],
-        "anti": [],
-        "notes": "Remove 1 debuff. Situational.",
-        "mech": [],
-        "role": "generator"
-      },
-      "GOOD_INSTINCTS": {
-        "id": "Good Instincts",
-        "tier": "B",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "block"
-        ],
-        "anti": [],
-        "notes": "Innate 6 block. Always in first hand.",
-        "mech": [
-          "block",
+          "exhaust",
           "innate"
         ],
-        "role": "generator"
-      },
-      "BANDAGE_UP": {
-        "id": "Bandage Up",
-        "tier": "C",
-        "builds": [
-          "self_damage"
-        ],
-        "syn": [
-          "self_damage"
-        ],
-        "anti": [],
-        "notes": "Heal 4 HP, exhaust. Good in self-damage builds.",
-        "mech": [],
-        "role": "payoff"
+        "role": "engine"
       },
       "PANACHE": {
         "id": "Panache",
-        "tier": "B",
+        "tier": "S",
         "builds": [
           "claw",
-          "shiv",
+          "sly",
           "any"
         ],
         "syn": [
-          "zero_cost",
           "aoe",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "10 AoE per 5 cards played. Amazing in high-volume decks.",
-        "mech": [
-          "aoe",
-          "per_card_payoff"
-        ],
-        "role": "payoff"
-      },
-      "VIOLENCE": {
-        "id": "Violence",
-        "tier": "B",
-        "builds": [
-          "claw",
-          "any"
-        ],
-        "syn": [
-          "zero_cost",
           "damage",
-          "draw"
-        ],
-        "anti": [],
-        "notes": "Add 3 attacks from draw pile to hand. Cycling for attack-heavy decks.",
-        "mech": [
-          "draw",
-          "damage"
-        ],
-        "role": "generator"
-      },
-      "MADNESS": {
-        "id": "Madness",
-        "tier": "B",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "draw",
           "scaling"
         ],
         "anti": [],
-        "notes": "Make random card in hand free. Situational but can enable big turns.",
+        "notes": "Every 5 cards played in a turn, deal 10 AoE. S-tier — in Claw or Sly builds playing 10+ cards per turn, Panache deals 20-30 free AoE every turn passively.",
         "mech": [
-          "cost_reduction"
+          "aoe",
+          "passive"
         ],
         "role": "engine"
       },
-      "FORETHOUGHT": {
-        "id": "Forethought",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "draw",
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "Put card from hand at bottom of draw pile. Deck manipulation.",
-        "mech": [
-          "deck_manipulation"
-        ],
-        "role": "generator"
-      },
       "DRAMATIC_ENTRANCE": {
         "id": "Dramatic Entrance",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "any"
         ],
         "syn": [
-          "damage",
-          "aoe"
+          "aoe",
+          "damage"
         ],
         "anti": [],
-        "notes": "Innate 8 AoE exhaust. First hand AoE.",
+        "notes": "Innate. Deal 11 AoE damage. Exhaust. B-tier — always in opening hand and deals 11 AoE for free. Great first-turn swing in any fight.",
         "mech": [
-          "damage",
           "aoe",
+          "damage",
           "innate",
           "exhaust"
         ],
@@ -9529,36 +9415,20 @@ const DB = {
       },
       "SECRET_WEAPON": {
         "id": "Secret Weapon",
-        "tier": "C",
+        "tier": "A",
         "builds": [
+          "claw",
           "any"
         ],
         "syn": [
-          "damage"
+          "exhaust",
+          "draw"
         ],
         "anti": [],
-        "notes": "Innate. Attack that reveals your deck.",
+        "notes": "Put an Attack from Draw Pile into Hand. Exhaust. A-tier — tutors any Attack on demand. In Claw builds pulls All for One; in Ironclad finds Whirlwind or Thrash.",
         "mech": [
-          "damage",
-          "innate"
-        ],
-        "role": "generator"
-      },
-      "TRIP": {
-        "id": "Trip",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "vulnerable",
-          "debuff"
-        ],
-        "anti": [],
-        "notes": "Vulnerable all enemies for 1 energy.",
-        "mech": [
-          "vulnerable",
-          "aoe"
+          "draw",
+          "exhaust"
         ],
         "role": "generator"
       },
@@ -9572,64 +9442,34 @@ const DB = {
           "damage"
         ],
         "anti": [],
-        "notes": "Damage = deck size. Good in thick decks.",
+        "notes": "Innate. Deal damage equal to Draw Pile size. C-tier — always in opening hand, deals 15-20 early. Weakens as deck gets thinner.",
         "mech": [
           "damage",
-          "conditional"
+          "innate"
         ],
         "role": "payoff"
       },
-      "TRANSMUTATION": {
-        "id": "Transmutation",
-        "tier": "C",
-        "builds": [
-          "any"
-        ],
-        "syn": [
-          "scaling"
-        ],
-        "anti": [],
-        "notes": "X-cost: add X colorless cards. Variable value.",
-        "mech": [
-          "draw"
-        ],
-        "role": "generator"
-      },
       "THINKING_AHEAD": {
         "id": "Thinking Ahead",
-        "tier": "C",
+        "tier": "A",
         "builds": [
           "any"
         ],
         "syn": [
           "draw",
-          "scaling"
+          "exhaust"
         ],
         "anti": [],
-        "notes": "Draw 2, put 1 on bottom. Deck manipulation.",
+        "notes": "Draw 2. Put 1 card on top of Draw Pile. Exhaust. A-tier — draw filtering that ensures your next draw is exactly what you want. Great for setting up combo turns.",
         "mech": [
           "draw",
-          "deck_manipulation"
-        ],
-        "role": "generator"
-      },
-      "DEEP_BREATH": {
-        "id": "Deep Breath",
-        "tier": "D",
-        "builds": [
-          "any"
-        ],
-        "syn": [],
-        "anti": [],
-        "notes": "Shuffle discard + draw 1. Too slow.",
-        "mech": [
-          "draw"
+          "exhaust"
         ],
         "role": "generator"
       },
       "HAND_OF_GREED": {
-        "id": "Hand Of Greed",
-        "tier": "C",
+        "id": "Hand of Greed",
+        "tier": "S",
         "builds": [
           "any"
         ],
@@ -9637,85 +9477,1817 @@ const DB = {
           "damage"
         ],
         "anti": [],
-        "notes": "Damage + gold if kills. Decent tempo.",
+        "notes": "Deal 20 damage. If Fatal, gain 20 Gold. S-tier — reliable 20 damage with meaningful gold upside on kills. Strong in any deck.",
         "mech": [
-          "damage"
+          "damage",
+          "gold"
         ],
         "role": "payoff"
       },
       "THE_BOMB": {
         "id": "The Bomb",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "aoe",
+          "damage"
+        ],
+        "anti": [],
+        "notes": "Deal 40 AoE damage after 3 turns. C-tier — massive damage but 3-turn delay. Reliable in long fights, risky in short ones.",
+        "mech": [
+          "aoe",
+          "damage",
+          "delayed"
+        ],
+        "role": "payoff"
+      },
+      "APPARITION": {
+        "id": "Apparition",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "syn": [
+          "block",
+          "ethereal",
+          "exhaust"
+        ],
+        "anti": [],
+        "notes": "Ethereal. Gain 1 Intangible. Exhaust. A-tier — Intangible blocks ALL damage this turn to 1. Ancient. Against massive boss hits, this is essential.",
+        "mech": [
+          "intangible",
+          "exhaust",
+          "ethereal"
+        ],
+        "role": "generator"
+      },
+      "AUTOMATION": {
+        "id": "Automation",
         "tier": "B",
         "builds": [
           "any"
         ],
+        "role": "engine",
         "syn": [
-          "damage"
+          "draw",
+          "energy_gain"
         ],
         "anti": [],
-        "notes": "After 3 turns deal 40 damage. Useful setup card.",
         "mech": [
-          "damage"
+          "energy_gain",
+          "passive"
         ],
-        "role": "payoff"
+        "notes": "Every 10 cards drawn, gain Energy. B-tier — in draw-heavy decks like Sly Silent or Claw Defect, triggers every 1-2 turns for free Energy."
       },
-      "SADISTIC_NATURE": {
-        "id": "Sadistic Nature",
-        "tier": "C",
-        "builds": [
-          "doom",
-          "poison",
-          "any"
-        ],
-        "syn": [
-          "debuff",
-          "damage"
-        ],
+      "BELIEVE_IN_YOU": {
+        "id": "Believe in You",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
         "anti": [],
-        "notes": "5 damage when debuff applied. Passive with debuff builds.",
         "mech": [
-          "damage",
-          "debuff_payoff"
+          "energy_gain"
         ],
-        "role": "payoff"
+        "notes": "Another player gains 3 Energy. D-tier — no solo value. Multiplayer only."
       },
-      "WISDOM": {
-        "id": "Wisdom",
+      "CATASTROPHE": {
+        "id": "Catastrophe",
         "tier": "C",
         "builds": [
           "any"
         ],
+        "role": "generator",
         "syn": [
           "draw"
         ],
         "anti": [],
-        "notes": "Draw 1 per turn. Slow but consistent.",
+        "mech": [
+          "random"
+        ],
+        "notes": "Play 2 random cards from Draw Pile. C-tier — can be powerful with a lean deck but too random for consistent use."
+      },
+      "COORDINATE": {
+        "id": "Coordinate",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "strength"
+        ],
+        "notes": "Give another player 5 Strength this turn. D-tier — no solo value."
+      },
+      "DARK_SHACKLES": {
+        "id": "Dark Shackles",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "debuff",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "debuff",
+          "exhaust"
+        ],
+        "notes": "Enemy loses 9 Strength this turn. Exhaust. A-tier — neutralizes high-Strength enemies for one turn. Massive defensive swing against elites and bosses."
+      },
+      "DISCOVERY": {
+        "id": "Discovery",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "any"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Choose 1 of 3 random cards to add to Hand, free this turn. Exhaust. A-tier — free card this turn from any class pool. Flexible and generates immediate value."
+      },
+      "EQUILIBRIUM": {
+        "id": "Equilibrium",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "retain"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "retain"
+        ],
+        "notes": "Gain 13 Block. Retain your Hand this turn. C-tier — high Block plus Retain is useful for setting up big turns, but 2 Energy is steep for just Block."
+      },
+      "FASTEN": {
+        "id": "Fasten",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Gain 5 additional Block from Defend cards. D-tier — only useful if you have many Defends, which you should be removing."
+      },
+      "FINESSE": {
+        "id": "Finesse",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "draw"
+        ],
+        "notes": "Gain 4 Block. Draw 1 card. B-tier — cheap, efficient dual-purpose card. Block and draw at 0 cost is always good."
+      },
+      "FISTICUFFS": {
+        "id": "Fisticuffs",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "damage"
+        ],
+        "notes": "Deal 7 damage. Gain Block equal to damage dealt. B-tier — 7 damage plus 7 Block in one card. Especially good with Strength scaling."
+      },
+      "GANG_UP": {
+        "id": "Gang Up",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Deal 5 damage, plus 5 per other player attack. D-tier — multiplayer only scaling. No solo value."
+      },
+      "HUDDLE_UP": {
+        "id": "Huddle Up",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "draw"
+        ],
+        "notes": "ALL allies draw 2 cards. D-tier — multiplayer only. No solo benefit."
+      },
+      "IMPATIENCE": {
+        "id": "Impatience",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "conditional"
+        ],
+        "notes": "If you have no Attacks in Hand, draw 2 cards. C-tier — conditional draw. Reliable in Skill-heavy builds like Sly."
+      },
+      "INTERCEPT": {
+        "id": "Intercept",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Gain 9 Block. Redirect attacks from other players to you. D-tier — multiplayer mechanic. Solo: just 9 Block for 1 Energy which is okay but not worth a slot."
+      },
+      "LIFT": {
+        "id": "Lift",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Give another player 11 Block. D-tier — multiplayer only. No solo value."
+      },
+      "OMNISLICE": {
+        "id": "Omnislice",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "aoe",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "aoe"
+        ],
+        "notes": "Deal 8 damage. Deal that much AoE to all other enemies. B-tier — effectively 8 to primary plus 8 AoE to rest. Great multi-enemy value."
+      },
+      "PANIC_BUTTON": {
+        "id": "Panic Button",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Gain 30 Block. Cannot gain Block for 2 turns. Exhaust. C-tier — massive emergency Block but the 2-turn Block lockout is crippling."
+      },
+      "PREP_TIME": {
+        "id": "Prep Time",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "strength",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "strength",
+          "passive"
+        ],
+        "notes": "At start of turn, gain 4 Vigor (temp Strength). B-tier — free 4 Vigor every turn. Greatly boosts multi-hit attacks."
+      },
+      "PRODUCTION": {
+        "id": "Production",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "exhaust"
+        ],
+        "notes": "Gain 2 Energy. Exhaust. B-tier — free 2 Energy once per fight. Enables massive single-turn plays when needed."
+      },
+      "PROLONG": {
+        "id": "Prolong",
+        "tier": "C",
+        "builds": [
+          "block",
+          "stars"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Next turn, gain Block equal to current Block. Exhaust. C-tier — doubles current Block next turn. Powerful in Block builds with Barricade or Particle Wall."
+      },
+      "PROWESS": {
+        "id": "Prowess",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "strength",
+          "dexterity",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "strength",
+          "dexterity",
+          "permanent_scaling"
+        ],
+        "notes": "Gain 1 Strength and 1 Dexterity. B-tier — permanent stat gains that buff every attack and block card for the rest of combat."
+      },
+      "PURITY": {
+        "id": "Purity",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "exhaust",
+          "deck_thin"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust",
+          "retain"
+        ],
+        "notes": "Retain. Exhaust up to 3 cards in Hand. Exhaust. C-tier — emergency deck thinner. Removes dead cards mid-combat. Pairs well with Seance in Necrobinder."
+      },
+      "RESTLESSNESS": {
+        "id": "Restlessness",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "energy_gain",
+          "retain"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "energy_gain",
+          "retain",
+          "conditional"
+        ],
+        "notes": "Retain. If Hand is empty, draw 2 and gain 2 Energy. C-tier — conditional on emptying hand which limits reliability."
+      },
+      "SEEKER_STRIKE": {
+        "id": "Seeker Strike",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "draw"
+        ],
+        "notes": "Deal 6 damage. Choose 1 of 3 Draw Pile cards to add to Hand. B-tier — damage plus tutoring. Find your engine card on demand."
+      },
+      "SHOCKWAVE": {
+        "id": "Shockwave",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "weak",
+          "vulnerable",
+          "exhaust",
+          "aoe"
+        ],
+        "anti": [],
+        "mech": [
+          "weak",
+          "vulnerable",
+          "exhaust",
+          "aoe"
+        ],
+        "notes": "Apply 3 Weak and 3 Vulnerable to ALL enemies. Exhaust. A-tier — AoE setup that doubles all damage and reduces all enemy damage simultaneously. Universal powerhouse."
+      },
+      "SPLASH": {
+        "id": "Splash",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "any"
+        ],
+        "anti": [],
+        "mech": [
+          "random"
+        ],
+        "notes": "Choose 1 of 3 random Attacks from another class, free this turn. C-tier — can hit class-exclusive powerhouses but too random for consistent value."
+      },
+      "STRATAGEM": {
+        "id": "Stratagem",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "draw",
+          "scaling"
+        ],
+        "anti": [],
         "mech": [
           "draw",
           "passive"
         ],
-        "role": "generator"
+        "notes": "Whenever you shuffle Draw Pile, choose a card from it to put in Hand. B-tier — consistent setup insurance every cycle. Always have your key card available."
       },
-      "APPARITION": {
-        "id": "Apparition",
+      "TAG_TEAM": {
+        "id": "Tag Team",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Deal 11 damage. Another player's next attack plays an extra time. D-tier — multiplayer only upside."
+      },
+      "THRUMMING_HATCHET": {
+        "id": "Thrumming Hatchet",
         "tier": "B",
         "builds": [
-          "exhaust",
-          "soul"
+          "any"
         ],
+        "role": "payoff",
         "syn": [
-          "exhaust",
-          "soul",
+          "damage",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "recurring"
+        ],
+        "notes": "Deal 11 damage. Returns to Hand at start of next turn. B-tier — recurring 11 damage every turn for 1 Energy. Consistent damage without requiring deck cycling."
+      },
+      "ULTIMATE_DEFEND": {
+        "id": "Ultimate Defend",
+        "tier": "D",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Gain 11 Block. D-tier — just Block with no secondary effect at 1 Energy. Worse than most character-specific block cards."
+      },
+      "ULTIMATE_STRIKE": {
+        "id": "Ultimate Strike",
+        "tier": "D",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Deal 14 damage. D-tier — plain damage with no secondary effect. Every character has better attack options."
+      },
+      "VOLLEY": {
+        "id": "Volley",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "x_cost"
+        ],
+        "notes": "Deal 10 damage X times. C-tier — scales with Energy. With 3 Energy, deals 30 damage. Fine but not worth a rare slot."
+      },
+      "ALCHEMIZE": {
+        "id": "Alchemize",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust"
+        ],
+        "notes": "Procure a random potion. Exhaust. B-tier — free potion once per fight is reliable value. Potions are strong in STS2."
+      },
+      "ANOINTED": {
+        "id": "Anointed",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Put every Rare card from Draw Pile into Hand. Exhaust. C-tier — situational. Great when you have many Rares, useless early run."
+      },
+      "BEACON_OF_HOPE": {
+        "id": "Beacon of Hope",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "passive"
+        ],
+        "notes": "Whenever you gain Block, other players gain half. D-tier — multiplayer only upside. Solo: no benefit."
+      },
+      "BEAT_DOWN": {
+        "id": "Beat Down",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "random"
+        ],
+        "notes": "Play 3 random Attacks from Discard Pile. C-tier — can chain strong attacks but randomness limits reliability."
+      },
+      "BOLAS": {
+        "id": "Bolas",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "recurring"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "recurring"
+        ],
+        "notes": "Deal 3 damage. Returns to Hand next turn. C-tier — very low damage for a recurring card. Falls off quickly."
+      },
+      "CALAMITY": {
+        "id": "Calamity",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "damage",
+          "any"
+        ],
+        "anti": [],
+        "mech": [
+          "passive"
+        ],
+        "notes": "Whenever you play an Attack, add a random Attack to Hand. C-tier — generates attacks but random. Good in Attack-heavy builds."
+      },
+      "ENTROPY": {
+        "id": "Entropy",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "any"
+        ],
+        "anti": [],
+        "mech": [
+          "transform",
+          "passive"
+        ],
+        "notes": "At start of turn, Transform 1 Hand card. C-tier — deck manipulation that can upgrade bad cards but can also destroy good ones. Too random."
+      },
+      "ETERNAL_ARMOR": {
+        "id": "Eternal Armor",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
           "scaling"
         ],
         "anti": [],
-        "notes": "Ethereal Intangible. Prevents damage once. Strong defensive option.",
         "mech": [
-          "damage_prevention",
+          "plating",
+          "permanent_scaling"
+        ],
+        "notes": "Gain 7 Plating (permanent flat damage reduction per hit). B-tier — Plating stacks and never expires. Extremely durable in long fights."
+      },
+      "GOLD_AXE": {
+        "id": "Gold Axe",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "Deal damage equal to cards played this combat. C-tier — scales across entire fight. With 30+ cards played, deals massive damage. Too slow early."
+      },
+      "HIDDEN_GEM": {
+        "id": "Hidden Gem",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "scaling",
+          "replay"
+        ],
+        "anti": [],
+        "mech": [
+          "replay"
+        ],
+        "notes": "A random Draw Pile card gains Replay 2. C-tier — Replay 2 means it plays 2 extra times. Hitting a key engine card is broken, hitting filler is wasted."
+      },
+      "JACKPOT": {
+        "id": "Jackpot",
+        "tier": "B",
+        "builds": [
+          "claw",
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "zero_cost"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "zero_cost"
+        ],
+        "notes": "Deal 25 damage. Add 3 random 0-cost cards to Hand. B-tier — strong damage plus 3 free 0-cost cards for cycling or Panache triggers."
+      },
+      "KNOCKDOWN": {
+        "id": "Knockdown",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "vulnerable"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "vulnerable"
+        ],
+        "notes": "Deal 10 damage. Enemy takes double damage from other players this turn. B-tier — great setup for multi-player or if you have follow-up attacks. 10 damage is solid base."
+      },
+      "MASTER_OF_STRATEGY": {
+        "id": "Master of Strategy",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Draw 3 cards. Exhaust. S-tier — draw 3 at 0 Energy then Exhaust. Best draw card in the game for any character."
+      },
+      "MAYHEM": {
+        "id": "Mayhem",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "any",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "passive"
+        ],
+        "notes": "At start of turn, play top card of Draw Pile. B-tier — free card every turn. Powerful with Stratagem to control what's on top."
+      },
+      "MIMIC": {
+        "id": "Mimic",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Gain Block equal to another player's Block. Exhaust. D-tier — multiplayer only value."
+      },
+      "NOSTALGIA": {
+        "id": "Nostalgia",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "scaling",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "passive",
+          "recursive"
+        ],
+        "notes": "First Attack or Skill each turn returns to top of Draw Pile. B-tier — ensures your best card is always available next turn. Recursive engine."
+      },
+      "RALLY": {
+        "id": "Rally",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "ALL players gain 12 Block. D-tier — in solo play, just 12 Block at Rare cost. Not worth it."
+      },
+      "REND": {
+        "id": "Rend",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "debuff"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "scaling"
+        ],
+        "notes": "Deal 15 damage + 5 per unique debuff on enemy. B-tier — with Shockwave (Weak+Vulnerable = 2 debuffs), deals 25 damage. With Putrefy or Debilitate, even more."
+      },
+      "ROLLING_BOULDER": {
+        "id": "Rolling Boulder",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "engine",
+        "syn": [
+          "aoe",
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "aoe",
+          "passive",
+          "scaling"
+        ],
+        "notes": "At start of turn, deal 5 AoE damage increasing by 5. B-tier — starts at 5 AoE, grows to 10, 15, 20+. In long fights this becomes a win condition."
+      },
+      "SALVO": {
+        "id": "Salvo",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "retain"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "retain"
+        ],
+        "notes": "Deal 12 damage. Retain Hand this turn. B-tier — solid damage with free hand retention for next turn setup."
+      },
+      "SCRAWL": {
+        "id": "Scrawl",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "draw",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Draw cards until Hand is full. Exhaust. S-tier — draws 5-7 cards to fill hand completely. In any build, this refuels an entire turn instantly."
+      },
+      "SECRET_TECHNIQUE": {
+        "id": "Secret Technique",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "exhaust",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Put a Skill from Draw Pile into Hand. Exhaust. A-tier — tutors any Skill on demand. Finds Barricade, Particle Wall, Void Form, Convergence exactly when needed."
+      },
+      "THE_GAMBIT": {
+        "id": "The Gambit",
+        "tier": "D",
+        "builds": [],
+        "role": "generator",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block"
+        ],
+        "notes": "Gain 50 Block. If you take unblocked damage this combat, die. D-tier — instant death condition makes this unplayable in most situations."
+      },
+      "BRIGHTEST_FLAME": {
+        "id": "Brightest Flame",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "energy_gain",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "draw"
+        ],
+        "notes": "Gain 2 Energy. Draw 2 cards. Lose 1 Max HP. B-tier — Ancient. Strong value (2 Energy + 2 draw) with manageable HP cost."
+      },
+      "MAUL": {
+        "id": "Maul",
+        "tier": "C",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit",
+          "scaling"
+        ],
+        "notes": "Deal 5 damage twice. All Maul cards deal 1 more damage this combat. Ancient. C-tier — weak without multiples. With 3+ Mauls, scaling becomes relevant."
+      },
+      "NEOWS_FURY": {
+        "id": "Neow's Fury",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "damage",
+          "draw",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Deal 10 damage. Put 2 random Discard cards into Hand. Exhaust. A-tier — Ancient. 10 damage plus card retrieval. Retrieves key cards exactly when needed."
+      },
+      "RELAX": {
+        "id": "Relax",
+        "tier": "A",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "block",
+          "draw",
+          "energy_gain",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "draw",
+          "energy_gain",
+          "exhaust"
+        ],
+        "notes": "Gain 15 Block. Next turn, draw 2 cards and gain 2 Energy. Exhaust. A-tier — Ancient. Massive defensive turn plus enormous setup for next turn."
+      },
+      "WHISTLE": {
+        "id": "Whistle",
+        "tier": "S",
+        "builds": [
+          "any"
+        ],
+        "role": "payoff",
+        "syn": [
+          "damage",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "stun",
+          "exhaust"
+        ],
+        "notes": "Deal 33 damage. Stun the enemy. Exhaust. S-tier — Ancient. 33 damage plus a full Stun (enemy skips turn) is among the most powerful single cards in the game."
+      },
+      "WISH": {
+        "id": "Wish",
+        "tier": "B",
+        "builds": [
+          "any"
+        ],
+        "role": "generator",
+        "syn": [
+          "any",
+          "exhaust"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Put any card from Draw Pile into Hand. Exhaust. B-tier — Ancient. Universal tutor with no restriction on card type. Finds your win condition on demand."
+      },
+      "BURN": {
+        "id": "Burn",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Unplayable. Take 2 damage at end of turn if in Hand."
+      },
+      "DAZED": {
+        "id": "Dazed",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status",
+          "ethereal"
+        ],
+        "notes": "Status. Unplayable. Ethereal — discards itself automatically."
+      },
+      "SLIMED": {
+        "id": "Slimed",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "draw",
+          "status_synergy"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust",
+          "status"
+        ],
+        "notes": "Status. Draw 1 card. Exhaust. Actually useful — draws a card when played (unlike other Status cards)."
+      },
+      "WOUND": {
+        "id": "Wound",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Unplayable dead card."
+      },
+      "VOID": {
+        "id": "Void",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "status_synergy"
+        ],
+        "anti": [],
+        "mech": [
+          "status",
+          "ethereal"
+        ],
+        "notes": "Status. Ethereal. Loses Energy when drawn. Used in Defect Status builds."
+      },
+      "BECKON": {
+        "id": "Beckon",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Lose 6 HP at end of turn if in Hand. Dangerous holdover."
+      },
+      "DEBRIS": {
+        "id": "Debris",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status",
+          "exhaust"
+        ],
+        "notes": "Status. Exhaust. Generated by Collision Course. Instantly removes itself."
+      },
+      "DISINTEGRATION": {
+        "id": "Disintegration",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Take 6 damage at end of turn. Very dangerous — remove immediately."
+      },
+      "FRANTIC_ESCAPE": {
+        "id": "Frantic Escape",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Gets farther away and costs more each turn. Avoid."
+      },
+      "INFECTION": {
+        "id": "Infection",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Unplayable. Take 3 damage at end of turn if in Hand."
+      },
+      "MIND_ROT": {
+        "id": "Mind Rot",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Draw 1 fewer card each turn. Devastating in draw-dependent builds."
+      },
+      "SLOTH": {
+        "id": "Sloth",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Cannot play more than 3 cards per turn. Crippling in Claw or Sly builds."
+      },
+      "SOOT": {
+        "id": "Soot",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Unplayable dead card."
+      },
+      "TOXIC": {
+        "id": "Toxic",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status",
+          "exhaust"
+        ],
+        "notes": "Status. Take 5 damage at end of turn if in Hand. Exhausts after triggering."
+      },
+      "WASTE_AWAY": {
+        "id": "Waste Away",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "status"
+        ],
+        "notes": "Status. Gain 1 less Energy per turn. Extremely punishing — remove immediately."
+      },
+      "ASCENDERS_BANE": {
+        "id": "Ascender's Bane",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "ethereal",
+          "eternal"
+        ],
+        "notes": "Curse. Unplayable, Ethereal, Eternal. Always in deck, always discarded. Minimal impact."
+      },
+      "BAD_LUCK": {
+        "id": "Bad Luck",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "eternal"
+        ],
+        "notes": "Curse. Lose 13 HP at end of turn if in Hand. Eternal. Extremely dangerous."
+      },
+      "CLUMSY": {
+        "id": "Clumsy",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "ethereal"
+        ],
+        "notes": "Curse. Unplayable. Ethereal — discards itself. Least harmful curse."
+      },
+      "CURSE_OF_THE_BELL": {
+        "id": "Curse of the Bell",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "eternal"
+        ],
+        "notes": "Curse. Unplayable, Eternal. Dead card forever in deck."
+      },
+      "DEBT": {
+        "id": "Debt",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Lose 10 Gold at end of turn if in Hand. Drains economy quickly."
+      },
+      "DECAY": {
+        "id": "Decay",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Take 2 damage at end of turn if in Hand."
+      },
+      "DOUBT": {
+        "id": "Doubt",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Gain 1 Weak at end of turn if in Hand. Debilitates offense."
+      },
+      "ENTHRALLED": {
+        "id": "Enthralled",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "eternal"
+        ],
+        "notes": "Curse. Must be played before other cards if in Hand. Eternal. Forces wasted Energy."
+      },
+      "FOLLY": {
+        "id": "Folly",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "eternal",
+          "innate"
+        ],
+        "notes": "Curse. Unplayable, Innate, Eternal. Always drawn, never leaves."
+      },
+      "GREED": {
+        "id": "Greed",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "eternal"
+        ],
+        "notes": "Curse. Unplayable, Eternal. Dead card forever."
+      },
+      "GUILTY": {
+        "id": "Guilty",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Unplayable. Removes itself after 5 combats. Self-limiting."
+      },
+      "INJURY": {
+        "id": "Injury",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Unplayable dead card."
+      },
+      "NORMALITY": {
+        "id": "Normality",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Cannot play more than 3 cards this turn. Different from Sloth — per turn not per round."
+      },
+      "POOR_SLEEP": {
+        "id": "Poor Sleep",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "retain"
+        ],
+        "notes": "Curse. Unplayable, Retain. Stays in hand turn after turn."
+      },
+      "REGRET": {
+        "id": "Regret",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Lose 1 HP per card in Hand at end of turn. Devastating with large hands."
+      },
+      "SHAME": {
+        "id": "Shame",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse"
+        ],
+        "notes": "Curse. Gain 1 Frail at end of turn if in Hand. Reduces Block gain."
+      },
+      "SPORE_MIND": {
+        "id": "Spore Mind",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "exhaust"
+        ],
+        "notes": "Curse. Exhaust. Removes itself when drawn — least harmful curse."
+      },
+      "WRITHE": {
+        "id": "Writhe",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "curse",
+          "innate"
+        ],
+        "notes": "Curse. Unplayable, Innate. Always in opening hand every combat."
+      },
+      "BYRDONIS_EGG": {
+        "id": "Byrdonis Egg",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "quest"
+        ],
+        "notes": "Quest card. Can be hatched at a Rest Site for rewards."
+      },
+      "LANTERN_KEY": {
+        "id": "Lantern Key",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "quest"
+        ],
+        "notes": "Quest card. Unlocks a special event in the next Act."
+      },
+      "SPOILS_MAP": {
+        "id": "Spoils Map",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [],
+        "anti": [],
+        "mech": [
+          "quest"
+        ],
+        "notes": "Quest card. Marks a site with 600 extra Gold in the next Act."
+      },
+      "FUEL": {
+        "id": "Fuel",
+        "tier": "D",
+        "builds": [
+          "status"
+        ],
+        "role": "utility",
+        "syn": [
+          "energy_gain",
+          "draw",
+          "status_synergy"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Token. Gain Energy and draw 1 card. Exhaust. Generated by Compact in Defect Status builds — each Fuel converts a dead Status into Energy+draw."
+      },
+      "GIANT_ROCK": {
+        "id": "Giant Rock",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Token. Deal 16 damage. Generated by certain events/relics."
+      },
+      "LUMINESCE": {
+        "id": "Luminesce",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "energy_gain"
+        ],
+        "anti": [],
+        "mech": [
+          "energy_gain",
+          "retain",
+          "exhaust"
+        ],
+        "notes": "Token. Retain. Gain 2 Energy. Exhaust. Generated by certain events."
+      },
+      "MINION_DIVE_BOMB": {
+        "id": "Minion Dive Bomb",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "exhaust"
+        ],
+        "notes": "Token. Deal 13 damage. Exhaust. Generated by BEGONE! in Regent builds."
+      },
+      "MINION_SACRIFICE": {
+        "id": "Minion Sacrifice",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "exhaust"
+        ],
+        "notes": "Token. Gain 9 Block. Exhaust. Generated by GUARDS!!! in Regent — hand full of 9-Block cards."
+      },
+      "MINION_STRIKE": {
+        "id": "Minion Strike",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Token. Deal 7 damage. Draw 1 card. Exhaust. Generated by CHARGE!! in Regent builds."
+      },
+      "SHIV": {
+        "id": "Shiv",
+        "tier": "D",
+        "builds": [
+          "shiv"
+        ],
+        "role": "generator",
+        "syn": [
+          "shiv",
+          "shiv_synergy"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "exhaust"
+        ],
+        "notes": "Token. Deal 4 damage. Exhaust. Generated by Blade Dance, Fan of Knives, Cloak and Dagger. Core to Silent Shiv builds — each Shiv buffs Accuracy and triggers Finisher."
+      },
+      "SOUL": {
+        "id": "Soul",
+        "tier": "D",
+        "builds": [
+          "soul"
+        ],
+        "role": "generator",
+        "syn": [
+          "soul",
+          "draw"
+        ],
+        "anti": [],
+        "mech": [
+          "draw",
+          "exhaust"
+        ],
+        "notes": "Token. Draw 2 cards. Exhaust. Generated by Capture Spirit, Severance, Seance. Core to Necrobinder Soul builds — each Soul triggers Haunt (6 HP loss) and Death March (+3 damage)."
+      },
+      "SOVEREIGN_BLADE": {
+        "id": "Sovereign Blade",
+        "tier": "D",
+        "builds": [
+          "forge"
+        ],
+        "role": "payoff",
+        "syn": [
+          "forge",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "retain"
+        ],
+        "notes": "Token. Retain. Deal 10 damage base, scaling with Forge. Regent's Forge build win condition — The Smith alone brings it to 40 damage. Retain means it's always available."
+      },
+      "SWEEPING_GAZE": {
+        "id": "Sweeping Gaze",
+        "tier": "D",
+        "builds": [
+          "osty"
+        ],
+        "role": "utility",
+        "syn": [
+          "osty"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
           "exhaust",
           "ethereal"
         ],
-        "role": "engine"
+        "notes": "Token. Ethereal. Osty deals 10 damage to a random enemy. Generated by Sentry Mode. Ethereal — plays immediately or discards."
+      },
+      "BYRD_SWOOP": {
+        "id": "Byrd Swoop",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage"
+        ],
+        "notes": "Event card. Deal 14 damage. Obtained from Byrdonis Egg event."
+      },
+      "EXTERMINATE": {
+        "id": "Exterminate",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "aoe",
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "aoe",
+          "multi_hit"
+        ],
+        "notes": "Event card. Deal 3 damage 4 times to ALL enemies. 12 total AoE. Obtained from events."
+      },
+      "FEEDING_FRENZY": {
+        "id": "Feeding Frenzy",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "strength"
+        ],
+        "anti": [],
+        "mech": [
+          "strength"
+        ],
+        "notes": "Event card. Gain 5 Strength this turn. Burst Strength for one turn."
+      },
+      "METAMORPHOSIS": {
+        "id": "Metamorphosis",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "exhaust"
+        ],
+        "notes": "Event card. Add 3 random free Attacks to Draw Pile. Exhaust. Variable value."
+      },
+      "PECK": {
+        "id": "Peck",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "multi_hit"
+        ],
+        "notes": "Event card. Deal 2 damage 3 times. 6 total damage. Weak event attack."
+      },
+      "SQUASH": {
+        "id": "Squash",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "damage",
+          "vulnerable"
+        ],
+        "anti": [],
+        "mech": [
+          "damage",
+          "vulnerable"
+        ],
+        "notes": "Event card. Deal 10 damage. Apply 2 Vulnerable. Solid setup attack from events."
+      },
+      "TORIC_TOUGHNESS": {
+        "id": "Toric Toughness",
+        "tier": "D",
+        "builds": [],
+        "role": "utility",
+        "syn": [
+          "block"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "delayed_block"
+        ],
+        "notes": "Event card. Gain 5 Block plus 5 Block at start of next 2 turns. 15 total Block from events."
       }
     }
   },
@@ -13969,6 +15541,384 @@ const DB = {
       "offeredCard": "Hailstorm",
       "bonus": 2.0,
       "reason": "Hailstorm deals 6 AoE each turn when Frost active — Chill channels Frost for every enemy at once, instantly activating Hailstorm in any fight."
+    },
+    {
+      "deckCard": "Panache",
+      "offeredCard": "Claw",
+      "bonus": 2.0,
+      "reason": "Claw builds play 10-15 cards per turn — Panache deals 10 AoE for every 5, meaning 20-30 free AoE damage on top of Claw scaling."
+    },
+    {
+      "deckCard": "Claw",
+      "offeredCard": "Panache",
+      "bonus": 2.0,
+      "reason": "Panache triggers every 5 cards played — Claw builds naturally play 10+ cards per turn, making Panache deal 20+ free AoE per turn."
+    },
+    {
+      "deckCard": "Panache",
+      "offeredCard": "Acrobatics",
+      "bonus": 1.8,
+      "reason": "Acrobatics draws 3 and discards 1 in Sly builds — with Sly triggers and discard chaining, easily playing 10+ cards per turn for multiple Panache procs."
+    },
+    {
+      "deckCard": "Acrobatics",
+      "offeredCard": "Panache",
+      "bonus": 1.8,
+      "reason": "Panache procs every 5 cards — Sly/Acrobatics builds chain through 10+ cards per turn, reliably triggering Panache 2x for 20 AoE damage."
+    },
+    {
+      "deckCard": "Panache",
+      "offeredCard": "Tools Of The Trade",
+      "bonus": 1.8,
+      "reason": "Tools of the Trade draws and discards every turn — in Sly builds this fuels Panache triggers by enabling high card-play counts effortlessly."
+    },
+    {
+      "deckCard": "Tools Of The Trade",
+      "offeredCard": "Panache",
+      "bonus": 1.8,
+      "reason": "Panache deals 10 AoE per 5 cards played — Tools of the Trade generates constant card flow in Sly builds to proc Panache multiple times per turn."
+    },
+    {
+      "deckCard": "Apotheosis",
+      "offeredCard": "Corruption",
+      "bonus": 2.0,
+      "reason": "Apotheosis upgrades all cards including Corruption — Corruption+ makes ALL Skills cost 0 instead of just reducing cost, turning Exhaust builds completely free."
+    },
+    {
+      "deckCard": "Corruption",
+      "offeredCard": "Apotheosis",
+      "bonus": 2.0,
+      "reason": "Corruption is dramatically stronger upgraded — Apotheosis delivers that upgrade mid-combat, making all Skills free for the rest of the fight."
+    },
+    {
+      "deckCard": "Apotheosis",
+      "offeredCard": "Accuracy",
+      "bonus": 1.8,
+      "reason": "Accuracy+ gives +6 Shiv damage per copy instead of +4 — Apotheosis doubles Accuracy's Shiv boost mid-combat for massive Shiv damage spikes."
+    },
+    {
+      "deckCard": "Accuracy",
+      "offeredCard": "Apotheosis",
+      "bonus": 1.8,
+      "reason": "Apotheosis upgrades Accuracy to deal +6 per Shiv instead of +4 — with 3 Accuracies, this is +18 per Shiv instead of +12."
+    },
+    {
+      "deckCard": "Apotheosis",
+      "offeredCard": "Defragment",
+      "bonus": 1.8,
+      "reason": "Apotheosis upgrades Defragment to give 2 Focus instead of 1 — immediately doubling Focus generation for the rest of combat."
+    },
+    {
+      "deckCard": "Defragment",
+      "offeredCard": "Apotheosis",
+      "bonus": 1.8,
+      "reason": "Defragment upgraded via Apotheosis gives 2 Focus instead of 1 — halves the setup time for high-Focus Orb builds."
+    },
+    {
+      "deckCard": "Shockwave",
+      "offeredCard": "Body Slam",
+      "bonus": 2.0,
+      "reason": "Shockwave applies Vulnerable to all enemies — Body Slam deals damage equal to Block, and Vulnerable doubles that damage on affected enemies."
+    },
+    {
+      "deckCard": "Body Slam",
+      "offeredCard": "Shockwave",
+      "bonus": 2.0,
+      "reason": "Shockwave applies 3 Vulnerable to all enemies — Body Slam hits Vulnerable targets for double damage, turning even moderate Block into massive damage."
+    },
+    {
+      "deckCard": "Shockwave",
+      "offeredCard": "Comet",
+      "bonus": 2.0,
+      "reason": "Shockwave applies 3 Vulnerable to all enemies — Comet deals 33 damage on an already-Vulnerable target effectively deals 66, plus its own 3 Vulnerable stacks further."
+    },
+    {
+      "deckCard": "Comet",
+      "offeredCard": "Shockwave",
+      "bonus": 2.0,
+      "reason": "Comet already applies 3 Vulnerable — Shockwave pre-stacks another 3 Vulnerable for 6 total, making Comet land for effectively triple its listed damage."
+    },
+    {
+      "deckCard": "Shockwave",
+      "offeredCard": "Noxious Fumes",
+      "bonus": 1.5,
+      "reason": "Shockwave applies 3 Weak to ALL enemies — Weak causes enemies to deal 25% less damage, giving Poison builds more time to stack and trigger."
+    },
+    {
+      "deckCard": "Noxious Fumes",
+      "offeredCard": "Shockwave",
+      "bonus": 1.5,
+      "reason": "Noxious Fumes applies Poison each turn — Shockwave adds Weak to reduce damage taken while Poison stacks build up."
+    },
+    {
+      "deckCard": "Shockwave",
+      "offeredCard": "Rend",
+      "bonus": 1.8,
+      "reason": "Shockwave applies 3 Weak and 3 Vulnerable (2 unique debuffs) — Rend deals 15 + 5 per unique debuff, so after Shockwave it deals 25 damage baseline."
+    },
+    {
+      "deckCard": "Rend",
+      "offeredCard": "Shockwave",
+      "bonus": 1.8,
+      "reason": "Rend scales with unique debuffs — Shockwave applies both Weak and Vulnerable simultaneously, giving Rend +10 base damage instantly."
+    },
+    {
+      "deckCard": "Shockwave",
+      "offeredCard": "Debilitate",
+      "bonus": 2.0,
+      "reason": "Shockwave applies 3 Vulnerable AoE — Debilitate then doubles Vulnerable effectiveness for 3 turns, making enemies take 4x Vulnerable damage total."
+    },
+    {
+      "deckCard": "Debilitate",
+      "offeredCard": "Shockwave",
+      "bonus": 2.0,
+      "reason": "Debilitate doubles Weak and Vulnerable effectiveness — Shockwave first applies both to all enemies, making Debilitate immediately potent."
+    },
+    {
+      "deckCard": "Dark Shackles",
+      "offeredCard": "Barricade",
+      "bonus": 1.5,
+      "reason": "Dark Shackles removes 9 Strength from a high-Strength boss — Barricade retains Block between turns, allowing you to survive the turns needed for Block to accumulate."
+    },
+    {
+      "deckCard": "Dark Shackles",
+      "offeredCard": "Deathbringer",
+      "bonus": 1.5,
+      "reason": "Dark Shackles removes 9 Strength for one turn — Deathbringer applies Doom AoE and Weak. Together they prevent heavy damage while Doom counts down."
+    },
+    {
+      "deckCard": "Secret Weapon",
+      "offeredCard": "All for One",
+      "bonus": 2.0,
+      "reason": "Secret Weapon tutors any Attack from Draw Pile — in Claw builds, this guarantees finding All for One for the decisive Claw-retrieval turn."
+    },
+    {
+      "deckCard": "All for One",
+      "offeredCard": "Secret Weapon",
+      "bonus": 2.0,
+      "reason": "All for One is the Claw build's win condition — Secret Weapon ensures you can always find and play it exactly when needed."
+    },
+    {
+      "deckCard": "Secret Weapon",
+      "offeredCard": "Whirlwind",
+      "bonus": 1.8,
+      "reason": "Secret Weapon tutors Whirlwind — finding the best multi-hit attack in Ironclad builds on demand for Strength-scaling turns."
+    },
+    {
+      "deckCard": "Secret Technique",
+      "offeredCard": "Barricade",
+      "bonus": 2.0,
+      "reason": "Secret Technique tutors any Skill — finding Barricade on demand guarantees the Block-retention engine is always accessible."
+    },
+    {
+      "deckCard": "Barricade",
+      "offeredCard": "Secret Technique",
+      "bonus": 2.0,
+      "reason": "Barricade is Ironclad Block build's engine — Secret Technique guarantees you can find it turn 1 of any fight."
+    },
+    {
+      "deckCard": "Secret Technique",
+      "offeredCard": "Void Form",
+      "bonus": 2.0,
+      "reason": "Secret Technique tutors any Skill — finding Void Form on demand guarantees the Regent's most powerful engine is always playable."
+    },
+    {
+      "deckCard": "Void Form",
+      "offeredCard": "Secret Technique",
+      "bonus": 2.0,
+      "reason": "Void Form is Regent's S-tier engine — Secret Technique ensures you always find it regardless of draw order."
+    },
+    {
+      "deckCard": "Secret Technique",
+      "offeredCard": "Corruption",
+      "bonus": 1.8,
+      "reason": "Secret Technique tutors Corruption — guaranteeing the Ironclad Exhaust engine is always accessible when needed."
+    },
+    {
+      "deckCard": "Thinking Ahead",
+      "offeredCard": "Shining Strike",
+      "bonus": 1.5,
+      "reason": "Thinking Ahead controls top of Draw Pile — Shining Strike puts itself on top of draw anyway, but Thinking Ahead can set up the card after it for perfect sequencing."
+    },
+    {
+      "deckCard": "Thinking Ahead",
+      "offeredCard": "Mayhem",
+      "bonus": 1.8,
+      "reason": "Thinking Ahead puts a chosen card on top of Draw Pile — Mayhem plays the top card at turn start, enabling you to control exactly what Mayhem plays."
+    },
+    {
+      "deckCard": "Mayhem",
+      "offeredCard": "Thinking Ahead",
+      "bonus": 1.8,
+      "reason": "Mayhem plays the top card of Draw Pile for free each turn — Thinking Ahead lets you choose exactly which card Mayhem plays, removing the randomness."
+    },
+    {
+      "deckCard": "Stratagem",
+      "offeredCard": "Mayhem",
+      "bonus": 2.0,
+      "reason": "Stratagem lets you choose a card from Draw Pile each shuffle — Mayhem plays the top card for free. Together: choose what Mayhem plays every cycle."
+    },
+    {
+      "deckCard": "Mayhem",
+      "offeredCard": "Stratagem",
+      "bonus": 2.0,
+      "reason": "Mayhem plays the top card free each turn — Stratagem controls what rises to the top each shuffle, making Mayhem always play your best card."
+    },
+    {
+      "deckCard": "Rolling Boulder",
+      "offeredCard": "Barricade",
+      "bonus": 1.5,
+      "reason": "Rolling Boulder deals escalating AoE each turn — Barricade retains Block between turns, ensuring you survive long enough for Rolling Boulder to reach massive damage."
+    },
+    {
+      "deckCard": "Barricade",
+      "offeredCard": "Rolling Boulder",
+      "bonus": 1.5,
+      "reason": "Rolling Boulder scales damage by 5 each turn — Barricade lets you build Block safely through multiple turns while Boulder ramps to 20-30+ AoE per turn."
+    },
+    {
+      "deckCard": "Rolling Boulder",
+      "offeredCard": "Deathbringer",
+      "bonus": 1.5,
+      "reason": "Rolling Boulder deals escalating AoE each turn — Deathbringer applies Doom AoE and Weak, reducing damage taken while Boulder ramps up."
+    },
+    {
+      "deckCard": "Thrumming Hatchet",
+      "offeredCard": "Strength",
+      "bonus": 1.5,
+      "reason": "Thrumming Hatchet returns each turn for 11 recurring damage — Strength scaling makes each Hatchet hit progressively larger without needing deck cycling."
+    },
+    {
+      "deckCard": "Thrumming Hatchet",
+      "offeredCard": "Inflame",
+      "bonus": 1.5,
+      "reason": "Thrumming Hatchet is recurring 11 damage per turn — Inflame adds permanent Strength, making every future Hatchet hit deal more damage."
+    },
+    {
+      "deckCard": "Apparition",
+      "offeredCard": "Corruption",
+      "bonus": 1.8,
+      "reason": "Apparition gives 1 Intangible (all damage becomes 1) — with Corruption making Skills free, you can afford to use the turn Apparition is active to play many free Skills."
+    },
+    {
+      "deckCard": "Apparition",
+      "offeredCard": "Barricade",
+      "bonus": 1.5,
+      "reason": "Apparition blocks all damage to 1 for a turn — Barricade retains the Block from that turn, turning Apparition into both immunity AND retained defense."
+    },
+    {
+      "deckCard": "Scrawl",
+      "offeredCard": "Flechettes",
+      "bonus": 2.0,
+      "reason": "Scrawl fills hand completely — Flechettes deals damage per Skill in Hand. A full hand of Skills after Scrawl makes Flechettes deal massive damage."
+    },
+    {
+      "deckCard": "Flechettes",
+      "offeredCard": "Scrawl",
+      "bonus": 2.0,
+      "reason": "Flechettes scales with Skills in Hand — Scrawl draws until Hand is full, maximizing Flechettes' damage in one play."
+    },
+    {
+      "deckCard": "Scrawl",
+      "offeredCard": "All for One",
+      "bonus": 1.8,
+      "reason": "Scrawl fills Hand with cards — many of those cards will be 0-cost in Claw builds, which All for One then retrieves from Discard for an even bigger follow-up turn."
+    },
+    {
+      "deckCard": "Master of Strategy",
+      "offeredCard": "Death March",
+      "bonus": 1.8,
+      "reason": "Master of Strategy draws 3 at 0 Energy — Death March deals 3 bonus damage per card drawn this turn, so Master of Strategy adds 9 damage to Death March directly."
+    },
+    {
+      "deckCard": "Death March",
+      "offeredCard": "Master of Strategy",
+      "bonus": 1.8,
+      "reason": "Death March scales with cards drawn this turn — Master of Strategy is free draw 3, adding 9 damage while also drawing into more cards."
+    },
+    {
+      "deckCard": "Prep Time",
+      "offeredCard": "Whirlwind",
+      "bonus": 1.8,
+      "reason": "Prep Time gives 4 Vigor (temp Strength) at turn start — Whirlwind hits X times, and with 4 temp Strength each hit deals 4 more damage. With 4 Energy, that's 16 extra damage total."
+    },
+    {
+      "deckCard": "Prep Time",
+      "offeredCard": "Celestial Might",
+      "bonus": 1.8,
+      "reason": "Prep Time gives 4 Vigor at turn start — Celestial Might hits 3 times, applying that temporary Strength to all 3 hits for +12 damage per Celestial Might."
+    },
+    {
+      "deckCard": "Prep Time",
+      "offeredCard": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Prep Time gives 4 Vigor at turn start — Seven Stars hits 7x7=49 times, applying Vigor to each hit for +196 bonus damage per Seven Stars cast."
+    },
+    {
+      "deckCard": "Rend",
+      "offeredCard": "Putrefy",
+      "bonus": 1.8,
+      "reason": "Putrefy applies 2 Weak and 2 Vulnerable (4 debuffs) — Rend deals 15 + 5 per unique debuff. After Putrefy, Rend deals 25 damage from debuffs alone."
+    },
+    {
+      "deckCard": "Putrefy",
+      "offeredCard": "Rend",
+      "bonus": 1.8,
+      "reason": "Rend scales with unique debuffs — Putrefy applies 2 Weak and 2 Vulnerable simultaneously, giving Rend immediate +10 damage."
+    },
+    {
+      "deckCard": "Rend",
+      "offeredCard": "Debilitate",
+      "bonus": 1.5,
+      "reason": "Debilitate applies Vulnerable and Weak — Rend deals +10 from those debuffs, and Debilitate then doubles both for even more damage from follow-up attacks."
+    },
+    {
+      "deckCard": "Prolong",
+      "offeredCard": "Barricade",
+      "bonus": 2.5,
+      "reason": "Barricade retains all Block between turns — Prolong doubles current Block next turn. With Barricade keeping Block and Prolong doubling it, Block compounds exponentially."
+    },
+    {
+      "deckCard": "Barricade",
+      "offeredCard": "Prolong",
+      "bonus": 2.5,
+      "reason": "Prolong doubles current Block next turn — Barricade retains Block between turns, making Prolong compound on ever-growing Block totals each cycle."
+    },
+    {
+      "deckCard": "Production",
+      "offeredCard": "Multi-Cast",
+      "bonus": 1.5,
+      "reason": "Production gives 2 free Energy this combat — Multi-Cast uses Energy to Evoke X times. Extra 2 Energy = 2 more Evokes on the crucial Multi-Cast turn."
+    },
+    {
+      "deckCard": "Production",
+      "offeredCard": "Double Energy",
+      "bonus": 1.8,
+      "reason": "Production gives 2 Energy then Exhausts — Double Energy then doubles that 2 extra Energy to 4. Together they can enable a 10+ Energy turn."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Shining Strike",
+      "bonus": 1.5,
+      "reason": "Nostalgia puts the first card played back on top of Draw Pile — Shining Strike already does this itself, but Nostalgia ensures any other attack or skill is also returned."
+    },
+    {
+      "deckCard": "Nostalgia",
+      "offeredCard": "Echo Form",
+      "bonus": 1.8,
+      "reason": "Nostalgia returns first card played to top of Draw — Echo Form doubles the first card each turn. Nostalgia then cycles that doubled card back for next turn."
+    },
+    {
+      "deckCard": "Equilibrium",
+      "offeredCard": "Convergence",
+      "bonus": 1.8,
+      "reason": "Both retain your Hand this turn — Equilibrium retains AND gives 13 Block, while Convergence retains AND gives Stars/Energy next turn. Stacking retention enables perfect setup turns."
+    },
+    {
+      "deckCard": "Convergence",
+      "offeredCard": "Equilibrium",
+      "bonus": 1.8,
+      "reason": "Equilibrium retains Hand and gives 13 Block — Convergence also retains and gives Stars/Energy next turn. Combining them gives Block AND resources for a massive next turn."
     }
   ],
   "dupePenalties": {
@@ -16128,6 +18078,474 @@ const DB = {
     {
       "n": "Hello World",
       "c": "defect"
+    },
+    {
+      "n": "Flash of Steel",
+      "c": "colorless"
+    },
+    {
+      "n": "Jack of All Trades",
+      "c": "colorless"
+    },
+    {
+      "n": "Hand of Greed",
+      "c": "colorless"
+    },
+    {
+      "n": "Automation",
+      "c": "colorless"
+    },
+    {
+      "n": "Believe in You",
+      "c": "colorless"
+    },
+    {
+      "n": "Catastrophe",
+      "c": "colorless"
+    },
+    {
+      "n": "Coordinate",
+      "c": "colorless"
+    },
+    {
+      "n": "Dark Shackles",
+      "c": "colorless"
+    },
+    {
+      "n": "Discovery",
+      "c": "colorless"
+    },
+    {
+      "n": "Equilibrium",
+      "c": "colorless"
+    },
+    {
+      "n": "Fasten",
+      "c": "colorless"
+    },
+    {
+      "n": "Finesse",
+      "c": "colorless"
+    },
+    {
+      "n": "Fisticuffs",
+      "c": "colorless"
+    },
+    {
+      "n": "Gang Up",
+      "c": "colorless"
+    },
+    {
+      "n": "Huddle Up",
+      "c": "colorless"
+    },
+    {
+      "n": "Impatience",
+      "c": "colorless"
+    },
+    {
+      "n": "Intercept",
+      "c": "colorless"
+    },
+    {
+      "n": "Lift",
+      "c": "colorless"
+    },
+    {
+      "n": "Omnislice",
+      "c": "colorless"
+    },
+    {
+      "n": "Panic Button",
+      "c": "colorless"
+    },
+    {
+      "n": "Prep Time",
+      "c": "colorless"
+    },
+    {
+      "n": "Production",
+      "c": "colorless"
+    },
+    {
+      "n": "Prolong",
+      "c": "colorless"
+    },
+    {
+      "n": "Prowess",
+      "c": "colorless"
+    },
+    {
+      "n": "Purity",
+      "c": "colorless"
+    },
+    {
+      "n": "Restlessness",
+      "c": "colorless"
+    },
+    {
+      "n": "Seeker Strike",
+      "c": "colorless"
+    },
+    {
+      "n": "Shockwave",
+      "c": "colorless"
+    },
+    {
+      "n": "Splash",
+      "c": "colorless"
+    },
+    {
+      "n": "Stratagem",
+      "c": "colorless"
+    },
+    {
+      "n": "Tag Team",
+      "c": "colorless"
+    },
+    {
+      "n": "Thrumming Hatchet",
+      "c": "colorless"
+    },
+    {
+      "n": "Ultimate Defend",
+      "c": "colorless"
+    },
+    {
+      "n": "Ultimate Strike",
+      "c": "colorless"
+    },
+    {
+      "n": "Volley",
+      "c": "colorless"
+    },
+    {
+      "n": "Alchemize",
+      "c": "colorless"
+    },
+    {
+      "n": "Anointed",
+      "c": "colorless"
+    },
+    {
+      "n": "Beacon of Hope",
+      "c": "colorless"
+    },
+    {
+      "n": "Beat Down",
+      "c": "colorless"
+    },
+    {
+      "n": "Bolas",
+      "c": "colorless"
+    },
+    {
+      "n": "Calamity",
+      "c": "colorless"
+    },
+    {
+      "n": "Entropy",
+      "c": "colorless"
+    },
+    {
+      "n": "Eternal Armor",
+      "c": "colorless"
+    },
+    {
+      "n": "Gold Axe",
+      "c": "colorless"
+    },
+    {
+      "n": "Hidden Gem",
+      "c": "colorless"
+    },
+    {
+      "n": "Jackpot",
+      "c": "colorless"
+    },
+    {
+      "n": "Knockdown",
+      "c": "colorless"
+    },
+    {
+      "n": "Master of Strategy",
+      "c": "colorless"
+    },
+    {
+      "n": "Mayhem",
+      "c": "colorless"
+    },
+    {
+      "n": "Mimic",
+      "c": "colorless"
+    },
+    {
+      "n": "Nostalgia",
+      "c": "colorless"
+    },
+    {
+      "n": "Rally",
+      "c": "colorless"
+    },
+    {
+      "n": "Rend",
+      "c": "colorless"
+    },
+    {
+      "n": "Rolling Boulder",
+      "c": "colorless"
+    },
+    {
+      "n": "Salvo",
+      "c": "colorless"
+    },
+    {
+      "n": "Scrawl",
+      "c": "colorless"
+    },
+    {
+      "n": "Secret Technique",
+      "c": "colorless"
+    },
+    {
+      "n": "The Gambit",
+      "c": "colorless"
+    },
+    {
+      "n": "Brightest Flame",
+      "c": "colorless"
+    },
+    {
+      "n": "Maul",
+      "c": "colorless"
+    },
+    {
+      "n": "Neow's Fury",
+      "c": "colorless"
+    },
+    {
+      "n": "Relax",
+      "c": "colorless"
+    },
+    {
+      "n": "Whistle",
+      "c": "colorless"
+    },
+    {
+      "n": "Wish",
+      "c": "colorless"
+    },
+    {
+      "n": "Burn",
+      "c": "colorless"
+    },
+    {
+      "n": "Dazed",
+      "c": "colorless"
+    },
+    {
+      "n": "Slimed",
+      "c": "colorless"
+    },
+    {
+      "n": "Wound",
+      "c": "colorless"
+    },
+    {
+      "n": "Void",
+      "c": "colorless"
+    },
+    {
+      "n": "Beckon",
+      "c": "colorless"
+    },
+    {
+      "n": "Debris",
+      "c": "colorless"
+    },
+    {
+      "n": "Disintegration",
+      "c": "colorless"
+    },
+    {
+      "n": "Frantic Escape",
+      "c": "colorless"
+    },
+    {
+      "n": "Infection",
+      "c": "colorless"
+    },
+    {
+      "n": "Mind Rot",
+      "c": "colorless"
+    },
+    {
+      "n": "Sloth",
+      "c": "colorless"
+    },
+    {
+      "n": "Soot",
+      "c": "colorless"
+    },
+    {
+      "n": "Toxic",
+      "c": "colorless"
+    },
+    {
+      "n": "Waste Away",
+      "c": "colorless"
+    },
+    {
+      "n": "Ascender's Bane",
+      "c": "colorless"
+    },
+    {
+      "n": "Bad Luck",
+      "c": "colorless"
+    },
+    {
+      "n": "Clumsy",
+      "c": "colorless"
+    },
+    {
+      "n": "Curse of the Bell",
+      "c": "colorless"
+    },
+    {
+      "n": "Debt",
+      "c": "colorless"
+    },
+    {
+      "n": "Decay",
+      "c": "colorless"
+    },
+    {
+      "n": "Doubt",
+      "c": "colorless"
+    },
+    {
+      "n": "Enthralled",
+      "c": "colorless"
+    },
+    {
+      "n": "Folly",
+      "c": "colorless"
+    },
+    {
+      "n": "Greed",
+      "c": "colorless"
+    },
+    {
+      "n": "Guilty",
+      "c": "colorless"
+    },
+    {
+      "n": "Injury",
+      "c": "colorless"
+    },
+    {
+      "n": "Normality",
+      "c": "colorless"
+    },
+    {
+      "n": "Poor Sleep",
+      "c": "colorless"
+    },
+    {
+      "n": "Regret",
+      "c": "colorless"
+    },
+    {
+      "n": "Shame",
+      "c": "colorless"
+    },
+    {
+      "n": "Spore Mind",
+      "c": "colorless"
+    },
+    {
+      "n": "Writhe",
+      "c": "colorless"
+    },
+    {
+      "n": "Byrdonis Egg",
+      "c": "colorless"
+    },
+    {
+      "n": "Lantern Key",
+      "c": "colorless"
+    },
+    {
+      "n": "Spoils Map",
+      "c": "colorless"
+    },
+    {
+      "n": "Fuel",
+      "c": "colorless"
+    },
+    {
+      "n": "Giant Rock",
+      "c": "colorless"
+    },
+    {
+      "n": "Luminesce",
+      "c": "colorless"
+    },
+    {
+      "n": "Minion Dive Bomb",
+      "c": "colorless"
+    },
+    {
+      "n": "Minion Sacrifice",
+      "c": "colorless"
+    },
+    {
+      "n": "Minion Strike",
+      "c": "colorless"
+    },
+    {
+      "n": "Shiv",
+      "c": "colorless"
+    },
+    {
+      "n": "Soul",
+      "c": "colorless"
+    },
+    {
+      "n": "Sovereign Blade",
+      "c": "colorless"
+    },
+    {
+      "n": "Sweeping Gaze",
+      "c": "colorless"
+    },
+    {
+      "n": "Byrd Swoop",
+      "c": "colorless"
+    },
+    {
+      "n": "Exterminate",
+      "c": "colorless"
+    },
+    {
+      "n": "Feeding Frenzy",
+      "c": "colorless"
+    },
+    {
+      "n": "Metamorphosis",
+      "c": "colorless"
+    },
+    {
+      "n": "Peck",
+      "c": "colorless"
+    },
+    {
+      "n": "Squash",
+      "c": "colorless"
+    },
+    {
+      "n": "Toric Toughness",
+      "c": "colorless"
     }
   ]
 };
