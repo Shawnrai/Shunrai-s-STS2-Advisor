@@ -81,14 +81,16 @@ const DB = {
         "id": "Feed",
         "tier": "S",
         "builds": [
+          "self_damage",
           "any"
         ],
         "syn": [
           "scaling",
-          "damage"
+          "damage",
+          "self_damage"
         ],
         "anti": [],
-        "notes": "Permanent max HP on kill. Snowballs hard. Pick in Act 1.",
+        "notes": "Permanent max HP on kill. Snowballs hard. Especially valuable in Bloodletting builds where HP loss is flat — more max HP means more room to work with.",
         "mech": [
           "permanent_scaling"
         ],
@@ -683,19 +685,19 @@ const DB = {
       },
       "BODY_SLAM": {
         "id": "Body Slam",
-        "tier": "C",
+        "tier": "B",
         "builds": [
-          "block"
+          "block",
+          "exhaust"
         ],
         "syn": [
           "block",
           "damage"
         ],
         "anti": [
-          "exhaust",
           "self_damage"
         ],
-        "notes": "Damage = block. Best with Barricade or high-block decks. Upgraded is 0-cost.",
+        "notes": "Damage = block. Best with Barricade or high-block decks. Also strong in Exhaust builds with Feel No Pain providing block. Upgraded is 0-cost.",
         "mech": [
           "block_conversion",
           "damage"
@@ -725,17 +727,19 @@ const DB = {
       },
       "JUGGERNAUT": {
         "id": "Juggernaut",
-        "tier": "C",
+        "tier": "B",
         "builds": [
-          "block"
+          "block",
+          "exhaust"
         ],
         "syn": [
           "block",
           "stone_armor",
-          "damage"
+          "damage",
+          "exhaust"
         ],
         "anti": [],
-        "notes": "Deal 5 damage whenever you GAIN block — i.e. each time you play a block card. In a block build where you play multiple block cards per turn, this deals damage without spending attacks. Barricade synergizes simply because both belong in the same block build, not because one activates the other.",
+        "notes": "Deal 5 damage whenever you gain Block. Main damage dealer in Block builds. Also excellent in Exhaust builds with Feel No Pain — every exhaust triggers block which triggers Juggernaut.",
         "mech": [
           "block_payoff",
           "damage"
@@ -882,6 +886,7 @@ const DB = {
         "id": "Shrug It Off",
         "tier": "B",
         "builds": [
+          "block",
           "any"
         ],
         "syn": [
@@ -1003,7 +1008,7 @@ const DB = {
       },
       "DEMON_FORM": {
         "id": "Demon Form",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "strength"
         ],
@@ -1012,7 +1017,7 @@ const DB = {
           "scaling"
         ],
         "anti": [],
-        "notes": "+2 Strength every turn. Snowballs hard. 1 copy is usually enough.",
+        "notes": "Best passive Strength generation. +2 Strength every turn snowballs hard. Expensive at 3 Energy but game-winning once set up.",
         "mech": [
           "strength",
           "permanent_scaling"
@@ -1808,6 +1813,7 @@ const DB = {
         "tier": "C",
         "builds": [
           "strength",
+          "strike",
           "any"
         ],
         "syn": [
@@ -1818,7 +1824,7 @@ const DB = {
           "exhaust",
           "block"
         ],
-        "notes": "Apply 2 Vulnerable. 0 damage, pure setup. Worthless alone but enables the Ironclad's Vulnerable payoffs — Bully scales per stack, Dominate converts stacks to Strength, Vicious amplifies damage. Also enables Colossus: Vulnerable enemy hits you for 50% less damage when Colossus is active.",
+        "notes": "Apply 2 Vulnerable. 0 cost setup card. Enables Ironclad Vulnerable payoffs and amplifies big Strike nukes like Perfected Strike.",
         "mech": [
           "vulnerable",
           "debuff",
@@ -2037,7 +2043,8 @@ const DB = {
         "id": "Hellraiser",
         "tier": "C",
         "builds": [
-          "strength"
+          "strength",
+          "strike"
         ],
         "syn": [
           "damage",
@@ -4457,13 +4464,15 @@ const DB = {
         "id": "Skim",
         "tier": "S",
         "builds": [
+          "claw",
           "any"
         ],
         "syn": [
-          "draw"
+          "draw",
+          "claw"
         ],
         "anti": [],
-        "notes": "Pure draw. Consistent card quality.",
+        "notes": "Pure draw. Essential in Claw builds where your cards are cheap but you need more of them in hand.",
         "mech": [
           "draw"
         ],
@@ -5735,6 +5744,26 @@ const DB = {
           "passive"
         ],
         "notes": "At start of turn, add a random Common card to Hand. C-tier — free card every turn but random. Event-only card."
+      },
+      "MULTI_CAST": {
+        "id": "Multi-Cast",
+        "tier": "A",
+        "builds": [
+          "orb"
+        ],
+        "syn": [
+          "orb",
+          "evoke",
+          "focus",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "evoke",
+          "scaling"
+        ],
+        "role": "payoff",
+        "notes": "Evoke your rightmost Orb X times. Great finisher with Focus — evoke a Dark Orb multiple times for massive damage. Extra Energy from Plasma orbs enables larger X values."
       }
     },
     "regent": {
@@ -6352,18 +6381,18 @@ const DB = {
         "id": "Cosmic Indifference",
         "tier": "B",
         "builds": [
-          "stars"
+          "stars",
+          "forge"
         ],
         "syn": [
           "stellar",
           "stars",
           "block",
-          "scaling"
-        ],
-        "anti": [
+          "scaling",
           "forge"
         ],
-        "notes": "Block + retrieve card from discard. Utility.",
+        "anti": [],
+        "notes": "Block + retrieve card from discard. One of the easiest ways to bring back Sovereign Blade for next turn.",
         "mech": [
           "block",
           "card_retrieve"
@@ -7433,17 +7462,20 @@ const DB = {
         "id": "The Smith",
         "tier": "A",
         "builds": [
-          "forge"
+          "forge",
+          "stars"
         ],
         "role": "payoff",
         "syn": [
-          "forge"
+          "forge",
+          "stellar",
+          "stars"
         ],
         "anti": [],
         "mech": [
           "forge"
         ],
-        "notes": "Forge 30 in one card. Near-instant win condition in Forge builds — one play often makes Sovereign Blade lethal."
+        "notes": "Forge 30 in one card. Near-instant win condition in Forge builds. Also viable as an eventual win condition in Star decks even without full Blade support."
       },
       "METEOR_SHOWER": {
         "id": "Meteor Shower",
@@ -7486,6 +7518,27 @@ const DB = {
           "scaling"
         ],
         "notes": "Gain 1 Star every card played. With Void Form free cards, generates Stars effortlessly. Effectively Genesis-tier passive Star engine."
+      },
+      "CHILD_OF_STARS": {
+        "id": "Child of Stars",
+        "tier": "A",
+        "builds": [
+          "stars"
+        ],
+        "syn": [
+          "stellar",
+          "stars",
+          "block",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "block",
+          "star_payoff",
+          "passive"
+        ],
+        "role": "engine",
+        "notes": "Whenever you spend Stars, gain 2 Block per Star spent. Converts Star spending into passive defense, letting you scale offense and defense simultaneously."
       }
     },
     "necrobinder": {
@@ -8217,14 +8270,16 @@ const DB = {
         "id": "Delay",
         "tier": "B",
         "builds": [
+          "doom",
           "any"
         ],
         "syn": [
           "block",
-          "energy_gain"
+          "energy_gain",
+          "doom"
         ],
         "anti": [],
-        "notes": "11 block, next turn gain 1 energy. Solid defense + ramp.",
+        "notes": "11 block + next turn gain 1 energy. Key survival card for Doom builds that need to stay alive while Doom counts down.",
         "mech": [
           "block",
           "energy_gain"
@@ -9298,6 +9353,28 @@ const DB = {
           "scaling"
         ],
         "notes": "Osty deals 10 damage plus additional damage equal to Osty's Max HP. A-tier — with high Summon stacks from Reanimate/Cleanse/Spur, Osty's Max HP becomes enormous, making this a massive nuke."
+      },
+      "NECRO_MASTERY": {
+        "id": "Necro Mastery",
+        "tier": "A",
+        "builds": [
+          "osty"
+        ],
+        "syn": [
+          "osty",
+          "summon",
+          "aoe",
+          "scaling"
+        ],
+        "anti": [],
+        "mech": [
+          "summon",
+          "aoe",
+          "passive",
+          "osty_buff"
+        ],
+        "role": "engine",
+        "notes": "Summon 5. Whenever Osty loses HP, ALL enemies lose that much HP. Converts Osty tanking into AoE offense — the more Osty absorbs, the more damage all enemies take. Requires reliably keeping Osty alive."
       }
     },
     "colorless": {
