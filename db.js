@@ -18895,5 +18895,7675 @@ const DB = {
       "n": "Toric Toughness",
       "c": "colorless"
     }
+  ],
+  "relics": {
+    "BURNING_BLOOD": {
+      "id": "Burning Blood",
+      "tier": "B",
+      "char": "ironclad",
+      "rarity": "starter",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 6 HP after each combat.",
+      "builds": [
+        "strength",
+        "block",
+        "exhaust",
+        "self_damage",
+        "strike"
+      ],
+      "scoreEffects": []
+    },
+    "BLACK_BLOOD": {
+      "id": "Black Blood",
+      "tier": "B",
+      "char": "ironclad",
+      "rarity": "starter",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 12 HP after each combat. Upgraded Burning Blood.",
+      "builds": [
+        "strength",
+        "block",
+        "exhaust",
+        "self_damage",
+        "strike"
+      ],
+      "scoreEffects": []
+    },
+    "RING_OF_THE_SNAKE": {
+      "id": "Ring of the Snake",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "starter",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards on Turn 1.",
+      "builds": [
+        "sly",
+        "poison",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "draw"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "RING_OF_THE_DRAKE": {
+      "id": "Ring of the Drake",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "starter",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards on your first 3 turns.",
+      "builds": [
+        "sly",
+        "poison",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "draw"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "DIVINE_RIGHT": {
+      "id": "Divine Right",
+      "tier": "B",
+      "char": "regent",
+      "rarity": "starter",
+      "syn": [
+        "stars"
+      ],
+      "notes": "Gain 3 Stars at combat start.",
+      "builds": [
+        "stars",
+        "forge"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars",
+            "star_gain"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "DIVINE_DESTINY": {
+      "id": "Divine Destiny",
+      "tier": "B",
+      "char": "regent",
+      "rarity": "starter",
+      "syn": [
+        "stars"
+      ],
+      "notes": "Gain 6 Stars at combat start.",
+      "builds": [
+        "stars",
+        "forge"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars",
+            "star_gain"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "BOUND_PHYLACTERY": {
+      "id": "Bound Phylactery",
+      "tier": "B",
+      "char": "necrobinder",
+      "rarity": "starter",
+      "syn": [
+        "summon"
+      ],
+      "notes": "Summon 1 at the start of each turn.",
+      "builds": [
+        "osty",
+        "soul",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "osty",
+            "soul",
+            "doom"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "PHYLACTERY_UNBOUND": {
+      "id": "Phylactery Unbound",
+      "tier": "B",
+      "char": "necrobinder",
+      "rarity": "starter",
+      "syn": [
+        "summon"
+      ],
+      "notes": "Summon 5 at combat start + Summon 2 each turn.",
+      "builds": [
+        "osty",
+        "soul",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "osty",
+            "soul",
+            "doom"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "summon"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "CRACKED_CORE": {
+      "id": "Cracked Core",
+      "tier": "B",
+      "char": "defect",
+      "rarity": "starter",
+      "syn": [
+        "orb",
+        "lightning"
+      ],
+      "notes": "Channel 1 Lightning at combat start.",
+      "builds": [
+        "orb",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "INFUSED_CORE": {
+      "id": "Infused Core",
+      "tier": "B",
+      "char": "defect",
+      "rarity": "starter",
+      "syn": [
+        "orb",
+        "lightning"
+      ],
+      "notes": "Channel 3 Lightning at combat start.",
+      "builds": [
+        "orb",
+        "claw"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb",
+            "lightning"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "AMETHYST_AUBERGINE": {
+      "id": "Amethyst Aubergine",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Enemies drop 10 extra Gold. Compounds over a run.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ANCHOR": {
+      "id": "Anchor",
+      "tier": "S",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "block"
+      ],
+      "notes": "Start each combat with 10 Block. Free Block every fight.",
+      "builds": [
+        "strength",
+        "block",
+        "poison",
+        "doom",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block",
+            "strength"
+          ],
+          "bonus": 5
+        }
+      ]
+    },
+    "BAG_OF_PREPARATION": {
+      "id": "Bag of Preparation",
+      "tier": "S",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards at combat start. See 7 cards on Turn 1.",
+      "builds": [
+        "sly",
+        "claw",
+        "stars",
+        "poison",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "draw",
+            "scaling"
+          ],
+          "bonus": 0.4
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BLOOD_VIAL": {
+      "id": "Blood Vial",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 2 HP at combat start. Minor but consistent.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BOOK_OF_FIVE_RINGS": {
+      "id": "Book of Five Rings",
+      "tier": "D",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 15 HP every 5 cards added to deck. Penalizes small decks.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BRONZE_SCALES": {
+      "id": "Bronze Scales",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "thorns",
+        "damage"
+      ],
+      "notes": "Start with 3 Thorns. Passive damage on hits — pairs with Block builds that absorb hits.",
+      "builds": [
+        "block"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.15
+        }
+      ]
+    },
+    "CENTENNIAL_PUZZLE": {
+      "id": "Centennial Puzzle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "draw"
+      ],
+      "notes": "First time you lose HP per combat: draw 3 cards. Strong in self-damage Ironclad.",
+      "builds": [
+        "self_damage",
+        "block"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "draw"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "FESTIVE_POPPER": {
+      "id": "Festive Popper",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "aoe",
+        "damage"
+      ],
+      "notes": "Deal 9 AoE at combat start. Free damage every fight.",
+      "builds": [
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "GORGET": {
+      "id": "Gorget",
+      "tier": "S",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "plating",
+        "block"
+      ],
+      "notes": "Gain 4 Plating at combat start. Permanent flat damage reduction — excellent.",
+      "builds": [
+        "strength",
+        "block",
+        "doom",
+        "poison",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block",
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "HAPPY_FLOWER": {
+      "id": "Happy Flower",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Every 3 turns, gain Energy. Consistent passive Energy.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "JUZU_BRACELET": {
+      "id": "Juzu Bracelet",
+      "tier": "C",
+      "char": "any",
+      "rarity": "common",
+      "syn": [],
+      "notes": "No regular enemies in ? rooms. Map manipulation.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LANTERN": {
+      "id": "Lantern",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Start each combat with +1 Energy. Universal.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "strength",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "MEAL_TICKET": {
+      "id": "Meal Ticket",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 15 HP per shop visit.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ODDLY_SMOOTH_STONE": {
+      "id": "Oddly Smooth Stone",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "dexterity",
+        "block"
+      ],
+      "notes": "Start with 1 Dexterity. Every block card gains +1.",
+      "builds": [
+        "block",
+        "orb",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "PENDULUM": {
+      "id": "Pendulum",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw a card whenever you shuffle. Good in fast-cycling decks.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "draw",
+            "sly"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "claw",
+            "zero_cost"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "PERMAFROST": {
+      "id": "Permafrost",
+      "tier": "C",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "block",
+        "strength"
+      ],
+      "notes": "First Power played per combat: gain 6 Block.",
+      "builds": [
+        "strength",
+        "orb",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 5
+        }
+      ]
+    },
+    "POTION_BELT": {
+      "id": "Potion Belt",
+      "tier": "C",
+      "char": "any",
+      "rarity": "common",
+      "syn": [],
+      "notes": "Gain 2 potion slots.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "REGAL_PILLOW": {
+      "id": "Regal Pillow",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 15 extra HP when Resting.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "STRAWBERRY": {
+      "id": "Strawberry",
+      "tier": "B",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 7.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "STRIKE_DUMMY": {
+      "id": "Strike Dummy",
+      "tier": "C",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "damage",
+        "strike"
+      ],
+      "notes": "Strike cards deal 3 more damage. Core in Strike builds, irrelevant otherwise.",
+      "builds": [
+        "strike"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strike"
+          ],
+          "bonus": 2.0
+        }
+      ]
+    },
+    "TINY_MAILBOX": {
+      "id": "Tiny Mailbox",
+      "tier": "C",
+      "char": "any",
+      "rarity": "common",
+      "syn": [],
+      "notes": "Get a random potion when Resting.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "VAJRA": {
+      "id": "Vajra",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Start each combat with 1 Strength. Benefits every attack.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "strength"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "VENERABLE_TEA_SET": {
+      "id": "Venerable Tea Set",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "After each Rest Site: next combat starts with +2 Energy.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "strength",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "WAR_PAINT": {
+      "id": "War Paint",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Upgrade 2 random Skills on pickup.",
+      "builds": [
+        "exhaust",
+        "stars",
+        "sly",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "WHETSTONE": {
+      "id": "Whetstone",
+      "tier": "A",
+      "char": "any",
+      "rarity": "common",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Upgrade 2 random Attacks on pickup.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv",
+        "strike",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "RED_SKULL": {
+      "id": "Red Skull",
+      "tier": "C",
+      "char": "ironclad",
+      "rarity": "common",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Below 50% HP: +3 Strength. High-risk; good in Bloodletting builds.",
+      "builds": [
+        "self_damage",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "strength",
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "SNECKO_SKULL": {
+      "id": "Snecko Skull",
+      "tier": "C",
+      "char": "silent",
+      "rarity": "common",
+      "syn": [
+        "poison"
+      ],
+      "notes": "Apply 1 extra Poison per application. Doubles Poison stacking speed.",
+      "builds": [
+        "poison"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "poison"
+          ],
+          "bonus": 1.5
+        }
+      ]
+    },
+    "FENCING_MANUAL": {
+      "id": "Fencing Manual",
+      "tier": "C",
+      "char": "regent",
+      "rarity": "common",
+      "syn": [
+        "forge"
+      ],
+      "notes": "Forge 10 at combat start. Helps Forge builds start Sovereign Blade online.",
+      "builds": [
+        "forge"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "forge"
+          ],
+          "bonus": 1.3
+        }
+      ]
+    },
+    "BONE_FLUTE": {
+      "id": "Bone Flute",
+      "tier": "C",
+      "char": "necrobinder",
+      "rarity": "common",
+      "syn": [
+        "block",
+        "osty"
+      ],
+      "notes": "Gain 2 Block whenever Osty attacks. Passive Block from Osty chains.",
+      "builds": [
+        "osty"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "osty"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "DATA_DISK": {
+      "id": "Data Disk",
+      "tier": "B",
+      "char": "defect",
+      "rarity": "common",
+      "syn": [
+        "focus",
+        "orb"
+      ],
+      "notes": "Start each combat with 1 Focus. All Orbs deal more — free Focus every fight.",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb",
+            "focus"
+          ],
+          "bonus": 1.0
+        }
+      ]
+    },
+    "AKABEKO": {
+      "id": "Akabeko",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Start combat with 8 Vigor. First attack deals +8.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BAG_OF_MARBLES": {
+      "id": "Bag of Marbles",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "vulnerable"
+      ],
+      "notes": "Apply 1 Vulnerable to ALL enemies at combat start.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "vulnerable"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "BELLOWS": {
+      "id": "Bellows",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "First hand each combat is Upgraded. Free upgrades every fight.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "block"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "BOWLER_HAT": {
+      "id": "Bowler Hat",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Gain 20% extra Gold.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CANDELABRA": {
+      "id": "Candelabra",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain 2 Energy at start of Turn 2.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "strength",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "ETERNAL_FEATHER": {
+      "id": "Eternal Feather",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 3 HP per 5 deck cards at Rest Sites.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "GREMLIN_HORN": {
+      "id": "Gremlin Horn",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "energy_gain",
+        "draw"
+      ],
+      "notes": "On enemy death: gain Energy and draw 1 card. Snowballs in multi-enemy fights.",
+      "builds": [
+        "claw",
+        "sly",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "claw",
+            "zero_cost"
+          ],
+          "bonus": 0.3
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "HORN_CLEAT": {
+      "id": "Horn Cleat",
+      "tier": "S",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Gain 14 Block at start of Turn 2. Massive early Block.",
+      "builds": [
+        "strength",
+        "block",
+        "poison",
+        "doom",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block",
+            "strength"
+          ],
+          "bonus": 5
+        }
+      ]
+    },
+    "JOSS_PAPER": {
+      "id": "Joss Paper",
+      "tier": "C",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "draw",
+        "exhaust"
+      ],
+      "notes": "Every 5 Exhaust: draw 1 card. Decent draw in Exhaust builds.",
+      "builds": [
+        "exhaust",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "shiv"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "KUSARIGAMA": {
+      "id": "Kusarigama",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Every 3 Attacks in a turn: deal 6 damage to random enemy.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "LETTER_OPENER": {
+      "id": "Letter Opener",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "aoe",
+        "damage"
+      ],
+      "notes": "Every 3 Skills in a turn: deal 5 AoE.",
+      "builds": [
+        "sly",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power",
+            "sly"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "LUCKY_FYSH": {
+      "id": "Lucky Fysh",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Gain 15 Gold per card added to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MERCURY_HOURGLASS": {
+      "id": "Mercury Hourglass",
+      "tier": "S",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "aoe",
+        "damage"
+      ],
+      "notes": "Deal 3 AoE at turn start every turn. Free passive damage.",
+      "builds": [
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "MINIATURE_CANNON": {
+      "id": "Miniature Cannon",
+      "tier": "C",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Upgraded Attacks deal 3 more damage.",
+      "builds": [
+        "strength",
+        "claw"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "NUNCHAKU": {
+      "id": "Nunchaku",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Every 10 Attacks: gain Energy. Great in attack-spam builds.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "zero_cost"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "ORICHALCUM": {
+      "id": "Orichalcum",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "End turn without Block: gain 6 Block. Safety net.",
+      "builds": [
+        "sly",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "ORNAMENTAL_FAN": {
+      "id": "Ornamental Fan",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Every 3 Attacks in a turn: gain 4 Block.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "PANTOGRAPH": {
+      "id": "Pantograph",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 25 HP at start of each Boss fight.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PARRYING_SHIELD": {
+      "id": "Parrying Shield",
+      "tier": "D",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "damage"
+      ],
+      "notes": "End turn with 10+ Block: deal 6 damage to random enemy. Very conditional.",
+      "builds": [
+        "block"
+      ],
+      "scoreEffects": []
+    },
+    "PEAR": {
+      "id": "Pear",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 10.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PEN_NIB": {
+      "id": "Pen Nib",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Every 10th Attack deals double damage.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "PETRIFIED_TOAD": {
+      "id": "Petrified Toad",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [],
+      "notes": "Start combat with a Potion-Shaped Rock.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PLANISPHERE": {
+      "id": "Planisphere",
+      "tier": "C",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 4 HP per ? room.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "RED_MASK": {
+      "id": "Red Mask",
+      "tier": "S",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "weak"
+      ],
+      "notes": "Apply 1 Weak to ALL enemies at combat start.",
+      "builds": [
+        "sly",
+        "poison",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "poison",
+            "damage"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "weak"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "REPTILE_TRINKET": {
+      "id": "Reptile Trinket",
+      "tier": "C",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Gain 3 Strength this turn when using a potion. Burst Strength.",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": []
+    },
+    "RIPPLE_BASIN": {
+      "id": "Ripple Basin",
+      "tier": "C",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Did not play Attacks this turn: gain 4 Block. Skill-heavy turns.",
+      "builds": [
+        "sly",
+        "stars"
+      ],
+      "scoreEffects": []
+    },
+    "SPARKLING_ROUGE": {
+      "id": "Sparkling Rouge",
+      "tier": "B",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "strength",
+        "dexterity"
+      ],
+      "notes": "Gain 1 Strength and 1 Dexterity at Turn 3.",
+      "builds": [
+        "strength",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.2
+        },
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.1
+        }
+      ]
+    },
+    "STONE_CRACKER": {
+      "id": "Stone Cracker",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Boss fights: Upgrade 3 random Draw Pile cards.",
+      "builds": [
+        "stars",
+        "orb",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.3
+        },
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "TUNING_FORK": {
+      "id": "Tuning Fork",
+      "tier": "S",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Every 10 Skills: gain 7 Block.",
+      "builds": [
+        "sly",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power",
+            "sly"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "VAMBRACE": {
+      "id": "Vambrace",
+      "tier": "A",
+      "char": "any",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "First Block gained from a card each combat is doubled.",
+      "builds": [
+        "block",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "PAPER_PHROG": {
+      "id": "Paper Phrog",
+      "tier": "C",
+      "char": "ironclad",
+      "rarity": "uncommon",
+      "syn": [
+        "vulnerable",
+        "damage"
+      ],
+      "notes": "Vulnerable enemies take 75% more damage (not 50%). Amplifies all Vulnerable combos.",
+      "builds": [
+        "strength",
+        "block",
+        "strike"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "vulnerable"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "SELF_FORMING_CLAY": {
+      "id": "Self-Forming Clay",
+      "tier": "C",
+      "char": "ironclad",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Lose HP in combat: gain 3 Block next turn.",
+      "builds": [
+        "self_damage",
+        "block"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "TINGSHA": {
+      "id": "Tingsha",
+      "tier": "C",
+      "char": "silent",
+      "rarity": "uncommon",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Discard during turn: deal 3 damage per discarded card.",
+      "builds": [
+        "sly",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "discard"
+          ],
+          "bonus": 1.0
+        },
+        {
+          "tags": [
+            "shiv"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "TWISTED_FUNNEL": {
+      "id": "Twisted Funnel",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "uncommon",
+      "syn": [
+        "poison"
+      ],
+      "notes": "Apply 4 Poison to ALL enemies at combat start.",
+      "builds": [
+        "poison"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "poison"
+          ],
+          "bonus": 1.2
+        }
+      ]
+    },
+    "GALACTIC_DUST": {
+      "id": "Galactic Dust",
+      "tier": "C",
+      "char": "regent",
+      "rarity": "uncommon",
+      "syn": [
+        "block",
+        "stars"
+      ],
+      "notes": "Every 10 Stars spent: gain 10 Block.",
+      "builds": [
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars",
+            "star_gain"
+          ],
+          "bonus": 0.7
+        }
+      ]
+    },
+    "REGALITE": {
+      "id": "Regalite",
+      "tier": "D",
+      "char": "regent",
+      "rarity": "uncommon",
+      "syn": [
+        "block"
+      ],
+      "notes": "Gain 2 Block whenever you create a Colorless card. Niche unless running Colorless-creation.",
+      "builds": [
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BOOK_REPAIR_KNIFE": {
+      "id": "Book Repair Knife",
+      "tier": "D",
+      "char": "necrobinder",
+      "rarity": "uncommon",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Heal 3 HP when non-Minion enemy dies to Doom. Niche healing.",
+      "builds": [
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "FUNERARY_MASK": {
+      "id": "Funerary Mask",
+      "tier": "S",
+      "char": "necrobinder",
+      "rarity": "uncommon",
+      "syn": [
+        "soul",
+        "draw"
+      ],
+      "notes": "Add 3 Souls to Draw Pile at combat start. Core Soul relic — free Souls every fight.",
+      "builds": [
+        "soul",
+        "osty"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "soul",
+            "soul_payoff"
+          ],
+          "bonus": 1.6
+        },
+        {
+          "tags": [
+            "draw"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "GOLD_PLATED_CABLES": {
+      "id": "Gold-Plated Cables",
+      "tier": "C",
+      "char": "defect",
+      "rarity": "uncommon",
+      "syn": [
+        "orb"
+      ],
+      "notes": "Rightmost Orb triggers passive an extra time each turn.",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb"
+          ],
+          "bonus": 0.9
+        }
+      ]
+    },
+    "SYMBIOTIC_VIRUS": {
+      "id": "Symbiotic Virus",
+      "tier": "B",
+      "char": "defect",
+      "rarity": "uncommon",
+      "syn": [
+        "orb",
+        "dark"
+      ],
+      "notes": "Channel 1 Dark at combat start.",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb",
+            "dark"
+          ],
+          "bonus": 0.7
+        }
+      ]
+    },
+    "ART_OF_WAR": {
+      "id": "Art of War",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "No Attacks this turn: gain +1 Energy next turn. Rewards Skill-only turns.",
+      "builds": [
+        "sly",
+        "stars",
+        "exhaust"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power",
+            "sly"
+          ],
+          "bonus": 0.4
+        },
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BEATING_REMNANT": {
+      "id": "Beating Remnant",
+      "tier": "C",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Cannot lose more than 20 HP in a single turn. One-shot prevention.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CAPTAINS_WHEEL": {
+      "id": "Captain's Wheel",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "block"
+      ],
+      "notes": "Gain 18 Block at start of Turn 3.",
+      "builds": [
+        "block",
+        "poison",
+        "doom",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "CHANDELIER": {
+      "id": "Chandelier",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain 3 Energy at start of Turn 3.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "strength",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "CLOAK_CLASP": {
+      "id": "Cloak Clasp",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "block"
+      ],
+      "notes": "Gain 1 Block per card in Hand at turn end.",
+      "builds": [
+        "block",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block",
+            "block_conversion"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "draw"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "FROZEN_EGG": {
+      "id": "Frozen Egg",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Any Power added to deck is auto-Upgraded.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars",
+        "osty"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 1.1
+        }
+      ]
+    },
+    "GAMBLING_CHIP": {
+      "id": "Gambling Chip",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Start combat: discard any cards then draw that many. Perfect hand setup.",
+      "builds": [
+        "sly",
+        "claw",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "draw",
+            "scaling"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "GAME_PIECE": {
+      "id": "Game Piece",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Play a Power: draw 1 card.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.9
+        }
+      ]
+    },
+    "GIRYA": {
+      "id": "Girya",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Can gain Strength at Rest Sites (3 max).",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "ICE_CREAM": {
+      "id": "Ice Cream",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Energy is conserved between turns. Unused Energy carries over — game-changing.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "INTIMIDATING_HELMET": {
+      "id": "Intimidating Helmet",
+      "tier": "D",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "block"
+      ],
+      "notes": "Play a 2+ Energy card: gain 4 Block. Only good if you play many expensive cards.",
+      "builds": [
+        "stars",
+        "strike",
+        "doom"
+      ],
+      "scoreEffects": []
+    },
+    "KUNAI": {
+      "id": "Kunai",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "dexterity",
+        "block"
+      ],
+      "notes": "Every 3 Attacks: gain 1 permanent Dexterity.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.3
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "LASTING_CANDY": {
+      "id": "Lasting Candy",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Every other combat: extra Power in card rewards.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "LIZARD_TAIL": {
+      "id": "Lizard Tail",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "When you would die: heal to 50% Max HP instead. One-time death save.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MANGO": {
+      "id": "Mango",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 14. Largest single HP gain relic.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MEAT_ON_THE_BONE": {
+      "id": "Meat on the Bone",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Below 50% HP at end of combat: heal 12.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MOLTEN_EGG": {
+      "id": "Molten Egg",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Any Attack added to deck is auto-Upgraded.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv",
+        "strike"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "multi_hit",
+            "strike"
+          ],
+          "bonus": 1.1
+        }
+      ]
+    },
+    "MUMMIFIED_HAND": {
+      "id": "Mummified Hand",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Play a Power: a random Hand card costs 0 this turn.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars",
+        "osty"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 1.0
+        }
+      ]
+    },
+    "OLD_COIN": {
+      "id": "Old Coin",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Gain 300 Gold on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "POCKETWATCH": {
+      "id": "Pocketwatch",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Play 3 or fewer cards: draw 3 extra next turn.",
+      "builds": [
+        "doom",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "stars"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "PRAYER_WHEEL": {
+      "id": "Prayer Wheel",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Normal enemies drop an extra card reward.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "RAINBOW_RING": {
+      "id": "Rainbow Ring",
+      "tier": "C",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "strength",
+        "dexterity"
+      ],
+      "notes": "First time you play Attack+Skill+Power each turn: +1 Strength and Dexterity.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "RAZOR_TOOTH": {
+      "id": "Razor Tooth",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Every Attack or Skill you play is Upgraded for the rest of combat.",
+      "builds": [
+        "strength",
+        "claw",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "block",
+            "sly"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "SHOVEL": {
+      "id": "Shovel",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Can dig at Rest Sites for a random Relic.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SHURIKEN": {
+      "id": "Shuriken",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Every 3 Attacks: gain 1 permanent Strength.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "STONE_CALENDAR": {
+      "id": "Stone Calendar",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "aoe",
+        "damage"
+      ],
+      "notes": "End of Turn 7: deal 52 AoE. Fight-winning AoE if you survive to T7.",
+      "builds": [
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "STURDY_CLAMP": {
+      "id": "Sturdy Clamp",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "block"
+      ],
+      "notes": "Up to 10 Block persists across turns. Mini-Barricade for any character.",
+      "builds": [
+        "block",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "THE_COURIER": {
+      "id": "The Courier",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Merchant never runs out + 20% discount.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "TOXIC_EGG": {
+      "id": "Toxic Egg",
+      "tier": "S",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Any Skill added to deck is auto-Upgraded.",
+      "builds": [
+        "sly",
+        "exhaust",
+        "stars",
+        "soul"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power",
+            "block"
+          ],
+          "bonus": 1.1
+        },
+        {
+          "tags": [
+            "sly",
+            "exhaust"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "TUNGSTEN_ROD": {
+      "id": "Tungsten Rod",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Lose 1 less HP whenever you would take HP loss.",
+      "builds": [
+        "self_damage",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "UNCEASING_TOP": {
+      "id": "Unceasing Top",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Empty hand during your turn: draw a card.",
+      "builds": [
+        "claw",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "zero_cost",
+            "claw"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "draw"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "UNSETTLING_LAMP": {
+      "id": "Unsettling Lamp",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [
+        "debuff"
+      ],
+      "notes": "First debuff per combat doubles its effect.",
+      "builds": [
+        "poison",
+        "doom",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "poison"
+          ],
+          "bonus": 1.0
+        },
+        {
+          "tags": [
+            "weak",
+            "vulnerable",
+            "debuff"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "VEXING_PUZZLEBOX": {
+      "id": "Vexing Puzzlebox",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Start combat: add a random free card to Hand.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WHITE_BEAST_STATUE": {
+      "id": "White Beast Statue",
+      "tier": "B",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Potions always appear in combat rewards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WHITE_STAR": {
+      "id": "White Star",
+      "tier": "A",
+      "char": "any",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "Elites drop an extra Rare card.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CHARONS_ASHES": {
+      "id": "Charon's Ashes",
+      "tier": "A",
+      "char": "ironclad",
+      "rarity": "rare",
+      "syn": [
+        "exhaust",
+        "aoe",
+        "damage"
+      ],
+      "notes": "Exhaust a card: deal 3 AoE. In Exhaust builds, every Exhaust becomes free AoE.",
+      "builds": [
+        "exhaust"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 1.5
+        },
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "DEMON_TONGUE": {
+      "id": "Demon Tongue",
+      "tier": "B",
+      "char": "ironclad",
+      "rarity": "rare",
+      "syn": [
+        "healing",
+        "self_damage"
+      ],
+      "notes": "First HP loss per turn: heal equal amount. Pairs with Bloodletting for free heals.",
+      "builds": [
+        "self_damage"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 1.2
+        }
+      ]
+    },
+    "RUINED_HELMET": {
+      "id": "Ruined Helmet",
+      "tier": "C",
+      "char": "ironclad",
+      "rarity": "rare",
+      "syn": [
+        "strength"
+      ],
+      "notes": "First Strength gain per combat: doubled. Usually +2 extra Strength.",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "HELICAL_DART": {
+      "id": "Helical Dart",
+      "tier": "C",
+      "char": "silent",
+      "rarity": "rare",
+      "syn": [
+        "dexterity",
+        "shiv"
+      ],
+      "notes": "Play a Shiv: gain 1 Dexterity this turn.",
+      "builds": [
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "PAPER_KRANE": {
+      "id": "Paper Krane",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "rare",
+      "syn": [
+        "weak",
+        "block"
+      ],
+      "notes": "Weak enemies deal 40% less damage (not 25%). Massive damage reduction from Weak.",
+      "builds": [
+        "sly",
+        "poison",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "weak"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "debuff"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "TOUGH_BANDAGES": {
+      "id": "Tough Bandages",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "rare",
+      "syn": [
+        "block",
+        "discard"
+      ],
+      "notes": "Discard a card during turn: gain 3 Block. Sly builds discard constantly.",
+      "builds": [
+        "sly",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "discard"
+          ],
+          "bonus": 1.0
+        },
+        {
+          "tags": [
+            "shiv"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "LUNAR_PASTRY": {
+      "id": "Lunar Pastry",
+      "tier": "A",
+      "char": "regent",
+      "rarity": "rare",
+      "syn": [
+        "stars",
+        "star_gain"
+      ],
+      "notes": "Gain 1 Star at end of each turn. Passive Star generation every turn.",
+      "builds": [
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars",
+            "star_gain"
+          ],
+          "bonus": 1.1
+        }
+      ]
+    },
+    "MINI_REGENT": {
+      "id": "Mini Regent",
+      "tier": "C",
+      "char": "regent",
+      "rarity": "rare",
+      "syn": [
+        "strength",
+        "stars"
+      ],
+      "notes": "First Star spent per turn: gain 1 Strength.",
+      "builds": [
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "ORANGE_DOUGH": {
+      "id": "Orange Dough",
+      "tier": "B",
+      "char": "regent",
+      "rarity": "rare",
+      "syn": [
+        "colorless"
+      ],
+      "notes": "Add 2 random Colorless cards to Hand at combat start.",
+      "builds": [
+        "stars",
+        "forge"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "stars"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "BIG_HAT": {
+      "id": "Big Hat",
+      "tier": "A",
+      "char": "necrobinder",
+      "rarity": "rare",
+      "syn": [
+        "ethereal",
+        "draw"
+      ],
+      "notes": "Add 2 random Ethereal cards to Hand at combat start.",
+      "builds": [
+        "soul",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "soul"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.4
+        },
+        {
+          "tags": [
+            "ethereal"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "BOOKMARK": {
+      "id": "Bookmark",
+      "tier": "C",
+      "char": "necrobinder",
+      "rarity": "rare",
+      "syn": [],
+      "notes": "End of turn: lower cost of random Retained card by 1.",
+      "builds": [
+        "osty",
+        "soul"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "retain"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "osty"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "IVORY_TILE": {
+      "id": "Ivory Tile",
+      "tier": "C",
+      "char": "necrobinder",
+      "rarity": "rare",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Play a 3+ Energy card: gain Energy.",
+      "builds": [
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "EMOTION_CHIP": {
+      "id": "Emotion Chip",
+      "tier": "C",
+      "char": "defect",
+      "rarity": "rare",
+      "syn": [
+        "orb"
+      ],
+      "notes": "Took HP damage last turn: trigger all Orb passives at turn start.",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb"
+          ],
+          "bonus": 0.9
+        }
+      ]
+    },
+    "METRONOME": {
+      "id": "Metronome",
+      "tier": "C",
+      "char": "defect",
+      "rarity": "rare",
+      "syn": [
+        "orb",
+        "aoe",
+        "damage"
+      ],
+      "notes": "Channel 7 Orbs per combat: deal 30 AoE. Milestone reward for heavy channeling.",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "POWER_CELL": {
+      "id": "Power Cell",
+      "tier": "C",
+      "char": "defect",
+      "rarity": "rare",
+      "syn": [
+        "draw",
+        "zero_cost"
+      ],
+      "notes": "Add 2 zero-cost Draw Pile cards to Hand at combat start.",
+      "builds": [
+        "claw",
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "zero_cost",
+            "claw"
+          ],
+          "bonus": 1.0
+        },
+        {
+          "tags": [
+            "orb"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "ARCANE_SCROLL": {
+      "id": "Arcane Scroll",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain a random Rare Card on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BOOMING_CONCH": {
+      "id": "Booming Conch",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards at start of Elite combats.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CURSED_PEARL": {
+      "id": "Cursed Pearl",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Receive Greed curse + 333 Gold.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "GOLDEN_PEARL": {
+      "id": "Golden Pearl",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Gain 150 Gold on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LARGE_CAPSULE": {
+      "id": "Large Capsule",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain 2 random Relics. Add an extra Strike and Defend.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LAVA_ROCK": {
+      "id": "Lava Rock",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Act 1 Boss drops 2 Relics.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LEAD_PAPERWEIGHT": {
+      "id": "Lead Paperweight",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Choose 1 of 2 Colorless cards to add to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LEAFY_POULTICE": {
+      "id": "Leafy Poultice",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Transform 1 Strike and 1 Defend; lose 10 Max HP.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LOST_COFFER": {
+      "id": "Lost Coffer",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Gain 1 card reward and 1 random potion.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MASSIVE_SCROLL": {
+      "id": "Massive Scroll",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Choose 1 of 3 Multiplayer Colorless Cards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "NEOWS_TORMENT": {
+      "id": "Neow's Torment",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 Neow's Fury to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "NEW_LEAF": {
+      "id": "New Leaf",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Transform 1 card.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "NUTRITIOUS_OYSTER": {
+      "id": "Nutritious Oyster",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 11.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "POMANDER": {
+      "id": "Pomander",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Upgrade a card.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PRECARIOUS_SHEARS": {
+      "id": "Precarious Shears",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 2 cards from deck; take 13 damage.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "PRECISE_SCISSORS": {
+      "id": "Precise Scissors",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 1 card from deck.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "SCROLL_BOXES": {
+      "id": "Scroll Boxes",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Lose all Gold; choose 1 of 2 card packs.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SILVER_CRUCIBLE": {
+      "id": "Silver Crucible",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "First 3 card rewards Upgraded. First Treasure Chest empty.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SMALL_CAPSULE": {
+      "id": "Small Capsule",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain a random Relic.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "STONE_HUMIDIFIER": {
+      "id": "Stone Humidifier",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Gain 5 Max HP whenever you Rest.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ALCHEMICAL_COFFER": {
+      "id": "Alchemical Coffer",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Gain 4 potion slots filled with random potions.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ARCHAIC_TOOTH": {
+      "id": "Archaic Tooth",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Transform a starter card with an ancient version.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DRIFTWOOD": {
+      "id": "Driftwood",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Reroll each card reward once.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ELECTRIC_SHRYMP": {
+      "id": "Electric Shrymp",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant a Skill with Imbued.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "GLASS_EYE": {
+      "id": "Glass Eye",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain 2 Common, 2 Uncommon, 1 Rare card.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PRISMATIC_GEM": {
+      "id": "Prismatic Gem",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Card rewards contain other character cards.",
+      "builds": [
+        "stars",
+        "orb",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "RADIANT_PEARL": {
+      "id": "Radiant Pearl",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 Luminesce to Hand at combat start.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SAND_CASTLE": {
+      "id": "Sand Castle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Upgrade 6 random cards on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SEA_GLASS": {
+      "id": "Sea Glass",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "See 15 cards from another character; choose any to add.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "TOUCH_OF_OROBAS": {
+      "id": "Touch of Orobas",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Replace starter Relic with an Ancient version.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_BLOOD": {
+      "id": "Pael's Blood",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 1 extra card at turn start.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "draw"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "PAELS_CLAW": {
+      "id": "Pael's Claw",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Enchant all Defends with Goopy on pickup.",
+      "builds": [
+        "block"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_EYE": {
+      "id": "Pael's Eye",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "First time per combat you end turn without playing: Exhaust Hand and take extra turn.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_FLESH": {
+      "id": "Pael's Flesh",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain extra Energy at Turn 3 start and every turn after.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "PAELS_GROWTH": {
+      "id": "Pael's Growth",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Enchant a card with Clone on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_HORN": {
+      "id": "Pael's Horn",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 2 Relax to deck on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_LEGION": {
+      "id": "Pael's Legion",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "block"
+      ],
+      "notes": "Doubles Block from a card, then sleeps for 2 turns.",
+      "builds": [
+        "block",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block",
+            "block_conversion"
+          ],
+          "bonus": 1.0
+        }
+      ]
+    },
+    "PAELS_TEARS": {
+      "id": "Pael's Tears",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "End turn with unspent Energy: gain 2 extra Energy next turn.",
+      "builds": [
+        "stars",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "PAELS_TOOTH": {
+      "id": "Pael's Tooth",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 5 cards from deck. After each combat, add 1 back Upgraded.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "PAELS_WING": {
+      "id": "Pael's Wing",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Sacrifice card rewards to Pael; every 2 sacrifices, obtain a Relic.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BIIIG_HUG": {
+      "id": "Biiig Hug",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 4 cards from deck. Each shuffle adds a Soot.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "GOLDEN_COMPASS": {
+      "id": "Golden Compass",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Replace Act 2 Map with a single special path.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "NUTRITIOUS_SOUP": {
+      "id": "Nutritious Soup",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Enchant all Strikes with Tezcatara's Ember.",
+      "builds": [
+        "strike",
+        "strength"
+      ],
+      "scoreEffects": []
+    },
+    "PUMPKIN_CANDLE": {
+      "id": "Pumpkin Candle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Extinguishes at Act 3.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "SEAL_OF_GOLD": {
+      "id": "Seal of Gold",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Start of turn: spend 5 Gold to gain Energy.",
+      "builds": [
+        "stars",
+        "orb"
+      ],
+      "scoreEffects": []
+    },
+    "STORYBOOK": {
+      "id": "Storybook",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 Brightest Flame to deck.",
+      "builds": [
+        "stars",
+        "orb",
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "TOASTY_MITTENS": {
+      "id": "Toasty Mittens",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "exhaust",
+        "strength"
+      ],
+      "notes": "Start of turn: Exhaust top Draw card + gain 1 Strength.",
+      "builds": [
+        "exhaust",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.4
+        },
+        {
+          "tags": [
+            "strength"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "TOY_BOX": {
+      "id": "Toy Box",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain 4 Wax Relics. Every 3 combats, leftmost Wax melts.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "VERY_HOT_COCOA": {
+      "id": "Very Hot Cocoa",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Start each combat with +4 Energy.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain",
+            "x_cost",
+            "power"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "YUMMY_COOKIE": {
+      "id": "Yummy Cookie",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Upgrade 4 cards on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BEAUTIFUL_BRACELET": {
+      "id": "Beautiful Bracelet",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant 3 chosen Deck cards with Swift 3.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BLESSED_ANTLER": {
+      "id": "Blessed Antler",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Start each combat with 3 Dazed shuffled in.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BRILLIANT_SCARF": {
+      "id": "Brilliant Scarf",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "The 5th card you play each turn is free.",
+      "builds": [
+        "claw",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "zero_cost"
+          ],
+          "bonus": 0.4
+        },
+        {
+          "tags": [
+            "claw",
+            "sly"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "DELICATE_FROND": {
+      "id": "Delicate Frond",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Fill all empty potion slots at combat start.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DIAMOND_DIADEM": {
+      "id": "Diamond Diadem",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "block"
+      ],
+      "notes": "Play 2 or fewer cards in a turn: take half damage.",
+      "builds": [
+        "doom",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "FUR_COAT": {
+      "id": "Fur Coat",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Mark 7 random combats. Enemies in those rooms have 1 HP.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "GLITTER": {
+      "id": "Glitter",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Enchant all card rewards with Glam.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "JEWELRY_BOX": {
+      "id": "Jewelry Box",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 Apotheosis to deck.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars",
+        "strength",
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LOOMING_FRUIT": {
+      "id": "Looming Fruit",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 31.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SIGNET_RING": {
+      "id": "Signet Ring",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Gain 999 Gold on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CLAWS": {
+      "id": "Claws",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Transform up to 6 cards into Maul.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CROSSBOW": {
+      "id": "Crossbow",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw",
+        "damage"
+      ],
+      "notes": "Add a free 0-cost random Attack to Hand at turn start.",
+      "builds": [
+        "claw",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "claw",
+            "damage"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "IRON_CLUB": {
+      "id": "Iron Club",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Every 4 cards played: draw 1 card.",
+      "builds": [
+        "claw",
+        "shiv",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "zero_cost",
+            "claw"
+          ],
+          "bonus": 0.8
+        },
+        {
+          "tags": [
+            "sly"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "MEAT_CLEAVER": {
+      "id": "Meat Cleaver",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Can Cook at Rest Sites.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SAI": {
+      "id": "Sai",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "block"
+      ],
+      "notes": "Gain 7 Block at turn start.",
+      "builds": [
+        "block",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "SPIKED_GAUNTLETS": {
+      "id": "Spiked Gauntlets",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Powers cost 1 more.",
+      "builds": [
+        "strength",
+        "claw"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        },
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": -0.3
+        }
+      ]
+    },
+    "TANXS_WHISTLE": {
+      "id": "Tanx's Whistle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 Whistle to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "THROWING_AXE": {
+      "id": "Throwing Axe",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "damage"
+      ],
+      "notes": "First card played each combat plays an extra time.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "scaling"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "TRI_BOOMERANG": {
+      "id": "Tri-Boomerang",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Choose 3 Attacks in deck; Enchant them with Instinct.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv"
+      ],
+      "scoreEffects": []
+    },
+    "WAR_HAMMER": {
+      "id": "War Hammer",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Kill an Elite: Upgrade 4 random cards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BLOOD_SOAKED_ROSE": {
+      "id": "Blood-Soaked Rose",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Add 1 Enthralled to deck. Gain Energy each turn.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "CHOICES_PARADOX": {
+      "id": "Choices Paradox",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 1 of 5 random cards with Retain to Hand at combat start.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DISTINGUISHED_CAPE": {
+      "id": "Distinguished Cape",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Lose 9 Max HP. Add 3 Apparitions to deck.",
+      "builds": [
+        "doom",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "FIDDLE": {
+      "id": "Fiddle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards each turn. Cannot draw during your turn otherwise.",
+      "builds": [
+        "stars",
+        "doom",
+        "block"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power",
+            "scaling"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "JEWELED_MASK": {
+      "id": "Jeweled Mask",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "power"
+      ],
+      "notes": "Start combat: put a free random Power from Draw Pile into Hand.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "LORDS_PARASOL": {
+      "id": "Lord's Parasol",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "When you encounter the Merchant: obtain EVERYTHING he sells.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MUSIC_BOX": {
+      "id": "Music Box",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Create Ethereal copy of first Attack each turn.",
+      "builds": [
+        "strength",
+        "claw",
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "PRESERVED_FOG": {
+      "id": "Preserved Fog",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 5 cards from deck. Add Folly.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "SERE_TALON": {
+      "id": "Sere Talon",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Add 2 random Curses and 3 Wishes to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WHISPERING_EARRING": {
+      "id": "Whispering Earring",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Vakuu plays your first turn for you.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ASTROLABE": {
+      "id": "Astrolabe",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Transform 3 cards then Upgrade them.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BLACK_STAR": {
+      "id": "Black Star",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Elites drop an extra Relic when defeated.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CALLING_BELL": {
+      "id": "Calling Bell",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain a unique Curse and 3 Relics.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DUSTY_TOME": {
+      "id": "Dusty Tome",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Obtain an Ancient Card.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ECTOPLASM": {
+      "id": "Ectoplasm",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Cannot gain Gold. Gain Energy each turn.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "EMPTY_CAGE": {
+      "id": "Empty Cage",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Remove 2 cards from deck on pickup.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "PANDORAS_BOX": {
+      "id": "Pandora's Box",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "Transform ALL Strikes and Defends.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PHILOSOPHERS_STONE": {
+      "id": "Philosopher's Stone",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. ALL enemies start with 1 Strength.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "RUNIC_PYRAMID": {
+      "id": "Runic Pyramid",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "retain"
+      ],
+      "notes": "No hand discard at end of turn.",
+      "builds": [
+        "stars",
+        "sly",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "retain",
+            "scaling"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "stars"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "SNECKO_EYE": {
+      "id": "Snecko Eye",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Draw 2 extra cards. Start each combat Confused (random costs).",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SOZU": {
+      "id": "Sozu",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Cannot obtain potions.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "VELVET_CHOKER": {
+      "id": "Velvet Choker",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Gain Energy each turn. Cannot play more than 6 cards per turn.",
+      "builds": [
+        "stars",
+        "orb",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "energy_gain"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "BELT_BUCKLE": {
+      "id": "Belt Buckle",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "dexterity"
+      ],
+      "notes": "No potions: +2 Dexterity.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BREAD": {
+      "id": "Bread",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Turn 1: lose 1 Energy. All other turns: +1 Energy.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BURNING_STICKS": {
+      "id": "Burning Sticks",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "exhaust"
+      ],
+      "notes": "First time you Exhaust a Skill per combat: add a copy to Hand.",
+      "builds": [
+        "exhaust"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "exhaust",
+            "sly"
+          ],
+          "bonus": 0.9
+        }
+      ]
+    },
+    "CAULDRON": {
+      "id": "Cauldron",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Brew 5 random potions on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CHEMICAL_X": {
+      "id": "Chemical X",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "x_cost"
+      ],
+      "notes": "X-cost card effects increased by 2.",
+      "builds": [
+        "orb",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "x_cost"
+          ],
+          "bonus": 1.0
+        }
+      ]
+    },
+    "DINGY_RUG": {
+      "id": "Dingy Rug",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Card rewards can now contain Colorless cards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DOLLYS_MIRROR": {
+      "id": "Dolly's Mirror",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Get an extra copy of a Deck card on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DRAGON_FRUIT": {
+      "id": "Dragon Fruit",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "max_hp",
+        "gold"
+      ],
+      "notes": "Gain 1 Max HP whenever you gain Gold.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "GHOST_SEED": {
+      "id": "Ghost Seed",
+      "tier": "S",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "ethereal"
+      ],
+      "notes": "Strikes and Defends gain Ethereal. Auto-discard speeds cycling massively.",
+      "builds": [
+        "sly",
+        "claw",
+        "exhaust"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "claw"
+          ],
+          "bonus": 1.1
+        },
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "GNARLED_HAMMER": {
+      "id": "Gnarled Hammer",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant up to 3 Attacks with Sharp 3.",
+      "builds": [
+        "strength",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "KIFUDA": {
+      "id": "Kifuda",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant up to 3 cards with Adroit.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LAVA_LAMP": {
+      "id": "Lava Lamp",
+      "tier": "A",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Take no damage: all card rewards upgraded.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LEES_WAFFLE": {
+      "id": "Lee's Waffle",
+      "tier": "A",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "healing",
+        "max_hp"
+      ],
+      "notes": "Raise Max HP by 7 and fully heal on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MEMBERSHIP_CARD": {
+      "id": "Membership Card",
+      "tier": "A",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "gold"
+      ],
+      "notes": "50% discount at all shops.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MINIATURE_TENT": {
+      "id": "Miniature Tent",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Choose any number of options at Rest Sites.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MYSTIC_LIGHTER": {
+      "id": "Mystic Lighter",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Enchanted Attacks deal 9 more damage.",
+      "builds": [
+        "strength",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "ORRERY": {
+      "id": "Orrery",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Gain 5 card rewards on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "PUNCH_DAGGER": {
+      "id": "Punch Dagger",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant an Attack with Momentum 5.",
+      "builds": [
+        "strength",
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "RINGING_TRIANGLE": {
+      "id": "Ringing Triangle",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "retain"
+      ],
+      "notes": "Retain Hand on Turn 1 of combat.",
+      "builds": [
+        "stars",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "retain",
+            "stars"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "ROYAL_STAMP": {
+      "id": "Royal Stamp",
+      "tier": "C",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Enchant a Deck card with Royally Approved.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SCREAMING_FLAGON": {
+      "id": "Screaming Flagon",
+      "tier": "D",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "End turn with no cards in Hand: deal 20 AoE. Hard to trigger consistently.",
+      "builds": [
+        "claw"
+      ],
+      "scoreEffects": []
+    },
+    "SLING_OF_COURAGE": {
+      "id": "Sling of Courage",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Start Elite combats with 2 Strength.",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "THE_ABACUS": {
+      "id": "The Abacus",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "block"
+      ],
+      "notes": "Shuffle Draw Pile: gain 6 Block.",
+      "builds": [
+        "sly",
+        "claw"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "sly",
+            "claw"
+          ],
+          "bonus": 0.6
+        },
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.3
+        }
+      ]
+    },
+    "TOOLBOX": {
+      "id": "Toolbox",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Start combat: choose 1 of 3 random Colorless cards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WING_CHARM": {
+      "id": "Wing Charm",
+      "tier": "B",
+      "char": "any",
+      "rarity": "shop",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "A random card in each reward is Enchanted with Swift 1.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BRIMSTONE": {
+      "id": "Brimstone",
+      "tier": "C",
+      "char": "ironclad",
+      "rarity": "shop",
+      "syn": [
+        "strength"
+      ],
+      "notes": "+2 Strength per turn. ALL enemies also get +1 Strength. High risk/reward.",
+      "builds": [
+        "strength",
+        "self_damage"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage",
+            "multi_hit"
+          ],
+          "bonus": 0.9
+        },
+        {
+          "tags": [
+            "self_damage"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "NINJA_SCROLL": {
+      "id": "Ninja Scroll",
+      "tier": "B",
+      "char": "silent",
+      "rarity": "shop",
+      "syn": [
+        "shiv"
+      ],
+      "notes": "Add 3 Shivs to Hand at combat start.",
+      "builds": [
+        "shiv"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "shiv",
+            "shiv_synergy"
+          ],
+          "bonus": 1.3
+        }
+      ]
+    },
+    "VITRUVIAN_MINION": {
+      "id": "Vitruvian Minion",
+      "tier": "C",
+      "char": "regent",
+      "rarity": "shop",
+      "syn": [],
+      "notes": "Minion cards deal double damage and gain double Block.",
+      "builds": [
+        "forge",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "forge"
+          ],
+          "bonus": 0.7
+        }
+      ]
+    },
+    "UNDYING_SIGIL": {
+      "id": "Undying Sigil",
+      "tier": "B",
+      "char": "necrobinder",
+      "rarity": "shop",
+      "syn": [
+        "doom"
+      ],
+      "notes": "Enemies with Doom >= HP deal 50% less damage.",
+      "builds": [
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.8
+        }
+      ]
+    },
+    "RUNIC_CAPACITOR": {
+      "id": "Runic Capacitor",
+      "tier": "B",
+      "char": "defect",
+      "rarity": "shop",
+      "syn": [
+        "orb"
+      ],
+      "notes": "Start combat with 3 extra Orb Slots (6 total).",
+      "builds": [
+        "orb"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "orb"
+          ],
+          "bonus": 1.1
+        }
+      ]
+    },
+    "ANCHOR_EV": {
+      "id": "Anchor_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "block"
+      ],
+      "notes": "Event variant: Start each combat with 4 Block.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BIG_MUSHROOM": {
+      "id": "Big Mushroom",
+      "tier": "C",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "+20 Max HP but draw 2 fewer cards per combat. Net negative for card-dependent builds.",
+      "builds": [
+        "block",
+        "doom"
+      ],
+      "scoreEffects": []
+    },
+    "BING_BONG": {
+      "id": "Bing Bong",
+      "tier": "D",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Add a card: add one extra copy. Dangerously bloats deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BLOOD_VIAL_EV": {
+      "id": "Blood_Vial_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Event variant: Heal 1 HP at combat start.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BONE_TEA": {
+      "id": "Bone Tea",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Start of next combat: Upgrade your opening hand.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "BYRDPIP": {
+      "id": "Byrdpip",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Gain Byrd Swoop card. A Byrdpip accompanies you in battles.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DARKSTONE_PERIAPT": {
+      "id": "Darkstone Periapt",
+      "tier": "C",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Obtain a Curse: +6 Max HP. Good if you can control Curse intake.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DAUGHTER_OF_THE_WIND": {
+      "id": "Daughter of the Wind",
+      "tier": "C",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "block"
+      ],
+      "notes": "Play an Attack: gain 1 Block.",
+      "builds": [
+        "claw",
+        "shiv",
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "DREAM_CATCHER": {
+      "id": "Dream Catcher",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Resting: may add a card to deck.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "EMBER_TEA": {
+      "id": "Ember Tea",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Gain 2 Strength for next 5 combats.",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.2
+        }
+      ]
+    },
+    "FORGOTTEN_SOUL": {
+      "id": "Forgotten Soul",
+      "tier": "C",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "exhaust",
+        "damage"
+      ],
+      "notes": "Exhaust a card: deal 1 damage to random enemy.",
+      "builds": [
+        "exhaust"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "exhaust"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "FRAGRANT_MUSHROOM": {
+      "id": "Fragrant Mushroom",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "upgrade"
+      ],
+      "notes": "Lose 15 HP: Upgrade 3 random cards.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "FRESNEL_LENS": {
+      "id": "Fresnel Lens",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "block",
+        "upgrade"
+      ],
+      "notes": "Add a Block card: Enchant it with Nimble 2.",
+      "builds": [
+        "block",
+        "stars"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "block"
+          ],
+          "bonus": 0.7
+        }
+      ]
+    },
+    "HAND_DRILL": {
+      "id": "Hand Drill",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "vulnerable"
+      ],
+      "notes": "Break enemy Block: apply 2 Vulnerable.",
+      "builds": [
+        "strength",
+        "doom"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage"
+          ],
+          "bonus": 0.5
+        },
+        {
+          "tags": [
+            "vulnerable"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "HAPPY_FLOWER_EV": {
+      "id": "Happy_Flower_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Event variant: Every 5 turns, gain Energy.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "HISTORY_COURSE": {
+      "id": "History Course",
+      "tier": "S",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "scaling"
+      ],
+      "notes": "Start of turn: play a copy of your last played Attack or Skill. Free extra card every turn.",
+      "builds": [
+        "poison",
+        "strength",
+        "claw",
+        "sly"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "damage",
+            "scaling"
+          ],
+          "bonus": 1.0
+        },
+        {
+          "tags": [
+            "poison"
+          ],
+          "bonus": 0.7
+        },
+        {
+          "tags": [
+            "multi_hit"
+          ],
+          "bonus": 0.6
+        }
+      ]
+    },
+    "LEES_WAFFLE_EV": {
+      "id": "Lees_Waffle_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "healing"
+      ],
+      "notes": "Event variant: Heal 10% of HP on pickup.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "LOST_WISP": {
+      "id": "Lost Wisp",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "aoe",
+        "damage",
+        "power"
+      ],
+      "notes": "Play a Power: deal 8 AoE. Every Power is an 8-damage AoE burst.",
+      "builds": [
+        "orb",
+        "exhaust",
+        "stars",
+        "osty"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "power"
+          ],
+          "bonus": 1.1
+        }
+      ]
+    },
+    "MANGO_EV": {
+      "id": "Mango_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Event variant: Raise Max HP by 3.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MAW_BANK": {
+      "id": "Maw Bank",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "gold"
+      ],
+      "notes": "Climb a floor: gain 12 Gold. Stops when you spend Gold.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "MR_STRUGGLES": {
+      "id": "Mr. Struggles",
+      "tier": "S",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "aoe",
+        "damage",
+        "scaling"
+      ],
+      "notes": "Start of turn: deal damage equal to turn number to ALL enemies. Scales to 10, 20, 30+.",
+      "builds": [
+        "doom",
+        "any"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "doom"
+          ],
+          "bonus": 0.4
+        }
+      ]
+    },
+    "ORICHALCUM_EV": {
+      "id": "Orichalcum_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "block"
+      ],
+      "notes": "Event variant: End turn without Block: gain 3 Block.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "POLLINOUS_CORE": {
+      "id": "Pollinous Core",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "draw"
+      ],
+      "notes": "Every 4 turns: draw 2 extra cards.",
+      "builds": [
+        "doom",
+        "stars",
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "ROYAL_POISON": {
+      "id": "Royal Poison",
+      "tier": "D",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Lose 4 HP at start of each combat. Avoid.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SNECKO_EYE_EV": {
+      "id": "Snecko_Eye_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Event variant: Start each combat Confused.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "STRIKE_DUMMY_EV": {
+      "id": "Strike_Dummy_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "damage",
+        "strike"
+      ],
+      "notes": "Event variant: Strike cards deal 1 extra damage.",
+      "builds": [
+        "strike"
+      ],
+      "scoreEffects": []
+    },
+    "SWORD_OF_JADE": {
+      "id": "Sword of Jade",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "strength"
+      ],
+      "notes": "Start each combat with 3 Strength.",
+      "builds": [
+        "strength"
+      ],
+      "scoreEffects": [
+        {
+          "tags": [
+            "strength",
+            "damage"
+          ],
+          "bonus": 0.5
+        }
+      ]
+    },
+    "SWORD_OF_STONE": {
+      "id": "Sword of Stone",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Transforms into a powerful Relic after defeating 5 Elites.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "TEA_OF_DISCOURTESY": {
+      "id": "Tea of Discourtesy",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Shuffle 2 Dazed into Draw Pile next combat.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "THE_BOOT": {
+      "id": "The Boot",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "damage"
+      ],
+      "notes": "Unblocked damage <= 4 is increased to 5.",
+      "builds": [
+        "claw",
+        "shiv"
+      ],
+      "scoreEffects": []
+    },
+    "THE_CHOSEN_CHEESE": {
+      "id": "The Chosen Cheese",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "max_hp"
+      ],
+      "notes": "Gain 1 Max HP after each combat. Stacks across an entire run.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "THE_MERCHANTS_RUG_EV": {
+      "id": "The_Merchants_Rug_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Poor imitation. Does nothing.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "VENERABLE_TEA_SET_EV": {
+      "id": "Venerable_Tea_Set_Ev",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [
+        "energy_gain"
+      ],
+      "notes": "Event variant: +1 Energy next combat after Rest Site.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WONGO_CUSTOMER_APPRECIATION_BADGE": {
+      "id": "Wongo Customer Appreciation Badge",
+      "tier": "B",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Does nothing.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "WONGOS_MYSTERY_TICKET": {
+      "id": "Wongo's Mystery Ticket",
+      "tier": "A",
+      "char": "any",
+      "rarity": "event",
+      "syn": [],
+      "notes": "Receive 3 random Relics after 5 combats.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "CIRCLET": {
+      "id": "Circlet",
+      "tier": "B",
+      "char": "any",
+      "rarity": "special",
+      "syn": [],
+      "notes": "It's a circlet. Appears when no more relics are available.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    }
+  },
+  "relicNames": [
+    {
+      "n": "Burning Blood",
+      "c": "ironclad"
+    },
+    {
+      "n": "Black Blood",
+      "c": "ironclad"
+    },
+    {
+      "n": "Ring of the Snake",
+      "c": "silent"
+    },
+    {
+      "n": "Ring of the Drake",
+      "c": "silent"
+    },
+    {
+      "n": "Divine Right",
+      "c": "regent"
+    },
+    {
+      "n": "Divine Destiny",
+      "c": "regent"
+    },
+    {
+      "n": "Bound Phylactery",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Phylactery Unbound",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Cracked Core",
+      "c": "defect"
+    },
+    {
+      "n": "Infused Core",
+      "c": "defect"
+    },
+    {
+      "n": "Amethyst Aubergine",
+      "c": "any"
+    },
+    {
+      "n": "Anchor",
+      "c": "any"
+    },
+    {
+      "n": "Bag of Preparation",
+      "c": "any"
+    },
+    {
+      "n": "Blood Vial",
+      "c": "any"
+    },
+    {
+      "n": "Book of Five Rings",
+      "c": "any"
+    },
+    {
+      "n": "Bronze Scales",
+      "c": "any"
+    },
+    {
+      "n": "Centennial Puzzle",
+      "c": "any"
+    },
+    {
+      "n": "Festive Popper",
+      "c": "any"
+    },
+    {
+      "n": "Gorget",
+      "c": "any"
+    },
+    {
+      "n": "Happy Flower",
+      "c": "any"
+    },
+    {
+      "n": "Juzu Bracelet",
+      "c": "any"
+    },
+    {
+      "n": "Lantern",
+      "c": "any"
+    },
+    {
+      "n": "Meal Ticket",
+      "c": "any"
+    },
+    {
+      "n": "Oddly Smooth Stone",
+      "c": "any"
+    },
+    {
+      "n": "Pendulum",
+      "c": "any"
+    },
+    {
+      "n": "Permafrost",
+      "c": "any"
+    },
+    {
+      "n": "Potion Belt",
+      "c": "any"
+    },
+    {
+      "n": "Regal Pillow",
+      "c": "any"
+    },
+    {
+      "n": "Strawberry",
+      "c": "any"
+    },
+    {
+      "n": "Strike Dummy",
+      "c": "any"
+    },
+    {
+      "n": "Tiny Mailbox",
+      "c": "any"
+    },
+    {
+      "n": "Vajra",
+      "c": "any"
+    },
+    {
+      "n": "Venerable Tea Set",
+      "c": "any"
+    },
+    {
+      "n": "War Paint",
+      "c": "any"
+    },
+    {
+      "n": "Whetstone",
+      "c": "any"
+    },
+    {
+      "n": "Red Skull",
+      "c": "ironclad"
+    },
+    {
+      "n": "Snecko Skull",
+      "c": "silent"
+    },
+    {
+      "n": "Fencing Manual",
+      "c": "regent"
+    },
+    {
+      "n": "Bone Flute",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Data Disk",
+      "c": "defect"
+    },
+    {
+      "n": "Akabeko",
+      "c": "any"
+    },
+    {
+      "n": "Bag of Marbles",
+      "c": "any"
+    },
+    {
+      "n": "Bellows",
+      "c": "any"
+    },
+    {
+      "n": "Bowler Hat",
+      "c": "any"
+    },
+    {
+      "n": "Candelabra",
+      "c": "any"
+    },
+    {
+      "n": "Eternal Feather",
+      "c": "any"
+    },
+    {
+      "n": "Gremlin Horn",
+      "c": "any"
+    },
+    {
+      "n": "Horn Cleat",
+      "c": "any"
+    },
+    {
+      "n": "Joss Paper",
+      "c": "any"
+    },
+    {
+      "n": "Kusarigama",
+      "c": "any"
+    },
+    {
+      "n": "Letter Opener",
+      "c": "any"
+    },
+    {
+      "n": "Lucky Fysh",
+      "c": "any"
+    },
+    {
+      "n": "Mercury Hourglass",
+      "c": "any"
+    },
+    {
+      "n": "Miniature Cannon",
+      "c": "any"
+    },
+    {
+      "n": "Nunchaku",
+      "c": "any"
+    },
+    {
+      "n": "Orichalcum",
+      "c": "any"
+    },
+    {
+      "n": "Ornamental Fan",
+      "c": "any"
+    },
+    {
+      "n": "Pantograph",
+      "c": "any"
+    },
+    {
+      "n": "Parrying Shield",
+      "c": "any"
+    },
+    {
+      "n": "Pear",
+      "c": "any"
+    },
+    {
+      "n": "Pen Nib",
+      "c": "any"
+    },
+    {
+      "n": "Petrified Toad",
+      "c": "any"
+    },
+    {
+      "n": "Planisphere",
+      "c": "any"
+    },
+    {
+      "n": "Red Mask",
+      "c": "any"
+    },
+    {
+      "n": "Reptile Trinket",
+      "c": "any"
+    },
+    {
+      "n": "Ripple Basin",
+      "c": "any"
+    },
+    {
+      "n": "Sparkling Rouge",
+      "c": "any"
+    },
+    {
+      "n": "Stone Cracker",
+      "c": "any"
+    },
+    {
+      "n": "Tuning Fork",
+      "c": "any"
+    },
+    {
+      "n": "Vambrace",
+      "c": "any"
+    },
+    {
+      "n": "Paper Phrog",
+      "c": "ironclad"
+    },
+    {
+      "n": "Self-Forming Clay",
+      "c": "ironclad"
+    },
+    {
+      "n": "Tingsha",
+      "c": "silent"
+    },
+    {
+      "n": "Twisted Funnel",
+      "c": "silent"
+    },
+    {
+      "n": "Galactic Dust",
+      "c": "regent"
+    },
+    {
+      "n": "Regalite",
+      "c": "regent"
+    },
+    {
+      "n": "Book Repair Knife",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Funerary Mask",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Gold-Plated Cables",
+      "c": "defect"
+    },
+    {
+      "n": "Symbiotic Virus",
+      "c": "defect"
+    },
+    {
+      "n": "Art of War",
+      "c": "any"
+    },
+    {
+      "n": "Beating Remnant",
+      "c": "any"
+    },
+    {
+      "n": "Captain's Wheel",
+      "c": "any"
+    },
+    {
+      "n": "Chandelier",
+      "c": "any"
+    },
+    {
+      "n": "Cloak Clasp",
+      "c": "any"
+    },
+    {
+      "n": "Frozen Egg",
+      "c": "any"
+    },
+    {
+      "n": "Gambling Chip",
+      "c": "any"
+    },
+    {
+      "n": "Game Piece",
+      "c": "any"
+    },
+    {
+      "n": "Girya",
+      "c": "any"
+    },
+    {
+      "n": "Ice Cream",
+      "c": "any"
+    },
+    {
+      "n": "Intimidating Helmet",
+      "c": "any"
+    },
+    {
+      "n": "Kunai",
+      "c": "any"
+    },
+    {
+      "n": "Lasting Candy",
+      "c": "any"
+    },
+    {
+      "n": "Lizard Tail",
+      "c": "any"
+    },
+    {
+      "n": "Mango",
+      "c": "any"
+    },
+    {
+      "n": "Meat on the Bone",
+      "c": "any"
+    },
+    {
+      "n": "Molten Egg",
+      "c": "any"
+    },
+    {
+      "n": "Mummified Hand",
+      "c": "any"
+    },
+    {
+      "n": "Old Coin",
+      "c": "any"
+    },
+    {
+      "n": "Pocketwatch",
+      "c": "any"
+    },
+    {
+      "n": "Prayer Wheel",
+      "c": "any"
+    },
+    {
+      "n": "Rainbow Ring",
+      "c": "any"
+    },
+    {
+      "n": "Razor Tooth",
+      "c": "any"
+    },
+    {
+      "n": "Shovel",
+      "c": "any"
+    },
+    {
+      "n": "Shuriken",
+      "c": "any"
+    },
+    {
+      "n": "Stone Calendar",
+      "c": "any"
+    },
+    {
+      "n": "Sturdy Clamp",
+      "c": "any"
+    },
+    {
+      "n": "The Courier",
+      "c": "any"
+    },
+    {
+      "n": "Toxic Egg",
+      "c": "any"
+    },
+    {
+      "n": "Tungsten Rod",
+      "c": "any"
+    },
+    {
+      "n": "Unceasing Top",
+      "c": "any"
+    },
+    {
+      "n": "Unsettling Lamp",
+      "c": "any"
+    },
+    {
+      "n": "Vexing Puzzlebox",
+      "c": "any"
+    },
+    {
+      "n": "White Beast Statue",
+      "c": "any"
+    },
+    {
+      "n": "White Star",
+      "c": "any"
+    },
+    {
+      "n": "Charon's Ashes",
+      "c": "ironclad"
+    },
+    {
+      "n": "Demon Tongue",
+      "c": "ironclad"
+    },
+    {
+      "n": "Ruined Helmet",
+      "c": "ironclad"
+    },
+    {
+      "n": "Helical Dart",
+      "c": "silent"
+    },
+    {
+      "n": "Paper Krane",
+      "c": "silent"
+    },
+    {
+      "n": "Tough Bandages",
+      "c": "silent"
+    },
+    {
+      "n": "Lunar Pastry",
+      "c": "regent"
+    },
+    {
+      "n": "Mini Regent",
+      "c": "regent"
+    },
+    {
+      "n": "Orange Dough",
+      "c": "regent"
+    },
+    {
+      "n": "Big Hat",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Bookmark",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Ivory Tile",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Emotion Chip",
+      "c": "defect"
+    },
+    {
+      "n": "Metronome",
+      "c": "defect"
+    },
+    {
+      "n": "Power Cell",
+      "c": "defect"
+    },
+    {
+      "n": "Arcane Scroll",
+      "c": "any"
+    },
+    {
+      "n": "Booming Conch",
+      "c": "any"
+    },
+    {
+      "n": "Cursed Pearl",
+      "c": "any"
+    },
+    {
+      "n": "Golden Pearl",
+      "c": "any"
+    },
+    {
+      "n": "Large Capsule",
+      "c": "any"
+    },
+    {
+      "n": "Lava Rock",
+      "c": "any"
+    },
+    {
+      "n": "Lead Paperweight",
+      "c": "any"
+    },
+    {
+      "n": "Leafy Poultice",
+      "c": "any"
+    },
+    {
+      "n": "Lost Coffer",
+      "c": "any"
+    },
+    {
+      "n": "Massive Scroll",
+      "c": "any"
+    },
+    {
+      "n": "Neow's Torment",
+      "c": "any"
+    },
+    {
+      "n": "New Leaf",
+      "c": "any"
+    },
+    {
+      "n": "Nutritious Oyster",
+      "c": "any"
+    },
+    {
+      "n": "Pomander",
+      "c": "any"
+    },
+    {
+      "n": "Precarious Shears",
+      "c": "any"
+    },
+    {
+      "n": "Precise Scissors",
+      "c": "any"
+    },
+    {
+      "n": "Scroll Boxes",
+      "c": "any"
+    },
+    {
+      "n": "Silver Crucible",
+      "c": "any"
+    },
+    {
+      "n": "Small Capsule",
+      "c": "any"
+    },
+    {
+      "n": "Stone Humidifier",
+      "c": "any"
+    },
+    {
+      "n": "Alchemical Coffer",
+      "c": "any"
+    },
+    {
+      "n": "Archaic Tooth",
+      "c": "any"
+    },
+    {
+      "n": "Driftwood",
+      "c": "any"
+    },
+    {
+      "n": "Electric Shrymp",
+      "c": "any"
+    },
+    {
+      "n": "Glass Eye",
+      "c": "any"
+    },
+    {
+      "n": "Prismatic Gem",
+      "c": "any"
+    },
+    {
+      "n": "Radiant Pearl",
+      "c": "any"
+    },
+    {
+      "n": "Sand Castle",
+      "c": "any"
+    },
+    {
+      "n": "Sea Glass",
+      "c": "any"
+    },
+    {
+      "n": "Touch of Orobas",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Blood",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Claw",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Eye",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Flesh",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Growth",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Horn",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Legion",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Tears",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Tooth",
+      "c": "any"
+    },
+    {
+      "n": "Pael's Wing",
+      "c": "any"
+    },
+    {
+      "n": "Biiig Hug",
+      "c": "any"
+    },
+    {
+      "n": "Golden Compass",
+      "c": "any"
+    },
+    {
+      "n": "Nutritious Soup",
+      "c": "any"
+    },
+    {
+      "n": "Pumpkin Candle",
+      "c": "any"
+    },
+    {
+      "n": "Seal of Gold",
+      "c": "any"
+    },
+    {
+      "n": "Storybook",
+      "c": "any"
+    },
+    {
+      "n": "Toasty Mittens",
+      "c": "any"
+    },
+    {
+      "n": "Toy Box",
+      "c": "any"
+    },
+    {
+      "n": "Very Hot Cocoa",
+      "c": "any"
+    },
+    {
+      "n": "Yummy Cookie",
+      "c": "any"
+    },
+    {
+      "n": "Beautiful Bracelet",
+      "c": "any"
+    },
+    {
+      "n": "Blessed Antler",
+      "c": "any"
+    },
+    {
+      "n": "Brilliant Scarf",
+      "c": "any"
+    },
+    {
+      "n": "Delicate Frond",
+      "c": "any"
+    },
+    {
+      "n": "Diamond Diadem",
+      "c": "any"
+    },
+    {
+      "n": "Fur Coat",
+      "c": "any"
+    },
+    {
+      "n": "Glitter",
+      "c": "any"
+    },
+    {
+      "n": "Jewelry Box",
+      "c": "any"
+    },
+    {
+      "n": "Looming Fruit",
+      "c": "any"
+    },
+    {
+      "n": "Signet Ring",
+      "c": "any"
+    },
+    {
+      "n": "Claws",
+      "c": "any"
+    },
+    {
+      "n": "Crossbow",
+      "c": "any"
+    },
+    {
+      "n": "Iron Club",
+      "c": "any"
+    },
+    {
+      "n": "Meat Cleaver",
+      "c": "any"
+    },
+    {
+      "n": "Sai",
+      "c": "any"
+    },
+    {
+      "n": "Spiked Gauntlets",
+      "c": "any"
+    },
+    {
+      "n": "Tanx's Whistle",
+      "c": "any"
+    },
+    {
+      "n": "Throwing Axe",
+      "c": "any"
+    },
+    {
+      "n": "Tri-Boomerang",
+      "c": "any"
+    },
+    {
+      "n": "War Hammer",
+      "c": "any"
+    },
+    {
+      "n": "Blood-Soaked Rose",
+      "c": "any"
+    },
+    {
+      "n": "Choices Paradox",
+      "c": "any"
+    },
+    {
+      "n": "Distinguished Cape",
+      "c": "any"
+    },
+    {
+      "n": "Fiddle",
+      "c": "any"
+    },
+    {
+      "n": "Jeweled Mask",
+      "c": "any"
+    },
+    {
+      "n": "Lord's Parasol",
+      "c": "any"
+    },
+    {
+      "n": "Music Box",
+      "c": "any"
+    },
+    {
+      "n": "Preserved Fog",
+      "c": "any"
+    },
+    {
+      "n": "Sere Talon",
+      "c": "any"
+    },
+    {
+      "n": "Whispering Earring",
+      "c": "any"
+    },
+    {
+      "n": "Astrolabe",
+      "c": "any"
+    },
+    {
+      "n": "Black Star",
+      "c": "any"
+    },
+    {
+      "n": "Calling Bell",
+      "c": "any"
+    },
+    {
+      "n": "Dusty Tome",
+      "c": "any"
+    },
+    {
+      "n": "Ectoplasm",
+      "c": "any"
+    },
+    {
+      "n": "Empty Cage",
+      "c": "any"
+    },
+    {
+      "n": "Pandora's Box",
+      "c": "any"
+    },
+    {
+      "n": "Philosopher's Stone",
+      "c": "any"
+    },
+    {
+      "n": "Runic Pyramid",
+      "c": "any"
+    },
+    {
+      "n": "Snecko Eye",
+      "c": "any"
+    },
+    {
+      "n": "Sozu",
+      "c": "any"
+    },
+    {
+      "n": "Velvet Choker",
+      "c": "any"
+    },
+    {
+      "n": "Belt Buckle",
+      "c": "any"
+    },
+    {
+      "n": "Bread",
+      "c": "any"
+    },
+    {
+      "n": "Burning Sticks",
+      "c": "any"
+    },
+    {
+      "n": "Cauldron",
+      "c": "any"
+    },
+    {
+      "n": "Chemical X",
+      "c": "any"
+    },
+    {
+      "n": "Dingy Rug",
+      "c": "any"
+    },
+    {
+      "n": "Dolly's Mirror",
+      "c": "any"
+    },
+    {
+      "n": "Dragon Fruit",
+      "c": "any"
+    },
+    {
+      "n": "Ghost Seed",
+      "c": "any"
+    },
+    {
+      "n": "Gnarled Hammer",
+      "c": "any"
+    },
+    {
+      "n": "Kifuda",
+      "c": "any"
+    },
+    {
+      "n": "Lava Lamp",
+      "c": "any"
+    },
+    {
+      "n": "Lee's Waffle",
+      "c": "any"
+    },
+    {
+      "n": "Membership Card",
+      "c": "any"
+    },
+    {
+      "n": "Miniature Tent",
+      "c": "any"
+    },
+    {
+      "n": "Mystic Lighter",
+      "c": "any"
+    },
+    {
+      "n": "Orrery",
+      "c": "any"
+    },
+    {
+      "n": "Punch Dagger",
+      "c": "any"
+    },
+    {
+      "n": "Ringing Triangle",
+      "c": "any"
+    },
+    {
+      "n": "Royal Stamp",
+      "c": "any"
+    },
+    {
+      "n": "Screaming Flagon",
+      "c": "any"
+    },
+    {
+      "n": "Sling of Courage",
+      "c": "any"
+    },
+    {
+      "n": "The Abacus",
+      "c": "any"
+    },
+    {
+      "n": "Toolbox",
+      "c": "any"
+    },
+    {
+      "n": "Wing Charm",
+      "c": "any"
+    },
+    {
+      "n": "Brimstone",
+      "c": "ironclad"
+    },
+    {
+      "n": "Ninja Scroll",
+      "c": "silent"
+    },
+    {
+      "n": "Vitruvian Minion",
+      "c": "regent"
+    },
+    {
+      "n": "Undying Sigil",
+      "c": "necrobinder"
+    },
+    {
+      "n": "Runic Capacitor",
+      "c": "defect"
+    },
+    {
+      "n": "Anchor_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Big Mushroom",
+      "c": "any"
+    },
+    {
+      "n": "Bing Bong",
+      "c": "any"
+    },
+    {
+      "n": "Blood_Vial_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Bone Tea",
+      "c": "any"
+    },
+    {
+      "n": "Byrdpip",
+      "c": "any"
+    },
+    {
+      "n": "Darkstone Periapt",
+      "c": "any"
+    },
+    {
+      "n": "Daughter of the Wind",
+      "c": "any"
+    },
+    {
+      "n": "Dream Catcher",
+      "c": "any"
+    },
+    {
+      "n": "Ember Tea",
+      "c": "any"
+    },
+    {
+      "n": "Forgotten Soul",
+      "c": "any"
+    },
+    {
+      "n": "Fragrant Mushroom",
+      "c": "any"
+    },
+    {
+      "n": "Fresnel Lens",
+      "c": "any"
+    },
+    {
+      "n": "Hand Drill",
+      "c": "any"
+    },
+    {
+      "n": "Happy_Flower_Ev",
+      "c": "any"
+    },
+    {
+      "n": "History Course",
+      "c": "any"
+    },
+    {
+      "n": "Lees_Waffle_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Lost Wisp",
+      "c": "any"
+    },
+    {
+      "n": "Mango_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Maw Bank",
+      "c": "any"
+    },
+    {
+      "n": "Mr. Struggles",
+      "c": "any"
+    },
+    {
+      "n": "Orichalcum_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Pollinous Core",
+      "c": "any"
+    },
+    {
+      "n": "Royal Poison",
+      "c": "any"
+    },
+    {
+      "n": "Snecko_Eye_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Strike_Dummy_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Sword of Jade",
+      "c": "any"
+    },
+    {
+      "n": "Sword of Stone",
+      "c": "any"
+    },
+    {
+      "n": "Tea of Discourtesy",
+      "c": "any"
+    },
+    {
+      "n": "The Boot",
+      "c": "any"
+    },
+    {
+      "n": "The Chosen Cheese",
+      "c": "any"
+    },
+    {
+      "n": "The_Merchants_Rug_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Venerable_Tea_Set_Ev",
+      "c": "any"
+    },
+    {
+      "n": "Wongo Customer Appreciation Badge",
+      "c": "any"
+    },
+    {
+      "n": "Wongo's Mystery Ticket",
+      "c": "any"
+    },
+    {
+      "n": "Circlet",
+      "c": "any"
+    }
+  ],
+  "relicCombos": [
+    {
+      "relic": "Charon's Ashes",
+      "card": "Corruption",
+      "bonus": 2.0,
+      "reason": "Corruption Exhausts all Skills — Charon's Ashes deals 3 AoE per Exhaust. Every free Skill play becomes 3 free AoE damage, stacking to 20-30+ AoE per turn."
+    },
+    {
+      "relic": "Charon's Ashes",
+      "card": "Feel No Pain",
+      "bonus": 1.8,
+      "reason": "Feel No Pain gains Block from Exhausts — Charon's Ashes deals AoE from the same Exhausts. Every card Exhausted gives both Block AND 3 AoE simultaneously."
+    },
+    {
+      "relic": "Charon's Ashes",
+      "card": "Dark Embrace",
+      "bonus": 1.8,
+      "reason": "Dark Embrace draws from Exhausts — Charon's Ashes deals 3 AoE per Exhaust. Every Exhaust draws a card AND deals free damage, making the Exhaust engine self-sustaining."
+    },
+    {
+      "relic": "Charon's Ashes",
+      "card": "True Grit",
+      "bonus": 1.5,
+      "reason": "True Grit Exhausts a card for free — Charon's Ashes deals 3 AoE per Exhaust. True Grit becomes a free 3 AoE on top of its Block."
+    },
+    {
+      "relic": "Charon's Ashes",
+      "card": "Brand",
+      "bonus": 1.5,
+      "reason": "Brand is a 0-cost Exhaust — Charon's Ashes deals 3 AoE whenever you Exhaust. Brand becomes a free 3 AoE damage card in an Exhaust build."
+    },
+    {
+      "relic": "Charon's Ashes",
+      "card": "Offering",
+      "bonus": 1.5,
+      "reason": "Offering Exhausts itself — Charon's Ashes converts that Exhaust into 3 free AoE. The HP cost of Offering becomes even more worth it."
+    },
+    {
+      "relic": "Burning Sticks",
+      "card": "Corruption",
+      "bonus": 1.8,
+      "reason": "Corruption Exhausts all Skills free — Burning Sticks adds a copy of the first Exhausted Skill to Hand. Corruption feeds Burning Sticks a free extra Skill every combat."
+    },
+    {
+      "relic": "Burning Sticks",
+      "card": "Feel No Pain",
+      "bonus": 1.5,
+      "reason": "Burning Sticks copies the first Exhausted Skill — Feel No Pain is a Skill that Exhausts itself (via Corruption). Burning Sticks returns a free Feel No Pain every combat."
+    },
+    {
+      "relic": "Joss Paper",
+      "card": "Blade Dance",
+      "bonus": 1.5,
+      "reason": "Blade Dance generates 3 Shivs that Exhaust — Joss Paper draws 1 card per 5 Exhausts. Blade Dance quickly stacks Exhausts toward Joss Paper's draw threshold."
+    },
+    {
+      "relic": "Forgotten Soul",
+      "card": "Corruption",
+      "bonus": 1.5,
+      "reason": "Corruption Exhausts every Skill — Forgotten Soul deals 1 damage per Exhaust. With Corruption, every Skill play also deals 1 free damage to a random enemy."
+    },
+    {
+      "relic": "Cloak Clasp",
+      "card": "Juggernaut",
+      "bonus": 2.0,
+      "reason": "Cloak Clasp gains 1 Block per card in Hand at turn end — Juggernaut deals damage whenever you gain Block. Cloak Clasp's end-of-turn Block triggers Juggernaut for free damage every turn."
+    },
+    {
+      "relic": "Cloak Clasp",
+      "card": "Body Slam",
+      "bonus": 1.8,
+      "reason": "Cloak Clasp gains Block based on hand size at turn end — Body Slam deals damage equal to Block. Cloak Clasp's passive Block directly amplifies Body Slam's damage potential."
+    },
+    {
+      "relic": "Fresnel Lens",
+      "card": "Body Slam",
+      "bonus": 1.8,
+      "reason": "Fresnel Lens enchants Block-gaining cards with Nimble 2 — Body Slam deals damage equal to Block. With Nimble 2 accelerating cycling, Body Slam gets played more frequently."
+    },
+    {
+      "relic": "Fresnel Lens",
+      "card": "Impervious",
+      "bonus": 1.5,
+      "reason": "Impervious gives 30 Block — Fresnel Lens enchants it with Nimble 2 for faster cycling. Impervious becomes a recurring 30-Block card instead of a once-per-cycle panic button."
+    },
+    {
+      "relic": "Pael's Legion",
+      "card": "Barricade",
+      "bonus": 2.0,
+      "reason": "Pael's Legion doubles Block from a card — Barricade retains that doubled Block. Pael's Legion fires every 3 turns doubling your Block, and Barricade keeps the doubled total permanently."
+    },
+    {
+      "relic": "Pael's Legion",
+      "card": "Impervious",
+      "bonus": 1.8,
+      "reason": "Impervious gives 30 Block — Pael's Legion doubles it to 60. One Impervious with Pael's Legion active becomes 60 Block in a single play."
+    },
+    {
+      "relic": "Vambrace",
+      "card": "Impervious",
+      "bonus": 2.0,
+      "reason": "Vambrace doubles the first Block you gain from a card each combat — Impervious gives 30 Block as your first Block card. With Vambrace, Impervious opens every fight with 60 Block."
+    },
+    {
+      "relic": "Vambrace",
+      "card": "Entrench",
+      "bonus": 1.8,
+      "reason": "Vambrace doubles first Block card — if Entrench is the first Block card, it doubles current Block then Vambrace doubles THAT. Can result in quadrupled Block from one Entrench play."
+    },
+    {
+      "relic": "Sai",
+      "card": "Barricade",
+      "bonus": 1.8,
+      "reason": "Sai gives 7 free Block at turn start every turn — Barricade retains Block between turns. With Barricade, Sai's 7 Block stacks each turn without being reset."
+    },
+    {
+      "relic": "Sai",
+      "card": "Juggernaut",
+      "bonus": 1.8,
+      "reason": "Sai gives 7 Block at turn start — Juggernaut deals damage on Block gain. Every turn Sai triggers free Juggernaut damage before you even play a card."
+    },
+    {
+      "relic": "Bronze Scales",
+      "card": "Barricade",
+      "bonus": 1.5,
+      "reason": "Bronze Scales gives 3 Thorns — Barricade builds massive Block. With high Block from Barricade, you can afford to absorb hits and trigger Thorns repeatedly for passive damage."
+    },
+    {
+      "relic": "Brimstone",
+      "card": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "Brimstone gives +2 Strength per turn — Whirlwind hits X times. With Brimstone stacking Strength every turn, each Whirlwind hit deals progressively more damage."
+    },
+    {
+      "relic": "Brimstone",
+      "card": "Thrash",
+      "bonus": 2.0,
+      "reason": "Brimstone gives +2 Strength per turn — Thrash hits multiple times. Each Thrash benefits from Strength on every hit, and Brimstone passively amplifies this every turn."
+    },
+    {
+      "relic": "Brimstone",
+      "card": "Twin Strike",
+      "bonus": 1.8,
+      "reason": "Brimstone gives +2 Strength per turn — Twin Strike hits twice, applying Strength to both hits. With Brimstone, Twin Strike scales faster than single-hit attacks."
+    },
+    {
+      "relic": "Ruined Helmet",
+      "card": "Demon Form",
+      "bonus": 2.0,
+      "reason": "Ruined Helmet doubles first Strength gain per combat — Demon Form gives Strength every turn. If Demon Form is the first source, Ruined Helmet doubles the turn 2 Strength gain for a massive early spike."
+    },
+    {
+      "relic": "Ruined Helmet",
+      "card": "Inflame",
+      "bonus": 1.8,
+      "reason": "Ruined Helmet doubles first Strength gain — Inflame gives 2 Strength (4 upgraded). As your first Strength source, Inflame with Ruined Helmet gives 4-8 Strength from one card."
+    },
+    {
+      "relic": "Paper Phrog",
+      "card": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "Paper Phrog makes Vulnerable enemies take 75% more damage (not 50%) — Whirlwind hits X times. Each hit applies the enhanced Vulnerable multiplier, turning Whirlwind into a massive damage spike."
+    },
+    {
+      "relic": "Paper Phrog",
+      "card": "Uppercut",
+      "bonus": 1.8,
+      "reason": "Uppercut applies Weak and Vulnerable — Paper Phrog amplifies Vulnerable to 75% extra damage. Uppercut sets up Vulnerable and Paper Phrog makes all follow-up attacks hit 75% harder."
+    },
+    {
+      "relic": "Centennial Puzzle",
+      "card": "Bloodletting",
+      "bonus": 1.8,
+      "reason": "Bloodletting costs 3 HP — Centennial Puzzle draws 3 cards the first time you lose HP per combat. Bloodletting on Turn 1 guarantees 3 free draw cards from Centennial Puzzle."
+    },
+    {
+      "relic": "Centennial Puzzle",
+      "card": "Breakthrough",
+      "bonus": 1.5,
+      "reason": "Breakthrough costs 1 HP — Centennial Puzzle draws 3 cards first time you lose HP. Breakthrough triggers Centennial Puzzle's draw immediately for a net +2 cards from a 1 HP investment."
+    },
+    {
+      "relic": "Demon Tongue",
+      "card": "Bloodletting",
+      "bonus": 2.0,
+      "reason": "Bloodletting costs 3 HP — Demon Tongue heals the first HP you lose per turn. Demon Tongue makes Bloodletting effectively free once per turn, removing its HP cost entirely."
+    },
+    {
+      "relic": "Demon Tongue",
+      "card": "Offering",
+      "bonus": 1.8,
+      "reason": "Offering costs 6 HP — Demon Tongue heals first HP loss per turn. Offering activates Demon Tongue's heal, recovering some of the HP cost while still gaining 2 Energy and 3 cards."
+    },
+    {
+      "relic": "Self-Forming Clay",
+      "card": "Rupture",
+      "bonus": 1.8,
+      "reason": "Rupture gains Strength when you lose HP — Self-Forming Clay gains 3 Block when you lose HP. Both trigger simultaneously from self-damage, giving Strength AND Block from the same HP loss."
+    },
+    {
+      "relic": "Self-Forming Clay",
+      "card": "Crimson Mantle",
+      "bonus": 1.5,
+      "reason": "Crimson Mantle guarantees 1 HP loss per turn — Self-Forming Clay gains 3 Block from that HP loss. Crimson Mantle passively gives 3 Block per turn via Self-Forming Clay."
+    },
+    {
+      "relic": "Strike Dummy",
+      "card": "Perfected Strike",
+      "bonus": 2.5,
+      "reason": "Strike Dummy gives +3 damage to all Strike cards — Perfected Strike gains 3 damage per Strike in deck. Strike Dummy doesn't add a Strike but makes every existing Strike hit for 3 more, amplifying Perfected Strike's payoff."
+    },
+    {
+      "relic": "Strike Dummy",
+      "card": "Twin Strike",
+      "bonus": 2.0,
+      "reason": "Strike Dummy gives +3 to Strike cards — Twin Strike hits twice. Twin Strike gets +6 total from Strike Dummy (3 per hit), making it hit for 16 damage instead of 10."
+    },
+    {
+      "relic": "Strike Dummy",
+      "card": "Pommel Strike",
+      "bonus": 1.8,
+      "reason": "Strike Dummy makes all Strike cards deal +3 — Pommel Strike draws while dealing Strike damage. Every Pommel Strike with Strike Dummy hits for 12 instead of 9 while cycling."
+    },
+    {
+      "relic": "Ninja Scroll",
+      "card": "Accuracy",
+      "bonus": 2.5,
+      "reason": "Ninja Scroll adds 3 free Shivs at combat start — Accuracy gives +4 damage per Shiv (+6 upgraded). Starting every fight with 3 Shivs means Accuracy immediately pays off for 12-18 bonus damage before Turn 1."
+    },
+    {
+      "relic": "Ninja Scroll",
+      "card": "Finisher",
+      "bonus": 2.0,
+      "reason": "Ninja Scroll adds 3 free Shivs at combat start — Finisher deals 4 damage per Attack played this turn. Starting with 3 Shivs guarantees Finisher hits for at least 12 bonus damage on Turn 1."
+    },
+    {
+      "relic": "Ninja Scroll",
+      "card": "Knife Trap",
+      "bonus": 2.0,
+      "reason": "Ninja Scroll gives 3 Shivs to start — Knife Trap then fires 10-20 more Shivs. The 3 starting Shivs don't directly fuel Knife Trap but set up the board for immediate Shiv synergies."
+    },
+    {
+      "relic": "Helical Dart",
+      "card": "Knife Trap",
+      "bonus": 2.0,
+      "reason": "Knife Trap fires 10-20 Shivs in one turn — Helical Dart gives +1 Dexterity per Shiv played this turn. During Knife Trap, 15 Shivs give +15 Dexterity this turn, making all Block cards enormous."
+    },
+    {
+      "relic": "Helical Dart",
+      "card": "Infinite Blades",
+      "bonus": 1.8,
+      "reason": "Infinite Blades generates a free Shiv every turn — Helical Dart gives +1 Dexterity per Shiv played. Each free Shiv from Infinite Blades adds +1 Dexterity for the rest of that turn."
+    },
+    {
+      "relic": "Helical Dart",
+      "card": "Accuracy",
+      "bonus": 1.8,
+      "reason": "Accuracy boosts Shiv damage — Helical Dart adds Dexterity per Shiv. With both, each Shiv plays both deals more damage (Accuracy) and generates Block (Dexterity from Helical Dart)."
+    },
+    {
+      "relic": "Joss Paper",
+      "card": "Shiv",
+      "bonus": 1.8,
+      "reason": "Shivs Exhaust when played — Joss Paper draws 1 card per 5 Exhausts. In Shiv-heavy turns with 5-10 Shivs, Joss Paper draws 1-2 extra cards passively."
+    },
+    {
+      "relic": "Joss Paper",
+      "card": "Blade Dance",
+      "bonus": 1.5,
+      "reason": "Blade Dance generates 3 Shivs that Exhaust — Joss Paper draws from Exhausts. Each Blade Dance contributes 3 Exhausts toward Joss Paper's draw threshold."
+    },
+    {
+      "relic": "Tingsha",
+      "card": "Acrobatics",
+      "bonus": 1.8,
+      "reason": "Acrobatics draws 3 and discards 1 — Tingsha deals 3 damage per card discarded during your turn. Acrobatics discards 1 card, which triggers Tingsha for 3 free damage every Acrobatics play."
+    },
+    {
+      "relic": "Tingsha",
+      "card": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Calculated Gamble discards entire hand — Tingsha deals 3 damage per discarded card. Discarding 5 cards with Calculated Gamble triggers 15 damage from Tingsha in one play."
+    },
+    {
+      "relic": "Tingsha",
+      "card": "Tools of the Trade",
+      "bonus": 1.8,
+      "reason": "Tools of the Trade discards 1 card at start of each turn passively — Tingsha deals 3 damage per discard. Tools gives 3 free Tingsha damage every single turn passively."
+    },
+    {
+      "relic": "Tough Bandages",
+      "card": "Calculated Gamble",
+      "bonus": 2.0,
+      "reason": "Calculated Gamble discards entire hand — Tough Bandages gives 3 Block per discarded card. Discarding 5 cards gives 15 free Block from one Calculated Gamble."
+    },
+    {
+      "relic": "Tough Bandages",
+      "card": "Tools of the Trade",
+      "bonus": 1.8,
+      "reason": "Tools of the Trade discards 1 per turn passively — Tough Bandages gives 3 Block per discard. Tools gives 3 free Block every turn passively, stacking to massive totals."
+    },
+    {
+      "relic": "Tough Bandages",
+      "card": "Acrobatics",
+      "bonus": 1.8,
+      "reason": "Acrobatics discards 1 card — Tough Bandages gives 3 Block per discard. Every Acrobatics play generates 3 extra Block on top of its draw."
+    },
+    {
+      "relic": "Snecko Skull",
+      "card": "Noxious Fumes",
+      "bonus": 2.0,
+      "reason": "Noxious Fumes applies 2 Poison to all enemies each turn — Snecko Skull adds +1 Poison per application. Noxious Fumes now applies 3 Poison per turn to all enemies passively."
+    },
+    {
+      "relic": "Snecko Skull",
+      "card": "Deadly Poison",
+      "bonus": 2.0,
+      "reason": "Deadly Poison applies 5 Poison — Snecko Skull adds +1 per application, so it applies 6 Poison. Every Deadly Poison with Snecko Skull stacks Poison 20% faster."
+    },
+    {
+      "relic": "Snecko Skull",
+      "card": "Poisoned Stab",
+      "bonus": 1.8,
+      "reason": "Poisoned Stab applies 3 Poison — Snecko Skull adds +1, making it 4 Poison per Stab. Poisoned Stab with Snecko Skull hits for 4 damage AND applies 4 Poison."
+    },
+    {
+      "relic": "Snecko Skull",
+      "card": "Bouncing Flask",
+      "bonus": 1.8,
+      "reason": "Bouncing Flask applies 3 Poison 3 times — Snecko Skull adds +1 per application for 4 Poison each bounce. Bouncing Flask with Snecko Skull applies 12 Poison total instead of 9."
+    },
+    {
+      "relic": "Twisted Funnel",
+      "card": "Bubble Bubble",
+      "bonus": 2.0,
+      "reason": "Twisted Funnel applies 4 Poison to ALL enemies at combat start — Bubble Bubble doubles existing Poison. Starting with 4 Poison from Twisted Funnel means Bubble Bubble immediately doubles to 8 on Turn 1."
+    },
+    {
+      "relic": "Twisted Funnel",
+      "card": "Accelerant",
+      "bonus": 1.8,
+      "reason": "Twisted Funnel starts each fight with 4 AoE Poison — Accelerant multiplies existing Poison. Turn 2 Accelerant immediately benefits from the Twisted Funnel Poison already stacked."
+    },
+    {
+      "relic": "Unsettling Lamp",
+      "card": "Deadly Poison",
+      "bonus": 2.0,
+      "reason": "Deadly Poison applies 5 Poison — Unsettling Lamp doubles the first debuff effect per combat. The first Deadly Poison applies 10 Poison instead of 5."
+    },
+    {
+      "relic": "Unsettling Lamp",
+      "card": "Noxious Fumes",
+      "bonus": 2.0,
+      "reason": "Noxious Fumes applies Poison passively — Unsettling Lamp doubles first debuff per combat. First Noxious Fumes activation applies double Poison to all enemies."
+    },
+    {
+      "relic": "Unsettling Lamp",
+      "card": "Deathbringer",
+      "bonus": 2.0,
+      "reason": "Deathbringer applies AoE Doom — Unsettling Lamp doubles first debuff. First Deathbringer applies double Doom to all enemies, reaching the execute threshold much faster."
+    },
+    {
+      "relic": "Lunar Pastry",
+      "card": "Alignment",
+      "bonus": 2.0,
+      "reason": "Alignment converts Stars into Energy — Lunar Pastry generates 1 Star at end of every turn. With Lunar Pastry passively accumulating Stars, Alignment has consistent Stars to convert into Energy every turn."
+    },
+    {
+      "relic": "Lunar Pastry",
+      "card": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Lunar Pastry generates Stars every turn — Seven Stars costs 7 Stars and hits 49 times. Lunar Pastry gradually pays toward Seven Stars' Star cost, making it more consistently playable."
+    },
+    {
+      "relic": "Lunar Pastry",
+      "card": "Radiate",
+      "bonus": 1.8,
+      "reason": "Lunar Pastry gives 1 Star per turn — Radiate deals 3 AoE per Star gained this turn. Even 1 extra Star from Lunar Pastry adds 3 AoE to every Radiate play."
+    },
+    {
+      "relic": "Galactic Dust",
+      "card": "Royal Gamble",
+      "bonus": 1.8,
+      "reason": "Royal Gamble gives 9 Stars in one play — Galactic Dust gives 10 Block per 10 Stars spent. Playing Royal Gamble immediately triggers Galactic Dust for 9 Block (9 Stars × 1 = 9 triggers)."
+    },
+    {
+      "relic": "Galactic Dust",
+      "card": "Alignment",
+      "bonus": 1.8,
+      "reason": "Alignment converts Stars to Energy — Galactic Dust converts Star spending to Block. Both use Stars as a resource, so Star-generating cards fuel both Alignment's Energy AND Galactic Dust's Block simultaneously."
+    },
+    {
+      "relic": "Mini Regent",
+      "card": "Alignment",
+      "bonus": 1.8,
+      "reason": "Alignment spends Stars for Energy — Mini Regent gives +1 Strength when Stars are first spent per turn. Every Alignment play also triggers Mini Regent's Strength gain as a free bonus."
+    },
+    {
+      "relic": "Mini Regent",
+      "card": "Seven Stars",
+      "bonus": 1.8,
+      "reason": "Seven Stars spends 7 Stars at once — Mini Regent gives 1 Strength first time Stars are spent per turn. Every Seven Stars play gives 1 free Strength via Mini Regent."
+    },
+    {
+      "relic": "Fencing Manual",
+      "card": "Sovereign Blade",
+      "bonus": 2.5,
+      "reason": "Fencing Manual starts each combat with Forge 10 — Sovereign Blade deals damage equal to total Forge. Starting with 10 Forge from Fencing Manual means the Blade deals 10 damage before any other Forge is added."
+    },
+    {
+      "relic": "Fencing Manual",
+      "card": "Conqueror",
+      "bonus": 2.0,
+      "reason": "Fencing Manual starts with Forge 10 — Conqueror doubles current Forge. Starting at Forge 10 instead of 0 means Conqueror immediately doubles to 20, shortcutting the Forge buildup phase."
+    },
+    {
+      "relic": "Fencing Manual",
+      "card": "Beat into Shape",
+      "bonus": 1.8,
+      "reason": "Beat into Shape adds Forge — Fencing Manual starts with Forge 10. Starting at Forge 10 means Beat into Shape's Forge adds to a higher base, making the Blade strong faster."
+    },
+    {
+      "relic": "Vitruvian Minion",
+      "card": "BEGONE!",
+      "bonus": 1.8,
+      "reason": "BEGONE! generates Minion Dive Bomb tokens — Vitruvian Minion doubles Minion card damage. BEGONE! generates Minion Dive Bombs dealing 26 damage instead of 13 with Vitruvian Minion."
+    },
+    {
+      "relic": "Vitruvian Minion",
+      "card": "GUARDS!!!",
+      "bonus": 1.8,
+      "reason": "GUARDS!!! generates Minion Sacrifice tokens — Vitruvian Minion doubles Minion card Block. GUARDS!!! generates Minion Sacrifices giving 18 Block instead of 9 with Vitruvian Minion."
+    },
+    {
+      "relic": "Funerary Mask",
+      "card": "Haunt",
+      "bonus": 2.5,
+      "reason": "Funerary Mask adds 3 Souls to Draw Pile at combat start — Haunt deals 6 AoE per Soul generation. The 3 free Souls from Funerary Mask immediately trigger 18 AoE from Haunt before Turn 1 even starts."
+    },
+    {
+      "relic": "Funerary Mask",
+      "card": "Death March",
+      "bonus": 2.0,
+      "reason": "Funerary Mask adds 3 Souls to Draw Pile — Death March scales with cards drawn this turn. Drawing 3 Souls from Funerary Mask adds 9 bonus damage to Death March in the turn you draw them."
+    },
+    {
+      "relic": "Funerary Mask",
+      "card": "Oblivion",
+      "bonus": 1.8,
+      "reason": "Funerary Mask adds 3 Souls at combat start — Oblivion scales with cheap cards including Souls. Starting with Souls in deck means Oblivion hits for more from turn 1."
+    },
+    {
+      "relic": "Big Hat",
+      "card": "Haunt",
+      "bonus": 1.8,
+      "reason": "Big Hat adds 2 random Ethereal cards to Hand at combat start — if any are Souls, Haunt fires immediately. Big Hat has a chance to immediately trigger Haunt before Turn 1."
+    },
+    {
+      "relic": "Undying Sigil",
+      "card": "End of Days",
+      "bonus": 2.0,
+      "reason": "End of Days executes all enemies at or below Doom count — Undying Sigil makes enemies at Doom threshold deal 50% less damage. As enemies approach the execution threshold, they deal half damage, protecting you until End of Days goes off."
+    },
+    {
+      "relic": "Undying Sigil",
+      "card": "No Escape",
+      "bonus": 1.8,
+      "reason": "No Escape stacks massive single-target Doom — Undying Sigil protects you while the enemy is in Doom range. Once No Escape pushes an enemy into execute range, Undying Sigil means they deal half damage until killed."
+    },
+    {
+      "relic": "Undying Sigil",
+      "card": "Deathbringer",
+      "bonus": 1.8,
+      "reason": "Deathbringer applies AoE Doom — Undying Sigil makes Doom-threshold enemies deal half damage. Deathbringer's AoE Doom puts multiple enemies into Undying Sigil's protective range simultaneously."
+    },
+    {
+      "relic": "Book Repair Knife",
+      "card": "End of Days",
+      "bonus": 1.8,
+      "reason": "End of Days executes all enemies at Doom threshold — Book Repair Knife heals 3 HP per non-Minion Doom kill. End of Days can trigger multiple Doom kills simultaneously, healing 3 HP per enemy killed."
+    },
+    {
+      "relic": "Book Repair Knife",
+      "card": "Deathbringer",
+      "bonus": 1.5,
+      "reason": "Deathbringer applies AoE Doom — Book Repair Knife heals 3 HP per Doom kill. More Doom stacks from Deathbringer means more potential Doom kills and more healing from Book Repair Knife."
+    },
+    {
+      "relic": "Pocketwatch",
+      "card": "End of Days",
+      "bonus": 1.8,
+      "reason": "End of Days is a high-cost slow play — Pocketwatch draws 3 extra cards if you play 3 or fewer cards. In a Doom deck where you sometimes pass turns waiting for Doom, Pocketwatch rewards patience with extra draw."
+    },
+    {
+      "relic": "Diamond Diadem",
+      "card": "Deathbringer",
+      "bonus": 1.8,
+      "reason": "Deathbringer is expensive — Diamond Diadem halves damage when you play 2 or fewer cards. A turn where you play just Deathbringer activates Diamond Diadem's protection while setting up Doom kills."
+    },
+    {
+      "relic": "Bone Flute",
+      "card": "Rattle",
+      "bonus": 2.0,
+      "reason": "Rattle hits X times based on Osty attacks used this turn — Bone Flute gains 2 Block per Osty attack. Both scale with Osty attack count, so a Rattle-heavy turn simultaneously scales damage AND generates massive Block from Bone Flute."
+    },
+    {
+      "relic": "Bone Flute",
+      "card": "Sic'Em",
+      "bonus": 1.8,
+      "reason": "Sic'Em is an Osty attack with high Summon — Bone Flute gains 2 Block per Osty attack. Every Sic'Em play triggers Bone Flute for 2 Block while growing Osty for future Rattle scaling."
+    },
+    {
+      "relic": "Bone Flute",
+      "card": "Flatten",
+      "bonus": 1.8,
+      "reason": "Flatten adds flat damage per Osty attack used this turn — Bone Flute gains 2 Block per Osty attack. Both reward the same behavior: using many Osty attacks in one turn."
+    },
+    {
+      "relic": "Bookmark",
+      "card": "Rattle",
+      "bonus": 1.5,
+      "reason": "Rattle is expensive with high Summon count — Bookmark reduces cost of random Retained cards. If Rattle is Retained, Bookmark reduces its cost making it easier to play on big turns."
+    },
+    {
+      "relic": "Data Disk",
+      "card": "Multi-Cast",
+      "bonus": 2.5,
+      "reason": "Multi-Cast evokes the leftmost Orb X times — Data Disk gives +1 Focus, making all Orbs deal more per passive trigger. With Focus, each Multi-Cast evoke does significantly more damage or healing."
+    },
+    {
+      "relic": "Data Disk",
+      "card": "Tesla Coil",
+      "bonus": 2.0,
+      "reason": "Tesla Coil scales with Focus — Data Disk gives +1 Focus. Each Focus point from Data Disk directly amplifies Tesla Coil's damage output every time it triggers."
+    },
+    {
+      "relic": "Data Disk",
+      "card": "Loop",
+      "bonus": 2.0,
+      "reason": "Loop permanently gives a chosen Orb a free Evoke — Data Disk gives Focus making all Orb passives stronger. The Looped Orb's passive is directly amplified by every Focus point from Data Disk."
+    },
+    {
+      "relic": "Gold-Plated Cables",
+      "card": "Defragment",
+      "bonus": 2.0,
+      "reason": "Defragment gives +1 Focus per play — Gold-Plated Cables makes rightmost Orb trigger passive twice. Each Focus from Defragment amplifies the bonus trigger from Gold-Plated Cables."
+    },
+    {
+      "relic": "Gold-Plated Cables",
+      "card": "Loop",
+      "bonus": 2.0,
+      "reason": "Loop gives a chosen Orb a free Evoke — Gold-Plated Cables also gives rightmost Orb an extra passive trigger. If the Looped Orb is the rightmost, it fires three times instead of once per turn."
+    },
+    {
+      "relic": "Gold-Plated Cables",
+      "card": "Tesla Coil",
+      "bonus": 1.8,
+      "reason": "Tesla Coil fires Lightning per Evoke — Gold-Plated Cables gives rightmost Orb an extra passive trigger. If Tesla Coil is rightmost, Gold-Plated Cables fires it twice every turn for double Lightning."
+    },
+    {
+      "relic": "Runic Capacitor",
+      "card": "Capacitor",
+      "bonus": 2.0,
+      "reason": "Capacitor adds 2 extra Orb Slots — Runic Capacitor already gives +3 Orb Slots. Together they give 5 extra Orb Slots for 8 total, enabling enormous Orb queues and massive passive damage/healing."
+    },
+    {
+      "relic": "Runic Capacitor",
+      "card": "Barrage",
+      "bonus": 1.8,
+      "reason": "Barrage deals damage per Orb Slot — Runic Capacitor gives +3 Orb Slots. With 6 Orb Slots from Runic Capacitor, Barrage deals 6× its base damage per hit."
+    },
+    {
+      "relic": "Runic Capacitor",
+      "card": "Multi-Cast",
+      "bonus": 1.8,
+      "reason": "Multi-Cast evokes leftmost Orb X times — Runic Capacitor gives +3 Orb Slots for more Orb variety. More Orb Slots mean more Orbs queued for Multi-Cast to choose from."
+    },
+    {
+      "relic": "Emotion Chip",
+      "card": "Defragment",
+      "bonus": 1.8,
+      "reason": "Emotion Chip triggers all Orb passives if you took damage last turn — Defragment gives Focus amplifying all passives. With Defragment stacking Focus, Emotion Chip's bonus trigger becomes enormously powerful."
+    },
+    {
+      "relic": "Metronome",
+      "card": "Capacitor",
+      "bonus": 1.8,
+      "reason": "Capacitor adds Orb Slots enabling more Orbs — Metronome fires 30 AoE once you channel 7 Orbs. More Orb Slots from Capacitor means you fill the 7-Orb threshold faster."
+    },
+    {
+      "relic": "Metronome",
+      "card": "Defragment",
+      "bonus": 1.5,
+      "reason": "Defragment helps channel Orbs efficiently with Focus — Metronome requires channeling 7 Orbs. Defragment's Focus makes each Orb more powerful before Metronome fires."
+    },
+    {
+      "relic": "Symbiotic Virus",
+      "card": "Darkness",
+      "bonus": 1.8,
+      "reason": "Symbiotic Virus channels 1 Dark at combat start — Darkness also channels Dark. Having a Dark Orb already from Symbiotic Virus lets Darkness immediately double it."
+    },
+    {
+      "relic": "Symbiotic Virus",
+      "card": "Multi-Cast",
+      "bonus": 1.8,
+      "reason": "Symbiotic Virus starts with 1 Dark Orb — Multi-Cast evokes leftmost Orb. Starting with a Dark Orb means first Multi-Cast immediately benefits from a pre-stacked Dark."
+    },
+    {
+      "relic": "Power Cell",
+      "card": "Claw",
+      "bonus": 2.5,
+      "reason": "Power Cell adds 2 zero-cost Draw Pile cards to Hand at combat start — with multiple Claws in deck, Power Cell consistently puts Claws directly in your opening hand. Starting every fight with 2 Claws in hand is enormous for Claw scaling."
+    },
+    {
+      "relic": "Power Cell",
+      "card": "All for One",
+      "bonus": 2.0,
+      "reason": "Power Cell adds 2 zero-cost cards to opening Hand — All for One retrieves all zero-cost Discard cards. Power Cell guarantees zero-cost cards start in Hand, and All for One later refills them from Discard."
+    },
+    {
+      "relic": "Power Cell",
+      "card": "Scrape",
+      "bonus": 1.8,
+      "reason": "Power Cell puts 2 zero-cost cards in opening Hand — Scrape cycles through deck to find zero-cost cards. With zero-cost cards already in Hand from Power Cell, Scrape draws 4 more cards to find additional Claws faster."
+    },
+    {
+      "relic": "Iron Club",
+      "card": "Claw",
+      "bonus": 2.0,
+      "reason": "Iron Club draws 1 card every 4 cards played — Claw builds play 10+ cards per turn. With Iron Club, every 4 Claws drawn is also 1 extra draw, fueling further Claw plays."
+    },
+    {
+      "relic": "Iron Club",
+      "card": "All for One",
+      "bonus": 2.0,
+      "reason": "Iron Club draws every 4 cards played — All for One retrieves all zero-cost Discard cards. After All for One floods your hand with Claws, Iron Club's draw triggers fire rapidly as you play them all."
+    },
+    {
+      "relic": "Nunchaku",
+      "card": "Claw",
+      "bonus": 2.0,
+      "reason": "Claw is a zero-cost attack — Nunchaku gains Energy every 10 Attacks. In Claw builds playing 10-15 Claws per turn, Nunchaku fires 1-2 free Energy every turn."
+    },
+    {
+      "relic": "Shuriken",
+      "card": "Claw",
+      "bonus": 2.0,
+      "reason": "Shuriken gives +1 permanent Strength every 3 Attacks — Claw builds play 10-15 attacks per turn. Claw builds consistently trigger Shuriken 3-5 times per turn for 3-5 permanent Strength."
+    },
+    {
+      "relic": "Kunai",
+      "card": "Claw",
+      "bonus": 2.0,
+      "reason": "Kunai gives +1 Dexterity every 3 Attacks — Claw builds play 10-15 attacks per turn. Claw builds trigger Kunai 3-5 times per turn for 3-5 permanent Dexterity."
+    },
+    {
+      "relic": "Pen Nib",
+      "card": "Claw",
+      "bonus": 1.8,
+      "reason": "Pen Nib doubles every 10th Attack — Claw builds hit the 10-Attack threshold every turn. Pen Nib fires every single turn in Claw builds, doubling one Claw's damage reliably."
+    },
+    {
+      "relic": "History Course",
+      "card": "Noxious Fumes",
+      "bonus": 2.0,
+      "reason": "History Course plays a copy of your last Attack or Skill each turn — Noxious Fumes is a Skill applying Poison. If Noxious Fumes was your last Skill, History Course automatically doubles Poison application every turn for free."
+    },
+    {
+      "relic": "History Course",
+      "card": "Deadly Poison",
+      "bonus": 1.8,
+      "reason": "History Course replays last Attack or Skill — Deadly Poison applies 5 Poison. If Deadly Poison was last, History Course applies another 5 Poison each turn for free, doubling your Poison stacking rate."
+    },
+    {
+      "relic": "History Course",
+      "card": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "History Course replays last Attack or Skill — Whirlwind hits X times. If Whirlwind was last, History Course automatically replays an X-cost Whirlwind the next turn for free AoE."
+    },
+    {
+      "relic": "History Course",
+      "card": "Shining Strike",
+      "bonus": 1.8,
+      "reason": "History Course replays last Attack or Skill — Shining Strike deals damage and gives Stars. If Shining Strike was last, History Course gives free Stars and damage every turn passively."
+    },
+    {
+      "relic": "History Course",
+      "card": "Rattle",
+      "bonus": 1.8,
+      "reason": "History Course replays last Attack or Skill — Rattle is a multi-hit Osty attack. If Rattle was last, History Course plays a free Rattle copy every turn for continuous Osty scaling."
+    },
+    {
+      "relic": "Ghost Seed",
+      "card": "Tactician",
+      "bonus": 2.0,
+      "reason": "Ghost Seed gives Strikes and Defends Ethereal — they auto-discard. If Tactician is in hand alongside Strikes/Defends, the auto-discards trigger Sly. Ghost Seed accelerates Sly triggers by auto-discarding dead cards."
+    },
+    {
+      "relic": "Ghost Seed",
+      "card": "Tools of the Trade",
+      "bonus": 1.8,
+      "reason": "Ghost Seed makes Strikes/Defends auto-discard — Tools of the Trade already discards 1 per turn. Ghost Seed reduces the number of dead cards in hand by auto-discarding Strikes, making Tools' discard hit more useful Sly cards."
+    },
+    {
+      "relic": "Razor Tooth",
+      "card": "Whirlwind",
+      "bonus": 2.0,
+      "reason": "Razor Tooth upgrades every Attack and Skill played this combat — Whirlwind hits X times. Upgraded Whirlwind hits for more per swing. With Razor Tooth, Whirlwind is upgraded the moment it's played."
+    },
+    {
+      "relic": "Razor Tooth",
+      "card": "Perfected Strike",
+      "bonus": 1.8,
+      "reason": "Razor Tooth upgrades every card when played — Perfected Strike upgraded deals significantly more per Strike. As soon as Perfected Strike is played for the first time, Razor Tooth upgrades it for all future plays."
+    },
+    {
+      "relic": "Molten Egg",
+      "card": "Whirlwind",
+      "bonus": 1.8,
+      "reason": "Molten Egg auto-upgrades every Attack added to deck — Whirlwind upgraded hits more per swing. Every Whirlwind picked up is immediately upgraded, giving more value from the first play."
+    },
+    {
+      "relic": "Molten Egg",
+      "card": "Thrash",
+      "bonus": 1.8,
+      "reason": "Molten Egg auto-upgrades every Attack — Thrash upgraded hits significantly harder. In a Strength build where Thrash multi-hits are key, Molten Egg ensures every Thrash is fully upgraded immediately."
+    },
+    {
+      "relic": "Frozen Egg",
+      "card": "Defragment",
+      "bonus": 2.0,
+      "reason": "Frozen Egg auto-upgrades every Power added to deck — Defragment upgraded gives 2 Focus instead of 1. Every Defragment picked up is immediately upgraded, halving the setup time for maximum Focus."
+    },
+    {
+      "relic": "Frozen Egg",
+      "card": "Corruption",
+      "bonus": 2.0,
+      "reason": "Frozen Egg auto-upgrades every Power — Corruption upgraded makes Skills cost 0 instead of just reducing cost. Every Corruption picked up is immediately upgraded to its full power."
+    },
+    {
+      "relic": "Frozen Egg",
+      "card": "Genesis",
+      "bonus": 1.8,
+      "reason": "Frozen Egg auto-upgrades every Power — Genesis upgraded gives 3 Stars at start of each turn instead of 2. Every Genesis is immediately upgraded, massively accelerating the Star engine."
+    },
+    {
+      "relic": "Toxic Egg",
+      "card": "Corruption",
+      "bonus": 2.0,
+      "reason": "Toxic Egg auto-upgrades every Skill added — Corruption is a Skill. With Toxic Egg, every Corruption picked up is immediately Upgraded to give 0-cost Skills instead of reduced-cost."
+    },
+    {
+      "relic": "Toxic Egg",
+      "card": "Feel No Pain",
+      "bonus": 1.8,
+      "reason": "Toxic Egg auto-upgrades every Skill — Feel No Pain upgraded gives 5 Block per Exhaust instead of 3. Every Feel No Pain is immediately more powerful, making the Exhaust engine generate more Block per cycle."
+    },
+    {
+      "relic": "Unsettling Lamp",
+      "card": "Putrefy",
+      "bonus": 2.0,
+      "reason": "Putrefy applies 2 Weak and 2 Vulnerable — Unsettling Lamp doubles the first debuff per combat. The first Putrefy applies 4 Weak and 4 Vulnerable instead of 2 each, setting up a massive damage amplification turn."
+    },
+    {
+      "relic": "Unsettling Lamp",
+      "card": "Shockwave",
+      "bonus": 2.0,
+      "reason": "Shockwave applies 3 Weak and 3 Vulnerable to ALL enemies — Unsettling Lamp doubles first debuff. First Shockwave applies 6 Weak and 6 Vulnerable AoE instead of 3 each."
+    },
+    {
+      "relic": "Bag of Marbles",
+      "card": "Whirlwind",
+      "bonus": 1.8,
+      "reason": "Bag of Marbles applies 1 Vulnerable to all enemies at combat start — Whirlwind hits X times. Starting every fight with enemies Vulnerable means every Whirlwind hit deals 50% more damage from Turn 1."
+    },
+    {
+      "relic": "Bag of Marbles",
+      "card": "Radiate",
+      "bonus": 1.8,
+      "reason": "Bag of Marbles Vulnerables all enemies at combat start — Radiate deals AoE per Star gained this turn. Starting with enemies Vulnerable means Radiate's AoE hits 50% harder from Turn 1."
+    },
+    {
+      "relic": "Red Mask",
+      "card": "Accelerant",
+      "bonus": 1.8,
+      "reason": "Red Mask Weakens all enemies at combat start — Accelerant multiplies all Poison. Starting with enemies Weakened means they deal 25% less damage while Accelerant is ramping Poison."
+    },
+    {
+      "relic": "Ice Cream",
+      "card": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Seven Stars costs 7 Stars — Ice Cream conserves unused Energy between turns. With Ice Cream, unused Energy from turns 1-2 carries over to enable playing Seven Stars alongside other cards on the same turn."
+    },
+    {
+      "relic": "Ice Cream",
+      "card": "Multi-Cast",
+      "bonus": 2.0,
+      "reason": "Multi-Cast costs X Energy — Ice Cream conserves unused Energy between turns. Carrying over 1-2 Energy from previous turns enables a much larger Multi-Cast X value on the key turn."
+    },
+    {
+      "relic": "Chandelier",
+      "card": "Seven Stars",
+      "bonus": 1.8,
+      "reason": "Chandelier gives 3 Energy at start of Turn 3 — Seven Stars costs 7 Stars. The 3 extra Energy on Turn 3 can help pay for Seven Stars' Energy cost allowing it to be played earlier."
+    },
+    {
+      "relic": "Very Hot Cocoa",
+      "card": "Seven Stars",
+      "bonus": 2.0,
+      "reason": "Very Hot Cocoa gives +4 Energy per combat start — Seven Stars costs 7 Stars and is expensive. Starting every combat with 7 Energy means Seven Stars can be played immediately on Turn 1."
+    },
+    {
+      "relic": "Pael's Flesh",
+      "card": "Multi-Cast",
+      "bonus": 1.8,
+      "reason": "Pael's Flesh gives extra Energy from Turn 3 onwards — Multi-Cast uses Energy to Evoke X times. Extra Energy from Pael's Flesh each turn directly enables larger Multi-Cast X values every turn."
+    },
+    {
+      "relic": "Lost Wisp",
+      "card": "Defragment",
+      "bonus": 2.0,
+      "reason": "Defragment is a Power that gives +1 Focus — Lost Wisp deals 8 AoE every time you play a Power. Each Defragment play triggers Lost Wisp for 8 free AoE on top of its Focus gain."
+    },
+    {
+      "relic": "Burning Sticks",
+      "card": "Dark Embrace",
+      "bonus": 1.8,
+      "reason": "Dark Embrace draws a card whenever you Exhaust — Burning Sticks adds a copy of the first Exhausted Skill back to Hand. Together they create a loop: Exhaust a Skill → Burning Sticks returns it → Dark Embrace draws another card."
+    },
+    {
+      "relic": "Stone Calendar",
+      "card": "Deathbringer",
+      "bonus": 1.8,
+      "reason": "Stone Calendar deals 52 AoE at Turn 7 — Deathbringer applies AoE Doom. In Doom builds that survive to Turn 7, Stone Calendar fires as a backup win condition while Doom counts down."
+    },
+    {
+      "relic": "Pocketwatch",
+      "card": "Time's Up",
+      "bonus": 1.8,
+      "reason": "Time's Up is a high-cost finisher Doom builds play on crucial turns — Pocketwatch draws 3 extra cards if you play 3 or fewer cards in a turn. A turn where you play just Time's Up triggers Pocketwatch's draw for next turn."
+    },
+    {
+      "relic": "Diamond Diadem",
+      "card": "End of Days",
+      "bonus": 1.8,
+      "reason": "End of Days is an expensive single-card execute — Diamond Diadem halves damage when you play 2 or fewer cards per turn. Playing just End of Days activates Diamond Diadem's protection while executing all Doomed enemies."
+    },
+    {
+      "relic": "Art of War",
+      "card": "Noxious Fumes",
+      "bonus": 1.8,
+      "reason": "Noxious Fumes is a Power that passively applies Poison each turn — Art of War gives +1 Energy next turn if you play no Attacks this turn. A turn spent only playing Noxious Fumes and Skills gives free Energy next turn while Poison stacks."
+    },
+    {
+      "relic": "Ripple Basin",
+      "card": "Noxious Fumes",
+      "bonus": 1.5,
+      "reason": "Noxious Fumes lets you skip Attack plays while Poison does damage — Ripple Basin gives 4 Block if you play no Attacks this turn. A turn with only Noxious Fumes gives both passive Poison AND 4 free Block from Ripple Basin."
+    },
+    {
+      "relic": "Runic Pyramid",
+      "card": "Convergence",
+      "bonus": 1.8,
+      "reason": "Convergence retains your Hand — Runic Pyramid means you already don't discard EOT. Together they ensure perfect hands are retained indefinitely for maximum Star setup turns."
+    },
+    {
+      "relic": "Runic Pyramid",
+      "card": "Equilibrium",
+      "bonus": 1.8,
+      "reason": "Equilibrium retains your Hand this turn — Runic Pyramid means your Hand never discards anyway. With both, you can build up the perfect hand across multiple turns freely."
+    },
+    {
+      "relic": "Ringing Triangle",
+      "card": "Seven Stars",
+      "bonus": 1.8,
+      "reason": "Seven Stars costs 7 Stars — Ringing Triangle retains your entire Hand on Turn 1. Retaining a hand containing Stars-generators means Turn 1 can safely accumulate Stars for a Turn 2 Seven Stars play."
+    }
   ]
 };
