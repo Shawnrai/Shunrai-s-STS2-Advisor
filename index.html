@@ -276,8 +276,7 @@ input[type=number]{width:60px}
   <!-- RIGHT -->
   <div class="right">
     <div class="tabs">
-      <div class="tab on" data-tab="rewards">⚔ Rewards</div>
-      <div class="tab" data-tab="shop">⚖ Shop</div>
+      <div class="tab on" data-tab="rewards">⚔ Evaluate</div>
       <div class="tab" data-tab="removal">✂ Removal</div>
       <div class="tab" data-tab="encyclopedia">🂠 Cards</div>
       <div class="tab" data-tab="relics-enc">◈ Relics</div>
@@ -300,17 +299,6 @@ input[type=number]{width:60px}
         </div>
         <div class="results" id="reward-relic-result"></div>
       </div>
-    </div>
-
-    <div class="pane" id="pane-shop">
-      <div>
-        <div class="sec-title">Cards in Shop</div>
-        <div class="slots" id="shop-slots"></div>
-        <div class="actions" style="margin-top:10px">
-          <button class="add-btn" id="shop-add">+ Add Slot</button>
-        </div>
-      </div>
-      <div class="results" id="shop-results"></div>
     </div>
 
     <div class="pane" id="pane-removal">
@@ -363,7 +351,7 @@ input[type=number]{width:60px}
 
 let deck = [];
 let equippedRelics = [];  // relic display names
-let rewardCount = 3, shopCount = 4;
+let rewardCount = 3;
 let rewardRelicCount = 3;
 let autoAnalyzeTimer = null;
 
@@ -865,14 +853,14 @@ function attachSlotAC(id) {
     if (first) first.classList.add('hi');
     const chExact = document.getElementById('char').value;
     const namesExact = new Set(DB.names.filter(n=>n.c===chExact||n.c==='colorless').map(n=>n.n.toLowerCase()));
-    if (namesExact.has(q)) maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
+    if (namesExact.has(q)) maybeAutoAnalyze();
     ac.querySelectorAll('.ac-item').forEach(el => {
       el.addEventListener('mousedown', e => {
         e.preventDefault();
         inp.value = el.dataset.name;
         ac.classList.remove('open');
         focusNextSlot(id);
-        maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
+        maybeAutoAnalyze();
       });
     });
   });
@@ -901,7 +889,7 @@ function attachSlotAC(id) {
         inp.value = target.dataset.name;
         ac.classList.remove('open');
         focusNextSlot(id);
-        maybeAutoAnalyze(id.startsWith('shop') ? 'shop' : 'reward');
+        maybeAutoAnalyze();
       }
       return;
     }
@@ -912,19 +900,17 @@ function attachSlotAC(id) {
   });
 }
 
-function maybeAutoAnalyze(mode) {
-  const prefix = mode === 'shop' ? 'shop' : 'reward';
-  const count  = mode === 'shop' ? shopCount : rewardCount;
+function maybeAutoAnalyze() {
   const ch = document.getElementById('char').value;
   const allNames = new Set(DB.names.filter(n => n.c===ch||n.c==='colorless').map(n => n.n.toLowerCase()));
   let hasExact = false;
-  for (let i = 0; i < count; i++) {
-    const inp = document.getElementById(`${prefix}-${i}`);
+  for (let i = 0; i < rewardCount; i++) {
+    const inp = document.getElementById(`reward-${i}`);
     if (inp && allNames.has(inp.value.trim().toLowerCase())) { hasExact = true; break; }
   }
   if (!hasExact) return;
   clearTimeout(autoAnalyzeTimer);
-  autoAnalyzeTimer = setTimeout(() => analyze(mode), 300);
+  autoAnalyzeTimer = setTimeout(() => analyze('reward'), 300);
 }
 
 function renderRewardSlots() {
@@ -939,20 +925,6 @@ function renderRewardSlots() {
     attachSlotAC('reward-'+i);
   }
   // Restore saved values (for char change rebuilds)
-  Object.entries(saved).forEach(([id, val]) => {
-    const el = document.getElementById(id); if (el) el.value = val;
-  });
-}
-function renderShopSlots() {
-  const c = document.getElementById('shop-slots');
-  const existing = c.querySelectorAll('.slot').length;
-  const saved = {};
-  c.querySelectorAll('.slot-input').forEach(inp => { saved[inp.id] = inp.value; });
-  if (existing === 0) c.innerHTML = '';
-  for (let i = existing; i < shopCount; i++) {
-    c.appendChild(buildSlot('shop-'+i, `Card ${i+1}`));
-    attachSlotAC('shop-'+i);
-  }
   Object.entries(saved).forEach(([id, val]) => {
     const el = document.getElementById(id); if (el) el.value = val;
   });
@@ -997,19 +969,13 @@ function getBuildTag(builds, da) {
 
 function resultHTML(s, mode, da) {
   const isBest = s.isBest;
-  const isBuy = mode==='shop' && s.finalScore>=2.5;
   let cls = 'rcard';
-  if (isBest && mode==='reward') cls += ' best';
-  else if (isBuy) cls += ' buy';
-  else if (mode==='shop' && !isBuy) cls += ' skip';
+  if (isBest) cls += ' best';
 
   let badge = '';
-  if (isBest && mode==='reward') badge = '<span class="badge badge-best">⭐ Best Pick</span>';
-  else if (isBuy) badge = '<span class="badge badge-buy">💰 Buy</span>';
-  else if (mode==='shop' && !isBuy) badge = '<span class="badge badge-skip">⊘ Skip</span>';
+  if (isBest) badge = '<span class="badge badge-best">⭐ Best Pick</span>';
 
-  const addBtn = (mode==='reward'||mode==='shop')
-    ? `<button class="add-deck-btn" data-name="${s.name}">+ Deck</button>` : '';
+  const addBtn = `<button class="add-deck-btn" data-name="${s.name}">+ Deck</button>`;
 
   const allReasons = [
     ...s.synReasons.map(r=>`<div class="reason pos"><span class="ri">▲</span>${r}</div>`),
@@ -1067,13 +1033,11 @@ function analyze(mode) {
   const fl = +document.getElementById('floor').value||1;
   const ac = +document.getElementById('act').value||1;
   const da = analyzeDeck(ch, deck);
-  const resultEl = document.getElementById(mode+'-results');
+  const resultEl = document.getElementById('reward-results');
 
-  const prefix = mode==='shop'?'shop':'reward';
-  const count = mode==='shop'?shopCount:rewardCount;
   const cards = [];
-  for (let i=0;i<count;i++) {
-    const inp = document.getElementById(`${prefix}-${i}`);
+  for (let i=0;i<rewardCount;i++) {
+    const inp = document.getElementById(`reward-${i}`);
     if (inp && inp.value.trim()) cards.push(inp.value.trim());
   }
   if (!cards.length) { resultEl.innerHTML='<div style="color:var(--text3);font-style:italic;font-size:.9rem">Enter cards above first.</div>'; return; }
@@ -1086,18 +1050,7 @@ function analyze(mode) {
 
   const sorted = [...scored].sort((a,b)=>b.finalScore-a.finalScore);
 
-  // Shop skip verdict - if best card scores below 2.5, not worth buying
-  let shopVerdict = '';
-  if (mode === 'shop') {
-    const best = sorted[0];
-    if (best.finalScore < 2.0) {
-      shopVerdict = `<div class="verdict warn"><div class="verdict-title">💰 Skip the Shop</div><div class="verdict-text">Nothing here is worth buying. Save your gold for future shops or relics - best option is ${best.name} at ${best.finalScore.toFixed(1)}/6 which isn't good enough.</div></div>`;
-    } else if (best.finalScore < 2.8) {
-      shopVerdict = `<div class="verdict warn"><div class="verdict-title">⚠ Weak Options</div><div class="verdict-text">Only consider buying if you're desperate. ${best.name} is marginal at best - gold might be better saved.</div></div>`;
-    }
-  }
-
-  resultEl.innerHTML = (mode==='reward' ? verdictHTML(sorted,'rewards',da) : shopVerdict) + sorted.map(s=>resultHTML(s,mode==='reward'?'reward':mode,da)).join('');
+  resultEl.innerHTML = verdictHTML(sorted,'rewards',da) + sorted.map(s=>resultHTML(s,'reward',da)).join('');
 }
 
 function analyzeRemoval() {
@@ -1170,7 +1123,7 @@ function loadStarters() {
   equippedRelics = STARTER_RELICS[ch] ? [STARTER_RELICS[ch]] : [];
 }
 
-document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderDeckRelics(); renderRewardSlots(); renderShopSlots(); for(let i=0;i<rewardRelicCount;i++){const ri=document.getElementById('reward-relic-'+i);if(ri)ri.value='';} const rr=document.getElementById('reward-relic-result'); if(rr) rr.innerHTML=''; encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} rencArchFilter='all'; rencRarityFilter='all'; const rf=document.getElementById('renc-arch-filters'); if(rf){rf.dataset.built='';rf.dataset.char='';} const rrf=document.getElementById('renc-rarity-filters'); if(rrf){rrf.dataset.built='';rrf.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); if(document.getElementById('pane-relics-enc').classList.contains('on')) renderRelicEncyclopedia(); });
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderDeckRelics(); renderRewardSlots(); for(let i=0;i<rewardRelicCount;i++){const ri=document.getElementById('reward-relic-'+i);if(ri)ri.value='';} const rr=document.getElementById('reward-relic-result'); if(rr) rr.innerHTML=''; encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} rencArchFilter='all'; rencRarityFilter='all'; const rf=document.getElementById('renc-arch-filters'); if(rf){rf.dataset.built='';rf.dataset.char='';} const rrf=document.getElementById('renc-rarity-filters'); if(rrf){rrf.dataset.built='';rrf.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); if(document.getElementById('pane-relics-enc').classList.contains('on')) renderRelicEncyclopedia(); });
 document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
@@ -1190,7 +1143,6 @@ document.getElementById('removal-results').addEventListener('click', e => {
 });
 document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
 document.getElementById('reward-relic-add').addEventListener('click', ()=>{ rewardRelicCount++; renderRewardRelicSlots(); });
-document.getElementById('shop-add').addEventListener('click', ()=>{ shopCount++; renderShopSlots(); });
 
 function isRemovalActive() {
   return document.getElementById('pane-removal').classList.contains('on');
@@ -1218,18 +1170,15 @@ document.querySelectorAll('.tab').forEach(t => {
 });
 
 // Add-to-deck from results
-['reward-results','shop-results'].forEach(id => {
-  document.getElementById(id).addEventListener('click', e => {
-    const btn = e.target.closest('.add-deck-btn');
-    if (!btn||btn.disabled) return;
-    deck.push({name:btn.dataset.name});
-    renderDeck();
-    btn.textContent = '✓ Added'; btn.disabled=true;
-    maybeRefreshRemoval();
-    // Refresh all reward results so relic scores update with new deck card
-    if (id === 'reward-results') setTimeout(() => { analyze('reward'); analyzeRelics(); }, 350);
-    setTimeout(() => { btn.textContent = '+ Deck'; btn.disabled=false; }, 1000);
-  });
+document.getElementById('reward-results').addEventListener('click', e => {
+  const btn = e.target.closest('.add-deck-btn');
+  if (!btn||btn.disabled) return;
+  deck.push({name:btn.dataset.name});
+  renderDeck();
+  btn.textContent = '✓ Added'; btn.disabled=true;
+  maybeRefreshRemoval();
+  setTimeout(() => { analyze('reward'); analyzeRelics(); }, 350);
+  setTimeout(() => { btn.textContent = '+ Deck'; btn.disabled=false; }, 1000);
 });
 
 // Relic equip — same pattern as card +Deck
@@ -1259,15 +1208,13 @@ makeAC(
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
   if (e.key === '1') document.querySelector('[data-tab="rewards"]').click();
-  else if (e.key === '2') document.querySelector('[data-tab="shop"]').click();
-  else if (e.key === '3') document.querySelector('[data-tab="removal"]').click();
-  else if (e.key === '4') document.querySelector('[data-tab="encyclopedia"]').click();
-  else if (e.key === '5') document.querySelector('[data-tab="relics-enc"]').click();
+  else if (e.key === '2') document.querySelector('[data-tab="removal"]').click();
+  else if (e.key === '3') document.querySelector('[data-tab="encyclopedia"]').click();
+  else if (e.key === '4') document.querySelector('[data-tab="relics-enc"]').click();
   else if (e.key === 'Enter') {
     const active = document.querySelector('.tab.on');
     if (!active) return;
     if (active.dataset.tab === 'rewards') analyze('reward');
-    else if (active.dataset.tab === 'shop') analyze('shop');
     else if (active.dataset.tab === 'removal') analyzeRemoval();
   } else if (e.key === 'f' || e.key === 'F') {
     e.preventDefault();
@@ -1290,7 +1237,7 @@ document.getElementById('clear-save-btn').addEventListener('click', () => {
   renderDeck();
   renderDeckRelics();
   renderRewardSlots();
-  renderShopSlots();
+ 
   maybeRefreshRemoval();
 });
 
@@ -1636,7 +1583,6 @@ renderDeck();
 renderDeckRelics();
 attachDeckRelicAC();
 renderRewardSlots();
-renderShopSlots();
 renderRewardRelicSlots();
 </script>
 
