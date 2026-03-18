@@ -791,3 +791,85 @@ function getFunctionalRole(data) {
   if (tags.has('vulnerable') || tags.has('debuff')) return 'setup';
   return 'utility';
 }
+
+
+// ── RELIC SCORING ─────────────────────────────────────────────────
+// Returns a result object shaped like scoreCard output so index.html
+// can render it with the same resultHTML() function.
+function scoreRelic(relicName, char, da, deckCards) {
+  if (!DB.relics) return null;
+  const key = relicName.toUpperCase()
+    .replace(/'/g,'').replace(/[\s\-]+/g,'_')
+    .replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,'');
+  const d = DB.relics[key];
+  if (!d) return null;
+
+  const TIER_VALS = {S:5, A:4, B:3, C:2, D:1};
+  let score = TIER_VALS[d.tier] ?? 2;
+  const synR = [], antiR = [];
+
+  // 1. Build fit — relic's builds vs detected archetypes
+  const builds = (d.builds || []).filter(b => b !== 'any');
+  if (builds.length && da.detected.length) {
+    for (const {arch, strength} of da.detected) {
+      if (builds.includes(arch.id)) {
+        const boost = +(0.4 + strength * 1.2).toFixed(1);
+        score += boost;
+        synR.push('+' + boost + ' fits ' + arch.name + ' build');
+        break;
+      }
+    }
+  }
+
+  // 2. scoreEffects — check relic passive bonuses vs deck tag frequency
+  if (d.scoreEffects && d.scoreEffects.length) {
+    const deckTagCounts = {};
+    for (const card of deckCards) {
+      const cd = getCard(char, card.name);
+      if (!cd) continue;
+      const tags = [...(cd.syn||[]), ...(cd.mech||[]),
+                    ...(cd.builds||[]).filter(b=>b!=='any')];
+      for (const tag of tags) {
+        deckTagCounts[tag] = (deckTagCounts[tag]||0) + 1;
+      }
+    }
+    for (const fx of d.scoreEffects) {
+      const matchCount = (fx.tags||[]).reduce((s,t) => s+(deckTagCounts[t]||0), 0);
+      if (matchCount > 0) {
+        const boost = +(fx.bonus * Math.min(matchCount/3, 1.5)).toFixed(1);
+        if (boost > 0.05) {
+          score += boost;
+          synR.push('+' + boost + ' deck has ' + fx.tags.join('/') + ' cards (×' + matchCount + ')');
+        }
+      }
+    }
+  }
+
+  // 3. relicCombos — specific relic+card pairs in deck
+  const deckNames = new Set(deckCards.map(c => c.name));
+  for (const rc of (DB.relicCombos || [])) {
+    if (rc.relic === relicName && deckNames.has(rc.card)) {
+      score += rc.bonus;
+      synR.push('+' + rc.bonus.toFixed(1) + ' with ' + rc.card + ' — ' + rc.reason.split('.')[0]);
+    }
+  }
+
+  // 4. Grade
+  const GRADES  = ['S','A','B','C','D'];
+  const THRESH  = [4.5, 3.5, 2.5, 1.5, 0];
+  const idx2    = THRESH.findIndex(v => score >= v);
+  const finalGrade = idx2 >= 0 ? GRADES[idx2] : 'D';
+
+  return {
+    name:        relicName,
+    finalScore:  +score.toFixed(2),
+    finalGrade,
+    base:        d.tier,
+    synReasons:  synR,
+    antiReasons: antiR,
+    builds:      builds,
+    notes:       d.notes || '',
+    rarity:      d.rarity || '',
+    isBest:      false,
+  };
+}

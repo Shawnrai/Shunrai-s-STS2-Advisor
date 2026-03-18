@@ -170,6 +170,33 @@ input[type=number]{width:60px}
 .combo-bonus{font-size:.72rem;color:var(--gold2);flex-shrink:0;margin-top:2px;min-width:28px}
 .combo-reason{flex:1;color:var(--text3)}
 .combo-sec{font-size:.72rem;font-family:'Cinzel',serif;letter-spacing:.07em;text-transform:uppercase;color:var(--text2);margin:8px 0 4px}
+/* -- RELICS -- */
+.relic-zone{padding:6px 12px 10px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.12)}
+.relic-zone-title{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.relic-pills{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;min-height:2px}
+.relic-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 7px 2px 5px;border-radius:10px;background:rgba(200,149,46,.1);border:1px solid rgba(200,149,46,.3);font-size:.72rem;color:var(--text2);cursor:pointer;transition:all .15s;max-width:160px}
+.relic-pill:hover{background:rgba(184,48,37,.15);border-color:var(--red);color:var(--red2)}
+.rp-tier{font-family:'Cinzel',serif;font-size:.6rem;padding:0 3px;border-radius:2px;border:1px solid;flex-shrink:0}
+.rp-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.relic-search-wrap{position:relative}
+.relic-input{background:transparent;border:none;border-bottom:1px solid var(--border2);color:var(--text2);font-family:'Crimson Pro',serif;font-size:.82rem;padding:3px 4px;width:100%;outline:none;transition:border-color .15s}
+.relic-input:focus{border-bottom-color:var(--gold);color:var(--text)}
+.relic-input::placeholder{color:var(--text3);font-size:.78rem}
+.relic-ac{position:absolute;left:0;right:0;top:100%;background:var(--bg3);border:1px solid var(--border2);border-top:none;z-index:99;max-height:160px;overflow-y:auto;display:none;border-radius:0 0 var(--radius) var(--radius)}
+.relic-ac.open{display:block}
+.relic-ac .ac-item{padding:5px 10px;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(46,37,21,.3);display:flex;justify-content:space-between;align-items:center;color:var(--text2);gap:8px}
+.relic-ac .ac-item:hover,.relic-ac .ac-item.hi{background:rgba(200,149,46,.1);color:var(--text)}
+.relic-ac .ac-item .ac-rchar{font-size:.65rem;color:var(--text3)}
+/* reward relic slot */
+.reward-relic-wrap{margin-top:14px;padding-top:12px;border-top:1px solid var(--border2)}
+.reward-relic-slot{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--radius);background:var(--bg2);border:1px solid var(--border2);margin-bottom:6px;position:relative}
+.reward-relic-slot .rrs-tier{font-family:'Cinzel',serif;font-size:.8rem;width:26px;height:26px;border-radius:3px;display:flex;align-items:center;justify-content:center;border:1px solid;flex-shrink:0}
+.reward-relic-slot .rrs-info{flex:1;min-width:0}
+.reward-relic-slot .rrs-name{font-size:.82rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reward-relic-slot .rrs-notes{font-size:.72rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reward-relic-slot .rrs-add{font-family:'Cinzel',serif;font-size:.65rem;padding:3px 8px;border-radius:var(--radius);background:transparent;border:1px solid var(--gold);color:var(--gold2);cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.reward-relic-slot .rrs-add:hover{background:rgba(200,149,46,.15)}
+.reward-relic-slot .rrs-add.added{border-color:var(--text3);color:var(--text3);pointer-events:none}
 /* -- SCROLLBAR -- */
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -180,7 +207,7 @@ input[type=number]{width:60px}
 </head>
 <body>
 <header>
-  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.30 • Mar 2026</span></div>
+  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.50 • Mar 18th 2026</span></div>
   <div class="header-fields">
     <div class="field-group"><span class="field-label">Character</span>
       <select id="char">
@@ -226,6 +253,17 @@ input[type=number]{width:60px}
       <div class="health-label">Deck Health</div>
       <div id="health-content"></div>
     </div>
+    <div class="relic-zone" id="deck-relic-zone">
+      <div class="relic-zone-title">
+        <span>◈ Relics</span>
+        <span id="deck-relic-count" style="font-size:.65rem;color:var(--text3)"></span>
+      </div>
+      <div class="relic-pills" id="deck-relic-pills"></div>
+      <div class="search-area" style="border-bottom:none;padding-top:6px">
+        <input class="card-input" id="deck-relic-input" type="text" placeholder="Add relic..." autocomplete="off" spellcheck="false">
+        <div class="ac-list" id="deck-relic-ac"></div>
+      </div>
+    </div>
     <div class="search-area">
       <input class="card-input" id="deck-search" type="text" placeholder="Add card to deck..." autocomplete="off" spellcheck="false">
       <div class="ac-list" id="deck-ac"></div>
@@ -238,7 +276,7 @@ input[type=number]{width:60px}
   <!-- RIGHT -->
   <div class="right">
     <div class="tabs">
-      <div class="tab on" data-tab="rewards">⚔ Card Rewards</div>
+      <div class="tab on" data-tab="rewards">⚔ Rewards</div>
       <div class="tab" data-tab="shop">⚖ Shop</div>
       <div class="tab" data-tab="removal">✂ Removal</div>
       <div class="tab" data-tab="encyclopedia">🂠 Cards</div>
@@ -246,13 +284,21 @@ input[type=number]{width:60px}
 
     <div class="pane on" id="pane-rewards">
       <div>
-        <div class="sec-title">Offered Cards</div>
+        <div class="sec-title">🂠 Offered Cards</div>
         <div class="slots" id="reward-slots"></div>
         <div class="actions" style="margin-top:10px">
           <button class="add-btn" id="reward-add">+ Add Slot</button>
         </div>
       </div>
       <div class="results" id="reward-results"></div>
+      <div class="reward-relic-wrap">
+        <div class="sec-title" style="font-size:.78rem;margin-bottom:8px">◈ Offered Relics</div>
+        <div class="slots" id="reward-relic-slots"></div>
+        <div class="actions" style="margin-top:10px">
+          <button class="add-btn" id="reward-relic-add">+ Add Slot</button>
+        </div>
+        <div class="results" id="reward-relic-result"></div>
+      </div>
     </div>
 
     <div class="pane" id="pane-shop">
@@ -298,13 +344,16 @@ input[type=number]{width:60px}
 // STATE
 
 let deck = [];
+let equippedRelics = [];  // relic display names
 let rewardCount = 3, shopCount = 4;
+let rewardRelicCount = 3;
 let autoAnalyzeTimer = null;
 
 function saveDeck() {
   try {
     const state = {
       deck: deck.map(c => c.name),
+      relics: equippedRelics,
       char: document.getElementById('char').value,
       floor: document.getElementById('floor').value,
       act: document.getElementById('act').value,
@@ -325,6 +374,7 @@ function loadSavedState() {
     document.getElementById('act').value = state.act || 1;
     if (document.getElementById('encounter')) document.getElementById('encounter').value = state.encounter || 'normal';
     deck = (state.deck || []).map(name => ({name}));
+    equippedRelics = state.relics || [];
     return true;
   } catch(e) { return false; }
 }
@@ -363,6 +413,266 @@ function makeAC(inputEl, listEl, onSelect) {
     }
   });
   document.addEventListener('click', e => { if (!listEl.contains(e.target) && e.target!==inputEl) listEl.classList.remove('open'); });
+}
+
+// ── RELIC SYSTEM ──────────────────────────────────────────────────
+
+function relicKey(name) {
+  return name.toUpperCase().replace(/'/g,'').replace(/[\s-]+/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,'');
+}
+
+function getRelicData(name) {
+  if (!DB.relics) return null;
+  return DB.relics[relicKey(name)] || null;
+}
+
+function tierColor(t) {
+  return {S:'var(--s)',A:'var(--a)',B:'var(--b)',C:'var(--c)',D:'var(--d)'}[t] || 'var(--text3)';
+}
+
+function renderDeckRelics() {
+  const pillsEl = document.getElementById('deck-relic-pills');
+  const countEl = document.getElementById('deck-relic-count');
+  if (!pillsEl) return;
+
+  pillsEl.innerHTML = equippedRelics.map((name, i) => {
+    const d = getRelicData(name);
+    const tier = d ? d.tier : '?';
+    const col = tierColor(tier);
+    return `<span class="relic-pill" data-idx="${i}" title="${d ? d.notes : name}">
+      <span class="rp-tier" style="color:${col};border-color:${col}">${tier}</span>
+      <span class="rp-name">${name}</span>
+    </span>`;
+  }).join('');
+
+  if (countEl) countEl.textContent = equippedRelics.length ? equippedRelics.length + ' relics' : '';
+
+  pillsEl.querySelectorAll('.relic-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const idx = +pill.dataset.idx;
+      // Don't allow removing starter relic
+      const ch = document.getElementById('char').value;
+      if (equippedRelics[idx] === STARTER_RELICS[ch]) return;
+      equippedRelics.splice(idx, 1);
+      renderDeckRelics();
+      saveDeck();
+    });
+  });
+}
+
+function makeRelicAC(inputEl, listEl, onSelect) {
+  inputEl.addEventListener('input', () => {
+    const q = inputEl.value.trim().toLowerCase();
+    if (q.length < 2) { listEl.classList.remove('open'); return; }
+    const ch = document.getElementById('char').value;
+    const hits = (DB.relicNames || [])
+      .filter(n => (n.c === ch || n.c === 'any') && n.n.toLowerCase().includes(q) && !equippedRelics.includes(n.n))
+      .slice(0, 12);
+    if (!hits.length) { listEl.classList.remove('open'); return; }
+    listEl.innerHTML = hits.map(h => {
+      const d = getRelicData(h.n);
+      const t = d ? d.tier : '?';
+      const col = tierColor(t);
+      return `<div class="ac-item" data-name="${h.n}"><span>${h.n}${d && d.char !== 'any' ? `<span class="ac-char"> · ${d.char}</span>` : ''}</span><span class="ac-char" style="color:${col}">${t}</span></div>`;
+    }).join('');
+    listEl.classList.add('open');
+    listEl.querySelectorAll('.ac-item').forEach(el => {
+      el.addEventListener('mousedown', e => { e.preventDefault(); onSelect(el.dataset.name); inputEl.value=''; listEl.classList.remove('open'); });
+    });
+  });
+  inputEl.addEventListener('keydown', e => {
+    if (e.key==='Escape') { listEl.classList.remove('open'); return; }
+    const items = [...listEl.querySelectorAll('.ac-item')];
+    const cur = listEl.querySelector('.hi');
+    if (e.key==='Enter') {
+      const target = cur || items[0];
+      if (target) { onSelect(target.dataset.name); inputEl.value=''; listEl.classList.remove('open'); }
+      return;
+    }
+    if (e.key==='ArrowDown'||e.key==='ArrowUp') {
+      let idx = cur ? items.indexOf(cur) : -1;
+      if (cur) cur.classList.remove('hi');
+      idx = e.key==='ArrowDown' ? Math.min(idx+1,items.length-1) : Math.max(idx-1,0);
+      if (items[idx]) { items[idx].classList.add('hi'); items[idx].scrollIntoView({block:'nearest'}); }
+    }
+  });
+  document.addEventListener('click', e => { if (!listEl.contains(e.target) && e.target!==inputEl) listEl.classList.remove('open'); });
+}
+
+function attachDeckRelicAC() {
+  const inp = document.getElementById('deck-relic-input');
+  const ac  = document.getElementById('deck-relic-ac');
+  if (!inp || !ac) return;
+  makeRelicAC(inp, ac, name => {
+    if (!equippedRelics.includes(name)) {
+      equippedRelics.push(name);
+      renderDeckRelics();
+      saveDeck();
+    }
+  });
+}
+
+// Reward relic — scores via logic.js scoreRelic(), renders like a card result
+function analyzeRelics() {
+  const ch   = document.getElementById('char').value;
+  const da   = analyzeDeck(ch, deck);
+  const resultEl = document.getElementById('reward-relic-result');
+  if (!resultEl) return;
+
+  const names = [];
+  for (let i = 0; i < rewardRelicCount; i++) {
+    const inp = document.getElementById(`reward-relic-${i}`);
+    if (inp && inp.value.trim()) names.push(inp.value.trim());
+  }
+  if (!names.length) { resultEl.innerHTML = ''; return; }
+
+  const scored = names.map(name => {
+    const s = scoreRelic(name, ch, da, deck);
+    if (!s) return {name, finalScore:0, finalGrade:'C', base:'?', synReasons:[], antiReasons:[], builds:[], notes:'Unknown relic', rarity:'', isBest:false};
+    return s;
+  });
+
+  // Mark best
+  let bestIdx = 0;
+  for (let i = 1; i < scored.length; i++) if (scored[i].finalScore > scored[bestIdx].finalScore) bestIdx = i;
+  scored[bestIdx].isBest = true;
+
+  const sorted = [...scored].sort((a,b) => b.finalScore - a.finalScore);
+
+  resultEl.innerHTML = sorted.map(s => {
+    const isBest  = s.isBest;
+    const badge   = isBest
+      ? '<span class="badge badge-best">⭐ Best Pick</span>'
+      : s.finalGrade === 'A' ? '<span class="badge badge-buy">★ Strong</span>' : '';
+    const equipBtn = `<button class="add-deck-btn relic-equip-btn" data-rname="${s.name}">◈ Equip</button>`;
+    const buildTags = getBuildTag(s.builds, da);
+    const allReasons = [
+      ...s.synReasons.map(r=>`<div class="reason pos"><span class="ri">▲</span>${r}</div>`),
+      ...s.antiReasons.map(r=>`<div class="reason neg"><span class="ri">▼</span>${r}</div>`),
+    ];
+    const cls = 'rcard' + (isBest ? ' best' : '');
+
+    return `<div class="${cls}">
+      <div class="rcard-head">
+        <div class="grade-box g-${s.finalGrade}">${s.finalGrade}</div>
+        <div class="rcard-info">
+          <div class="rcard-name">${s.name}${badge}${equipBtn}${buildTags}</div>
+          <div class="rcard-meta">Score ${s.finalScore.toFixed(1)} · Base ${s.base}${s.rarity ? ' · '+s.rarity : ''}</div>
+        </div>
+      </div>
+      ${(s.notes||allReasons.length)?`<div class="rcard-body">
+        ${s.notes?`<div class="card-notes">${s.notes}</div>`:''}
+        ${allReasons.length?`<div class="reasons">${allReasons.join('')}</div>`:''}
+      </div>`:''}
+    </div>`;
+  }).join('');
+}
+
+// Keep backward compat — individual slot selections trigger full analyze
+function showRelicResult(name) { analyzeRelics(); }
+
+function buildRelicSlot(id, label) {
+  const d = document.createElement('div');
+  d.className = 'slot';
+  d.innerHTML = `<span class="slot-label">${label}</span>
+    <input class="slot-input" id="${id}" type="text" placeholder="Relic name..." autocomplete="off" spellcheck="false">
+    <div class="slot-ac" id="${id}-ac"></div>`;
+  return d;
+}
+
+function attachRelicSlotAC(id, onSelect) {
+  const inp = document.getElementById(id);
+  const ac  = document.getElementById(id+'-ac');
+  if (!inp || !ac) return;
+
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase();
+    if (q.length < 2) { ac.classList.remove('open'); return; }
+    const ch = document.getElementById('char').value;
+    const hits = (DB.relicNames || [])
+      .filter(n => (n.c === ch || n.c === 'any') && n.n.toLowerCase().includes(q))
+      .slice(0, 10);
+    if (!hits.length) { ac.classList.remove('open'); return; }
+    ac.innerHTML = hits.map(h => {
+      const d = getRelicData(h.n);
+      const t = d ? d.tier : '?';
+      const col = tierColor(t);
+      return `<div class="ac-item" data-name="${h.n}"><span>${h.n}${d && d.char !== 'any' ? `<span class="ac-char"> · ${d.char}</span>` : ''}</span><span class="ac-char" style="color:${col}">${t}</span></div>`;
+    }).join('');
+    ac.classList.add('open');
+    const first = ac.querySelector('.ac-item');
+    if (first) first.classList.add('hi');
+    // Auto-show result on exact match
+    const allNames = new Set((DB.relicNames||[]).filter(n=>n.c===ch||n.c==='any').map(n=>n.n.toLowerCase()));
+    if (allNames.has(q)) {
+      const match = (DB.relicNames||[]).find(n => n.n.toLowerCase() === q);
+      if (match && onSelect) onSelect(match.n);
+    }
+    ac.querySelectorAll('.ac-item').forEach(el => {
+      el.addEventListener('mousedown', e => {
+        e.preventDefault();
+        inp.value = el.dataset.name;
+        ac.classList.remove('open');
+        focusNextSlot(id);
+        if (onSelect) onSelect(el.dataset.name);
+      });
+    });
+  });
+
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ac.classList.remove('open');
+      inp.value = '';
+      const res = document.getElementById('reward-relic-result');
+      if (res) res.innerHTML = '';
+      return;
+    }
+    const items = [...ac.querySelectorAll('.ac-item')];
+    if (!items.length) return;
+    const cur = ac.querySelector('.hi');
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      let idx = cur ? items.indexOf(cur) : -1;
+      if (cur) cur.classList.remove('hi');
+      idx = e.key === 'ArrowDown' ? Math.min(idx+1,items.length-1) : Math.max(idx-1,0);
+      items[idx].classList.add('hi');
+      items[idx].scrollIntoView({block:'nearest'});
+      return;
+    }
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const target = cur || items[0];
+      if (target) {
+        inp.value = target.dataset.name;
+        ac.classList.remove('open');
+        focusNextSlot(id);
+        if (onSelect) onSelect(target.dataset.name);
+      }
+    }
+  });
+  document.addEventListener('click', e => {
+    if (!ac.contains(e.target) && e.target !== inp) ac.classList.remove('open');
+  });
+}
+
+function renderRewardRelicSlots() {
+  const c = document.getElementById('reward-relic-slots');
+  if (!c) return;
+  const existing = c.querySelectorAll('.slot').length;
+  const saved = {};
+  c.querySelectorAll('.slot-input').forEach(inp => { saved[inp.id] = inp.value; });
+  if (existing === 0) c.innerHTML = '';
+  for (let i = existing; i < rewardRelicCount; i++) {
+    c.appendChild(buildRelicSlot('reward-relic-'+i, `Relic ${i+1}`));
+    attachRelicSlotAC('reward-relic-'+i, () => analyzeRelics());
+  }
+  Object.entries(saved).forEach(([id, val]) => {
+    const el = document.getElementById(id); if (el) el.value = val;
+  });
+}
+
+function attachRewardRelicAC() {
+  renderRewardRelicSlots();
 }
 
 // DECK RENDER
@@ -826,12 +1136,22 @@ function analyzeRemoval() {
 
 // EVENTS
 
+const STARTER_RELICS = {
+  ironclad:    'Burning Blood',
+  silent:      'Ring of the Snake',
+  regent:      'Divine Right',
+  necrobinder: 'Bound Phylactery',
+  defect:      'Cracked Core',
+};
+
 function loadStarters() {
   const ch = document.getElementById('char').value;
   deck = (STARTERS[ch] || []).map(name => ({name}));
+  // Reset relics to just the starter relic
+  equippedRelics = STARTER_RELICS[ch] ? [STARTER_RELICS[ch]] : [];
 }
 
-document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderRewardSlots(); renderShopSlots(); encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderDeckRelics(); renderRewardSlots(); renderShopSlots(); for(let i=0;i<rewardRelicCount;i++){const ri=document.getElementById('reward-relic-'+i);if(ri)ri.value='';} const rr=document.getElementById('reward-relic-result'); if(rr) rr.innerHTML=''; encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
 document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
@@ -850,6 +1170,7 @@ document.getElementById('removal-results').addEventListener('click', e => {
   }
 });
 document.getElementById('reward-add').addEventListener('click', ()=>{ rewardCount++; renderRewardSlots(); });
+document.getElementById('reward-relic-add').addEventListener('click', ()=>{ rewardRelicCount++; renderRewardRelicSlots(); });
 document.getElementById('shop-add').addEventListener('click', ()=>{ shopCount++; renderShopSlots(); });
 
 function isRemovalActive() {
@@ -882,6 +1203,20 @@ document.querySelectorAll('.tab').forEach(t => {
     maybeRefreshRemoval();
     setTimeout(() => { btn.textContent = '+ Deck'; btn.disabled=false; }, 1000);
   });
+});
+
+// Relic equip — same pattern as card +Deck
+document.getElementById('reward-relic-result').addEventListener('click', e => {
+  const btn = e.target.closest('.relic-equip-btn');
+  if (!btn || btn.disabled) return;
+  const rname = btn.dataset.rname;
+  if (!equippedRelics.includes(rname)) {
+    equippedRelics.push(rname);
+    renderDeckRelics();
+    saveDeck();
+  }
+  btn.textContent = '✓ Equipped'; btn.disabled = true;
+  setTimeout(() => { btn.textContent = '◈ Equip'; btn.disabled = false; }, 1000);
 });
 
 // Deck search autocomplete
@@ -919,6 +1254,7 @@ document.getElementById('clear-save-btn').addEventListener('click', () => {
   localStorage.removeItem('sts2_advisor_state');
   loadStarters();
   renderDeck();
+  renderDeckRelics();
   renderRewardSlots();
   renderShopSlots();
   maybeRefreshRemoval();
@@ -1099,8 +1435,11 @@ const floorVal = +floorEl.value || 1;
 actEl.value = floorToAct(floorVal);
 
 renderDeck();
+renderDeckRelics();
+attachDeckRelicAC();
 renderRewardSlots();
 renderShopSlots();
+renderRewardRelicSlots();
 </script>
 
 <div style="
