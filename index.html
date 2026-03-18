@@ -280,6 +280,7 @@ input[type=number]{width:60px}
       <div class="tab" data-tab="shop">⚖ Shop</div>
       <div class="tab" data-tab="removal">✂ Removal</div>
       <div class="tab" data-tab="encyclopedia">🂠 Cards</div>
+      <div class="tab" data-tab="relics-enc">◈ Relics</div>
     </div>
 
     <div class="pane on" id="pane-rewards">
@@ -333,6 +334,23 @@ input[type=number]{width:60px}
         <span id="enc-stats" style="font-size:.78rem;color:var(--text3);margin-left:auto"></span>
       </div>
       <div id="encyclopedia-results" style="display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+
+    <div class="pane" id="pane-relics-enc">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;align-items:center">
+        <span id="renc-arch-filters" style="display:contents"></span>
+        <input id="renc-search" type="text" placeholder="Search..." autocomplete="off" spellcheck="false"
+          style="background:var(--bg2);border:1px solid var(--border2);color:var(--text);font-size:.85rem;padding:5px 10px;border-radius:var(--radius);width:130px;font-family:'Crimson Pro',serif">
+        <span style="display:flex;gap:5px;margin-left:4px">
+          <button id="renc-sort-tier"   onclick="setRencSort('tier')"   style="background:rgba(200,149,46,.12);border:1px solid var(--gold);color:var(--gold2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">★ Tier</button>
+          <button id="renc-sort-combos" onclick="setRencSort('combos')" style="background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:'Cinzel',serif;font-size:.7rem;padding:3px 9px;border-radius:var(--radius);cursor:pointer">⚡ Combos</button>
+        </span>
+        <span id="renc-stats" style="font-size:.78rem;color:var(--text3);margin-left:auto"></span>
+      </div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
+        <span id="renc-rarity-filters" style="display:contents"></span>
+      </div>
+      <div id="relics-enc-results" style="display:flex;flex-direction:column;gap:6px"></div>
     </div>
   </div>
 </div>
@@ -1151,7 +1169,7 @@ function loadStarters() {
   equippedRelics = STARTER_RELICS[ch] ? [STARTER_RELICS[ch]] : [];
 }
 
-document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderDeckRelics(); renderRewardSlots(); renderShopSlots(); for(let i=0;i<rewardRelicCount;i++){const ri=document.getElementById('reward-relic-'+i);if(ri)ri.value='';} const rr=document.getElementById('reward-relic-result'); if(rr) rr.innerHTML=''; encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); });
+document.getElementById('char').addEventListener('change', () => { loadStarters(); renderDeck(); renderDeckRelics(); renderRewardSlots(); renderShopSlots(); for(let i=0;i<rewardRelicCount;i++){const ri=document.getElementById('reward-relic-'+i);if(ri)ri.value='';} const rr=document.getElementById('reward-relic-result'); if(rr) rr.innerHTML=''; encArchFilter='all'; encShowColorless=false; const cb=document.getElementById('enc-colorless-btn'); if(cb){cb.style.background='transparent';cb.style.borderColor='var(--border2)';cb.style.color='var(--text2)';} const fe=document.getElementById('enc-arch-filters'); if(fe){fe.dataset.built='';fe.dataset.char='';} rencArchFilter='all'; rencRarityFilter='all'; const rf=document.getElementById('renc-arch-filters'); if(rf){rf.dataset.built='';rf.dataset.char='';} const rrf=document.getElementById('renc-rarity-filters'); if(rrf){rrf.dataset.built='';rrf.dataset.char='';} if(document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia(); if(document.getElementById('pane-relics-enc').classList.contains('on')) renderRelicEncyclopedia(); });
 document.getElementById('floor').addEventListener('input', () => {
   const f = +document.getElementById('floor').value || 1;
   document.getElementById('act').value = floorToAct(f);
@@ -1189,6 +1207,7 @@ document.querySelectorAll('.tab').forEach(t => {
     document.getElementById('pane-'+t.dataset.tab).classList.add('on');
     if (t.dataset.tab === 'removal') analyzeRemoval();
     if (t.dataset.tab === 'encyclopedia') renderEncyclopedia();
+    if (t.dataset.tab === 'relics-enc') renderRelicEncyclopedia();
   });
 });
 
@@ -1233,6 +1252,7 @@ document.addEventListener('keydown', e => {
   else if (e.key === '2') document.querySelector('[data-tab="shop"]').click();
   else if (e.key === '3') document.querySelector('[data-tab="removal"]').click();
   else if (e.key === '4') document.querySelector('[data-tab="encyclopedia"]').click();
+  else if (e.key === '5') document.querySelector('[data-tab="relics-enc"]').click();
   else if (e.key === 'Enter') {
     const active = document.querySelector('.tab.on');
     if (!active) return;
@@ -1248,6 +1268,10 @@ document.addEventListener('keydown', e => {
 // Clear save
 document.getElementById('enc-search').addEventListener('input', () => {
   if (document.getElementById('pane-encyclopedia').classList.contains('on')) renderEncyclopedia();
+});
+
+document.getElementById('renc-search').addEventListener('input', () => {
+  if (document.getElementById('pane-relics-enc').classList.contains('on')) renderRelicEncyclopedia();
 });
 
 document.getElementById('clear-save-btn').addEventListener('click', () => {
@@ -1423,6 +1447,170 @@ function renderEncyclopedia() {
 
 // Enc search listener added at bottom
 // ── END ENCYCLOPEDIA ───────────────────────────────────────────────
+
+// ── RELIC ENCYCLOPEDIA ────────────────────────────────────────────
+let rencSortMode     = 'tier';
+let rencArchFilter   = 'all';
+let rencRarityFilter = 'all';
+
+const RARITY_ORDER = {starter:0, common:1, uncommon:2, rare:3, ancient:4, shop:5, event:6, special:7};
+const RARITY_LABELS = {starter:'Starter', common:'Common', uncommon:'Uncommon', rare:'Rare', ancient:'Ancient', shop:'Shop', event:'Event', special:'Special'};
+
+function setRencSort(mode) {
+  rencSortMode = mode;
+  document.getElementById('renc-sort-tier').style.background   = mode==='tier'   ? 'rgba(200,149,46,.12)' : 'transparent';
+  document.getElementById('renc-sort-tier').style.borderColor  = mode==='tier'   ? 'var(--gold)' : 'var(--border2)';
+  document.getElementById('renc-sort-tier').style.color        = mode==='tier'   ? 'var(--gold2)' : 'var(--text2)';
+  document.getElementById('renc-sort-combos').style.background = mode==='combos' ? 'rgba(200,149,46,.12)' : 'transparent';
+  document.getElementById('renc-sort-combos').style.borderColor= mode==='combos' ? 'var(--gold)' : 'var(--border2)';
+  document.getElementById('renc-sort-combos').style.color      = mode==='combos' ? 'var(--gold2)' : 'var(--text2)';
+  renderRelicEncyclopedia();
+}
+
+function setRencArchFilter(arch) {
+  rencArchFilter = arch;
+  document.querySelectorAll('#renc-arch-filters .enc-filter-btn').forEach(b => b.classList.toggle('on', b.dataset.arch === arch));
+  renderRelicEncyclopedia();
+}
+
+function setRencRarityFilter(rarity) {
+  rencRarityFilter = rarity;
+  document.querySelectorAll('#renc-rarity-filters .enc-filter-btn').forEach(b => b.classList.toggle('on', b.dataset.arch === rarity));
+  renderRelicEncyclopedia();
+}
+
+function getRelicCombosDeduped(relicName) {
+  const result = [];
+  const seen = new Set();
+  for (const rc of (DB.relicCombos || [])) {
+    if (rc.relic !== relicName) continue;
+    const key = norm(rc.card);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push({partner: rc.card, bonus: rc.bonus, reason: rc.reason});
+  }
+  return result.sort((a,b) => b.bonus - a.bonus);
+}
+
+function getRelicComboCount(relicName) {
+  return getRelicCombosDeduped(relicName).length;
+}
+
+function renderRelicEncyclopedia() {
+  const ch = document.getElementById('char').value;
+  const el = document.getElementById('relics-enc-results');
+  const statsEl = document.getElementById('renc-stats');
+  const searchVal = (document.getElementById('renc-search')?.value||'').trim().toLowerCase();
+  if (!el || !DB.relics) return;
+
+  const TIER_ORDER = {S:0,A:1,B:2,C:3,D:4,F:5};
+
+  // All relics visible for this character (char-specific + universal)
+  const allRelics = Object.values(DB.relics).filter(r => r.char === ch || r.char === 'any');
+
+  // Build archetype filters from selected character's archetypes
+  const archFiltersEl = document.getElementById('renc-arch-filters');
+  if (archFiltersEl && (archFiltersEl.dataset.built !== '1' || archFiltersEl.dataset.char !== ch)) {
+    archFiltersEl.innerHTML = '';
+    const charArchs = (DB.archetypes[ch] || []).map(a => a.id);
+    ['all', ...charArchs].forEach(arch => {
+      const b = document.createElement('button');
+      b.className = 'enc-filter-btn' + (rencArchFilter===arch?' on':'');
+      b.dataset.arch = arch;
+      b.textContent = arch==='all' ? 'All' : (BUILD_TAGS[arch] ? BUILD_TAGS[arch].emoji+' '+BUILD_TAGS[arch].label : arch);
+      b.onclick = () => setRencArchFilter(arch);
+      archFiltersEl.appendChild(b);
+    });
+    archFiltersEl.dataset.built = '1';
+    archFiltersEl.dataset.char  = ch;
+  }
+
+  // Build rarity filters
+  const rarFiltersEl = document.getElementById('renc-rarity-filters');
+  if (rarFiltersEl && (rarFiltersEl.dataset.built !== '1' || rarFiltersEl.dataset.char !== ch)) {
+    rarFiltersEl.innerHTML = '';
+    const rarities = new Set();
+    allRelics.forEach(r => { if (r.rarity) rarities.add(r.rarity); });
+    const sortedRarities = [...rarities].sort((a,b) => (RARITY_ORDER[a]??9) - (RARITY_ORDER[b]??9));
+    ['all', ...sortedRarities].forEach(rar => {
+      const b = document.createElement('button');
+      b.className = 'enc-filter-btn' + (rencRarityFilter===rar?' on':'');
+      b.dataset.arch = rar;
+      b.textContent = rar==='all' ? 'All Rarities' : (RARITY_LABELS[rar] || rar);
+      b.onclick = () => setRencRarityFilter(rar);
+      rarFiltersEl.appendChild(b);
+    });
+    rarFiltersEl.dataset.built = '1';
+    rarFiltersEl.dataset.char  = ch;
+  }
+
+  // Filter
+  let relics = allRelics.map(r => ({relic: r, combos: getRelicComboCount(r.id)}));
+
+  if (rencArchFilter !== 'all') {
+    relics = relics.filter(({relic}) => (relic.builds||[]).includes(rencArchFilter));
+  }
+  if (rencRarityFilter !== 'all') {
+    relics = relics.filter(({relic}) => relic.rarity === rencRarityFilter);
+  }
+  if (searchVal.length >= 1) {
+    relics = relics.filter(({relic}) => relic.id.toLowerCase().includes(searchVal));
+  }
+
+  // Sort
+  if (rencSortMode === 'tier')
+    relics.sort((a,b) => (TIER_ORDER[a.relic.tier]??3)-(TIER_ORDER[b.relic.tier]??3) || b.combos-a.combos);
+  else
+    relics.sort((a,b) => b.combos-a.combos || (TIER_ORDER[a.relic.tier]??3)-(TIER_ORDER[b.relic.tier]??3));
+
+  if (statsEl) statsEl.textContent = relics.length + ' relics';
+
+  el.innerHTML = relics.map(({relic, combos}) => {
+    const relicCombos = getRelicCombosDeduped(relic.id);
+    const comboText = relicCombos.length > 0 ? `<span style="color:var(--gold2);font-size:.73rem">⚡ ${relicCombos.length} combo${relicCombos.length!==1?'s':''}</span>` : '';
+
+    const charLabel = relic.char !== 'any'
+      ? `<span style="color:var(--text3);font-size:.72rem;font-family:'Cinzel',serif;margin-left:4px">${relic.char}</span>`
+      : '';
+
+    const rarLabel = relic.rarity
+      ? `<span style="color:var(--text3);font-size:.72rem;font-family:'Cinzel',serif">${RARITY_LABELS[relic.rarity] || relic.rarity}</span>`
+      : '';
+
+    const comboRows = relicCombos.map(c => `<div class="combo-row">
+        <span class="combo-partner">${c.partner}</span>
+        <span class="combo-bonus">+${c.bonus.toFixed(1)}</span>
+        <span class="combo-reason">${c.reason}</span>
+      </div>`).join('');
+
+    // Score effects summary
+    const fxRows = (relic.scoreEffects||[]).filter(fx=>fx.bonus>0).map(fx =>
+      `<div class="combo-row">
+        <span class="combo-partner" style="min-width:80px">${fx.tags.join('/')}</span>
+        <span class="combo-bonus">+${fx.bonus}</span>
+        <span class="combo-reason">Boosts cards with these tags</span>
+      </div>`
+    ).join('');
+
+    return `<div class="ecard">
+  <div class="ecard-head" onclick="(function(h){const b=h.nextElementSibling,ic=h.querySelector('.ecard-chevron');const o=b.classList.toggle('open');ic.classList.toggle('open',o)})(this)">
+    <div class="grade-box g-${relic.tier}" style="width:36px;height:36px;font-size:1.05rem;flex-shrink:0">${relic.tier}</div>
+    <div class="ecard-info">
+      <div class="ecard-name">${relic.id}${getBuildTag(relic.builds||[],null)}${charLabel}</div>
+      <div class="ecard-meta">${rarLabel} ${comboText}</div>
+    </div>
+    <span class="ecard-chevron">▼</span>
+  </div>
+  <div class="ecard-body">
+    ${relic.notes?`<div class="card-notes" style="margin-bottom:8px">${relic.notes}</div>`:''}
+    ${fxRows?`<div class="combo-sec">Passive Effects</div>${fxRows}`:''}
+    ${relicCombos.length>0?`<div class="combo-sec">Card Combos</div>${comboRows}`:''}
+    ${!fxRows && !relicCombos.length?'<div style="color:var(--text3);font-size:.85rem">No combo data.</div>':''}
+  </div>
+</div>`;
+  }).join('');
+}
+// ── END RELIC ENCYCLOPEDIA ────────────────────────────────────────
 
 // INIT
 if (!loadSavedState()) {
