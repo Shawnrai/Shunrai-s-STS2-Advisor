@@ -207,7 +207,7 @@ input[type=number]{width:60px}
 </head>
 <body>
 <header>
-  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.50 • Mar 18th 2026</span></div>
+  <div class="logo">☠ Shunrai's STS2 Advisor <span>Early Access V1.51 • Mar 18th 2026</span></div>
   <div class="header-fields">
     <div class="field-group"><span class="field-label">Character</span>
       <select id="char">
@@ -1060,7 +1060,7 @@ function analyze(mode) {
   if (!cards.length) { resultEl.innerHTML='<div style="color:var(--text3);font-style:italic;font-size:.9rem">Enter cards above first.</div>'; return; }
 
   const enc = document.getElementById('encounter')?.value || 'normal';
-  const scored = cards.map(n => scoreCard(n, ch, da, fl, ac, deck, enc));
+  const scored = cards.map(n => scoreCard(n, ch, da, fl, ac, deck, enc, equippedRelics));
   let bestIdx = 0;
   for (let i=1;i<scored.length;i++) if (scored[i].finalScore>scored[bestIdx].finalScore) bestIdx=i;
   scored[bestIdx].isBest = true;

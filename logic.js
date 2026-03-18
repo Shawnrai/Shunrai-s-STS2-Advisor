@@ -131,8 +131,9 @@ function analyzeDeck(char, deckCards) {
   };
 }
 
-function scoreCard(cardName, char, da, floor, act, deckCards, encounter) {
+function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippedRelics) {
   encounter = encounter || 'normal';
+  equippedRelics = equippedRelics || [];
   const data = getCard(char, cardName);
   if (!data) {
     return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'Unknown card', synReasons:[], antiReasons:[], isBest:false};
@@ -182,7 +183,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter) {
   }
   if (antiDelta < -1.5) score += (-1.5 - antiDelta); // cap total anti penalty
 
-  // Combo bonus
+  // Combo bonus (card-card)
   const deckNameSet = new Set(deckCards.map(c => norm(c.name)));
   let comboBonusTotal = 0;
   for (const combo of DB.combos) {
@@ -190,6 +191,38 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter) {
     if (norm(combo.offeredCard) === norm(cardName)) {
       score += combo.bonus; comboBonusTotal += combo.bonus;
       synR.push(`▲ +${combo.bonus.toFixed(1)} ${combo.reason}`);
+    }
+  }
+
+  // Relic-card combo bonus — equipped relics that synergize with this card
+  if (equippedRelics.length > 0 && DB.relicCombos) {
+    const equippedSet = new Set(equippedRelics.map(r => r.toLowerCase()));
+    for (const rc of DB.relicCombos) {
+      if (equippedSet.has(rc.relic.toLowerCase()) && norm(rc.card) === norm(cardName)) {
+        score += rc.bonus;
+        synR.push(`◈ +${rc.bonus.toFixed(1)} with ${rc.relic} — ${rc.reason.split('.')[0]}`);
+      }
+    }
+  }
+
+  // Relic scoreEffects — equipped relics passively boosting cards with matching tags
+  if (equippedRelics.length > 0 && DB.relics) {
+    const cardTags = new Set([...(data.syn||[]), ...(data.mech||[]), ...(data.builds||[]).filter(b=>b!=='any')]);
+    for (const relicName of equippedRelics) {
+      const rKey = relicName.toUpperCase().replace(/'/g,'').replace(/[\s\-]+/g,'_')
+        .replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,'');
+      const rd = DB.relics[rKey];
+      if (!rd || !rd.scoreEffects) continue;
+      for (const fx of rd.scoreEffects) {
+        const matchingTags = (fx.tags||[]).filter(t => cardTags.has(t));
+        if (matchingTags.length > 0) {
+          const boost = +(fx.bonus * Math.min(matchingTags.length, 1.5)).toFixed(1);
+          if (boost >= 0.1) {
+            score += boost;
+            synR.push(`◈ +${boost} ${rd.id} boosts ${matchingTags.join('/')} cards`);
+          }
+        }
+      }
     }
   }
 
